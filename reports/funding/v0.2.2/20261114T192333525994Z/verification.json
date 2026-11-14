@@ -1,0 +1,74 @@
+{
+  "annual_results": [
+    {
+      "actual_missing_settlements": null,
+      "alignment_anomalies": 0,
+      "data_verdict": "PARTIAL_DATA",
+      "funding_dataset_sha256": "de2fafb54ca13f8d11dcb220df43300a6c3fa09df4b4cedb8bbccec16a8a3e92",
+      "funding_observed": 1095,
+      "mark_dataset_sha256": "5221bbcec75e21354cded5a90c6e2e9ac495c227590664c0d5d5bb6dd8bddeb3",
+      "mark_minutes_valid": 1094,
+      "missing_requestable_mark_minutes": 0,
+      "observed_8h_utc_grid_matches": true,
+      "unavailable_mark_minutes": [
+        {
+          "reason": "PRE_DEVELOPMENT_MARK_MINUTE_NOT_AUTHORIZED",
+          "settlement_ms": 1672531200000
+        }
+      ],
+      "year": 2023
+    },
+    {
+      "actual_missing_settlements": null,
+      "alignment_anomalies": 0,
+      "data_verdict": "PARTIAL_DATA",
+      "funding_dataset_sha256": "0342aa84d3507837678db7d672c57413d4013f40159646a6f3bf62a8e791f010",
+      "funding_observed": 1098,
+      "mark_dataset_sha256": "88f53f379d5653c5ccaab87103f90e6397e9508fdcefd31d13bf41252d6885e3",
+      "mark_minutes_valid": 1098,
+      "missing_requestable_mark_minutes": 0,
+      "observed_8h_utc_grid_matches": true,
+      "unavailable_mark_minutes": [],
+      "year": 2024
+    }
+  ],
+  "calendar_interpretation": "Observed regular historical API grid and independent requery are retained as evidence, but are not promoted to proof of a complete dated historical calendar. Missing-settlement counts remain UNKNOWN.",
+  "data_readiness_prerequisite_open": "Independent historical calendar/interval-change coverage evidence remains unestablished; pre-Development first Mark minute is unavailable under the authorized scope.",
+  "data_verdict": "PARTIAL_DATA",
+  "environment_sha256": "ac190965edbb3a99c4d637f32a45d710ec5c69f74e003e68edc6458c10bb63d7",
+  "independent_checks": [
+    "timestamp inventory and observed eight-hour grid",
+    "exact prior-minute linkage and unique settlement IDs",
+    "positive Decimal OHLC geometry",
+    "proxy/Low/High fields and approximate classification",
+    "all 2258 request results OK",
+    "snapshot cache hashes and public/private manifest agreement"
+  ],
+  "net_research_prerequisites_open": [
+    "Coverage evidence remains unresolved",
+    "Funding application to positions and required sensitivity runs have not been implemented or executed in this data-only phase",
+    "TradingView execution gates remain OPEN_UNVERIFIED"
+  ],
+  "network_attempts": 2258,
+  "official_config_sha256": "196dfd9b9bc88007fbaa1be8172b861ec847c18ec591346c4f2a9e177256ff37",
+  "performance_evaluation": false,
+  "push_performed": false,
+  "request_statuses": {
+    "OK": 2258
+  },
+  "run_id": "20261114T192333525994Z",
+  "selection_holdout_access": "NOT_ACCESSED",
+  "source_code_sha256": "a416465e66dca7467ecb35b2e9470be89c40984becab61e584e23fd411334327",
+  "spec_sha256": "b9f35d752f4748a68a7d7677112a67007acb94a3266d33bd8b763991ef89a1c6",
+  "stage0b_ledger_accessed_or_modified": false,
+  "stage0b_rerun": false,
+  "status": "PASS_DATA_INTEGRITY_WITH_PARTIAL_READINESS",
+  "tests": {
+    "existing": 93,
+    "log_sha256": "365cdf740136e90d7b06b8c33f2df288801e46bb3dcdb8866358f3d53890c0d0",
+    "new": 42,
+    "result": "PASS",
+    "test_source_sha256": "cb73f4b4d7168da05cd468bac301dc6446b986fc10f481f0663b91a87837d0d3",
+    "total": 135
+  }
+}

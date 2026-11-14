@@ -1,0 +1,19 @@
+{
+  "checked_new_files": 21,
+  "credential_pattern_findings": 0,
+  "freeze_tag_objects": {
+    "v0.2.2-design": "638ec6d99413c8dbc82a111209015953809ced08",
+    "v0.2.2-research-parameters": "826b05146e99a5a87e9951da9b4e0ac2deea1d09"
+  },
+  "frozen_and_stage0b_files": "UNCHANGED_BYTE_IDENTICAL",
+  "git_push_performed": false,
+  "public_reports_contain_raw_rates_prices_or_private_ledger_values": false,
+  "raw_datasets_and_response_bodies": "IGNORED_DATA_DIRECTORY_EXCLUDED_FROM_COMMIT",
+  "request_provenance_calls": {
+    "funding_history": 66,
+    "linked_mark_minutes": 2192
+  },
+  "source_hashes_match_executed_code": true,
+  "stage0b_private_ledger_accessed_or_modified": false,
+  "status": "PASS"
+}

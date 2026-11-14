@@ -1,0 +1,60 @@
+{
+  "allowed_endpoints": [
+    "/v5/market/funding/history",
+    "/v5/market/mark-price-kline"
+  ],
+  "annual_manifest_sha256": {
+    "2023": "2d9874679e8e483fd751362c992aa46444da588ad60f9d28ca1ff0372d53aa6d",
+    "2024": "a6e10ec6921eb4e53a4c27811133b3fc91010176f971d1c14362fa9ab87d6bb3"
+  },
+  "calendar_evidence": "NO_INDEPENDENT_DATED_HISTORICAL_CALENDAR_AVAILABLE",
+  "code_sha256": "a416465e66dca7467ecb35b2e9470be89c40984becab61e584e23fd411334327",
+  "data_verdict": "PARTIAL_DATA",
+  "frozen_authority": {
+    "code_sha256": "a416465e66dca7467ecb35b2e9470be89c40984becab61e584e23fd411334327",
+    "config_sha256": "196dfd9b9bc88007fbaa1be8172b861ec847c18ec591346c4f2a9e177256ff37",
+    "current_commit": "fd573b3d3b6f35f796defa74d2cbde00957f503c",
+    "documentation_sources": [
+      "https://bybit-exchange.github.io/docs/v5/market/history-fund-rate",
+      "https://bybit-exchange.github.io/docs/v5/market/mark-kline",
+      "https://bybit-exchange.github.io/docs/v5/rate-limit"
+    ],
+    "environment_sha256": "ac190965edbb3a99c4d637f32a45d710ec5c69f74e003e68edc6458c10bb63d7",
+    "freeze_tag_objects": {
+      "v0.2.2-design": "638ec6d99413c8dbc82a111209015953809ced08",
+      "v0.2.2-research-parameters": "826b05146e99a5a87e9951da9b4e0ac2deea1d09"
+    },
+    "source_files_sha256": {
+      "research/funding/__init__.py": "d8ba1d8ec347dc4f339b89b6871eb8ab5aea120eef3d03fb759a4bdd6d54fdce",
+      "research/funding/__main__.py": "74fff10eb2bd330c92909b27a5a9ae84f41b3f268a5c04f51f849276919f19c6",
+      "research/funding/acquire.py": "563a4c3b40bf57a700c1f4de95fafa5b5e8abd70d74716ec3f2b90f40653d077",
+      "research/funding/guard.py": "99c2fe6bc10b7fc11b8e5702236801fe5baf3ffcf9a661681765c1c0f0c4ddab",
+      "research/funding/http.py": "2220da445c763c93756898040b5cc6841e9e9989b99b1458714d4a7f23fa31c9",
+      "research/funding/policy.py": "d4dba4025b175c06dfcca2766e5b8e080b95189bf1d5a338f2160eab65422c3c",
+      "research/funding/runner.py": "bb0334ea6a6b40e159d2c7a82b861c98ee162243f4719459f4f740a0260665f7",
+      "research/funding/storage.py": "348929afa23018ae43adbce8ff8d1d4a00cb4799f88585086083716dbe8948b8",
+      "research/funding/validation.py": "6d5146e096f1e03c1148b0604f4be626fda4c8f3ee03edf2d0606992cc26a539"
+    },
+    "spec_sha256": "b9f35d752f4748a68a7d7677112a67007acb94a3266d33bd8b763991ef89a1c6",
+    "stage0b_preserved": "PASS_BYTE_IDENTICAL_TO_STARTING_COMMIT",
+    "starting_commit": "fd573b3d3b6f35f796defa74d2cbde00957f503c"
+  },
+  "net_research_validity": "NOT_EVALUATED",
+  "positions_simulated": false,
+  "request_count": 2258,
+  "run_id": "20261114T192333525994Z",
+  "selection_holdout_access": "DENIED",
+  "source_files_sha256": {
+    "research/funding/__init__.py": "d8ba1d8ec347dc4f339b89b6871eb8ab5aea120eef3d03fb759a4bdd6d54fdce",
+    "research/funding/__main__.py": "74fff10eb2bd330c92909b27a5a9ae84f41b3f268a5c04f51f849276919f19c6",
+    "research/funding/acquire.py": "563a4c3b40bf57a700c1f4de95fafa5b5e8abd70d74716ec3f2b90f40653d077",
+    "research/funding/guard.py": "99c2fe6bc10b7fc11b8e5702236801fe5baf3ffcf9a661681765c1c0f0c4ddab",
+    "research/funding/http.py": "2220da445c763c93756898040b5cc6841e9e9989b99b1458714d4a7f23fa31c9",
+    "research/funding/policy.py": "d4dba4025b175c06dfcca2766e5b8e080b95189bf1d5a338f2160eab65422c3c",
+    "research/funding/runner.py": "bb0334ea6a6b40e159d2c7a82b861c98ee162243f4719459f4f740a0260665f7",
+    "research/funding/storage.py": "348929afa23018ae43adbce8ff8d1d4a00cb4799f88585086083716dbe8948b8",
+    "research/funding/validation.py": "6d5146e096f1e03c1148b0604f4be626fda4c8f3ee03edf2d0606992cc26a539"
+  },
+  "stage0b_rerun": false,
+  "version": "phase4a-v0.2.2-1"
+}

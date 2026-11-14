@@ -3,3 +3,4 @@ __pycache__/
 .venv/
 data/stage0a/
 data/stage0b_private/
+data/funding/
