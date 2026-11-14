@@ -1,0 +1,33 @@
+{
+  "K_cost_stop": "UNSET",
+  "all_request_ranges_authorized": true,
+  "api_paths": [
+    "/v5/market/instruments-info",
+    "/v5/market/kline"
+  ],
+  "datasets": {
+    "2023_15": {
+      "csv_sha256": "f8ce969f1ce6be885e428b97762faa5a43840c52da95b5c8f5ee5d05aad4753b",
+      "rows": 35280,
+      "status": "VALID"
+    },
+    "2023_60": {
+      "csv_sha256": "543836f116ee43b2c7e0d1b2afc1669764f71b1ae08f43646a2b4942eab2d304",
+      "rows": 8820,
+      "status": "VALID"
+    },
+    "2024_15": {
+      "csv_sha256": "8d682dcdc466230feea582e185c51dda8fb299581c3abe71db64163db0e46523",
+      "rows": 35376,
+      "status": "VALID"
+    },
+    "2024_60": {
+      "csv_sha256": "11ef4cd7162f48060cdf6c963234277f34d7a89e3b8eb6891221d37426843ebe",
+      "rows": 8844,
+      "status": "VALID"
+    }
+  },
+  "phase": "stage0a-development-only",
+  "requests_audited": 91,
+  "run_id": "20261114T165617836854Z"
+}

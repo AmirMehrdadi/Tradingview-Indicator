@@ -1,0 +1,21 @@
+{
+  "K_cost_stop": "UNSET",
+  "config_sha256": "9c9e1a18c1a48ee98bf4dd47b66179ab1bc2765343fbf2a520f042566127d6d2",
+  "design_commit": "ac8fc4bb9b66a59c7224aaec1630a594b41d7e80",
+  "design_tag": "v0.2.2-design",
+  "execution_gates": "OPEN_UNVERIFIED",
+  "implementation_files_sha256": {
+    "research/__init__.py": "003980473d5189621dcfa42517f34f5c1ef9b70fd9e30183994ab792d20ea416",
+    "research/__main__.py": "102395926a4f421e56c6b2ad0c047770a84e066ed69c49cdf70a18ba566e34e9",
+    "research/access.py": "70167b655e5d3b868d20f3d3ab6f72a75d4146da230e9386164fdd6344e54b10",
+    "research/indicators.py": "8951b0a9f86dbb47f1dbb20f7b0ff78d0dbf7c32448acb46778c245dea6e6d4d",
+    "research/loader.py": "dda700e0e5b3a75561f76956e0ae08124f6e43128f75279a63423c0da139f2d1",
+    "research/stage0a.py": "9c6b6fec85d667c85892055ff9e58feee87fd9f051c71ff2be0d6c3c897c732c",
+    "research/workflow.py": "557948a2c32c55b374bec713a5dfe2b6840b43fd39ff19d116c2dc54c7cbf123"
+  },
+  "implementation_sha256": "5896022c483659171ee8dd160443b4d91fcb0102ea847f226695852c67775534",
+  "python_version": "3.9.6 (default, Apr 30 2025, 02:07:17) \n[Clang 17.0.0 (clang-1700.0.13.5)]",
+  "research_parameter_freeze": "OPEN",
+  "retrieval_manifest_sha256": "f04ca18a57ba88ec576298aa624b9d8ea7c342fc0cc77b1d39614f7894f27d6c",
+  "spec_sha256": "b9f35d752f4748a68a7d7677112a67007acb94a3266d33bd8b763991ef89a1c6"
+}

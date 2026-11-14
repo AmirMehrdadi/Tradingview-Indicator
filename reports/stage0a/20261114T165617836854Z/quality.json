@@ -1,0 +1,62 @@
+{
+  "2023": {
+    "15": {
+      "conflicting_timestamps": [],
+      "duplicate_rows": 0,
+      "expected_rows": 35280,
+      "incomplete_rows": [],
+      "invalid_rows": [],
+      "missing_open_times": [],
+      "received_rows": 35280,
+      "status": "VALID",
+      "unique_received_rows": 35280,
+      "valid_development_rows": 35040,
+      "valid_rows": 35280,
+      "valid_warmup_rows": 240
+    },
+    "60": {
+      "conflicting_timestamps": [],
+      "duplicate_rows": 0,
+      "expected_rows": 8820,
+      "incomplete_rows": [],
+      "invalid_rows": [],
+      "missing_open_times": [],
+      "received_rows": 8820,
+      "status": "VALID",
+      "unique_received_rows": 8820,
+      "valid_development_rows": 8760,
+      "valid_rows": 8820,
+      "valid_warmup_rows": 60
+    }
+  },
+  "2024": {
+    "15": {
+      "conflicting_timestamps": [],
+      "duplicate_rows": 0,
+      "expected_rows": 35376,
+      "incomplete_rows": [],
+      "invalid_rows": [],
+      "missing_open_times": [],
+      "received_rows": 35376,
+      "status": "VALID",
+      "unique_received_rows": 35376,
+      "valid_development_rows": 35136,
+      "valid_rows": 35376,
+      "valid_warmup_rows": 240
+    },
+    "60": {
+      "conflicting_timestamps": [],
+      "duplicate_rows": 0,
+      "expected_rows": 8844,
+      "incomplete_rows": [],
+      "invalid_rows": [],
+      "missing_open_times": [],
+      "received_rows": 8844,
+      "status": "VALID",
+      "unique_received_rows": 8844,
+      "valid_development_rows": 8784,
+      "valid_rows": 8844,
+      "valid_warmup_rows": 60
+    }
+  }
+}

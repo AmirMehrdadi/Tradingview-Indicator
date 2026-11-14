@@ -1,0 +1,11 @@
+{
+  "phase": "stage0a-development-only",
+  "category": "linear",
+  "symbol": "BTCUSDT",
+  "years": [2023, 2024],
+  "intervals": ["15", "60"],
+  "fee_rate": 0.00055,
+  "slippage_rate": 0.0002,
+  "cost_assumption": "PROVISIONAL_TAKER_0.055_PERCENT_PLUS_FRICTION_0.02_PERCENT",
+  "K_cost_stop": "UNSET"
+}
