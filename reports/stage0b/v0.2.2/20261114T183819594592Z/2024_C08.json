@@ -1,0 +1,100 @@
+{
+  "N_after_each_gate": {
+    "A": 3576,
+    "B": 3576,
+    "C": 1708,
+    "D": 1314,
+    "E": 1314,
+    "F": 149,
+    "G": 114
+  },
+  "N_censored": 0,
+  "N_completed": 114,
+  "N_filled": 114,
+  "N_nonoverlap": 114,
+  "N_raw_candidate": 3576,
+  "N_rejected_margin": 0,
+  "N_signals": 114,
+  "assumptions": {
+    "costs": "RESEARCH_ASSUMPTIONS_NOT_VERIFIED_ACCOUNT_RATES",
+    "instrument": "HISTORICAL_INSTRUMENT_SPEC_ASSUMPTION",
+    "intrabar": "STOP_FIRST_AFTER_KNOWN_OPEN_FILLS",
+    "limit_trigger": "TOUCH_BASE_CASE",
+    "liquidity_partial_fills": "NOT_MODELED"
+  },
+  "candidate": "C08",
+  "censor_rate": 0.0,
+  "censoring_quality": "WITHIN_FROZEN_5_PERCENT",
+  "daily_stop_activations": 0,
+  "daily_stop_blocked_opportunities": 0,
+  "data_quality": "VALID_FROZEN_SHA256_VERIFIED",
+  "direction_counts": {
+    "Long": {
+      "N_censored": 0,
+      "N_completed": 64,
+      "N_filled": 64,
+      "N_rejected_margin": 0,
+      "after_A": 2033,
+      "after_B": 2033,
+      "after_C": 969,
+      "after_D": 730,
+      "after_E": 730,
+      "after_F": 82,
+      "after_G": 64
+    },
+    "Short": {
+      "N_censored": 0,
+      "N_completed": 50,
+      "N_filled": 50,
+      "N_rejected_margin": 0,
+      "after_A": 1543,
+      "after_B": 1543,
+      "after_C": 739,
+      "after_D": 584,
+      "after_E": 584,
+      "after_F": 67,
+      "after_G": 50
+    }
+  },
+  "distance_from_120": -6,
+  "execution_model_validity": "RESEARCH_MODEL_PREFUNDING_COUNTS",
+  "funding": {
+    "count_scope": "PREFUNDING_FEASIBILITY_ONLY",
+    "funding_adjusted_result": "NOT_EVALUABLE",
+    "rates": "MISSING_NOT_RETRIEVED",
+    "settlement_mark": "MISSING_NOT_RETRIEVED",
+    "zero_substitution": false
+  },
+  "funnel_pass_rates": {
+    "A": 1.0,
+    "B": 1.0,
+    "C": 0.47762863534675615,
+    "D": 0.7693208430913349,
+    "E": 1.0,
+    "F": 0.11339421613394216,
+    "G": 0.7651006711409396
+  },
+  "integrity": "PASS",
+  "pivot_age_bars": {
+    "N": 3576,
+    "percentiles": {
+      "10": 3.0,
+      "25": 4.0,
+      "5": 3.0,
+      "50": 7.0,
+      "75": 10.0,
+      "90": 14.0,
+      "95": 17.0
+    }
+  },
+  "quality_events": {},
+  "rejection_reasons": {
+    "C:STOP_RANGE_OR_SL_SIDE": 1868,
+    "D:COST_STOP_FLOOR": 394,
+    "F:FILTER_R": 579,
+    "F:FILTER_V": 586,
+    "G:POSITION_BUSY": 35
+  },
+  "tradingview_execution": "EXECUTION GATE — UNVERIFIED",
+  "year": 2024
+}

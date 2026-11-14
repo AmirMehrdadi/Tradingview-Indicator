@@ -1,0 +1,2413 @@
+[
+  {
+    "N_after_each_gate": {
+      "A": 3360,
+      "B": 3360,
+      "C": 1679,
+      "D": 953,
+      "E": 953,
+      "F": 953,
+      "G": 397
+    },
+    "N_censored": 0,
+    "N_completed": 397,
+    "N_filled": 397,
+    "N_nonoverlap": 397,
+    "N_raw_candidate": 3360,
+    "N_rejected_margin": 0,
+    "N_signals": 397,
+    "assumptions": {
+      "costs": "RESEARCH_ASSUMPTIONS_NOT_VERIFIED_ACCOUNT_RATES",
+      "instrument": "HISTORICAL_INSTRUMENT_SPEC_ASSUMPTION",
+      "intrabar": "STOP_FIRST_AFTER_KNOWN_OPEN_FILLS",
+      "limit_trigger": "TOUCH_BASE_CASE",
+      "liquidity_partial_fills": "NOT_MODELED"
+    },
+    "candidate": "C01",
+    "censor_rate": 0.0,
+    "censoring_quality": "WITHIN_FROZEN_5_PERCENT",
+    "daily_stop_activations": 0,
+    "daily_stop_blocked_opportunities": 0,
+    "data_quality": "VALID_FROZEN_SHA256_VERIFIED",
+    "direction_counts": {
+      "Long": {
+        "N_censored": 0,
+        "N_completed": 203,
+        "N_filled": 203,
+        "N_rejected_margin": 0,
+        "after_A": 1750,
+        "after_B": 1750,
+        "after_C": 850,
+        "after_D": 484,
+        "after_E": 484,
+        "after_F": 484,
+        "after_G": 203
+      },
+      "Short": {
+        "N_censored": 0,
+        "N_completed": 194,
+        "N_filled": 194,
+        "N_rejected_margin": 0,
+        "after_A": 1610,
+        "after_B": 1610,
+        "after_C": 829,
+        "after_D": 469,
+        "after_E": 469,
+        "after_F": 469,
+        "after_G": 194
+      }
+    },
+    "distance_from_120": 277,
+    "execution_model_validity": "RESEARCH_MODEL_PREFUNDING_COUNTS",
+    "funding": {
+      "count_scope": "PREFUNDING_FEASIBILITY_ONLY",
+      "funding_adjusted_result": "NOT_EVALUABLE",
+      "rates": "MISSING_NOT_RETRIEVED",
+      "settlement_mark": "MISSING_NOT_RETRIEVED",
+      "zero_substitution": false
+    },
+    "funnel_pass_rates": {
+      "A": 1.0,
+      "B": 1.0,
+      "C": 0.49970238095238095,
+      "D": 0.5675997617629541,
+      "E": 1.0,
+      "F": 1.0,
+      "G": 0.41657922350472193
+    },
+    "integrity": "PASS",
+    "pivot_age_bars": {
+      "N": 3360,
+      "percentiles": {
+        "10": 3.0,
+        "25": 5.0,
+        "5": 3.0,
+        "50": 7.0,
+        "75": 10.0,
+        "90": 14.099999999999909,
+        "95": 18.0
+      }
+    },
+    "quality_events": {
+      "UNCERTAIN_INTRABAR_ORDER": 3
+    },
+    "rejection_reasons": {
+      "C:STOP_RANGE_OR_SL_SIDE": 1681,
+      "D:COST_STOP_FLOOR": 726,
+      "G:CONSUMED_PULLBACK": 1,
+      "G:POSITION_BUSY": 555
+    },
+    "tradingview_execution": "EXECUTION GATE — UNVERIFIED",
+    "year": 2023
+  },
+  {
+    "N_after_each_gate": {
+      "A": 3360,
+      "B": 3360,
+      "C": 1679,
+      "D": 953,
+      "E": 953,
+      "F": 560,
+      "G": 270
+    },
+    "N_censored": 0,
+    "N_completed": 270,
+    "N_filled": 270,
+    "N_nonoverlap": 270,
+    "N_raw_candidate": 3360,
+    "N_rejected_margin": 0,
+    "N_signals": 270,
+    "assumptions": {
+      "costs": "RESEARCH_ASSUMPTIONS_NOT_VERIFIED_ACCOUNT_RATES",
+      "instrument": "HISTORICAL_INSTRUMENT_SPEC_ASSUMPTION",
+      "intrabar": "STOP_FIRST_AFTER_KNOWN_OPEN_FILLS",
+      "limit_trigger": "TOUCH_BASE_CASE",
+      "liquidity_partial_fills": "NOT_MODELED"
+    },
+    "candidate": "C02",
+    "censor_rate": 0.0,
+    "censoring_quality": "WITHIN_FROZEN_5_PERCENT",
+    "daily_stop_activations": 0,
+    "daily_stop_blocked_opportunities": 0,
+    "data_quality": "VALID_FROZEN_SHA256_VERIFIED",
+    "direction_counts": {
+      "Long": {
+        "N_censored": 0,
+        "N_completed": 124,
+        "N_filled": 124,
+        "N_rejected_margin": 0,
+        "after_A": 1750,
+        "after_B": 1750,
+        "after_C": 850,
+        "after_D": 484,
+        "after_E": 484,
+        "after_F": 258,
+        "after_G": 124
+      },
+      "Short": {
+        "N_censored": 0,
+        "N_completed": 146,
+        "N_filled": 146,
+        "N_rejected_margin": 0,
+        "after_A": 1610,
+        "after_B": 1610,
+        "after_C": 829,
+        "after_D": 469,
+        "after_E": 469,
+        "after_F": 302,
+        "after_G": 146
+      }
+    },
+    "distance_from_120": 150,
+    "execution_model_validity": "RESEARCH_MODEL_PREFUNDING_COUNTS",
+    "funding": {
+      "count_scope": "PREFUNDING_FEASIBILITY_ONLY",
+      "funding_adjusted_result": "NOT_EVALUABLE",
+      "rates": "MISSING_NOT_RETRIEVED",
+      "settlement_mark": "MISSING_NOT_RETRIEVED",
+      "zero_substitution": false
+    },
+    "funnel_pass_rates": {
+      "A": 1.0,
+      "B": 1.0,
+      "C": 0.49970238095238095,
+      "D": 0.5675997617629541,
+      "E": 1.0,
+      "F": 0.5876180482686254,
+      "G": 0.48214285714285715
+    },
+    "integrity": "PASS",
+    "pivot_age_bars": {
+      "N": 3360,
+      "percentiles": {
+        "10": 3.0,
+        "25": 5.0,
+        "5": 3.0,
+        "50": 7.0,
+        "75": 10.0,
+        "90": 14.099999999999909,
+        "95": 18.0
+      }
+    },
+    "quality_events": {
+      "UNCERTAIN_INTRABAR_ORDER": 2
+    },
+    "rejection_reasons": {
+      "C:STOP_RANGE_OR_SL_SIDE": 1681,
+      "D:COST_STOP_FLOOR": 726,
+      "F:FILTER_R": 393,
+      "G:CONSUMED_PULLBACK": 1,
+      "G:POSITION_BUSY": 289
+    },
+    "tradingview_execution": "EXECUTION GATE — UNVERIFIED",
+    "year": 2023
+  },
+  {
+    "N_after_each_gate": {
+      "A": 3360,
+      "B": 3360,
+      "C": 1679,
+      "D": 953,
+      "E": 953,
+      "F": 811,
+      "G": 338
+    },
+    "N_censored": 0,
+    "N_completed": 338,
+    "N_filled": 338,
+    "N_nonoverlap": 338,
+    "N_raw_candidate": 3360,
+    "N_rejected_margin": 0,
+    "N_signals": 338,
+    "assumptions": {
+      "costs": "RESEARCH_ASSUMPTIONS_NOT_VERIFIED_ACCOUNT_RATES",
+      "instrument": "HISTORICAL_INSTRUMENT_SPEC_ASSUMPTION",
+      "intrabar": "STOP_FIRST_AFTER_KNOWN_OPEN_FILLS",
+      "limit_trigger": "TOUCH_BASE_CASE",
+      "liquidity_partial_fills": "NOT_MODELED"
+    },
+    "candidate": "C03",
+    "censor_rate": 0.0,
+    "censoring_quality": "WITHIN_FROZEN_5_PERCENT",
+    "daily_stop_activations": 0,
+    "daily_stop_blocked_opportunities": 0,
+    "data_quality": "VALID_FROZEN_SHA256_VERIFIED",
+    "direction_counts": {
+      "Long": {
+        "N_censored": 0,
+        "N_completed": 178,
+        "N_filled": 178,
+        "N_rejected_margin": 0,
+        "after_A": 1750,
+        "after_B": 1750,
+        "after_C": 850,
+        "after_D": 484,
+        "after_E": 484,
+        "after_F": 439,
+        "after_G": 178
+      },
+      "Short": {
+        "N_censored": 0,
+        "N_completed": 160,
+        "N_filled": 160,
+        "N_rejected_margin": 0,
+        "after_A": 1610,
+        "after_B": 1610,
+        "after_C": 829,
+        "after_D": 469,
+        "after_E": 469,
+        "after_F": 372,
+        "after_G": 160
+      }
+    },
+    "distance_from_120": 218,
+    "execution_model_validity": "RESEARCH_MODEL_PREFUNDING_COUNTS",
+    "funding": {
+      "count_scope": "PREFUNDING_FEASIBILITY_ONLY",
+      "funding_adjusted_result": "NOT_EVALUABLE",
+      "rates": "MISSING_NOT_RETRIEVED",
+      "settlement_mark": "MISSING_NOT_RETRIEVED",
+      "zero_substitution": false
+    },
+    "funnel_pass_rates": {
+      "A": 1.0,
+      "B": 1.0,
+      "C": 0.49970238095238095,
+      "D": 0.5675997617629541,
+      "E": 1.0,
+      "F": 0.85099685204617,
+      "G": 0.41676942046855736
+    },
+    "integrity": "PASS",
+    "pivot_age_bars": {
+      "N": 3360,
+      "percentiles": {
+        "10": 3.0,
+        "25": 5.0,
+        "5": 3.0,
+        "50": 7.0,
+        "75": 10.0,
+        "90": 14.099999999999909,
+        "95": 18.0
+      }
+    },
+    "quality_events": {
+      "UNCERTAIN_INTRABAR_ORDER": 3
+    },
+    "rejection_reasons": {
+      "C:STOP_RANGE_OR_SL_SIDE": 1681,
+      "D:COST_STOP_FLOOR": 726,
+      "F:FILTER_H": 142,
+      "G:CONSUMED_PULLBACK": 1,
+      "G:POSITION_BUSY": 472
+    },
+    "tradingview_execution": "EXECUTION GATE — UNVERIFIED",
+    "year": 2023
+  },
+  {
+    "N_after_each_gate": {
+      "A": 3360,
+      "B": 3360,
+      "C": 1679,
+      "D": 953,
+      "E": 953,
+      "F": 187,
+      "G": 147
+    },
+    "N_censored": 0,
+    "N_completed": 147,
+    "N_filled": 147,
+    "N_nonoverlap": 147,
+    "N_raw_candidate": 3360,
+    "N_rejected_margin": 0,
+    "N_signals": 147,
+    "assumptions": {
+      "costs": "RESEARCH_ASSUMPTIONS_NOT_VERIFIED_ACCOUNT_RATES",
+      "instrument": "HISTORICAL_INSTRUMENT_SPEC_ASSUMPTION",
+      "intrabar": "STOP_FIRST_AFTER_KNOWN_OPEN_FILLS",
+      "limit_trigger": "TOUCH_BASE_CASE",
+      "liquidity_partial_fills": "NOT_MODELED"
+    },
+    "candidate": "C04",
+    "censor_rate": 0.0,
+    "censoring_quality": "WITHIN_FROZEN_5_PERCENT",
+    "daily_stop_activations": 0,
+    "daily_stop_blocked_opportunities": 0,
+    "data_quality": "VALID_FROZEN_SHA256_VERIFIED",
+    "direction_counts": {
+      "Long": {
+        "N_censored": 0,
+        "N_completed": 69,
+        "N_filled": 69,
+        "N_rejected_margin": 0,
+        "after_A": 1750,
+        "after_B": 1750,
+        "after_C": 850,
+        "after_D": 484,
+        "after_E": 484,
+        "after_F": 83,
+        "after_G": 69
+      },
+      "Short": {
+        "N_censored": 0,
+        "N_completed": 78,
+        "N_filled": 78,
+        "N_rejected_margin": 0,
+        "after_A": 1610,
+        "after_B": 1610,
+        "after_C": 829,
+        "after_D": 469,
+        "after_E": 469,
+        "after_F": 104,
+        "after_G": 78
+      }
+    },
+    "distance_from_120": 27,
+    "execution_model_validity": "RESEARCH_MODEL_PREFUNDING_COUNTS",
+    "funding": {
+      "count_scope": "PREFUNDING_FEASIBILITY_ONLY",
+      "funding_adjusted_result": "NOT_EVALUABLE",
+      "rates": "MISSING_NOT_RETRIEVED",
+      "settlement_mark": "MISSING_NOT_RETRIEVED",
+      "zero_substitution": false
+    },
+    "funnel_pass_rates": {
+      "A": 1.0,
+      "B": 1.0,
+      "C": 0.49970238095238095,
+      "D": 0.5675997617629541,
+      "E": 1.0,
+      "F": 0.19622245540398742,
+      "G": 0.786096256684492
+    },
+    "integrity": "PASS",
+    "pivot_age_bars": {
+      "N": 3360,
+      "percentiles": {
+        "10": 3.0,
+        "25": 5.0,
+        "5": 3.0,
+        "50": 7.0,
+        "75": 10.0,
+        "90": 14.099999999999909,
+        "95": 18.0
+      }
+    },
+    "quality_events": {},
+    "rejection_reasons": {
+      "C:STOP_RANGE_OR_SL_SIDE": 1681,
+      "D:COST_STOP_FLOOR": 726,
+      "F:FILTER_V": 766,
+      "G:POSITION_BUSY": 40
+    },
+    "tradingview_execution": "EXECUTION GATE — UNVERIFIED",
+    "year": 2023
+  },
+  {
+    "N_after_each_gate": {
+      "A": 3360,
+      "B": 3360,
+      "C": 1679,
+      "D": 953,
+      "E": 953,
+      "F": 710,
+      "G": 350
+    },
+    "N_censored": 0,
+    "N_completed": 350,
+    "N_filled": 350,
+    "N_nonoverlap": 350,
+    "N_raw_candidate": 3360,
+    "N_rejected_margin": 0,
+    "N_signals": 350,
+    "assumptions": {
+      "costs": "RESEARCH_ASSUMPTIONS_NOT_VERIFIED_ACCOUNT_RATES",
+      "instrument": "HISTORICAL_INSTRUMENT_SPEC_ASSUMPTION",
+      "intrabar": "STOP_FIRST_AFTER_KNOWN_OPEN_FILLS",
+      "limit_trigger": "TOUCH_BASE_CASE",
+      "liquidity_partial_fills": "NOT_MODELED"
+    },
+    "candidate": "C05",
+    "censor_rate": 0.0,
+    "censoring_quality": "WITHIN_FROZEN_5_PERCENT",
+    "daily_stop_activations": 0,
+    "daily_stop_blocked_opportunities": 0,
+    "data_quality": "VALID_FROZEN_SHA256_VERIFIED",
+    "direction_counts": {
+      "Long": {
+        "N_censored": 0,
+        "N_completed": 181,
+        "N_filled": 181,
+        "N_rejected_margin": 0,
+        "after_A": 1750,
+        "after_B": 1750,
+        "after_C": 850,
+        "after_D": 484,
+        "after_E": 484,
+        "after_F": 362,
+        "after_G": 181
+      },
+      "Short": {
+        "N_censored": 0,
+        "N_completed": 169,
+        "N_filled": 169,
+        "N_rejected_margin": 0,
+        "after_A": 1610,
+        "after_B": 1610,
+        "after_C": 829,
+        "after_D": 469,
+        "after_E": 469,
+        "after_F": 348,
+        "after_G": 169
+      }
+    },
+    "distance_from_120": 230,
+    "execution_model_validity": "RESEARCH_MODEL_PREFUNDING_COUNTS",
+    "funding": {
+      "count_scope": "PREFUNDING_FEASIBILITY_ONLY",
+      "funding_adjusted_result": "NOT_EVALUABLE",
+      "rates": "MISSING_NOT_RETRIEVED",
+      "settlement_mark": "MISSING_NOT_RETRIEVED",
+      "zero_substitution": false
+    },
+    "funnel_pass_rates": {
+      "A": 1.0,
+      "B": 1.0,
+      "C": 0.49970238095238095,
+      "D": 0.5675997617629541,
+      "E": 1.0,
+      "F": 0.74501573976915,
+      "G": 0.49295774647887325
+    },
+    "integrity": "PASS",
+    "pivot_age_bars": {
+      "N": 3360,
+      "percentiles": {
+        "10": 3.0,
+        "25": 5.0,
+        "5": 3.0,
+        "50": 7.0,
+        "75": 10.0,
+        "90": 14.099999999999909,
+        "95": 18.0
+      }
+    },
+    "quality_events": {
+      "UNCERTAIN_INTRABAR_ORDER": 2
+    },
+    "rejection_reasons": {
+      "C:STOP_RANGE_OR_SL_SIDE": 1681,
+      "D:COST_STOP_FLOOR": 726,
+      "F:FILTER_M": 243,
+      "G:CONSUMED_PULLBACK": 1,
+      "G:POSITION_BUSY": 359
+    },
+    "tradingview_execution": "EXECUTION GATE — UNVERIFIED",
+    "year": 2023
+  },
+  {
+    "N_after_each_gate": {
+      "A": 3360,
+      "B": 3360,
+      "C": 1679,
+      "D": 953,
+      "E": 953,
+      "F": 40,
+      "G": 28
+    },
+    "N_censored": 0,
+    "N_completed": 28,
+    "N_filled": 28,
+    "N_nonoverlap": 28,
+    "N_raw_candidate": 3360,
+    "N_rejected_margin": 0,
+    "N_signals": 28,
+    "assumptions": {
+      "costs": "RESEARCH_ASSUMPTIONS_NOT_VERIFIED_ACCOUNT_RATES",
+      "instrument": "HISTORICAL_INSTRUMENT_SPEC_ASSUMPTION",
+      "intrabar": "STOP_FIRST_AFTER_KNOWN_OPEN_FILLS",
+      "limit_trigger": "TOUCH_BASE_CASE",
+      "liquidity_partial_fills": "NOT_MODELED"
+    },
+    "candidate": "C06",
+    "censor_rate": 0.0,
+    "censoring_quality": "WITHIN_FROZEN_5_PERCENT",
+    "daily_stop_activations": 0,
+    "daily_stop_blocked_opportunities": 0,
+    "data_quality": "VALID_FROZEN_SHA256_VERIFIED",
+    "direction_counts": {
+      "Long": {
+        "N_censored": 0,
+        "N_completed": 16,
+        "N_filled": 16,
+        "N_rejected_margin": 0,
+        "after_A": 1750,
+        "after_B": 1750,
+        "after_C": 850,
+        "after_D": 484,
+        "after_E": 484,
+        "after_F": 23,
+        "after_G": 16
+      },
+      "Short": {
+        "N_censored": 0,
+        "N_completed": 12,
+        "N_filled": 12,
+        "N_rejected_margin": 0,
+        "after_A": 1610,
+        "after_B": 1610,
+        "after_C": 829,
+        "after_D": 469,
+        "after_E": 469,
+        "after_F": 17,
+        "after_G": 12
+      }
+    },
+    "distance_from_120": -92,
+    "execution_model_validity": "RESEARCH_MODEL_PREFUNDING_COUNTS",
+    "funding": {
+      "count_scope": "PREFUNDING_FEASIBILITY_ONLY",
+      "funding_adjusted_result": "NOT_EVALUABLE",
+      "rates": "MISSING_NOT_RETRIEVED",
+      "settlement_mark": "MISSING_NOT_RETRIEVED",
+      "zero_substitution": false
+    },
+    "funnel_pass_rates": {
+      "A": 1.0,
+      "B": 1.0,
+      "C": 0.49970238095238095,
+      "D": 0.5675997617629541,
+      "E": 1.0,
+      "F": 0.04197271773347324,
+      "G": 0.7
+    },
+    "integrity": "PASS",
+    "pivot_age_bars": {
+      "N": 3360,
+      "percentiles": {
+        "10": 3.0,
+        "25": 5.0,
+        "5": 3.0,
+        "50": 7.0,
+        "75": 10.0,
+        "90": 14.099999999999909,
+        "95": 18.0
+      }
+    },
+    "quality_events": {},
+    "rejection_reasons": {
+      "C:STOP_RANGE_OR_SL_SIDE": 1681,
+      "D:COST_STOP_FLOOR": 726,
+      "F:FILTER_Q": 913,
+      "G:POSITION_BUSY": 12
+    },
+    "tradingview_execution": "EXECUTION GATE — UNVERIFIED",
+    "year": 2023
+  },
+  {
+    "N_after_each_gate": {
+      "A": 3360,
+      "B": 3360,
+      "C": 1679,
+      "D": 953,
+      "E": 953,
+      "F": 504,
+      "G": 237
+    },
+    "N_censored": 0,
+    "N_completed": 237,
+    "N_filled": 237,
+    "N_nonoverlap": 237,
+    "N_raw_candidate": 3360,
+    "N_rejected_margin": 0,
+    "N_signals": 237,
+    "assumptions": {
+      "costs": "RESEARCH_ASSUMPTIONS_NOT_VERIFIED_ACCOUNT_RATES",
+      "instrument": "HISTORICAL_INSTRUMENT_SPEC_ASSUMPTION",
+      "intrabar": "STOP_FIRST_AFTER_KNOWN_OPEN_FILLS",
+      "limit_trigger": "TOUCH_BASE_CASE",
+      "liquidity_partial_fills": "NOT_MODELED"
+    },
+    "candidate": "C07",
+    "censor_rate": 0.0,
+    "censoring_quality": "WITHIN_FROZEN_5_PERCENT",
+    "daily_stop_activations": 0,
+    "daily_stop_blocked_opportunities": 0,
+    "data_quality": "VALID_FROZEN_SHA256_VERIFIED",
+    "direction_counts": {
+      "Long": {
+        "N_censored": 0,
+        "N_completed": 113,
+        "N_filled": 113,
+        "N_rejected_margin": 0,
+        "after_A": 1750,
+        "after_B": 1750,
+        "after_C": 850,
+        "after_D": 484,
+        "after_E": 484,
+        "after_F": 241,
+        "after_G": 113
+      },
+      "Short": {
+        "N_censored": 0,
+        "N_completed": 124,
+        "N_filled": 124,
+        "N_rejected_margin": 0,
+        "after_A": 1610,
+        "after_B": 1610,
+        "after_C": 829,
+        "after_D": 469,
+        "after_E": 469,
+        "after_F": 263,
+        "after_G": 124
+      }
+    },
+    "distance_from_120": 117,
+    "execution_model_validity": "RESEARCH_MODEL_PREFUNDING_COUNTS",
+    "funding": {
+      "count_scope": "PREFUNDING_FEASIBILITY_ONLY",
+      "funding_adjusted_result": "NOT_EVALUABLE",
+      "rates": "MISSING_NOT_RETRIEVED",
+      "settlement_mark": "MISSING_NOT_RETRIEVED",
+      "zero_substitution": false
+    },
+    "funnel_pass_rates": {
+      "A": 1.0,
+      "B": 1.0,
+      "C": 0.49970238095238095,
+      "D": 0.5675997617629541,
+      "E": 1.0,
+      "F": 0.5288562434417629,
+      "G": 0.47023809523809523
+    },
+    "integrity": "PASS",
+    "pivot_age_bars": {
+      "N": 3360,
+      "percentiles": {
+        "10": 3.0,
+        "25": 5.0,
+        "5": 3.0,
+        "50": 7.0,
+        "75": 10.0,
+        "90": 14.099999999999909,
+        "95": 18.0
+      }
+    },
+    "quality_events": {
+      "UNCERTAIN_INTRABAR_ORDER": 2
+    },
+    "rejection_reasons": {
+      "C:STOP_RANGE_OR_SL_SIDE": 1681,
+      "D:COST_STOP_FLOOR": 726,
+      "F:FILTER_H": 56,
+      "F:FILTER_R": 393,
+      "G:CONSUMED_PULLBACK": 1,
+      "G:POSITION_BUSY": 266
+    },
+    "tradingview_execution": "EXECUTION GATE — UNVERIFIED",
+    "year": 2023
+  },
+  {
+    "N_after_each_gate": {
+      "A": 3360,
+      "B": 3360,
+      "C": 1679,
+      "D": 953,
+      "E": 953,
+      "F": 89,
+      "G": 69
+    },
+    "N_censored": 0,
+    "N_completed": 69,
+    "N_filled": 69,
+    "N_nonoverlap": 69,
+    "N_raw_candidate": 3360,
+    "N_rejected_margin": 0,
+    "N_signals": 69,
+    "assumptions": {
+      "costs": "RESEARCH_ASSUMPTIONS_NOT_VERIFIED_ACCOUNT_RATES",
+      "instrument": "HISTORICAL_INSTRUMENT_SPEC_ASSUMPTION",
+      "intrabar": "STOP_FIRST_AFTER_KNOWN_OPEN_FILLS",
+      "limit_trigger": "TOUCH_BASE_CASE",
+      "liquidity_partial_fills": "NOT_MODELED"
+    },
+    "candidate": "C08",
+    "censor_rate": 0.0,
+    "censoring_quality": "WITHIN_FROZEN_5_PERCENT",
+    "daily_stop_activations": 0,
+    "daily_stop_blocked_opportunities": 0,
+    "data_quality": "VALID_FROZEN_SHA256_VERIFIED",
+    "direction_counts": {
+      "Long": {
+        "N_censored": 0,
+        "N_completed": 28,
+        "N_filled": 28,
+        "N_rejected_margin": 0,
+        "after_A": 1750,
+        "after_B": 1750,
+        "after_C": 850,
+        "after_D": 484,
+        "after_E": 484,
+        "after_F": 35,
+        "after_G": 28
+      },
+      "Short": {
+        "N_censored": 0,
+        "N_completed": 41,
+        "N_filled": 41,
+        "N_rejected_margin": 0,
+        "after_A": 1610,
+        "after_B": 1610,
+        "after_C": 829,
+        "after_D": 469,
+        "after_E": 469,
+        "after_F": 54,
+        "after_G": 41
+      }
+    },
+    "distance_from_120": -51,
+    "execution_model_validity": "RESEARCH_MODEL_PREFUNDING_COUNTS",
+    "funding": {
+      "count_scope": "PREFUNDING_FEASIBILITY_ONLY",
+      "funding_adjusted_result": "NOT_EVALUABLE",
+      "rates": "MISSING_NOT_RETRIEVED",
+      "settlement_mark": "MISSING_NOT_RETRIEVED",
+      "zero_substitution": false
+    },
+    "funnel_pass_rates": {
+      "A": 1.0,
+      "B": 1.0,
+      "C": 0.49970238095238095,
+      "D": 0.5675997617629541,
+      "E": 1.0,
+      "F": 0.09338929695697797,
+      "G": 0.7752808988764045
+    },
+    "integrity": "PASS",
+    "pivot_age_bars": {
+      "N": 3360,
+      "percentiles": {
+        "10": 3.0,
+        "25": 5.0,
+        "5": 3.0,
+        "50": 7.0,
+        "75": 10.0,
+        "90": 14.099999999999909,
+        "95": 18.0
+      }
+    },
+    "quality_events": {},
+    "rejection_reasons": {
+      "C:STOP_RANGE_OR_SL_SIDE": 1681,
+      "D:COST_STOP_FLOOR": 726,
+      "F:FILTER_R": 393,
+      "F:FILTER_V": 471,
+      "G:POSITION_BUSY": 20
+    },
+    "tradingview_execution": "EXECUTION GATE — UNVERIFIED",
+    "year": 2023
+  },
+  {
+    "N_after_each_gate": {
+      "A": 3360,
+      "B": 3360,
+      "C": 1679,
+      "D": 953,
+      "E": 953,
+      "F": 434,
+      "G": 229
+    },
+    "N_censored": 0,
+    "N_completed": 229,
+    "N_filled": 229,
+    "N_nonoverlap": 229,
+    "N_raw_candidate": 3360,
+    "N_rejected_margin": 0,
+    "N_signals": 229,
+    "assumptions": {
+      "costs": "RESEARCH_ASSUMPTIONS_NOT_VERIFIED_ACCOUNT_RATES",
+      "instrument": "HISTORICAL_INSTRUMENT_SPEC_ASSUMPTION",
+      "intrabar": "STOP_FIRST_AFTER_KNOWN_OPEN_FILLS",
+      "limit_trigger": "TOUCH_BASE_CASE",
+      "liquidity_partial_fills": "NOT_MODELED"
+    },
+    "candidate": "C09",
+    "censor_rate": 0.0,
+    "censoring_quality": "WITHIN_FROZEN_5_PERCENT",
+    "daily_stop_activations": 0,
+    "daily_stop_blocked_opportunities": 0,
+    "data_quality": "VALID_FROZEN_SHA256_VERIFIED",
+    "direction_counts": {
+      "Long": {
+        "N_censored": 0,
+        "N_completed": 107,
+        "N_filled": 107,
+        "N_rejected_margin": 0,
+        "after_A": 1750,
+        "after_B": 1750,
+        "after_C": 850,
+        "after_D": 484,
+        "after_E": 484,
+        "after_F": 201,
+        "after_G": 107
+      },
+      "Short": {
+        "N_censored": 0,
+        "N_completed": 122,
+        "N_filled": 122,
+        "N_rejected_margin": 0,
+        "after_A": 1610,
+        "after_B": 1610,
+        "after_C": 829,
+        "after_D": 469,
+        "after_E": 469,
+        "after_F": 233,
+        "after_G": 122
+      }
+    },
+    "distance_from_120": 109,
+    "execution_model_validity": "RESEARCH_MODEL_PREFUNDING_COUNTS",
+    "funding": {
+      "count_scope": "PREFUNDING_FEASIBILITY_ONLY",
+      "funding_adjusted_result": "NOT_EVALUABLE",
+      "rates": "MISSING_NOT_RETRIEVED",
+      "settlement_mark": "MISSING_NOT_RETRIEVED",
+      "zero_substitution": false
+    },
+    "funnel_pass_rates": {
+      "A": 1.0,
+      "B": 1.0,
+      "C": 0.49970238095238095,
+      "D": 0.5675997617629541,
+      "E": 1.0,
+      "F": 0.45540398740818466,
+      "G": 0.5276497695852534
+    },
+    "integrity": "PASS",
+    "pivot_age_bars": {
+      "N": 3360,
+      "percentiles": {
+        "10": 3.0,
+        "25": 5.0,
+        "5": 3.0,
+        "50": 7.0,
+        "75": 10.0,
+        "90": 14.099999999999909,
+        "95": 18.0
+      }
+    },
+    "quality_events": {
+      "UNCERTAIN_INTRABAR_ORDER": 2
+    },
+    "rejection_reasons": {
+      "C:STOP_RANGE_OR_SL_SIDE": 1681,
+      "D:COST_STOP_FLOOR": 726,
+      "F:FILTER_M": 126,
+      "F:FILTER_R": 393,
+      "G:CONSUMED_PULLBACK": 1,
+      "G:POSITION_BUSY": 204
+    },
+    "tradingview_execution": "EXECUTION GATE — UNVERIFIED",
+    "year": 2023
+  },
+  {
+    "N_after_each_gate": {
+      "A": 3360,
+      "B": 3360,
+      "C": 1679,
+      "D": 953,
+      "E": 953,
+      "F": 158,
+      "G": 126
+    },
+    "N_censored": 0,
+    "N_completed": 126,
+    "N_filled": 126,
+    "N_nonoverlap": 126,
+    "N_raw_candidate": 3360,
+    "N_rejected_margin": 0,
+    "N_signals": 126,
+    "assumptions": {
+      "costs": "RESEARCH_ASSUMPTIONS_NOT_VERIFIED_ACCOUNT_RATES",
+      "instrument": "HISTORICAL_INSTRUMENT_SPEC_ASSUMPTION",
+      "intrabar": "STOP_FIRST_AFTER_KNOWN_OPEN_FILLS",
+      "limit_trigger": "TOUCH_BASE_CASE",
+      "liquidity_partial_fills": "NOT_MODELED"
+    },
+    "candidate": "C10",
+    "censor_rate": 0.0,
+    "censoring_quality": "WITHIN_FROZEN_5_PERCENT",
+    "daily_stop_activations": 0,
+    "daily_stop_blocked_opportunities": 0,
+    "data_quality": "VALID_FROZEN_SHA256_VERIFIED",
+    "direction_counts": {
+      "Long": {
+        "N_censored": 0,
+        "N_completed": 65,
+        "N_filled": 65,
+        "N_rejected_margin": 0,
+        "after_A": 1750,
+        "after_B": 1750,
+        "after_C": 850,
+        "after_D": 484,
+        "after_E": 484,
+        "after_F": 77,
+        "after_G": 65
+      },
+      "Short": {
+        "N_censored": 0,
+        "N_completed": 61,
+        "N_filled": 61,
+        "N_rejected_margin": 0,
+        "after_A": 1610,
+        "after_B": 1610,
+        "after_C": 829,
+        "after_D": 469,
+        "after_E": 469,
+        "after_F": 81,
+        "after_G": 61
+      }
+    },
+    "distance_from_120": 6,
+    "execution_model_validity": "RESEARCH_MODEL_PREFUNDING_COUNTS",
+    "funding": {
+      "count_scope": "PREFUNDING_FEASIBILITY_ONLY",
+      "funding_adjusted_result": "NOT_EVALUABLE",
+      "rates": "MISSING_NOT_RETRIEVED",
+      "settlement_mark": "MISSING_NOT_RETRIEVED",
+      "zero_substitution": false
+    },
+    "funnel_pass_rates": {
+      "A": 1.0,
+      "B": 1.0,
+      "C": 0.49970238095238095,
+      "D": 0.5675997617629541,
+      "E": 1.0,
+      "F": 0.1657922350472193,
+      "G": 0.7974683544303798
+    },
+    "integrity": "PASS",
+    "pivot_age_bars": {
+      "N": 3360,
+      "percentiles": {
+        "10": 3.0,
+        "25": 5.0,
+        "5": 3.0,
+        "50": 7.0,
+        "75": 10.0,
+        "90": 14.099999999999909,
+        "95": 18.0
+      }
+    },
+    "quality_events": {},
+    "rejection_reasons": {
+      "C:STOP_RANGE_OR_SL_SIDE": 1681,
+      "D:COST_STOP_FLOOR": 726,
+      "F:FILTER_H": 142,
+      "F:FILTER_V": 653,
+      "G:POSITION_BUSY": 32
+    },
+    "tradingview_execution": "EXECUTION GATE — UNVERIFIED",
+    "year": 2023
+  },
+  {
+    "N_after_each_gate": {
+      "A": 3360,
+      "B": 3360,
+      "C": 1679,
+      "D": 953,
+      "E": 953,
+      "F": 22,
+      "G": 15
+    },
+    "N_censored": 0,
+    "N_completed": 15,
+    "N_filled": 15,
+    "N_nonoverlap": 15,
+    "N_raw_candidate": 3360,
+    "N_rejected_margin": 0,
+    "N_signals": 15,
+    "assumptions": {
+      "costs": "RESEARCH_ASSUMPTIONS_NOT_VERIFIED_ACCOUNT_RATES",
+      "instrument": "HISTORICAL_INSTRUMENT_SPEC_ASSUMPTION",
+      "intrabar": "STOP_FIRST_AFTER_KNOWN_OPEN_FILLS",
+      "limit_trigger": "TOUCH_BASE_CASE",
+      "liquidity_partial_fills": "NOT_MODELED"
+    },
+    "candidate": "C11",
+    "censor_rate": 0.0,
+    "censoring_quality": "WITHIN_FROZEN_5_PERCENT",
+    "daily_stop_activations": 0,
+    "daily_stop_blocked_opportunities": 0,
+    "data_quality": "VALID_FROZEN_SHA256_VERIFIED",
+    "direction_counts": {
+      "Long": {
+        "N_censored": 0,
+        "N_completed": 8,
+        "N_filled": 8,
+        "N_rejected_margin": 0,
+        "after_A": 1750,
+        "after_B": 1750,
+        "after_C": 850,
+        "after_D": 484,
+        "after_E": 484,
+        "after_F": 10,
+        "after_G": 8
+      },
+      "Short": {
+        "N_censored": 0,
+        "N_completed": 7,
+        "N_filled": 7,
+        "N_rejected_margin": 0,
+        "after_A": 1610,
+        "after_B": 1610,
+        "after_C": 829,
+        "after_D": 469,
+        "after_E": 469,
+        "after_F": 12,
+        "after_G": 7
+      }
+    },
+    "distance_from_120": -105,
+    "execution_model_validity": "RESEARCH_MODEL_PREFUNDING_COUNTS",
+    "funding": {
+      "count_scope": "PREFUNDING_FEASIBILITY_ONLY",
+      "funding_adjusted_result": "NOT_EVALUABLE",
+      "rates": "MISSING_NOT_RETRIEVED",
+      "settlement_mark": "MISSING_NOT_RETRIEVED",
+      "zero_substitution": false
+    },
+    "funnel_pass_rates": {
+      "A": 1.0,
+      "B": 1.0,
+      "C": 0.49970238095238095,
+      "D": 0.5675997617629541,
+      "E": 1.0,
+      "F": 0.023084994753410283,
+      "G": 0.6818181818181818
+    },
+    "integrity": "PASS",
+    "pivot_age_bars": {
+      "N": 3360,
+      "percentiles": {
+        "10": 3.0,
+        "25": 5.0,
+        "5": 3.0,
+        "50": 7.0,
+        "75": 10.0,
+        "90": 14.099999999999909,
+        "95": 18.0
+      }
+    },
+    "quality_events": {},
+    "rejection_reasons": {
+      "C:STOP_RANGE_OR_SL_SIDE": 1681,
+      "D:COST_STOP_FLOOR": 726,
+      "F:FILTER_H": 56,
+      "F:FILTER_Q": 482,
+      "F:FILTER_R": 393,
+      "G:POSITION_BUSY": 7
+    },
+    "tradingview_execution": "EXECUTION GATE — UNVERIFIED",
+    "year": 2023
+  },
+  {
+    "N_after_each_gate": {
+      "A": 3360,
+      "B": 3360,
+      "C": 1679,
+      "D": 953,
+      "E": 953,
+      "F": 1,
+      "G": 1
+    },
+    "N_censored": 0,
+    "N_completed": 1,
+    "N_filled": 1,
+    "N_nonoverlap": 1,
+    "N_raw_candidate": 3360,
+    "N_rejected_margin": 0,
+    "N_signals": 1,
+    "assumptions": {
+      "costs": "RESEARCH_ASSUMPTIONS_NOT_VERIFIED_ACCOUNT_RATES",
+      "instrument": "HISTORICAL_INSTRUMENT_SPEC_ASSUMPTION",
+      "intrabar": "STOP_FIRST_AFTER_KNOWN_OPEN_FILLS",
+      "limit_trigger": "TOUCH_BASE_CASE",
+      "liquidity_partial_fills": "NOT_MODELED"
+    },
+    "candidate": "C12",
+    "censor_rate": 0.0,
+    "censoring_quality": "WITHIN_FROZEN_5_PERCENT",
+    "daily_stop_activations": 0,
+    "daily_stop_blocked_opportunities": 0,
+    "data_quality": "VALID_FROZEN_SHA256_VERIFIED",
+    "direction_counts": {
+      "Long": {
+        "N_censored": 0,
+        "N_completed": 0,
+        "N_filled": 0,
+        "N_rejected_margin": 0,
+        "after_A": 1750,
+        "after_B": 1750,
+        "after_C": 850,
+        "after_D": 484,
+        "after_E": 484,
+        "after_F": 0,
+        "after_G": 0
+      },
+      "Short": {
+        "N_censored": 0,
+        "N_completed": 1,
+        "N_filled": 1,
+        "N_rejected_margin": 0,
+        "after_A": 1610,
+        "after_B": 1610,
+        "after_C": 829,
+        "after_D": 469,
+        "after_E": 469,
+        "after_F": 1,
+        "after_G": 1
+      }
+    },
+    "distance_from_120": -119,
+    "execution_model_validity": "RESEARCH_MODEL_PREFUNDING_COUNTS",
+    "funding": {
+      "count_scope": "PREFUNDING_FEASIBILITY_ONLY",
+      "funding_adjusted_result": "NOT_EVALUABLE",
+      "rates": "MISSING_NOT_RETRIEVED",
+      "settlement_mark": "MISSING_NOT_RETRIEVED",
+      "zero_substitution": false
+    },
+    "funnel_pass_rates": {
+      "A": 1.0,
+      "B": 1.0,
+      "C": 0.49970238095238095,
+      "D": 0.5675997617629541,
+      "E": 1.0,
+      "F": 0.001049317943336831,
+      "G": 1.0
+    },
+    "integrity": "PASS",
+    "pivot_age_bars": {
+      "N": 3360,
+      "percentiles": {
+        "10": 3.0,
+        "25": 5.0,
+        "5": 3.0,
+        "50": 7.0,
+        "75": 10.0,
+        "90": 14.099999999999909,
+        "95": 18.0
+      }
+    },
+    "quality_events": {},
+    "rejection_reasons": {
+      "C:STOP_RANGE_OR_SL_SIDE": 1681,
+      "D:COST_STOP_FLOOR": 726,
+      "F:FILTER_H": 56,
+      "F:FILTER_M": 2,
+      "F:FILTER_Q": 80,
+      "F:FILTER_R": 393,
+      "F:FILTER_V": 421
+    },
+    "tradingview_execution": "EXECUTION GATE — UNVERIFIED",
+    "year": 2023
+  },
+  {
+    "N_after_each_gate": {
+      "A": 3576,
+      "B": 3576,
+      "C": 1708,
+      "D": 1314,
+      "E": 1314,
+      "F": 1314,
+      "G": 493
+    },
+    "N_censored": 0,
+    "N_completed": 493,
+    "N_filled": 493,
+    "N_nonoverlap": 493,
+    "N_raw_candidate": 3576,
+    "N_rejected_margin": 0,
+    "N_signals": 493,
+    "assumptions": {
+      "costs": "RESEARCH_ASSUMPTIONS_NOT_VERIFIED_ACCOUNT_RATES",
+      "instrument": "HISTORICAL_INSTRUMENT_SPEC_ASSUMPTION",
+      "intrabar": "STOP_FIRST_AFTER_KNOWN_OPEN_FILLS",
+      "limit_trigger": "TOUCH_BASE_CASE",
+      "liquidity_partial_fills": "NOT_MODELED"
+    },
+    "candidate": "C01",
+    "censor_rate": 0.0,
+    "censoring_quality": "WITHIN_FROZEN_5_PERCENT",
+    "daily_stop_activations": 1,
+    "daily_stop_blocked_opportunities": 1,
+    "data_quality": "VALID_FROZEN_SHA256_VERIFIED",
+    "direction_counts": {
+      "Long": {
+        "N_censored": 0,
+        "N_completed": 265,
+        "N_filled": 265,
+        "N_rejected_margin": 0,
+        "after_A": 2033,
+        "after_B": 2033,
+        "after_C": 969,
+        "after_D": 730,
+        "after_E": 730,
+        "after_F": 730,
+        "after_G": 265
+      },
+      "Short": {
+        "N_censored": 0,
+        "N_completed": 228,
+        "N_filled": 228,
+        "N_rejected_margin": 0,
+        "after_A": 1543,
+        "after_B": 1543,
+        "after_C": 739,
+        "after_D": 584,
+        "after_E": 584,
+        "after_F": 584,
+        "after_G": 228
+      }
+    },
+    "distance_from_120": 373,
+    "execution_model_validity": "RESEARCH_MODEL_PREFUNDING_COUNTS",
+    "funding": {
+      "count_scope": "PREFUNDING_FEASIBILITY_ONLY",
+      "funding_adjusted_result": "NOT_EVALUABLE",
+      "rates": "MISSING_NOT_RETRIEVED",
+      "settlement_mark": "MISSING_NOT_RETRIEVED",
+      "zero_substitution": false
+    },
+    "funnel_pass_rates": {
+      "A": 1.0,
+      "B": 1.0,
+      "C": 0.47762863534675615,
+      "D": 0.7693208430913349,
+      "E": 1.0,
+      "F": 1.0,
+      "G": 0.3751902587519026
+    },
+    "integrity": "PASS",
+    "pivot_age_bars": {
+      "N": 3576,
+      "percentiles": {
+        "10": 3.0,
+        "25": 4.0,
+        "5": 3.0,
+        "50": 7.0,
+        "75": 10.0,
+        "90": 14.0,
+        "95": 17.0
+      }
+    },
+    "quality_events": {},
+    "rejection_reasons": {
+      "C:STOP_RANGE_OR_SL_SIDE": 1868,
+      "D:COST_STOP_FLOOR": 394,
+      "G:DAILY_STOP": 1,
+      "G:POSITION_BUSY": 820
+    },
+    "tradingview_execution": "EXECUTION GATE — UNVERIFIED",
+    "year": 2024
+  },
+  {
+    "N_after_each_gate": {
+      "A": 3576,
+      "B": 3576,
+      "C": 1708,
+      "D": 1314,
+      "E": 1314,
+      "F": 735,
+      "G": 335
+    },
+    "N_censored": 0,
+    "N_completed": 335,
+    "N_filled": 335,
+    "N_nonoverlap": 335,
+    "N_raw_candidate": 3576,
+    "N_rejected_margin": 0,
+    "N_signals": 335,
+    "assumptions": {
+      "costs": "RESEARCH_ASSUMPTIONS_NOT_VERIFIED_ACCOUNT_RATES",
+      "instrument": "HISTORICAL_INSTRUMENT_SPEC_ASSUMPTION",
+      "intrabar": "STOP_FIRST_AFTER_KNOWN_OPEN_FILLS",
+      "limit_trigger": "TOUCH_BASE_CASE",
+      "liquidity_partial_fills": "NOT_MODELED"
+    },
+    "candidate": "C02",
+    "censor_rate": 0.0,
+    "censoring_quality": "WITHIN_FROZEN_5_PERCENT",
+    "daily_stop_activations": 0,
+    "daily_stop_blocked_opportunities": 0,
+    "data_quality": "VALID_FROZEN_SHA256_VERIFIED",
+    "direction_counts": {
+      "Long": {
+        "N_censored": 0,
+        "N_completed": 160,
+        "N_filled": 160,
+        "N_rejected_margin": 0,
+        "after_A": 2033,
+        "after_B": 2033,
+        "after_C": 969,
+        "after_D": 730,
+        "after_E": 730,
+        "after_F": 353,
+        "after_G": 160
+      },
+      "Short": {
+        "N_censored": 0,
+        "N_completed": 175,
+        "N_filled": 175,
+        "N_rejected_margin": 0,
+        "after_A": 1543,
+        "after_B": 1543,
+        "after_C": 739,
+        "after_D": 584,
+        "after_E": 584,
+        "after_F": 382,
+        "after_G": 175
+      }
+    },
+    "distance_from_120": 215,
+    "execution_model_validity": "RESEARCH_MODEL_PREFUNDING_COUNTS",
+    "funding": {
+      "count_scope": "PREFUNDING_FEASIBILITY_ONLY",
+      "funding_adjusted_result": "NOT_EVALUABLE",
+      "rates": "MISSING_NOT_RETRIEVED",
+      "settlement_mark": "MISSING_NOT_RETRIEVED",
+      "zero_substitution": false
+    },
+    "funnel_pass_rates": {
+      "A": 1.0,
+      "B": 1.0,
+      "C": 0.47762863534675615,
+      "D": 0.7693208430913349,
+      "E": 1.0,
+      "F": 0.5593607305936074,
+      "G": 0.4557823129251701
+    },
+    "integrity": "PASS",
+    "pivot_age_bars": {
+      "N": 3576,
+      "percentiles": {
+        "10": 3.0,
+        "25": 4.0,
+        "5": 3.0,
+        "50": 7.0,
+        "75": 10.0,
+        "90": 14.0,
+        "95": 17.0
+      }
+    },
+    "quality_events": {},
+    "rejection_reasons": {
+      "C:STOP_RANGE_OR_SL_SIDE": 1868,
+      "D:COST_STOP_FLOOR": 394,
+      "F:FILTER_R": 579,
+      "G:POSITION_BUSY": 400
+    },
+    "tradingview_execution": "EXECUTION GATE — UNVERIFIED",
+    "year": 2024
+  },
+  {
+    "N_after_each_gate": {
+      "A": 3576,
+      "B": 3576,
+      "C": 1708,
+      "D": 1314,
+      "E": 1314,
+      "F": 1027,
+      "G": 404
+    },
+    "N_censored": 0,
+    "N_completed": 404,
+    "N_filled": 404,
+    "N_nonoverlap": 404,
+    "N_raw_candidate": 3576,
+    "N_rejected_margin": 0,
+    "N_signals": 404,
+    "assumptions": {
+      "costs": "RESEARCH_ASSUMPTIONS_NOT_VERIFIED_ACCOUNT_RATES",
+      "instrument": "HISTORICAL_INSTRUMENT_SPEC_ASSUMPTION",
+      "intrabar": "STOP_FIRST_AFTER_KNOWN_OPEN_FILLS",
+      "limit_trigger": "TOUCH_BASE_CASE",
+      "liquidity_partial_fills": "NOT_MODELED"
+    },
+    "candidate": "C03",
+    "censor_rate": 0.0,
+    "censoring_quality": "WITHIN_FROZEN_5_PERCENT",
+    "daily_stop_activations": 0,
+    "daily_stop_blocked_opportunities": 0,
+    "data_quality": "VALID_FROZEN_SHA256_VERIFIED",
+    "direction_counts": {
+      "Long": {
+        "N_censored": 0,
+        "N_completed": 224,
+        "N_filled": 224,
+        "N_rejected_margin": 0,
+        "after_A": 2033,
+        "after_B": 2033,
+        "after_C": 969,
+        "after_D": 730,
+        "after_E": 730,
+        "after_F": 599,
+        "after_G": 224
+      },
+      "Short": {
+        "N_censored": 0,
+        "N_completed": 180,
+        "N_filled": 180,
+        "N_rejected_margin": 0,
+        "after_A": 1543,
+        "after_B": 1543,
+        "after_C": 739,
+        "after_D": 584,
+        "after_E": 584,
+        "after_F": 428,
+        "after_G": 180
+      }
+    },
+    "distance_from_120": 284,
+    "execution_model_validity": "RESEARCH_MODEL_PREFUNDING_COUNTS",
+    "funding": {
+      "count_scope": "PREFUNDING_FEASIBILITY_ONLY",
+      "funding_adjusted_result": "NOT_EVALUABLE",
+      "rates": "MISSING_NOT_RETRIEVED",
+      "settlement_mark": "MISSING_NOT_RETRIEVED",
+      "zero_substitution": false
+    },
+    "funnel_pass_rates": {
+      "A": 1.0,
+      "B": 1.0,
+      "C": 0.47762863534675615,
+      "D": 0.7693208430913349,
+      "E": 1.0,
+      "F": 0.7815829528158296,
+      "G": 0.3933787731256086
+    },
+    "integrity": "PASS",
+    "pivot_age_bars": {
+      "N": 3576,
+      "percentiles": {
+        "10": 3.0,
+        "25": 4.0,
+        "5": 3.0,
+        "50": 7.0,
+        "75": 10.0,
+        "90": 14.0,
+        "95": 17.0
+      }
+    },
+    "quality_events": {},
+    "rejection_reasons": {
+      "C:STOP_RANGE_OR_SL_SIDE": 1868,
+      "D:COST_STOP_FLOOR": 394,
+      "F:FILTER_H": 287,
+      "G:POSITION_BUSY": 623
+    },
+    "tradingview_execution": "EXECUTION GATE — UNVERIFIED",
+    "year": 2024
+  },
+  {
+    "N_after_each_gate": {
+      "A": 3576,
+      "B": 3576,
+      "C": 1708,
+      "D": 1314,
+      "E": 1314,
+      "F": 291,
+      "G": 207
+    },
+    "N_censored": 0,
+    "N_completed": 207,
+    "N_filled": 207,
+    "N_nonoverlap": 207,
+    "N_raw_candidate": 3576,
+    "N_rejected_margin": 0,
+    "N_signals": 207,
+    "assumptions": {
+      "costs": "RESEARCH_ASSUMPTIONS_NOT_VERIFIED_ACCOUNT_RATES",
+      "instrument": "HISTORICAL_INSTRUMENT_SPEC_ASSUMPTION",
+      "intrabar": "STOP_FIRST_AFTER_KNOWN_OPEN_FILLS",
+      "limit_trigger": "TOUCH_BASE_CASE",
+      "liquidity_partial_fills": "NOT_MODELED"
+    },
+    "candidate": "C04",
+    "censor_rate": 0.0,
+    "censoring_quality": "WITHIN_FROZEN_5_PERCENT",
+    "daily_stop_activations": 0,
+    "daily_stop_blocked_opportunities": 0,
+    "data_quality": "VALID_FROZEN_SHA256_VERIFIED",
+    "direction_counts": {
+      "Long": {
+        "N_censored": 0,
+        "N_completed": 126,
+        "N_filled": 126,
+        "N_rejected_margin": 0,
+        "after_A": 2033,
+        "after_B": 2033,
+        "after_C": 969,
+        "after_D": 730,
+        "after_E": 730,
+        "after_F": 175,
+        "after_G": 126
+      },
+      "Short": {
+        "N_censored": 0,
+        "N_completed": 81,
+        "N_filled": 81,
+        "N_rejected_margin": 0,
+        "after_A": 1543,
+        "after_B": 1543,
+        "after_C": 739,
+        "after_D": 584,
+        "after_E": 584,
+        "after_F": 116,
+        "after_G": 81
+      }
+    },
+    "distance_from_120": 87,
+    "execution_model_validity": "RESEARCH_MODEL_PREFUNDING_COUNTS",
+    "funding": {
+      "count_scope": "PREFUNDING_FEASIBILITY_ONLY",
+      "funding_adjusted_result": "NOT_EVALUABLE",
+      "rates": "MISSING_NOT_RETRIEVED",
+      "settlement_mark": "MISSING_NOT_RETRIEVED",
+      "zero_substitution": false
+    },
+    "funnel_pass_rates": {
+      "A": 1.0,
+      "B": 1.0,
+      "C": 0.47762863534675615,
+      "D": 0.7693208430913349,
+      "E": 1.0,
+      "F": 0.22146118721461186,
+      "G": 0.711340206185567
+    },
+    "integrity": "PASS",
+    "pivot_age_bars": {
+      "N": 3576,
+      "percentiles": {
+        "10": 3.0,
+        "25": 4.0,
+        "5": 3.0,
+        "50": 7.0,
+        "75": 10.0,
+        "90": 14.0,
+        "95": 17.0
+      }
+    },
+    "quality_events": {},
+    "rejection_reasons": {
+      "C:STOP_RANGE_OR_SL_SIDE": 1868,
+      "D:COST_STOP_FLOOR": 394,
+      "F:FILTER_V": 1023,
+      "G:POSITION_BUSY": 84
+    },
+    "tradingview_execution": "EXECUTION GATE — UNVERIFIED",
+    "year": 2024
+  },
+  {
+    "N_after_each_gate": {
+      "A": 3576,
+      "B": 3576,
+      "C": 1708,
+      "D": 1314,
+      "E": 1314,
+      "F": 1036,
+      "G": 455
+    },
+    "N_censored": 0,
+    "N_completed": 455,
+    "N_filled": 455,
+    "N_nonoverlap": 455,
+    "N_raw_candidate": 3576,
+    "N_rejected_margin": 0,
+    "N_signals": 455,
+    "assumptions": {
+      "costs": "RESEARCH_ASSUMPTIONS_NOT_VERIFIED_ACCOUNT_RATES",
+      "instrument": "HISTORICAL_INSTRUMENT_SPEC_ASSUMPTION",
+      "intrabar": "STOP_FIRST_AFTER_KNOWN_OPEN_FILLS",
+      "limit_trigger": "TOUCH_BASE_CASE",
+      "liquidity_partial_fills": "NOT_MODELED"
+    },
+    "candidate": "C05",
+    "censor_rate": 0.0,
+    "censoring_quality": "WITHIN_FROZEN_5_PERCENT",
+    "daily_stop_activations": 0,
+    "daily_stop_blocked_opportunities": 0,
+    "data_quality": "VALID_FROZEN_SHA256_VERIFIED",
+    "direction_counts": {
+      "Long": {
+        "N_censored": 0,
+        "N_completed": 246,
+        "N_filled": 246,
+        "N_rejected_margin": 0,
+        "after_A": 2033,
+        "after_B": 2033,
+        "after_C": 969,
+        "after_D": 730,
+        "after_E": 730,
+        "after_F": 580,
+        "after_G": 246
+      },
+      "Short": {
+        "N_censored": 0,
+        "N_completed": 209,
+        "N_filled": 209,
+        "N_rejected_margin": 0,
+        "after_A": 1543,
+        "after_B": 1543,
+        "after_C": 739,
+        "after_D": 584,
+        "after_E": 584,
+        "after_F": 456,
+        "after_G": 209
+      }
+    },
+    "distance_from_120": 335,
+    "execution_model_validity": "RESEARCH_MODEL_PREFUNDING_COUNTS",
+    "funding": {
+      "count_scope": "PREFUNDING_FEASIBILITY_ONLY",
+      "funding_adjusted_result": "NOT_EVALUABLE",
+      "rates": "MISSING_NOT_RETRIEVED",
+      "settlement_mark": "MISSING_NOT_RETRIEVED",
+      "zero_substitution": false
+    },
+    "funnel_pass_rates": {
+      "A": 1.0,
+      "B": 1.0,
+      "C": 0.47762863534675615,
+      "D": 0.7693208430913349,
+      "E": 1.0,
+      "F": 0.7884322678843226,
+      "G": 0.4391891891891892
+    },
+    "integrity": "PASS",
+    "pivot_age_bars": {
+      "N": 3576,
+      "percentiles": {
+        "10": 3.0,
+        "25": 4.0,
+        "5": 3.0,
+        "50": 7.0,
+        "75": 10.0,
+        "90": 14.0,
+        "95": 17.0
+      }
+    },
+    "quality_events": {},
+    "rejection_reasons": {
+      "C:STOP_RANGE_OR_SL_SIDE": 1868,
+      "D:COST_STOP_FLOOR": 394,
+      "F:FILTER_M": 278,
+      "G:POSITION_BUSY": 581
+    },
+    "tradingview_execution": "EXECUTION GATE — UNVERIFIED",
+    "year": 2024
+  },
+  {
+    "N_after_each_gate": {
+      "A": 3576,
+      "B": 3576,
+      "C": 1708,
+      "D": 1314,
+      "E": 1314,
+      "F": 42,
+      "G": 34
+    },
+    "N_censored": 0,
+    "N_completed": 34,
+    "N_filled": 34,
+    "N_nonoverlap": 34,
+    "N_raw_candidate": 3576,
+    "N_rejected_margin": 0,
+    "N_signals": 34,
+    "assumptions": {
+      "costs": "RESEARCH_ASSUMPTIONS_NOT_VERIFIED_ACCOUNT_RATES",
+      "instrument": "HISTORICAL_INSTRUMENT_SPEC_ASSUMPTION",
+      "intrabar": "STOP_FIRST_AFTER_KNOWN_OPEN_FILLS",
+      "limit_trigger": "TOUCH_BASE_CASE",
+      "liquidity_partial_fills": "NOT_MODELED"
+    },
+    "candidate": "C06",
+    "censor_rate": 0.0,
+    "censoring_quality": "WITHIN_FROZEN_5_PERCENT",
+    "daily_stop_activations": 0,
+    "daily_stop_blocked_opportunities": 0,
+    "data_quality": "VALID_FROZEN_SHA256_VERIFIED",
+    "direction_counts": {
+      "Long": {
+        "N_censored": 0,
+        "N_completed": 15,
+        "N_filled": 15,
+        "N_rejected_margin": 0,
+        "after_A": 2033,
+        "after_B": 2033,
+        "after_C": 969,
+        "after_D": 730,
+        "after_E": 730,
+        "after_F": 16,
+        "after_G": 15
+      },
+      "Short": {
+        "N_censored": 0,
+        "N_completed": 19,
+        "N_filled": 19,
+        "N_rejected_margin": 0,
+        "after_A": 1543,
+        "after_B": 1543,
+        "after_C": 739,
+        "after_D": 584,
+        "after_E": 584,
+        "after_F": 26,
+        "after_G": 19
+      }
+    },
+    "distance_from_120": -86,
+    "execution_model_validity": "RESEARCH_MODEL_PREFUNDING_COUNTS",
+    "funding": {
+      "count_scope": "PREFUNDING_FEASIBILITY_ONLY",
+      "funding_adjusted_result": "NOT_EVALUABLE",
+      "rates": "MISSING_NOT_RETRIEVED",
+      "settlement_mark": "MISSING_NOT_RETRIEVED",
+      "zero_substitution": false
+    },
+    "funnel_pass_rates": {
+      "A": 1.0,
+      "B": 1.0,
+      "C": 0.47762863534675615,
+      "D": 0.7693208430913349,
+      "E": 1.0,
+      "F": 0.0319634703196347,
+      "G": 0.8095238095238095
+    },
+    "integrity": "PASS",
+    "pivot_age_bars": {
+      "N": 3576,
+      "percentiles": {
+        "10": 3.0,
+        "25": 4.0,
+        "5": 3.0,
+        "50": 7.0,
+        "75": 10.0,
+        "90": 14.0,
+        "95": 17.0
+      }
+    },
+    "quality_events": {},
+    "rejection_reasons": {
+      "C:STOP_RANGE_OR_SL_SIDE": 1868,
+      "D:COST_STOP_FLOOR": 394,
+      "F:FILTER_Q": 1272,
+      "G:POSITION_BUSY": 8
+    },
+    "tradingview_execution": "EXECUTION GATE — UNVERIFIED",
+    "year": 2024
+  },
+  {
+    "N_after_each_gate": {
+      "A": 3576,
+      "B": 3576,
+      "C": 1708,
+      "D": 1314,
+      "E": 1314,
+      "F": 634,
+      "G": 287
+    },
+    "N_censored": 0,
+    "N_completed": 287,
+    "N_filled": 287,
+    "N_nonoverlap": 287,
+    "N_raw_candidate": 3576,
+    "N_rejected_margin": 0,
+    "N_signals": 287,
+    "assumptions": {
+      "costs": "RESEARCH_ASSUMPTIONS_NOT_VERIFIED_ACCOUNT_RATES",
+      "instrument": "HISTORICAL_INSTRUMENT_SPEC_ASSUMPTION",
+      "intrabar": "STOP_FIRST_AFTER_KNOWN_OPEN_FILLS",
+      "limit_trigger": "TOUCH_BASE_CASE",
+      "liquidity_partial_fills": "NOT_MODELED"
+    },
+    "candidate": "C07",
+    "censor_rate": 0.0,
+    "censoring_quality": "WITHIN_FROZEN_5_PERCENT",
+    "daily_stop_activations": 0,
+    "daily_stop_blocked_opportunities": 0,
+    "data_quality": "VALID_FROZEN_SHA256_VERIFIED",
+    "direction_counts": {
+      "Long": {
+        "N_censored": 0,
+        "N_completed": 142,
+        "N_filled": 142,
+        "N_rejected_margin": 0,
+        "after_A": 2033,
+        "after_B": 2033,
+        "after_C": 969,
+        "after_D": 730,
+        "after_E": 730,
+        "after_F": 316,
+        "after_G": 142
+      },
+      "Short": {
+        "N_censored": 0,
+        "N_completed": 145,
+        "N_filled": 145,
+        "N_rejected_margin": 0,
+        "after_A": 1543,
+        "after_B": 1543,
+        "after_C": 739,
+        "after_D": 584,
+        "after_E": 584,
+        "after_F": 318,
+        "after_G": 145
+      }
+    },
+    "distance_from_120": 167,
+    "execution_model_validity": "RESEARCH_MODEL_PREFUNDING_COUNTS",
+    "funding": {
+      "count_scope": "PREFUNDING_FEASIBILITY_ONLY",
+      "funding_adjusted_result": "NOT_EVALUABLE",
+      "rates": "MISSING_NOT_RETRIEVED",
+      "settlement_mark": "MISSING_NOT_RETRIEVED",
+      "zero_substitution": false
+    },
+    "funnel_pass_rates": {
+      "A": 1.0,
+      "B": 1.0,
+      "C": 0.47762863534675615,
+      "D": 0.7693208430913349,
+      "E": 1.0,
+      "F": 0.4824961948249619,
+      "G": 0.4526813880126183
+    },
+    "integrity": "PASS",
+    "pivot_age_bars": {
+      "N": 3576,
+      "percentiles": {
+        "10": 3.0,
+        "25": 4.0,
+        "5": 3.0,
+        "50": 7.0,
+        "75": 10.0,
+        "90": 14.0,
+        "95": 17.0
+      }
+    },
+    "quality_events": {},
+    "rejection_reasons": {
+      "C:STOP_RANGE_OR_SL_SIDE": 1868,
+      "D:COST_STOP_FLOOR": 394,
+      "F:FILTER_H": 101,
+      "F:FILTER_R": 579,
+      "G:POSITION_BUSY": 347
+    },
+    "tradingview_execution": "EXECUTION GATE — UNVERIFIED",
+    "year": 2024
+  },
+  {
+    "N_after_each_gate": {
+      "A": 3576,
+      "B": 3576,
+      "C": 1708,
+      "D": 1314,
+      "E": 1314,
+      "F": 149,
+      "G": 114
+    },
+    "N_censored": 0,
+    "N_completed": 114,
+    "N_filled": 114,
+    "N_nonoverlap": 114,
+    "N_raw_candidate": 3576,
+    "N_rejected_margin": 0,
+    "N_signals": 114,
+    "assumptions": {
+      "costs": "RESEARCH_ASSUMPTIONS_NOT_VERIFIED_ACCOUNT_RATES",
+      "instrument": "HISTORICAL_INSTRUMENT_SPEC_ASSUMPTION",
+      "intrabar": "STOP_FIRST_AFTER_KNOWN_OPEN_FILLS",
+      "limit_trigger": "TOUCH_BASE_CASE",
+      "liquidity_partial_fills": "NOT_MODELED"
+    },
+    "candidate": "C08",
+    "censor_rate": 0.0,
+    "censoring_quality": "WITHIN_FROZEN_5_PERCENT",
+    "daily_stop_activations": 0,
+    "daily_stop_blocked_opportunities": 0,
+    "data_quality": "VALID_FROZEN_SHA256_VERIFIED",
+    "direction_counts": {
+      "Long": {
+        "N_censored": 0,
+        "N_completed": 64,
+        "N_filled": 64,
+        "N_rejected_margin": 0,
+        "after_A": 2033,
+        "after_B": 2033,
+        "after_C": 969,
+        "after_D": 730,
+        "after_E": 730,
+        "after_F": 82,
+        "after_G": 64
+      },
+      "Short": {
+        "N_censored": 0,
+        "N_completed": 50,
+        "N_filled": 50,
+        "N_rejected_margin": 0,
+        "after_A": 1543,
+        "after_B": 1543,
+        "after_C": 739,
+        "after_D": 584,
+        "after_E": 584,
+        "after_F": 67,
+        "after_G": 50
+      }
+    },
+    "distance_from_120": -6,
+    "execution_model_validity": "RESEARCH_MODEL_PREFUNDING_COUNTS",
+    "funding": {
+      "count_scope": "PREFUNDING_FEASIBILITY_ONLY",
+      "funding_adjusted_result": "NOT_EVALUABLE",
+      "rates": "MISSING_NOT_RETRIEVED",
+      "settlement_mark": "MISSING_NOT_RETRIEVED",
+      "zero_substitution": false
+    },
+    "funnel_pass_rates": {
+      "A": 1.0,
+      "B": 1.0,
+      "C": 0.47762863534675615,
+      "D": 0.7693208430913349,
+      "E": 1.0,
+      "F": 0.11339421613394216,
+      "G": 0.7651006711409396
+    },
+    "integrity": "PASS",
+    "pivot_age_bars": {
+      "N": 3576,
+      "percentiles": {
+        "10": 3.0,
+        "25": 4.0,
+        "5": 3.0,
+        "50": 7.0,
+        "75": 10.0,
+        "90": 14.0,
+        "95": 17.0
+      }
+    },
+    "quality_events": {},
+    "rejection_reasons": {
+      "C:STOP_RANGE_OR_SL_SIDE": 1868,
+      "D:COST_STOP_FLOOR": 394,
+      "F:FILTER_R": 579,
+      "F:FILTER_V": 586,
+      "G:POSITION_BUSY": 35
+    },
+    "tradingview_execution": "EXECUTION GATE — UNVERIFIED",
+    "year": 2024
+  },
+  {
+    "N_after_each_gate": {
+      "A": 3576,
+      "B": 3576,
+      "C": 1708,
+      "D": 1314,
+      "E": 1314,
+      "F": 603,
+      "G": 293
+    },
+    "N_censored": 0,
+    "N_completed": 293,
+    "N_filled": 293,
+    "N_nonoverlap": 293,
+    "N_raw_candidate": 3576,
+    "N_rejected_margin": 0,
+    "N_signals": 293,
+    "assumptions": {
+      "costs": "RESEARCH_ASSUMPTIONS_NOT_VERIFIED_ACCOUNT_RATES",
+      "instrument": "HISTORICAL_INSTRUMENT_SPEC_ASSUMPTION",
+      "intrabar": "STOP_FIRST_AFTER_KNOWN_OPEN_FILLS",
+      "limit_trigger": "TOUCH_BASE_CASE",
+      "liquidity_partial_fills": "NOT_MODELED"
+    },
+    "candidate": "C09",
+    "censor_rate": 0.0,
+    "censoring_quality": "WITHIN_FROZEN_5_PERCENT",
+    "daily_stop_activations": 0,
+    "daily_stop_blocked_opportunities": 0,
+    "data_quality": "VALID_FROZEN_SHA256_VERIFIED",
+    "direction_counts": {
+      "Long": {
+        "N_censored": 0,
+        "N_completed": 138,
+        "N_filled": 138,
+        "N_rejected_margin": 0,
+        "after_A": 2033,
+        "after_B": 2033,
+        "after_C": 969,
+        "after_D": 730,
+        "after_E": 730,
+        "after_F": 298,
+        "after_G": 138
+      },
+      "Short": {
+        "N_censored": 0,
+        "N_completed": 155,
+        "N_filled": 155,
+        "N_rejected_margin": 0,
+        "after_A": 1543,
+        "after_B": 1543,
+        "after_C": 739,
+        "after_D": 584,
+        "after_E": 584,
+        "after_F": 305,
+        "after_G": 155
+      }
+    },
+    "distance_from_120": 173,
+    "execution_model_validity": "RESEARCH_MODEL_PREFUNDING_COUNTS",
+    "funding": {
+      "count_scope": "PREFUNDING_FEASIBILITY_ONLY",
+      "funding_adjusted_result": "NOT_EVALUABLE",
+      "rates": "MISSING_NOT_RETRIEVED",
+      "settlement_mark": "MISSING_NOT_RETRIEVED",
+      "zero_substitution": false
+    },
+    "funnel_pass_rates": {
+      "A": 1.0,
+      "B": 1.0,
+      "C": 0.47762863534675615,
+      "D": 0.7693208430913349,
+      "E": 1.0,
+      "F": 0.4589041095890411,
+      "G": 0.4859038142620232
+    },
+    "integrity": "PASS",
+    "pivot_age_bars": {
+      "N": 3576,
+      "percentiles": {
+        "10": 3.0,
+        "25": 4.0,
+        "5": 3.0,
+        "50": 7.0,
+        "75": 10.0,
+        "90": 14.0,
+        "95": 17.0
+      }
+    },
+    "quality_events": {},
+    "rejection_reasons": {
+      "C:STOP_RANGE_OR_SL_SIDE": 1868,
+      "D:COST_STOP_FLOOR": 394,
+      "F:FILTER_M": 132,
+      "F:FILTER_R": 579,
+      "G:POSITION_BUSY": 310
+    },
+    "tradingview_execution": "EXECUTION GATE — UNVERIFIED",
+    "year": 2024
+  },
+  {
+    "N_after_each_gate": {
+      "A": 3576,
+      "B": 3576,
+      "C": 1708,
+      "D": 1314,
+      "E": 1314,
+      "F": 217,
+      "G": 158
+    },
+    "N_censored": 0,
+    "N_completed": 158,
+    "N_filled": 158,
+    "N_nonoverlap": 158,
+    "N_raw_candidate": 3576,
+    "N_rejected_margin": 0,
+    "N_signals": 158,
+    "assumptions": {
+      "costs": "RESEARCH_ASSUMPTIONS_NOT_VERIFIED_ACCOUNT_RATES",
+      "instrument": "HISTORICAL_INSTRUMENT_SPEC_ASSUMPTION",
+      "intrabar": "STOP_FIRST_AFTER_KNOWN_OPEN_FILLS",
+      "limit_trigger": "TOUCH_BASE_CASE",
+      "liquidity_partial_fills": "NOT_MODELED"
+    },
+    "candidate": "C10",
+    "censor_rate": 0.0,
+    "censoring_quality": "WITHIN_FROZEN_5_PERCENT",
+    "daily_stop_activations": 0,
+    "daily_stop_blocked_opportunities": 0,
+    "data_quality": "VALID_FROZEN_SHA256_VERIFIED",
+    "direction_counts": {
+      "Long": {
+        "N_censored": 0,
+        "N_completed": 98,
+        "N_filled": 98,
+        "N_rejected_margin": 0,
+        "after_A": 2033,
+        "after_B": 2033,
+        "after_C": 969,
+        "after_D": 730,
+        "after_E": 730,
+        "after_F": 132,
+        "after_G": 98
+      },
+      "Short": {
+        "N_censored": 0,
+        "N_completed": 60,
+        "N_filled": 60,
+        "N_rejected_margin": 0,
+        "after_A": 1543,
+        "after_B": 1543,
+        "after_C": 739,
+        "after_D": 584,
+        "after_E": 584,
+        "after_F": 85,
+        "after_G": 60
+      }
+    },
+    "distance_from_120": 38,
+    "execution_model_validity": "RESEARCH_MODEL_PREFUNDING_COUNTS",
+    "funding": {
+      "count_scope": "PREFUNDING_FEASIBILITY_ONLY",
+      "funding_adjusted_result": "NOT_EVALUABLE",
+      "rates": "MISSING_NOT_RETRIEVED",
+      "settlement_mark": "MISSING_NOT_RETRIEVED",
+      "zero_substitution": false
+    },
+    "funnel_pass_rates": {
+      "A": 1.0,
+      "B": 1.0,
+      "C": 0.47762863534675615,
+      "D": 0.7693208430913349,
+      "E": 1.0,
+      "F": 0.16514459665144596,
+      "G": 0.728110599078341
+    },
+    "integrity": "PASS",
+    "pivot_age_bars": {
+      "N": 3576,
+      "percentiles": {
+        "10": 3.0,
+        "25": 4.0,
+        "5": 3.0,
+        "50": 7.0,
+        "75": 10.0,
+        "90": 14.0,
+        "95": 17.0
+      }
+    },
+    "quality_events": {},
+    "rejection_reasons": {
+      "C:STOP_RANGE_OR_SL_SIDE": 1868,
+      "D:COST_STOP_FLOOR": 394,
+      "F:FILTER_H": 287,
+      "F:FILTER_V": 810,
+      "G:POSITION_BUSY": 59
+    },
+    "tradingview_execution": "EXECUTION GATE — UNVERIFIED",
+    "year": 2024
+  },
+  {
+    "N_after_each_gate": {
+      "A": 3576,
+      "B": 3576,
+      "C": 1708,
+      "D": 1314,
+      "E": 1314,
+      "F": 27,
+      "G": 21
+    },
+    "N_censored": 0,
+    "N_completed": 21,
+    "N_filled": 21,
+    "N_nonoverlap": 21,
+    "N_raw_candidate": 3576,
+    "N_rejected_margin": 0,
+    "N_signals": 21,
+    "assumptions": {
+      "costs": "RESEARCH_ASSUMPTIONS_NOT_VERIFIED_ACCOUNT_RATES",
+      "instrument": "HISTORICAL_INSTRUMENT_SPEC_ASSUMPTION",
+      "intrabar": "STOP_FIRST_AFTER_KNOWN_OPEN_FILLS",
+      "limit_trigger": "TOUCH_BASE_CASE",
+      "liquidity_partial_fills": "NOT_MODELED"
+    },
+    "candidate": "C11",
+    "censor_rate": 0.0,
+    "censoring_quality": "WITHIN_FROZEN_5_PERCENT",
+    "daily_stop_activations": 0,
+    "daily_stop_blocked_opportunities": 0,
+    "data_quality": "VALID_FROZEN_SHA256_VERIFIED",
+    "direction_counts": {
+      "Long": {
+        "N_censored": 0,
+        "N_completed": 6,
+        "N_filled": 6,
+        "N_rejected_margin": 0,
+        "after_A": 2033,
+        "after_B": 2033,
+        "after_C": 969,
+        "after_D": 730,
+        "after_E": 730,
+        "after_F": 6,
+        "after_G": 6
+      },
+      "Short": {
+        "N_censored": 0,
+        "N_completed": 15,
+        "N_filled": 15,
+        "N_rejected_margin": 0,
+        "after_A": 1543,
+        "after_B": 1543,
+        "after_C": 739,
+        "after_D": 584,
+        "after_E": 584,
+        "after_F": 21,
+        "after_G": 15
+      }
+    },
+    "distance_from_120": -99,
+    "execution_model_validity": "RESEARCH_MODEL_PREFUNDING_COUNTS",
+    "funding": {
+      "count_scope": "PREFUNDING_FEASIBILITY_ONLY",
+      "funding_adjusted_result": "NOT_EVALUABLE",
+      "rates": "MISSING_NOT_RETRIEVED",
+      "settlement_mark": "MISSING_NOT_RETRIEVED",
+      "zero_substitution": false
+    },
+    "funnel_pass_rates": {
+      "A": 1.0,
+      "B": 1.0,
+      "C": 0.47762863534675615,
+      "D": 0.7693208430913349,
+      "E": 1.0,
+      "F": 0.02054794520547945,
+      "G": 0.7777777777777778
+    },
+    "integrity": "PASS",
+    "pivot_age_bars": {
+      "N": 3576,
+      "percentiles": {
+        "10": 3.0,
+        "25": 4.0,
+        "5": 3.0,
+        "50": 7.0,
+        "75": 10.0,
+        "90": 14.0,
+        "95": 17.0
+      }
+    },
+    "quality_events": {},
+    "rejection_reasons": {
+      "C:STOP_RANGE_OR_SL_SIDE": 1868,
+      "D:COST_STOP_FLOOR": 394,
+      "F:FILTER_H": 101,
+      "F:FILTER_Q": 607,
+      "F:FILTER_R": 579,
+      "G:POSITION_BUSY": 6
+    },
+    "tradingview_execution": "EXECUTION GATE — UNVERIFIED",
+    "year": 2024
+  },
+  {
+    "N_after_each_gate": {
+      "A": 3576,
+      "B": 3576,
+      "C": 1708,
+      "D": 1314,
+      "E": 1314,
+      "F": 0,
+      "G": 0
+    },
+    "N_censored": 0,
+    "N_completed": 0,
+    "N_filled": 0,
+    "N_nonoverlap": 0,
+    "N_raw_candidate": 3576,
+    "N_rejected_margin": 0,
+    "N_signals": 0,
+    "assumptions": {
+      "costs": "RESEARCH_ASSUMPTIONS_NOT_VERIFIED_ACCOUNT_RATES",
+      "instrument": "HISTORICAL_INSTRUMENT_SPEC_ASSUMPTION",
+      "intrabar": "STOP_FIRST_AFTER_KNOWN_OPEN_FILLS",
+      "limit_trigger": "TOUCH_BASE_CASE",
+      "liquidity_partial_fills": "NOT_MODELED"
+    },
+    "candidate": "C12",
+    "censor_rate": 0.0,
+    "censoring_quality": "NO_FILLED_TRADES",
+    "daily_stop_activations": 0,
+    "daily_stop_blocked_opportunities": 0,
+    "data_quality": "VALID_FROZEN_SHA256_VERIFIED",
+    "direction_counts": {
+      "Long": {
+        "N_censored": 0,
+        "N_completed": 0,
+        "N_filled": 0,
+        "N_rejected_margin": 0,
+        "after_A": 2033,
+        "after_B": 2033,
+        "after_C": 969,
+        "after_D": 730,
+        "after_E": 730,
+        "after_F": 0,
+        "after_G": 0
+      },
+      "Short": {
+        "N_censored": 0,
+        "N_completed": 0,
+        "N_filled": 0,
+        "N_rejected_margin": 0,
+        "after_A": 1543,
+        "after_B": 1543,
+        "after_C": 739,
+        "after_D": 584,
+        "after_E": 584,
+        "after_F": 0,
+        "after_G": 0
+      }
+    },
+    "distance_from_120": -120,
+    "execution_model_validity": "RESEARCH_MODEL_PREFUNDING_COUNTS",
+    "funding": {
+      "count_scope": "PREFUNDING_FEASIBILITY_ONLY",
+      "funding_adjusted_result": "NOT_EVALUABLE",
+      "rates": "MISSING_NOT_RETRIEVED",
+      "settlement_mark": "MISSING_NOT_RETRIEVED",
+      "zero_substitution": false
+    },
+    "funnel_pass_rates": {
+      "A": 1.0,
+      "B": 1.0,
+      "C": 0.47762863534675615,
+      "D": 0.7693208430913349,
+      "E": 1.0,
+      "F": 0.0,
+      "G": null
+    },
+    "integrity": "PASS",
+    "pivot_age_bars": {
+      "N": 3576,
+      "percentiles": {
+        "10": 3.0,
+        "25": 4.0,
+        "5": 3.0,
+        "50": 7.0,
+        "75": 10.0,
+        "90": 14.0,
+        "95": 17.0
+      }
+    },
+    "quality_events": {},
+    "rejection_reasons": {
+      "C:STOP_RANGE_OR_SL_SIDE": 1868,
+      "D:COST_STOP_FLOOR": 394,
+      "F:FILTER_H": 101,
+      "F:FILTER_M": 10,
+      "F:FILTER_Q": 115,
+      "F:FILTER_R": 579,
+      "F:FILTER_V": 509
+    },
+    "tradingview_execution": "EXECUTION GATE — UNVERIFIED",
+    "year": 2024
+  }
+]

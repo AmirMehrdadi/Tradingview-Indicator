@@ -1,0 +1,116 @@
+{
+  "candidate_ranking": "NOT_PERFORMED",
+  "code_sha256": "77f789994e262a9edee0996237766f98d8f3a301d7664ce1e1642771d65181bc",
+  "commands": [
+    "sh tools/research_python.sh -m unittest discover -s tests -v",
+    "sh tools/research_python.sh -m research.stage0b run"
+  ],
+  "execution_authority": "Explicit Phase 3 user request supersedes Phase 2 execution-scope wording, without changing any frozen parameters.",
+  "execution_gates": "OPEN_UNVERIFIED",
+  "financial_ledger_values_published": false,
+  "full_replay_of_each_path": "PASS",
+  "funding_adjusted_research": "NOT_EVALUABLE_MISSING_FUNDING_AND_MARK",
+  "input_verification": {
+    "annotated_tag_objects": {
+      "v0.2.2-design": "638ec6d99413c8dbc82a111209015953809ced08",
+      "v0.2.2-research-parameters": "826b05146e99a5a87e9951da9b4e0ac2deea1d09"
+    },
+    "config_sha256": "196dfd9b9bc88007fbaa1be8172b861ec847c18ec591346c4f2a9e177256ff37",
+    "dataset_hashes_checked_before_price_processing": true,
+    "datasets": {
+      "BTCUSDT_2023_15.csv": {
+        "quality": {
+          "conflicting_timestamps": [],
+          "duplicate_rows": 0,
+          "expected_rows": 35280,
+          "incomplete_rows": [],
+          "invalid_rows": [],
+          "missing_open_times": [],
+          "received_rows": 35280,
+          "status": "VALID",
+          "unique_received_rows": 35280,
+          "valid_development_rows": 35040,
+          "valid_rows": 35280,
+          "valid_warmup_rows": 240
+        },
+        "sha256": "f8ce969f1ce6be885e428b97762faa5a43840c52da95b5c8f5ee5d05aad4753b"
+      },
+      "BTCUSDT_2023_60.csv": {
+        "quality": {
+          "conflicting_timestamps": [],
+          "duplicate_rows": 0,
+          "expected_rows": 8820,
+          "incomplete_rows": [],
+          "invalid_rows": [],
+          "missing_open_times": [],
+          "received_rows": 8820,
+          "status": "VALID",
+          "unique_received_rows": 8820,
+          "valid_development_rows": 8760,
+          "valid_rows": 8820,
+          "valid_warmup_rows": 60
+        },
+        "sha256": "543836f116ee43b2c7e0d1b2afc1669764f71b1ae08f43646a2b4942eab2d304"
+      },
+      "BTCUSDT_2024_15.csv": {
+        "quality": {
+          "conflicting_timestamps": [],
+          "duplicate_rows": 0,
+          "expected_rows": 35376,
+          "incomplete_rows": [],
+          "invalid_rows": [],
+          "missing_open_times": [],
+          "received_rows": 35376,
+          "status": "VALID",
+          "unique_received_rows": 35376,
+          "valid_development_rows": 35136,
+          "valid_rows": 35376,
+          "valid_warmup_rows": 240
+        },
+        "sha256": "8d682dcdc466230feea582e185c51dda8fb299581c3abe71db64163db0e46523"
+      },
+      "BTCUSDT_2024_60.csv": {
+        "quality": {
+          "conflicting_timestamps": [],
+          "duplicate_rows": 0,
+          "expected_rows": 8844,
+          "incomplete_rows": [],
+          "invalid_rows": [],
+          "missing_open_times": [],
+          "received_rows": 8844,
+          "status": "VALID",
+          "unique_received_rows": 8844,
+          "valid_development_rows": 8784,
+          "valid_rows": 8844,
+          "valid_warmup_rows": 60
+        },
+        "sha256": "11ef4cd7162f48060cdf6c963234277f34d7a89e3b8eb6891221d37426843ebe"
+      }
+    },
+    "environment_sha256": "ac190965edbb3a99c4d637f32a45d710ec5c69f74e003e68edc6458c10bb63d7",
+    "frozen_commit": "4bc7447755ef7a9dbd8832221f2ded5afc21401f",
+    "funding_rates": "MISSING_NOT_RETRIEVED",
+    "metadata_assumption": "HISTORICAL_INSTRUMENT_SPEC_ASSUMPTION",
+    "settlement_mark": "MISSING_NOT_RETRIEVED"
+  },
+  "invalid_execution_paths": [],
+  "logical_run_id": "1f1301e9750c5e85e270",
+  "private_storage": "RESTRICTED_MODE_0700_DIRECTORY_0600_FILES_GIT_IGNORED",
+  "public_counts_sha256": "10484fb66f296276e6d8284d8c22b78053fd6ef6442117119a83ecb6ea32a809",
+  "run_id": "20261114T183819594592Z",
+  "selection_and_holdout": "NOT_ACCESSED_NOT_RUN",
+  "source_files_sha256": {
+    "research/stage0b/__init__.py": "dac59946c0129622576f1cb179ebcdcf41ba426ac28369ea30031e3d97396bdf",
+    "research/stage0b/__main__.py": "74fff10eb2bd330c92909b27a5a9ae84f41b3f268a5c04f51f849276919f19c6",
+    "research/stage0b/audit.py": "1fef1f0cd3f387e003cd2a65689cf3718882f6632e678f43f2bb38ec734f7814",
+    "research/stage0b/engine.py": "7f93c1f78491a5589e9ceadc8eff6c7599ce7ae03af33f4b67deab747bb9cb19",
+    "research/stage0b/features.py": "8cd31caf364cc9c5c4987edee7a1fbc030e991936edc88294b32901506091a71",
+    "research/stage0b/guard.py": "6622c078053aa512feb7887ac679577db614982db6fc9a7449ed62630bb3cfc7",
+    "research/stage0b/model.py": "6292593699da428eb9e57d40860b167d63b22ccc6a4f93f811129b51c1a36032",
+    "research/stage0b/output.py": "e1245fafbda2e1c941aaeb94f88be32c7a0fadc22c25b290989b71e988eee86f",
+    "research/stage0b/runner.py": "95ee2fa623d744dfd861e0068ae5e22b511c1f7a2963ca681b1d77089e04b3ec"
+  },
+  "status": "EXECUTED_PREFUNDING_FEASIBILITY_VERIFIED",
+  "unique_candidate_year_paths": 24,
+  "version": "stage0b-v0.2.2-1"
+}

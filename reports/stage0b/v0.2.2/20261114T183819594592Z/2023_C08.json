@@ -1,0 +1,100 @@
+{
+  "N_after_each_gate": {
+    "A": 3360,
+    "B": 3360,
+    "C": 1679,
+    "D": 953,
+    "E": 953,
+    "F": 89,
+    "G": 69
+  },
+  "N_censored": 0,
+  "N_completed": 69,
+  "N_filled": 69,
+  "N_nonoverlap": 69,
+  "N_raw_candidate": 3360,
+  "N_rejected_margin": 0,
+  "N_signals": 69,
+  "assumptions": {
+    "costs": "RESEARCH_ASSUMPTIONS_NOT_VERIFIED_ACCOUNT_RATES",
+    "instrument": "HISTORICAL_INSTRUMENT_SPEC_ASSUMPTION",
+    "intrabar": "STOP_FIRST_AFTER_KNOWN_OPEN_FILLS",
+    "limit_trigger": "TOUCH_BASE_CASE",
+    "liquidity_partial_fills": "NOT_MODELED"
+  },
+  "candidate": "C08",
+  "censor_rate": 0.0,
+  "censoring_quality": "WITHIN_FROZEN_5_PERCENT",
+  "daily_stop_activations": 0,
+  "daily_stop_blocked_opportunities": 0,
+  "data_quality": "VALID_FROZEN_SHA256_VERIFIED",
+  "direction_counts": {
+    "Long": {
+      "N_censored": 0,
+      "N_completed": 28,
+      "N_filled": 28,
+      "N_rejected_margin": 0,
+      "after_A": 1750,
+      "after_B": 1750,
+      "after_C": 850,
+      "after_D": 484,
+      "after_E": 484,
+      "after_F": 35,
+      "after_G": 28
+    },
+    "Short": {
+      "N_censored": 0,
+      "N_completed": 41,
+      "N_filled": 41,
+      "N_rejected_margin": 0,
+      "after_A": 1610,
+      "after_B": 1610,
+      "after_C": 829,
+      "after_D": 469,
+      "after_E": 469,
+      "after_F": 54,
+      "after_G": 41
+    }
+  },
+  "distance_from_120": -51,
+  "execution_model_validity": "RESEARCH_MODEL_PREFUNDING_COUNTS",
+  "funding": {
+    "count_scope": "PREFUNDING_FEASIBILITY_ONLY",
+    "funding_adjusted_result": "NOT_EVALUABLE",
+    "rates": "MISSING_NOT_RETRIEVED",
+    "settlement_mark": "MISSING_NOT_RETRIEVED",
+    "zero_substitution": false
+  },
+  "funnel_pass_rates": {
+    "A": 1.0,
+    "B": 1.0,
+    "C": 0.49970238095238095,
+    "D": 0.5675997617629541,
+    "E": 1.0,
+    "F": 0.09338929695697797,
+    "G": 0.7752808988764045
+  },
+  "integrity": "PASS",
+  "pivot_age_bars": {
+    "N": 3360,
+    "percentiles": {
+      "10": 3.0,
+      "25": 5.0,
+      "5": 3.0,
+      "50": 7.0,
+      "75": 10.0,
+      "90": 14.099999999999909,
+      "95": 18.0
+    }
+  },
+  "quality_events": {},
+  "rejection_reasons": {
+    "C:STOP_RANGE_OR_SL_SIDE": 1681,
+    "D:COST_STOP_FLOOR": 726,
+    "F:FILTER_R": 393,
+    "F:FILTER_V": 471,
+    "G:POSITION_BUSY": 20
+  },
+  "tradingview_execution": "EXECUTION GATE — UNVERIFIED",
+  "year": 2023
+}
