@@ -1,0 +1,11 @@
+{
+  "download_url": "https://files.pythonhosted.org/packages/ae/8c/ab03a7c25741f9ebc92684a20125fbc9fc1b8e1e700beb9197d750fdff88/numpy-1.26.4-cp39-cp39-macosx_11_0_arm64.whl",
+  "filename": "numpy-1.26.4-cp39-cp39-macosx_11_0_arm64.whl",
+  "metadata_url": "https://pypi.org/pypi/numpy/1.26.4/json",
+  "name": "numpy",
+  "requires_dist": null,
+  "requires_python": ">=3.9",
+  "sha256": "52b8b60467cd7dd1e9ed082188b4e6bb35aa5cdd01777621a1658910745b90be",
+  "size": 13971216,
+  "version": "1.26.4"
+}

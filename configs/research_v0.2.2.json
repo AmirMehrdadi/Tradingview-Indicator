@@ -1,0 +1,179 @@
+{
+  "K_authorization": "EXPLICIT_USER_APPROVAL",
+  "K_cost_stop": 2.5,
+  "K_scope": [
+    "Stage-0B",
+    "2025 Selection",
+    "2026 Final Holdout"
+  ],
+  "authority": {
+    "design_commit": "ac8fc4bb9b66a59c7224aaec1630a594b41d7e80",
+    "design_tag": "v0.2.2-design",
+    "phase1_commit": "c17f04c0f8f89b0d31a39a8860c11ac63f9e62cb",
+    "spec_file": "STRATEGY_SPEC_v0.2.2.md",
+    "spec_sha256": "b9f35d752f4748a68a7d7677112a67007acb94a3266d33bd8b763991ef89a1c6"
+  },
+  "bootstrap_contract_only_not_executed": {
+    "bit_generator": "PCG64",
+    "block_length": 5,
+    "block_start_sampling": "one Generator.integers(0, N-4, size=ceil(N/5), dtype=int64, endpoint=False) call per replication",
+    "block_type": "non-circular-moving-block",
+    "expectancy_sum": "sequential left-to-right binary64",
+    "generator": "numpy.random.Generator",
+    "numpy": "1.26.4",
+    "percentile": "type-7 linear 5th percentile",
+    "replications": 5000,
+    "sample_truncate_length": "N",
+    "seed": 20261114,
+    "seed_reset": "each candidate/partition/scenario",
+    "tie_break": "round-half-even to 6 R decimals, fewer optional filters, lower candidate ID"
+  },
+  "candidate_combinations": {
+    "C01": [
+      "B"
+    ],
+    "C02": [
+      "B",
+      "R"
+    ],
+    "C03": [
+      "B",
+      "H"
+    ],
+    "C04": [
+      "B",
+      "V"
+    ],
+    "C05": [
+      "B",
+      "M"
+    ],
+    "C06": [
+      "B",
+      "Q"
+    ],
+    "C07": [
+      "B",
+      "R",
+      "H"
+    ],
+    "C08": [
+      "B",
+      "R",
+      "V"
+    ],
+    "C09": [
+      "B",
+      "R",
+      "M"
+    ],
+    "C10": [
+      "B",
+      "H",
+      "V"
+    ],
+    "C11": [
+      "B",
+      "R",
+      "H",
+      "Q"
+    ],
+    "C12": [
+      "B",
+      "R",
+      "H",
+      "V",
+      "M",
+      "Q"
+    ]
+  },
+  "category": "linear",
+  "confirmation_timeframe_minutes": 60,
+  "cost_assumptions": {
+    "applies_to_all_research_fills": true,
+    "classification": "RESEARCH_ASSUMPTIONS_NOT_VERIFIED_ACCOUNT_RATES",
+    "double_count_friction": false,
+    "execution_friction_rate_per_fill": 0.0002,
+    "taker_fee_rate_per_side": 0.00055,
+    "tp_limit_friction_is_accounting_haircut": true
+  },
+  "cost_floor": {
+    "comparison": ">=",
+    "denominator": "(entry_ref + frozen_SL) * (taker_fee_rate_per_side + execution_friction_rate_per_fill)",
+    "funding_included": false,
+    "numerator": "planned_risk_price",
+    "roundtrip_cost_max_fraction_of_planned_stop": 0.4,
+    "tolerance_or_epsilon": null
+  },
+  "current_task_execution_authority": "Parameter freeze and offline verification only; no Stage-0B, Selection, Holdout, Pine or profitability evaluation",
+  "dependency_lock_path": "requirements-research.lock",
+  "dependency_lock_sha256": "e71f67460d622ed4222e28f70fd5caeb5d6745072ba6bcd6fcd56d8eb432c51e",
+  "execution_gates": "OPEN_UNVERIFIED",
+  "execution_timeframe_minutes": 15,
+  "instrument_assumption": {
+    "classification": "HISTORICAL_INSTRUMENT_SPEC_ASSUMPTION",
+    "each_partial_quantity_checked_independently": true,
+    "historical_effective_dates": "UNVERIFIED",
+    "invalid_partial_rejects_entire_signal": true,
+    "max_limit_order_qty": "1500.000",
+    "max_market_order_qty": "150.000",
+    "min_opening_notional": "5",
+    "min_order_qty": "0.001",
+    "minimum_order_rules": {
+      "entry_market": {
+        "minimum_notional_applies": true,
+        "minimum_qty_applies": true,
+        "pre_signal_notional_price": "entry_ref",
+        "qty_step_applies": true
+      },
+      "protective_stop_close": {
+        "minimum_notional_applies": false,
+        "minimum_qty_applies": true,
+        "qty_step_applies": true
+      },
+      "tp1_reduce_only_limit": {
+        "minimum_notional_applies": false,
+        "minimum_qty_applies": true,
+        "qty_step_applies": true
+      },
+      "tp2_reduce_only_limit": {
+        "minimum_notional_applies": false,
+        "minimum_qty_applies": true,
+        "qty_step_applies": true
+      }
+    },
+    "price_and_notional_unit": "USDT",
+    "qty_step": "0.001",
+    "quantity_unit": "BTC",
+    "retrieved_at_utc": "2026-11-14T16:56:17.868567+00:00",
+    "snapshot_path": "research_freeze/v0.2.2/evidence/instrument.json",
+    "snapshot_sha256": "39e29a78a84561b709cc83afafbb5641709e0ef9102b16ee2c0b842c344ea76d",
+    "tick_size": "0.10",
+    "unresolved": [
+      "Historical changes in instrument constraints are not independently verified.",
+      "TradingView quantity/pointvalue mapping and actual broker-emulator behavior remain execution gates.",
+      "Current public closing-order rules are a declared historical applicability assumption, not proof of past matching-engine behavior."
+    ]
+  },
+  "numerical_environment_path": "research_freeze/v0.2.2/environment.json",
+  "numerical_environment_sha256": "ac190965edbb3a99c4d637f32a45d710ec5c69f74e003e68edc6458c10bb63d7",
+  "official_performance_validation_status": "UNVALIDATED",
+  "partitions_utc": {
+    "development": [
+      "2023-01-01T00:00:00Z",
+      "2025-01-01T00:00:00Z"
+    ],
+    "final_holdout": [
+      "2026-01-01T00:00:00Z",
+      "2026-11-01T00:00:00Z"
+    ],
+    "selection": [
+      "2025-01-01T00:00:00Z",
+      "2026-01-01T00:00:00Z"
+    ]
+  },
+  "profile_id": "BTCUSDT-15m-v0.2.2-official-research",
+  "research_freeze_effective_when": "Annotated v0.2.2-research-parameters tag references the commit containing this configuration and verified freeze records",
+  "schema_version": 1,
+  "symbol": "BTCUSDT"
+}

@@ -1,0 +1,107 @@
+{
+  "category": "linear",
+  "csv": "BTCUSDT_2024_60.csv",
+  "csv_sha256": "11ef4cd7162f48060cdf6c963234277f34d7a89e3b8eb6891221d37426843ebe",
+  "exclusive_end_utc": "2025-01-01T00:00:00.000Z",
+  "interval_minutes": 60,
+  "phase": "stage0a-development-only",
+  "quality": {
+    "conflicting_timestamps": [],
+    "duplicate_rows": 0,
+    "expected_rows": 8844,
+    "incomplete_rows": [],
+    "invalid_rows": [],
+    "missing_open_times": [],
+    "received_rows": 8844,
+    "status": "VALID",
+    "unique_received_rows": 8844,
+    "valid_development_rows": 8784,
+    "valid_rows": 8844,
+    "valid_warmup_rows": 60
+  },
+  "requests": [
+    {
+      "attempt": 1,
+      "response_sha256": "7add1143975fcadfb6d17b0c89b48b3c1a468f84e589b00c4ee48f5fe6a94df3",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:48.892293+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1707451199999&interval=60&limit=1000&start=1703851200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "78703fbf65f81b37a1fb8a50f00cf76eabe499c3430b98a16621990c6c49c8c7",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:49.693510+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1711051199999&interval=60&limit=1000&start=1707451200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "cbb092853b9a34b008eabc0dcbf236cf7b9cd108f8626409dcbfb1db59981d07",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:50.430632+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1714651199999&interval=60&limit=1000&start=1711051200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "21ecf8a4169269837848276f4c3d72573582378e05598fa6941bda5578b824b4",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:51.081808+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1718251199999&interval=60&limit=1000&start=1714651200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "06ef016ba12d981a465c622688a1a7b167de1710c0d7c47156f3e6853bb178fc",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:51.754259+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1721851199999&interval=60&limit=1000&start=1718251200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "983249066e68ab99bdde1c12cdf1d2e6055df4aedd6cdbbe4802dd9df4023c17",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:52.562144+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1725451199999&interval=60&limit=1000&start=1721851200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "7fdeefe53038d249ee7b5c588578e2c0f85d0c9ce407f3eed6b7b265a9e1fb56",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:53.373881+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1729051199999&interval=60&limit=1000&start=1725451200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "f8634faff7d930c89d01bdfc11fcbac8a64d7ea73e14e5ef715a92198119eb98",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:54.029744+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1732651199999&interval=60&limit=1000&start=1729051200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "79bb0d9047cbbda717e476de520d65a8d1eab0e4d33f9f44e39fd8be5279922a",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:54.717483+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1735689599999&interval=60&limit=1000&start=1732651200000&symbol=BTCUSDT"
+    }
+  ],
+  "schema_version": 1,
+  "start_utc": "2023-12-29T12:00:00.000Z",
+  "symbol": "BTCUSDT",
+  "synthetic": false,
+  "window": {
+    "anchor": 1703851200000,
+    "end": 1735689600000,
+    "interval": "60",
+    "start": 1704067200000,
+    "year": 2024
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "checks": "PASS",
+  "datasets": {
+    "BTCUSDT_2023_15.csv": {
+      "rows": 35280,
+      "sha256": "f8ce969f1ce6be885e428b97762faa5a43840c52da95b5c8f5ee5d05aad4753b"
+    },
+    "BTCUSDT_2023_60.csv": {
+      "rows": 8820,
+      "sha256": "543836f116ee43b2c7e0d1b2afc1669764f71b1ae08f43646a2b4942eab2d304"
+    },
+    "BTCUSDT_2024_15.csv": {
+      "rows": 35376,
+      "sha256": "8d682dcdc466230feea582e185c51dda8fb299581c3abe71db64163db0e46523"
+    },
+    "BTCUSDT_2024_60.csv": {
+      "rows": 8844,
+      "sha256": "11ef4cd7162f48060cdf6c963234277f34d7a89e3b8eb6891221d37426843ebe"
+    }
+  },
+  "dependency_lock_sha256": "e71f67460d622ed4222e28f70fd5caeb5d6745072ba6bcd6fcd56d8eb432c51e",
+  "environment_sha256": "ac190965edbb3a99c4d637f32a45d710ec5c69f74e003e68edc6458c10bb63d7",
+  "execution_gates": "OPEN_UNVERIFIED",
+  "new_market_data_downloaded": false,
+  "official_K_cost_stop": 2.5,
+  "official_performance_validation_status": "UNVALIDATED",
+  "original_design_tag_unchanged": true,
+  "phase1_commit": "c17f04c0f8f89b0d31a39a8860c11ac63f9e62cb",
+  "requests_audited_offline": 91,
+  "research_config_sha256": "196dfd9b9bc88007fbaa1be8172b861ec847c18ec591346c4f2a9e177256ff37",
+  "stage0b_selection_holdout_executed": false,
+  "status": "READY_TO_TAG"
+}

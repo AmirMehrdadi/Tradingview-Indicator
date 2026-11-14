@@ -1,0 +1,848 @@
+{
+  "blockers": [],
+  "datasets": [
+    {
+      "interval": "15",
+      "manifest": "BTCUSDT_2023_15.csv.manifest.json",
+      "manifest_sha256": "be2fb1d87d25eb5a2ad6e596452d6044abc9ba3ff384aedf7957e50eb0541ca7",
+      "quality": {
+        "conflicting_timestamps": [],
+        "duplicate_rows": 0,
+        "expected_rows": 35280,
+        "incomplete_rows": [],
+        "invalid_rows": [],
+        "missing_open_times": [],
+        "received_rows": 35280,
+        "status": "VALID",
+        "unique_received_rows": 35280,
+        "valid_development_rows": 35040,
+        "valid_rows": 35280,
+        "valid_warmup_rows": 240
+      },
+      "status": "VALID",
+      "year": 2023
+    },
+    {
+      "interval": "60",
+      "manifest": "BTCUSDT_2023_60.csv.manifest.json",
+      "manifest_sha256": "89a64339cc40b404b5580f98355c5c2da3d6a7f83be6584295c2240a836eaad6",
+      "quality": {
+        "conflicting_timestamps": [],
+        "duplicate_rows": 0,
+        "expected_rows": 8820,
+        "incomplete_rows": [],
+        "invalid_rows": [],
+        "missing_open_times": [],
+        "received_rows": 8820,
+        "status": "VALID",
+        "unique_received_rows": 8820,
+        "valid_development_rows": 8760,
+        "valid_rows": 8820,
+        "valid_warmup_rows": 60
+      },
+      "status": "VALID",
+      "year": 2023
+    },
+    {
+      "interval": "15",
+      "manifest": "BTCUSDT_2024_15.csv.manifest.json",
+      "manifest_sha256": "67d0c3be432910f02e4a8dc92fc512c1c8b417f2c59bd02227e8c22252ff19d4",
+      "quality": {
+        "conflicting_timestamps": [],
+        "duplicate_rows": 0,
+        "expected_rows": 35376,
+        "incomplete_rows": [],
+        "invalid_rows": [],
+        "missing_open_times": [],
+        "received_rows": 35376,
+        "status": "VALID",
+        "unique_received_rows": 35376,
+        "valid_development_rows": 35136,
+        "valid_rows": 35376,
+        "valid_warmup_rows": 240
+      },
+      "status": "VALID",
+      "year": 2024
+    },
+    {
+      "interval": "60",
+      "manifest": "BTCUSDT_2024_60.csv.manifest.json",
+      "manifest_sha256": "26e0d5b83c9281d3a64172478e8d55cb4f4c8d90841dd13e532bb60db9aced9a",
+      "quality": {
+        "conflicting_timestamps": [],
+        "duplicate_rows": 0,
+        "expected_rows": 8844,
+        "incomplete_rows": [],
+        "invalid_rows": [],
+        "missing_open_times": [],
+        "received_rows": 8844,
+        "status": "VALID",
+        "unique_received_rows": 8844,
+        "valid_development_rows": 8784,
+        "valid_rows": 8844,
+        "valid_warmup_rows": 60
+      },
+      "status": "VALID",
+      "year": 2024
+    }
+  ],
+  "finished_at_utc": "2026-11-14T16:57:55.617873+00:00",
+  "instrument": {
+    "file": "instrument.json",
+    "sha256": "39e29a78a84561b709cc83afafbb5641709e0ef9102b16ee2c0b842c344ea76d"
+  },
+  "phase": "stage0a-development-only",
+  "provenance": {
+    "K_cost_stop": "UNSET",
+    "config_sha256": "9c9e1a18c1a48ee98bf4dd47b66179ab1bc2765343fbf2a520f042566127d6d2",
+    "design_commit": "ac8fc4bb9b66a59c7224aaec1630a594b41d7e80",
+    "design_tag": "v0.2.2-design",
+    "execution_gates": "OPEN_UNVERIFIED",
+    "implementation_files_sha256": {
+      "research/__init__.py": "003980473d5189621dcfa42517f34f5c1ef9b70fd9e30183994ab792d20ea416",
+      "research/__main__.py": "102395926a4f421e56c6b2ad0c047770a84e066ed69c49cdf70a18ba566e34e9",
+      "research/access.py": "70167b655e5d3b868d20f3d3ab6f72a75d4146da230e9386164fdd6344e54b10",
+      "research/indicators.py": "8951b0a9f86dbb47f1dbb20f7b0ff78d0dbf7c32448acb46778c245dea6e6d4d",
+      "research/loader.py": "dda700e0e5b3a75561f76956e0ae08124f6e43128f75279a63423c0da139f2d1",
+      "research/stage0a.py": "9c6b6fec85d667c85892055ff9e58feee87fd9f051c71ff2be0d6c3c897c732c",
+      "research/workflow.py": "557948a2c32c55b374bec713a5dfe2b6840b43fd39ff19d116c2dc54c7cbf123"
+    },
+    "implementation_sha256": "5896022c483659171ee8dd160443b4d91fcb0102ea847f226695852c67775534",
+    "python_version": "3.9.6 (default, Apr 30 2025, 02:07:17) \n[Clang 17.0.0 (clang-1700.0.13.5)]",
+    "research_parameter_freeze": "OPEN",
+    "spec_sha256": "b9f35d752f4748a68a7d7677112a67007acb94a3266d33bd8b763991ef89a1c6"
+  },
+  "requests": [
+    {
+      "attempt": 1,
+      "response_sha256": "d94486355bc6d47f64c15f5b7d02630724fd45050e8bb0ad365913ccee51f62a",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:56:17.868567+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/instruments-info?category=linear&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "9fa882f47b706ede13d9e20ad940ea8919b53b75ad07cae8681a412749316a28",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:56:18.509522+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1673215199999&interval=15&limit=1000&start=1672315200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "c8cfc30002e626a740a0dbecb4534e4a768ff602d21aaeb25e9e7b0c2cb337bd",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:56:19.262254+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1674115199999&interval=15&limit=1000&start=1673215200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "874527f52c5fe72293e89bb3bf12c61647296b8f1ac30984775de419767baa92",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:56:20.009630+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1675015199999&interval=15&limit=1000&start=1674115200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "8789783ba934524607e3c57a20036a9d9eae8a70e108da36f41c5d6100a2275d",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:56:20.746978+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1675915199999&interval=15&limit=1000&start=1675015200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "c7f900ddc68bcc3a2e755a78376bf4190d17134e78c835a246b1f68f040fd045",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:56:21.800543+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1676815199999&interval=15&limit=1000&start=1675915200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "de52cabce1323d8ffd3ab3b05c50d3594ac8f1b95448203546796e12a7f5b745",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:56:22.522754+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1677715199999&interval=15&limit=1000&start=1676815200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "7f837191679c7b9d566aa691470674fec6d12a9f04f35eb5b0d6e4b576e26c48",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:56:23.412524+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1678615199999&interval=15&limit=1000&start=1677715200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "68e8a5afce0bda1a2ecae95fe01c82f65f4ff82dbdb0582c70d3cdd21d34966e",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:56:24.147481+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1679515199999&interval=15&limit=1000&start=1678615200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "f83eb848740e73fe5f4636530fc8b2f5d5ea25029876ceca2295823dffa88e95",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:56:24.943208+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1680415199999&interval=15&limit=1000&start=1679515200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "56e8411188e760cb0e849b87fb858ee9cff5c9a155a21a75947cc21f656020e6",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:56:25.757336+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1681315199999&interval=15&limit=1000&start=1680415200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "fe670322c20b3464bbf08bfe551ab4e976d2f942871835c6b6dfce4d29d08f2a",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:56:26.430324+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1682215199999&interval=15&limit=1000&start=1681315200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "bda7a8aadb651c367076d93fe5ba17286669cb5a9c6f6b25924f194a97a3dad6",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:56:41.650007+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1683115199999&interval=15&limit=1000&start=1682215200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "17773421686f2afed0c0bb76ef0e08d857fe4bde42ebc939af6188e9a20648a9",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:56:42.388367+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1684015199999&interval=15&limit=1000&start=1683115200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "192da0720d8fe191979399befd393cbbf3b5db858f2394f5a6899c12d3e761ec",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:56:43.084628+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1684915199999&interval=15&limit=1000&start=1684015200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "8c3153631446726183db6e58fcfa84f5a09a6691c54f68ac1b56701a60607ea2",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:56:43.799748+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1685815199999&interval=15&limit=1000&start=1684915200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "861c973dcfddc52622abada86e34b46ad6762207655913285b6a6ced91fb0abf",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:56:44.493461+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1686715199999&interval=15&limit=1000&start=1685815200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "cf4ef7db42a534399607df0f390213b6a8d6680acd90e4b3968922ffde91e78e",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:56:45.209203+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1687615199999&interval=15&limit=1000&start=1686715200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "b7ce5c7b0f9d52fd8dadda80cd13efe71a960d4b639acecd9a5f80aa44daf175",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:56:45.874553+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1688515199999&interval=15&limit=1000&start=1687615200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "27f61ad67a49607e10cd06e07867a075cfa4f395c8381ace98e714df56fdbfdd",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:56:46.499976+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1689415199999&interval=15&limit=1000&start=1688515200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "0552b43da349903f8da8f048233b5bbbdd1c97f56ac7a31dfcaa033959230aaf",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:56:47.204710+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1690315199999&interval=15&limit=1000&start=1689415200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "df36be1135c69001732e851eb2a9b4b0cbd9104508e2d8c96cb858050f0cce28",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:56:47.921504+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1691215199999&interval=15&limit=1000&start=1690315200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "dd2b0d4e249d2a3fd6691b48828ebebf263ee10db32675e83ab083670c56cf1f",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:56:48.656255+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1692115199999&interval=15&limit=1000&start=1691215200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "934652e23e7de8eae81e77e9bc5cba3b0c302f7041d953d0f479448fb3ec9f68",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:56:49.353266+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1693015199999&interval=15&limit=1000&start=1692115200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "653214ca2ed8b1b4665e52cfd908aab8d17fc3d9a0a3605b64e216c28eb9f0c2",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:56:50.045653+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1693915199999&interval=15&limit=1000&start=1693015200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "3d1f386cdd499efe2b9e702c498e747f4c0367a75820be86858fb98b4683cc4d",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:56:50.736825+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1694815199999&interval=15&limit=1000&start=1693915200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "0ed35b7b4dec4c1542914756afaecd23e6c56bfe8ae78e3223f065cec518a7d9",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:56:51.425567+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1695715199999&interval=15&limit=1000&start=1694815200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "2060f8dc265f96b99e5bbb2182b1bb10881b99c22c330148c7975f84fa1f3a64",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:56:52.192461+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1696615199999&interval=15&limit=1000&start=1695715200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "4375736444551953d46da3be56b4ea3ced63031e2b63dfcd7ff452a2cb00618e",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:56:58.093731+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1697515199999&interval=15&limit=1000&start=1696615200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "427849ab0d48b4a841cdf12271f0bd7bffb6a2158633bb5d28643e673a58616c",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:56:58.825422+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1698415199999&interval=15&limit=1000&start=1697515200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "b0468443bb9053f3ce15e2abc23f37b439ef9dc508e951481e8bf6a3c2fdd0be",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:56:59.691772+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1699315199999&interval=15&limit=1000&start=1698415200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "f6cd68ffcc0a47c7ea10df5f37b48b9edc4b7b9d4c3c8d8fd9d228089fa595ca",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:00.746732+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1700215199999&interval=15&limit=1000&start=1699315200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "715066a3ccbadb09ea670dbdd5413e53e52189434f3de253a4c94abc6c667c3a",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:01.443748+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1701115199999&interval=15&limit=1000&start=1700215200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "7adddb7d4aa3b66617347559f03dfb363f7b41bc820934105e0992d16bad9f56",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:02.217623+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1702015199999&interval=15&limit=1000&start=1701115200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "a62dba4af70bca15c0c08284754d3e31d3b05f04c6d82906caf7898de1af12ae",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:02.961788+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1702915199999&interval=15&limit=1000&start=1702015200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "b94734e7a507dbcdac5be1ff405ec39c1adf067b64d668e79e8dad1709eae233",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:03.748836+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1703815199999&interval=15&limit=1000&start=1702915200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "044d539fa4073d2225182bbbc823acb6f5de25d405dd76ddd95077d6597e19d7",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:04.466111+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1704067199999&interval=15&limit=1000&start=1703815200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "5bd5367e46fb755fb6a480c5791191c1330f81ed9b464eb37964ac6dff3d0455",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:05.914776+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1675915199999&interval=60&limit=1000&start=1672315200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "c61a04de0168452418ec680c6ec3e41b17e38e05cad0e5116a0eb24988ec7a2a",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:06.637461+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1679515199999&interval=60&limit=1000&start=1675915200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "d40793d1e249e886565d2a6140e45077a230041a299b4b8453983feada87371e",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:07.292919+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1683115199999&interval=60&limit=1000&start=1679515200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "93543c1cd99f4a78f2b6d83631e2baf70235ee672f8840fe32a57dfb0bdb6d81",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:08.050347+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1686715199999&interval=60&limit=1000&start=1683115200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "50eb9be5f1822f4236df62002d3ec86eafff8f77e4d40c9ca20846a030f3453c",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:08.737288+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1690315199999&interval=60&limit=1000&start=1686715200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "63f258164aaacd9c77a9551007477cf38c58c240e7bdd9fb6b0dd728cb68bfdf",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:09.435673+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1693915199999&interval=60&limit=1000&start=1690315200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "dca7ca969d9717909f1a7a111832e786284aa0ecd733a5400a55636aff1b3e49",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:10.157913+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1697515199999&interval=60&limit=1000&start=1693915200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "8e356ed5e209dd39ea9bfc6d2c7d1e6f0020bcb5b6c5dcf00256c5274ce7ec29",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:10.888864+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1701115199999&interval=60&limit=1000&start=1697515200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "23807bad62e1077599ad4d79f548068d87827ebbfb5d787b8980d0aa3085d5c1",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:11.627577+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1704067199999&interval=60&limit=1000&start=1701115200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "8c580ccaf369b6762f4ed7394f35984b735010a14ae0944145f35e978965116c",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:12.481497+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1704751199999&interval=15&limit=1000&start=1703851200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "388e07f38b3758fd1ccc9e64527f3e02c9a7380a72429adfd795d4282ab5f882",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:13.186977+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1705651199999&interval=15&limit=1000&start=1704751200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "7bca77d11dde36d300e31b82907ce445364019496425e92afc96fc4e07c2da27",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:13.935610+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1706551199999&interval=15&limit=1000&start=1705651200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "e72fa88f31822a3c012e0ad01992eddb951c462fce02380f38e1a1f68a0b004b",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:14.709890+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1707451199999&interval=15&limit=1000&start=1706551200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "808b88a9e71fcc0d2df469110e397c38cc41401989efff53b5f5a26611dff93b",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:15.597545+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1708351199999&interval=15&limit=1000&start=1707451200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "ebc506481fb3d189af282997abdb38acf0b9b958a50abdcdb09f62bab40bad43",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:16.249850+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1709251199999&interval=15&limit=1000&start=1708351200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "ffe6eb04761043b8fe3cab0b0c1202d289d510871960f66cdca3d7ebee4089f1",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:17.062140+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1710151199999&interval=15&limit=1000&start=1709251200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "474392b001d34b13811bb5a61d65bc9e1dbd2e1649e4fdba7545c01b85110a27",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:18.018876+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1711051199999&interval=15&limit=1000&start=1710151200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "95a94549cbb0286bf3de473e729cffa1631167890edfd86f29b5de593b422047",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:18.761373+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1711951199999&interval=15&limit=1000&start=1711051200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "dd3b39e6143131cdae4675007be1a9b53c2dd7ef053b6a9ebb9aedd80192abc0",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:19.590908+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1712851199999&interval=15&limit=1000&start=1711951200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "e6d7b205ecfde4e4d4dbb84578a017fd53c3e148b207105a92f83c8b5baba6a4",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:20.318469+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1713751199999&interval=15&limit=1000&start=1712851200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "31801dcf5d107ccecb20d462860cb0dde887d10cbd8c04a552985c044107178e",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:21.037839+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1714651199999&interval=15&limit=1000&start=1713751200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "9bcaeea626034756c5270b0d9d2d5ef9959f605b72d5907fdf7849c417c7ca45",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:21.779183+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1715551199999&interval=15&limit=1000&start=1714651200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "dd96c55baccd03a75578fc105c217580a0abd82718f33d3457e0c5edbfa35f77",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:22.619582+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1716451199999&interval=15&limit=1000&start=1715551200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "e30ca6636bb9865b25c7deb65f8e44158e62ab5c940f2c42254ff4ca716702f8",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:24.029604+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1717351199999&interval=15&limit=1000&start=1716451200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "db079bd61a9774eb55cdd47355d0504fb3bd6b09cff14a973d1aba716981dcc1",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:24.991635+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1718251199999&interval=15&limit=1000&start=1717351200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "7f9bc19708e87f65b64fe9758745b6b56f42f4f4cd0d931e7c072c19fff07d13",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:25.791580+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1719151199999&interval=15&limit=1000&start=1718251200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "b93392d6ca9a5be196db384bac10687311db0ee2a594a8435c4e80ad7ecb91e5",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:26.945742+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1720051199999&interval=15&limit=1000&start=1719151200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "9209ce4df784fa63fc0ccb6fd62b10eb55f2792aef3409fdea14aac78a028ae0",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:27.812592+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1720951199999&interval=15&limit=1000&start=1720051200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "ae8241fe63899ef310ac77830c445d50b0f32222c3477a73c6a0bb582706bbaa",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:28.729911+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1721851199999&interval=15&limit=1000&start=1720951200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "ea221465454ffeb7a5dbc054218f39517646aee46fcbf2437b988ea3b0ba931f",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:29.927446+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1722751199999&interval=15&limit=1000&start=1721851200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "5a52cf92c9616754119ddb82201da8f7fab2beb3762472dd0e4db40ba39064d2",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:30.906741+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1723651199999&interval=15&limit=1000&start=1722751200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "b6fb8d8efcedbbaf060901ab6d5804b952ede1b1e022f3b3455d487afec843cd",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:31.975548+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1724551199999&interval=15&limit=1000&start=1723651200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "614882b6d2e322404abd8a81d4c93a5d84d11fbaa2affa24b4b51760b425c753",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:32.946691+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1725451199999&interval=15&limit=1000&start=1724551200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "52996ccd84f3e84c4e4c76816bd94fa64cfb4e88905c9ebf1cddf5bbdae993c7",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:34.103736+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1726351199999&interval=15&limit=1000&start=1725451200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "3dd7caf2c6c4440f7da4652f0c377daf3c42ed75060c87bc0f6d914cae08ce49",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:34.958031+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1727251199999&interval=15&limit=1000&start=1726351200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "5e66352387d3695a99a1a831f32db0ea8b9af7bdf9918abe6ae7f58e5dda9a38",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:35.729439+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1728151199999&interval=15&limit=1000&start=1727251200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "759e33544a201d67bd98a77ff18a0f73606f7c274a56887955e04b2c56c0fe4b",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:37.282414+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1729051199999&interval=15&limit=1000&start=1728151200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "87dd81184a7d4d3b92494b62346dd58a2851d9ad5d1f9d1b3aa22ef9c7eba1d8",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:38.393517+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1729951199999&interval=15&limit=1000&start=1729051200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "b3643a44420fc8848fcb0b1c86dd2fc6c6fbe3fcf7a91f60d53f529ce86c5abf",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:39.630593+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1730851199999&interval=15&limit=1000&start=1729951200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "e19499cec8e05b71d80275b9072e7260040f2f3e1a6e0d8c02ca0711d946685c",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:40.884017+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1731751199999&interval=15&limit=1000&start=1730851200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "356ababda3fd8aaf138e510d14ec2f9cc3a54f029fae8853555086341f211306",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:42.161007+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1732651199999&interval=15&limit=1000&start=1731751200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "a7e1bb3af99506740e03434b50906e0953ae230ac9e026058a161ffe86ce0b7f",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:43.349046+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1733551199999&interval=15&limit=1000&start=1732651200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "5fe6e58663faad0e1e6302ff4063100133d9a68fec10e4d5a53bf4a46a17465e",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:44.551257+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1734451199999&interval=15&limit=1000&start=1733551200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "180ee14793411cb5042453dbaf9a5db439dd1902a7708e862ada9f353cdc5a80",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:46.189963+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1735351199999&interval=15&limit=1000&start=1734451200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "21591da544ab7a325a27ff6fc0ca98fe467ebf4deff890e4adeb974b7c7314ce",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:47.327645+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1735689599999&interval=15&limit=1000&start=1735351200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "7add1143975fcadfb6d17b0c89b48b3c1a468f84e589b00c4ee48f5fe6a94df3",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:48.892293+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1707451199999&interval=60&limit=1000&start=1703851200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "78703fbf65f81b37a1fb8a50f00cf76eabe499c3430b98a16621990c6c49c8c7",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:49.693510+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1711051199999&interval=60&limit=1000&start=1707451200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "cbb092853b9a34b008eabc0dcbf236cf7b9cd108f8626409dcbfb1db59981d07",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:50.430632+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1714651199999&interval=60&limit=1000&start=1711051200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "21ecf8a4169269837848276f4c3d72573582378e05598fa6941bda5578b824b4",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:51.081808+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1718251199999&interval=60&limit=1000&start=1714651200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "06ef016ba12d981a465c622688a1a7b167de1710c0d7c47156f3e6853bb178fc",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:51.754259+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1721851199999&interval=60&limit=1000&start=1718251200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "983249066e68ab99bdde1c12cdf1d2e6055df4aedd6cdbbe4802dd9df4023c17",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:52.562144+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1725451199999&interval=60&limit=1000&start=1721851200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "7fdeefe53038d249ee7b5c588578e2c0f85d0c9ce407f3eed6b7b265a9e1fb56",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:53.373881+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1729051199999&interval=60&limit=1000&start=1725451200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "f8634faff7d930c89d01bdfc11fcbac8a64d7ea73e14e5ef715a92198119eb98",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:54.029744+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1732651199999&interval=60&limit=1000&start=1729051200000&symbol=BTCUSDT"
+    },
+    {
+      "attempt": 1,
+      "response_sha256": "79bb0d9047cbbda717e476de520d65a8d1eab0e4d33f9f44e39fd8be5279922a",
+      "retCode": 0,
+      "retrieved_at": "2026-11-14T16:57:54.717483+00:00",
+      "status": "OK",
+      "url": "https://api.bybit.com/v5/market/kline?category=linear&end=1735689599999&interval=60&limit=1000&start=1732651200000&symbol=BTCUSDT"
+    }
+  ],
+  "run_id": "20261114T165617836854Z",
+  "started_at_utc": "2026-11-14T16:56:17.868468+00:00",
+  "status": "DATA_READY"
+}

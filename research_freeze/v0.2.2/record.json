@@ -1,0 +1,73 @@
+{
+  "data_csv_sha256": {
+    "data/stage0a/20261114T165617836854Z/BTCUSDT_2023_15.csv": "f8ce969f1ce6be885e428b97762faa5a43840c52da95b5c8f5ee5d05aad4753b",
+    "data/stage0a/20261114T165617836854Z/BTCUSDT_2023_60.csv": "543836f116ee43b2c7e0d1b2afc1669764f71b1ae08f43646a2b4942eab2d304",
+    "data/stage0a/20261114T165617836854Z/BTCUSDT_2024_15.csv": "8d682dcdc466230feea582e185c51dda8fb299581c3abe71db64163db0e46523",
+    "data/stage0a/20261114T165617836854Z/BTCUSDT_2024_60.csv": "11ef4cd7162f48060cdf6c963234277f34d7a89e3b8eb6891221d37426843ebe"
+  },
+  "decision_source": "Explicit user approval in current Phase 2 request",
+  "dependency_lock_sha256": "e71f67460d622ed4222e28f70fd5caeb5d6745072ba6bcd6fcd56d8eb432c51e",
+  "descriptive_risk_cost_evidence": {
+    "2023": {
+      "n": 1679,
+      "percentiles": {
+        "10": 1.2484987626292456,
+        "25": 1.8605445393237345,
+        "5": 0.985924251358276,
+        "50": 2.7744101016194755,
+        "75": 4.0449526461840914,
+        "90": 5.603066122327969,
+        "95": 6.691933494382383
+      }
+    },
+    "2024": {
+      "n": 1708,
+      "percentiles": {
+        "10": 1.828388352972378,
+        "25": 2.556426230771327,
+        "5": 1.4977427983604483,
+        "50": 3.791526583034475,
+        "75": 5.1666724385488685,
+        "90": 7.248003463538937,
+        "95": 8.87759776576824
+      }
+    }
+  },
+  "economic_rule": "Estimated round-trip transaction cost must not exceed 40% of planned stop distance; planned_stop / estimated_roundtrip_cost >= 2.5. Equality passes. Funding and gap overruns are outside this ex-ante proxy.",
+  "evidence_files_sha256": {
+    "research_freeze/v0.2.2/evidence/BTCUSDT_2023_15.csv.manifest.json": "be2fb1d87d25eb5a2ad6e596452d6044abc9ba3ff384aedf7957e50eb0541ca7",
+    "research_freeze/v0.2.2/evidence/BTCUSDT_2023_60.csv.manifest.json": "89a64339cc40b404b5580f98355c5c2da3d6a7f83be6584295c2240a836eaad6",
+    "research_freeze/v0.2.2/evidence/BTCUSDT_2024_15.csv.manifest.json": "67d0c3be432910f02e4a8dc92fc512c1c8b417f2c59bd02227e8c22252ff19d4",
+    "research_freeze/v0.2.2/evidence/BTCUSDT_2024_60.csv.manifest.json": "26e0d5b83c9281d3a64172478e8d55cb4f4c8d90841dd13e532bb60db9aced9a",
+    "research_freeze/v0.2.2/evidence/instrument.json": "39e29a78a84561b709cc83afafbb5641709e0ef9102b16ee2c0b842c344ea76d",
+    "research_freeze/v0.2.2/evidence/run_manifest.json": "f04ca18a57ba88ec576298aa624b9d8ea7c342fc0cc77b1d39614f7894f27d6c"
+  },
+  "future_data_access_authorized": false,
+  "future_ui_requirement_path": "docs/FUTURE_INDICATOR_K_REQUIREMENT.md",
+  "future_ui_requirement_sha256": "e392ca099228ca4a43f9a4701bb2551e8028f2a0754f92b68a7f005f72695652",
+  "intended_tag": "v0.2.2-research-parameters",
+  "numerical_environment_sha256": "ac190965edbb3a99c4d637f32a45d710ec5c69f74e003e68edc6458c10bb63d7",
+  "official_K_cost_stop": 2.5,
+  "original_design_commit": "ac8fc4bb9b66a59c7224aaec1630a594b41d7e80",
+  "original_design_tag_object": "638ec6d99413c8dbc82a111209015953809ced08",
+  "parameters_are_not_performance_validation": true,
+  "phase1_commit": "c17f04c0f8f89b0d31a39a8860c11ac63f9e62cb",
+  "rationale_evidence_scope": "Only the pre-existing descriptive 2023/2024 Stage-0A distributions; no profitability, outcome ranking or 2025+ prices. K is a policy decision, not an optimized estimate.",
+  "recorded_at_utc": "2026-11-14T17:33:02.222001+00:00",
+  "remaining_execution_gates": "OPEN_UNVERIFIED",
+  "research_config_path": "configs/research_v0.2.2.json",
+  "research_config_sha256": "196dfd9b9bc88007fbaa1be8172b861ec847c18ec591346c4f2a9e177256ff37",
+  "schema_version": 1,
+  "stage0a_historical_config_retained": "configs/stage0a.json remains UNSET to preserve provenance; it is not the official subsequent-research configuration.",
+  "stage0a_report_files_sha256": {
+    "reports/stage0a/20261114T165617836854Z/2023.json": "05dd466d4f8abed8ce0b5d1faa36cd1533f22ae71363dbf43ff54d14d4e4af5a",
+    "reports/stage0a/20261114T165617836854Z/2023_opportunities.csv": "18454a2d4306601f8b29f33cd7dd8dce0faeddc5346559725c02d7167936ddb6",
+    "reports/stage0a/20261114T165617836854Z/2024.json": "3d656853ebc0767c99c7c5613eaceffe8f0d0c932b198e222dbe2f2a6cb67980",
+    "reports/stage0a/20261114T165617836854Z/2024_opportunities.csv": "25cca1948600eba69afcb9e7f1078b61fc62fa5c475871d50607365ba16ce228",
+    "reports/stage0a/20261114T165617836854Z/access_and_hash_audit.json": "87eb7f7c537553ab75a06f8d5760be6ebd7d04a6f099c7e71fce9c485a61231e",
+    "reports/stage0a/20261114T165617836854Z/analysis_provenance.json": "f65b8878e9a49dd8252e2e57da4603bf3e9286e0b2b6305d67850197f1eb6fec",
+    "reports/stage0a/20261114T165617836854Z/quality.json": "46daa6122a142add1098783fececb87d4e87e0b5f3cfa2a36b867a0daaab8c75",
+    "reports/stage0a/20261114T165617836854Z/summary_FA.md": "57968fa3ea07551e69a0e4bebbb747b3443713e7f02c0bde444b2a55b1300a93"
+  },
+  "stage0a_run_id": "20261114T165617836854Z"
+}
