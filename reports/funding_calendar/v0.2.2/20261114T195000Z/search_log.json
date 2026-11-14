@@ -1,0 +1,28 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "exact_queries_subset": [
+    "\"Bybit\" \"BTCUSDT\" \"funding\" \"2023\" \"temporary\" -wiki -site:t.me -site:bybit.com/en/social/",
+    "\"Bybit\" \"BTCUSDT\" \"funding\" \"2024\" \"settlement interval\" -wiki -site:t.me -site:bybit.com/en/social/",
+    "\"Bybit\" \"Adjustment\" \"Funding Rate Interval\" \"January\" \"2023\"",
+    "\"Bybit\" \"USDCUSDT\" \"Funding Rate Interval\" 2023 -site:reddit.com",
+    "site:announcements.bybit.com \"BTCUSDT\" \"funding\" \"2023\"",
+    "site:announcements.bybit.com \"BTCUSDT\" \"funding\" \"2024\""
+  ],
+  "exclusions": [
+    "Current third-party dashboards and data-derived interval estimates",
+    "Other-exchange rules or different-symbol schedules as BTCUSDT proof",
+    "Unrelated market commentary, trading examples and performance claims",
+    "Current instrument API metadata as a historical calendar",
+    "Nearest archive availability dates treated as exact requested-date captures"
+  ],
+  "funding_mark_reacquisition": false,
+  "limitation": "Search is bounded and nonexhaustive. Failure to locate an announcement is not evidence that no interval change occurred.",
+  "market_data_network_requests": 0,
+  "methods": [
+    "Opened all three user leads and followed the linked official feature announcement.",
+    "Searched official notices for 2023/2024 BTCUSDT schedules, interval adjustments and temporary exceptions.",
+    "Used official GitHub commit metadata and immutable documentation revisions.",
+    "Queried bounded Internet Archive availability/CDX metadata and checked exact archived payload digests.",
+    "Used a non-BTC notice only to test scope and unsupported backwards inference."
+  ]
+}

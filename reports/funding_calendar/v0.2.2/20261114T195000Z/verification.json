@@ -1,0 +1,25 @@
+{
+  "annual": [
+    {
+      "calendar_proven": false,
+      "settlements": 1095,
+      "year": 2023
+    },
+    {
+      "calendar_proven": false,
+      "settlements": 1098,
+      "year": 2024
+    }
+  ],
+  "archive_payload_date_bindings_verified": 2,
+  "baseline_files_unchanged": 113,
+  "freeze_tags": "UNCHANGED",
+  "initial_2023_mark": "NOT_REQUIRED_FOR_AUTHORIZED_ANNUAL_EXPOSURE_RAW_ABSENCE_PRESERVED",
+  "integrity": "PASS_EVIDENCE_INTEGRITY_ONLY",
+  "network_or_market_acquisition": false,
+  "original_135_test_evidence": "INTACT_NOT_RERUN",
+  "original_snapshot_files_unchanged": 2264,
+  "position_simulation_or_private_ledger_access": false,
+  "source_payloads_hash_verified": 23,
+  "verdict": "PARTIAL_DATA"
+}

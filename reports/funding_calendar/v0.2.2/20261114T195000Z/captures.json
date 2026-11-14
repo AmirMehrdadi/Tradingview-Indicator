@@ -1,0 +1,589 @@
+{
+  "archive_payload_checks": [
+    {
+      "archive_timestamp": "20230604184133",
+      "capture_id": "archive_learn_20230604_replay",
+      "cdx_sha1_base32": "YIL5BV22LKGSR3SX2Y45KRP2PELSJJHY",
+      "match": true,
+      "raw_sha1_base32": "YIL5BV22LKGSR3SX2Y45KRP2PELSJJHY",
+      "statement_presence_verified": true
+    },
+    {
+      "archive_timestamp": "20240712172746",
+      "capture_id": "archive_learn_20240712_replay",
+      "cdx_sha1_base32": "YDLRQTO23VLSQKGKYUC4CPKVDCEHV4BH",
+      "match": true,
+      "raw_sha1_base32": "YDLRQTO23VLSQKGKYUC4CPKVDCEHV4BH",
+      "statement_presence_verified": true
+    }
+  ],
+  "audit_date_utc": "2026-11-14",
+  "cache_root_relative": "data/funding/calendar_evidence/v0.2.2/20261114T195000Z",
+  "raw_source_bodies_committed": false,
+  "requests": [
+    {
+      "bytes": 13509,
+      "cache_relative_path": "data/funding/calendar_evidence/v0.2.2/20261114T195000Z/api_funding_file_history.response",
+      "commit_metadata": [
+        {
+          "author_date": "2020-11-12T06:59:12Z",
+          "committer_date": "2020-11-12T06:59:12Z",
+          "sha": "44ffcc002e266c3d08f3d14cc6e445ad3c941871"
+        },
+        {
+          "author_date": "2019-10-15T04:14:58Z",
+          "committer_date": "2019-10-15T04:14:58Z",
+          "sha": "62d46ec8a2ac45460b0e84866340db5bee7df236"
+        },
+        {
+          "author_date": "2019-10-14T11:24:28Z",
+          "committer_date": "2019-10-14T11:24:28Z",
+          "sha": "38d00a99eaeeb95373aaff3475cce7715519cf2c"
+        },
+        {
+          "author_date": "2019-10-10T06:19:45Z",
+          "committer_date": "2019-10-10T06:19:45Z",
+          "sha": "b5661807776f1d599f1cd7ebc7f3c324607dddce"
+        }
+      ],
+      "http_date": "Sat, 14 Nov 2026 19:50:32 GMT",
+      "http_status": 200,
+      "last_modified": "Thu, 12 Nov 2020 06:59:12 GMT",
+      "purpose": "DOCUMENT_CALENDAR_EVIDENCE_ONLY_NO_MARKET_DATA_REQUEST",
+      "retrieved_at_utc": "2026-11-14T19:50:32.042436+00:00",
+      "sha256": "13777abd58efe5a51ec275d1d7132e3c5b97e6457275e97bf15ab3112114ace5",
+      "source_id": "api_funding_file_history",
+      "status": "OK",
+      "url": "https://api.github.com/repos/bybit-exchange/api-connectors/commits?path=swagger-gen%2Fcsharp%2Fdocs%2FFundingApi.md&per_page=100"
+    },
+    {
+      "bytes": 89618,
+      "cache_relative_path": "data/funding/calendar_evidence/v0.2.2/20261114T195000Z/api_swagger_file_history.response",
+      "commit_metadata": [
+        {
+          "author_date": "2021-03-24T14:46:48Z",
+          "committer_date": "2021-03-25T02:19:27Z",
+          "sha": "b09aeb5525d4fec668a6c035891e19ba4703efdd"
+        },
+        {
+          "author_date": "2021-02-04T06:53:29Z",
+          "committer_date": "2021-02-04T06:53:29Z",
+          "sha": "47f3b3421b56136360983af214f5c5179b0c415f"
+        },
+        {
+          "author_date": "2021-02-04T06:48:32Z",
+          "committer_date": "2021-02-04T06:48:32Z",
+          "sha": "989c8c8c7623b5c0acb14307a3fc526471fbf081"
+        },
+        {
+          "author_date": "2021-01-08T04:07:31Z",
+          "committer_date": "2021-01-08T04:07:31Z",
+          "sha": "0a16f2d391047c99e56c7ab5cbf076c2049f8d36"
+        },
+        {
+          "author_date": "2021-01-07T09:37:56Z",
+          "committer_date": "2021-01-07T09:37:56Z",
+          "sha": "40b7edf5d613c099e9e7f7c0367aa8b2c324948c"
+        },
+        {
+          "author_date": "2021-01-06T09:23:16Z",
+          "committer_date": "2021-01-06T09:23:16Z",
+          "sha": "d2049812e58122e2a3c4a9451bcb243d4aa3a650"
+        },
+        {
+          "author_date": "2021-01-06T07:34:24Z",
+          "committer_date": "2021-01-06T07:35:13Z",
+          "sha": "6b3338fb5996af661173a1142ebd11c23e14f7ec"
+        },
+        {
+          "author_date": "2020-12-16T07:45:47Z",
+          "committer_date": "2020-12-16T07:45:47Z",
+          "sha": "68fc0a6aa749bea7643c4b38b509a06128de3d7f"
+        },
+        {
+          "author_date": "2020-11-12T06:35:29Z",
+          "committer_date": "2020-11-12T06:35:29Z",
+          "sha": "0a1b3bee1f8f7cf5b31dd383e80e10d56ef26f50"
+        },
+        {
+          "author_date": "2020-10-02T05:32:46Z",
+          "committer_date": "2020-10-02T05:32:51Z",
+          "sha": "bc36d465d3444cb3cef088d8b4de8fd95e21efc0"
+        },
+        {
+          "author_date": "2020-06-08T15:28:10Z",
+          "committer_date": "2020-06-08T15:28:10Z",
+          "sha": "6247b1cf880e6d4ef3722840e70121125aa0981a"
+        },
+        {
+          "author_date": "2020-05-20T08:49:08Z",
+          "committer_date": "2020-05-20T08:53:50Z",
+          "sha": "06e0fe50c910a9dbe809338485cd14937d4b7d07"
+        },
+        {
+          "author_date": "2020-05-20T08:45:42Z",
+          "committer_date": "2020-05-20T08:45:42Z",
+          "sha": "33389f063adac7129215832c66408774f1759516"
+        },
+        {
+          "author_date": "2020-05-20T07:31:44Z",
+          "committer_date": "2020-05-20T07:31:44Z",
+          "sha": "4d89a165f9191e3416a3ee3a7894dc1a5d9d99e6"
+        },
+        {
+          "author_date": "2020-03-06T07:28:48Z",
+          "committer_date": "2020-03-06T07:28:48Z",
+          "sha": "cbbe23f632ae3d76d517314c2405cd7635380bd1"
+        },
+        {
+          "author_date": "2020-02-23T09:05:55Z",
+          "committer_date": "2020-02-23T09:05:55Z",
+          "sha": "97cbd838d0edec724388001c5ed0e8801bc475d4"
+        },
+        {
+          "author_date": "2020-02-23T08:05:15Z",
+          "committer_date": "2020-02-23T08:05:15Z",
+          "sha": "0b78ad47f2ceabd7e646db6a65bce362918147e8"
+        },
+        {
+          "author_date": "2020-02-23T07:46:07Z",
+          "committer_date": "2020-02-23T07:46:07Z",
+          "sha": "e56c9e610106b44c829c95dd7d98315a12ce66a0"
+        },
+        {
+          "author_date": "2020-02-23T06:13:21Z",
+          "committer_date": "2020-02-23T06:13:21Z",
+          "sha": "3919f387a13f1eca4f67bc997667596fd36c2d10"
+        },
+        {
+          "author_date": "2020-01-24T12:00:31Z",
+          "committer_date": "2020-01-24T12:00:31Z",
+          "sha": "41dc5636c0833541df61cbcf74beb5961a2dd5c7"
+        },
+        {
+          "author_date": "2020-01-24T11:59:24Z",
+          "committer_date": "2020-01-24T11:59:24Z",
+          "sha": "517cb69dc558cb0f63e88191177b5c8c5e49f7a1"
+        },
+        {
+          "author_date": "2020-01-06T10:05:19Z",
+          "committer_date": "2020-01-06T10:05:19Z",
+          "sha": "a535c42147d57d10df6f05533b79fe35cef63c01"
+        },
+        {
+          "author_date": "2019-12-13T08:36:11Z",
+          "committer_date": "2019-12-13T08:36:11Z",
+          "sha": "7759ed3de81d15e0f03ff0270ef1097b747a6d90"
+        },
+        {
+          "author_date": "2019-12-05T03:22:42Z",
+          "committer_date": "2019-12-05T03:23:00Z",
+          "sha": "1cd80704d0a2889c5b8238d764c559c80740d2a2"
+        },
+        {
+          "author_date": "2019-11-27T08:40:15Z",
+          "committer_date": "2019-11-27T08:40:15Z",
+          "sha": "eca955230b45cb593dda9efc7115ff602a09a3c1"
+        },
+        {
+          "author_date": "2019-10-24T11:55:29Z",
+          "committer_date": "2019-10-24T11:55:29Z",
+          "sha": "8fb2f0887e89f5e5c0029f8d3395667f87114f10"
+        },
+        {
+          "author_date": "2019-10-16T03:45:58Z",
+          "committer_date": "2019-10-16T03:45:58Z",
+          "sha": "c185943de764cd4c02964a14afe79ad1190f06f4"
+        },
+        {
+          "author_date": "2019-10-15T07:33:38Z",
+          "committer_date": "2019-10-15T07:33:38Z",
+          "sha": "d30478ac24c17ef38bd4e24c4c75f8cb66abcb26"
+        },
+        {
+          "author_date": "2019-10-15T04:14:58Z",
+          "committer_date": "2019-10-15T04:14:58Z",
+          "sha": "62d46ec8a2ac45460b0e84866340db5bee7df236"
+        },
+        {
+          "author_date": "2019-10-14T11:40:25Z",
+          "committer_date": "2019-10-14T11:40:25Z",
+          "sha": "5a1acc942173781501c5ca1ca53d762763894f83"
+        },
+        {
+          "author_date": "2019-10-14T11:21:03Z",
+          "committer_date": "2019-10-14T11:21:03Z",
+          "sha": "1c3d8dd396d419e5a811994463c297783360d07e"
+        },
+        {
+          "author_date": "2019-10-14T10:18:56Z",
+          "committer_date": "2019-10-14T10:18:56Z",
+          "sha": "da63dbc7470c7122cfb8973f7f891002fd1ab53d"
+        },
+        {
+          "author_date": "2019-10-10T01:54:26Z",
+          "committer_date": "2019-10-10T01:54:26Z",
+          "sha": "b510b1ffd4ac03150e8a63d594517aca562310d6"
+        }
+      ],
+      "http_date": "Sat, 14 Nov 2026 19:50:33 GMT",
+      "http_status": 200,
+      "last_modified": "Thu, 25 Mar 2021 02:19:27 GMT",
+      "purpose": "DOCUMENT_CALENDAR_EVIDENCE_ONLY_NO_MARKET_DATA_REQUEST",
+      "retrieved_at_utc": "2026-11-14T19:50:32.821717+00:00",
+      "sha256": "77a8d1b81573ceaa66853e361e0bee476ae9fdb565b9a061c3626926144c562c",
+      "source_id": "api_swagger_file_history",
+      "status": "OK",
+      "url": "https://api.github.com/repos/bybit-exchange/api-connectors/commits?path=swagger.json&per_page=100"
+    },
+    {
+      "bytes": 4950,
+      "cache_relative_path": "data/funding/calendar_evidence/v0.2.2/20261114T195000Z/api_deprecation_commit.response",
+      "commit_metadata": [
+        {
+          "author_date": "2021-11-24T16:37:18Z",
+          "committer_date": "2021-11-24T16:37:18Z",
+          "sha": "cc021a371bde30c2fd282be9fdc8eef0ed0e362e"
+        }
+      ],
+      "http_date": "Sat, 14 Nov 2026 19:50:34 GMT",
+      "http_status": 200,
+      "last_modified": "Wed, 24 Nov 2021 16:37:18 GMT",
+      "purpose": "DOCUMENT_CALENDAR_EVIDENCE_ONLY_NO_MARKET_DATA_REQUEST",
+      "retrieved_at_utc": "2026-11-14T19:50:34.047970+00:00",
+      "sha256": "08a835d57cb3f8e3b556574cb8d2d809dfc355a42c6e9b70b98a0a064fd09a9b",
+      "source_id": "api_deprecation_commit",
+      "status": "OK",
+      "url": "https://api.github.com/repos/bybit-exchange/api-connectors/commits/cc021a371bde30c2fd282be9fdc8eef0ed0e362e"
+    },
+    {
+      "bytes": 8621,
+      "cache_relative_path": "data/funding/calendar_evidence/v0.2.2/20261114T195000Z/api_funding_pinned.response",
+      "git_blob_sha1": "d33f9f351912665aedca61f7d86e71d55fe342b0",
+      "http_date": "Sat, 14 Nov 2026 19:50:35 GMT",
+      "http_status": 200,
+      "last_modified": null,
+      "purpose": "DOCUMENT_CALENDAR_EVIDENCE_ONLY_NO_MARKET_DATA_REQUEST",
+      "retrieved_at_utc": "2026-11-14T19:50:34.893519+00:00",
+      "sha256": "48bf0aa4ea5539c00357954cb530c6d4b337bc83855e7178bfb1948d8eef309e",
+      "source_id": "api_funding_pinned",
+      "status": "OK",
+      "url": "https://raw.githubusercontent.com/bybit-exchange/api-connectors/cc021a371bde30c2fd282be9fdc8eef0ed0e362e/swagger-gen/csharp/docs/FundingApi.md"
+    },
+    {
+      "bytes": 303721,
+      "cache_relative_path": "data/funding/calendar_evidence/v0.2.2/20261114T195000Z/api_swagger_pinned.response",
+      "git_blob_sha1": "7f489b69bb1102c48a9486db595d49e659c8c1dc",
+      "http_date": "Sat, 14 Nov 2026 19:50:36 GMT",
+      "http_status": 200,
+      "last_modified": null,
+      "purpose": "DOCUMENT_CALENDAR_EVIDENCE_ONLY_NO_MARKET_DATA_REQUEST",
+      "retrieved_at_utc": "2026-11-14T19:50:35.516633+00:00",
+      "sha256": "aeb44256362f71537d46386fcd18a6fd90f1c7ff1f9b847303ffa2cf8881399d",
+      "source_id": "api_swagger_pinned",
+      "status": "OK",
+      "url": "https://raw.githubusercontent.com/bybit-exchange/api-connectors/cc021a371bde30c2fd282be9fdc8eef0ed0e362e/swagger.json"
+    },
+    {
+      "bytes": 278865,
+      "cache_relative_path": "data/funding/calendar_evidence/v0.2.2/20261114T195000Z/learn_current.response",
+      "http_date": "Sat, 14 Nov 2026 19:50:37 GMT",
+      "http_status": 200,
+      "last_modified": null,
+      "purpose": "DOCUMENT_CALENDAR_EVIDENCE_ONLY_NO_MARKET_DATA_REQUEST",
+      "retrieved_at_utc": "2026-11-14T19:50:36.243909+00:00",
+      "sha256": "816cefe60ca68f09f05b3d32fea5ef0a19df0e5806b53e79e1724bbfd5996fa7",
+      "source_id": "learn_current",
+      "status": "OK",
+      "url": "https://www.bybit.com/en/learn/bybit-guide/what-is-the-funding-fee"
+    },
+    {
+      "bytes": 44183,
+      "cache_relative_path": "data/funding/calendar_evidence/v0.2.2/20261114T195000Z/press_2025.response",
+      "http_date": "Sat, 14 Nov 2026 19:50:39 GMT",
+      "http_status": 200,
+      "last_modified": null,
+      "purpose": "DOCUMENT_CALENDAR_EVIDENCE_ONLY_NO_MARKET_DATA_REQUEST",
+      "retrieved_at_utc": "2026-11-14T19:50:37.947208+00:00",
+      "sha256": "d15472c351a174bbf18257694db28a28850c552a05e38f7dc9c823e3ac1e4d03",
+      "source_id": "press_2025",
+      "status": "OK",
+      "url": "https://www.bybit.com/en/press/post/bybit-launches-dynamic-settlement-frequency-system-for-perpetual-contracts-bltcd0548e9d1b5c84a"
+    },
+    {
+      "bytes": 43833,
+      "cache_relative_path": "data/funding/calendar_evidence/v0.2.2/20261114T195000Z/announcement_2025.response",
+      "http_date": "Sat, 14 Nov 2026 19:50:40 GMT",
+      "http_status": 200,
+      "last_modified": null,
+      "purpose": "DOCUMENT_CALENDAR_EVIDENCE_ONLY_NO_MARKET_DATA_REQUEST",
+      "retrieved_at_utc": "2026-11-14T19:50:39.275538+00:00",
+      "sha256": "14b76fa555d74cb1b3d35fc09249a260d309fa10cab33be9788e9e82c1dfff81",
+      "source_id": "announcement_2025",
+      "status": "OK",
+      "url": "https://announcements.bybit.com/en/article/bybit-to-introduce-automatic-funding-rate-adjustment-for-perpetual-contracts-blt2c875cbad4b89667/"
+    },
+    {
+      "archive_availability": {
+        "archived_snapshots": {
+          "closest": {
+            "available": true,
+            "status": "200",
+            "timestamp": "20240712172746",
+            "url": "http://web.archive.org/web/20240712172746/https://learn.bybit.com/bybit-guide/what-is-the-funding-fee/"
+          }
+        },
+        "timestamp": "20231231",
+        "url": "https://learn.bybit.com/bybit-guide/what-is-the-funding-fee/"
+      },
+      "bytes": 313,
+      "cache_relative_path": "data/funding/calendar_evidence/v0.2.2/20261114T195000Z/archive_learn_2023.response",
+      "http_date": "Sat, 14 Nov 2026 19:50:45 GMT",
+      "http_status": 200,
+      "last_modified": null,
+      "purpose": "DOCUMENT_CALENDAR_EVIDENCE_ONLY_NO_MARKET_DATA_REQUEST",
+      "retrieved_at_utc": "2026-11-14T19:50:40.064698+00:00",
+      "sha256": "21cae4fc4b83a8a145cad8a00b479eb94c7d515995846aeb062909cc0a6d9a97",
+      "source_id": "archive_learn_2023",
+      "status": "OK",
+      "url": "https://archive.org/wayback/available?url=https%3A%2F%2Flearn.bybit.com%2Fbybit-guide%2Fwhat-is-the-funding-fee%2F&timestamp=20231231"
+    },
+    {
+      "archive_availability": {
+        "archived_snapshots": {
+          "closest": {
+            "available": true,
+            "status": "200",
+            "timestamp": "20250312083540",
+            "url": "http://web.archive.org/web/20250312083540/https://learn.bybit.com/bybit-guide/what-is-the-funding-fee/"
+          }
+        },
+        "timestamp": "20241231",
+        "url": "https://learn.bybit.com/bybit-guide/what-is-the-funding-fee/"
+      },
+      "bytes": 313,
+      "cache_relative_path": "data/funding/calendar_evidence/v0.2.2/20261114T195000Z/archive_learn_2024.response",
+      "http_date": "Sat, 14 Nov 2026 19:50:47 GMT",
+      "http_status": 200,
+      "last_modified": null,
+      "purpose": "DOCUMENT_CALENDAR_EVIDENCE_ONLY_NO_MARKET_DATA_REQUEST",
+      "retrieved_at_utc": "2026-11-14T19:50:45.961492+00:00",
+      "sha256": "8633f52b86ced7af1be47f1f80dfefd1d35a2de26384d7fde1e92e4a08e5ce23",
+      "source_id": "archive_learn_2024",
+      "status": "OK",
+      "url": "https://archive.org/wayback/available?url=https%3A%2F%2Flearn.bybit.com%2Fbybit-guide%2Fwhat-is-the-funding-fee%2F&timestamp=20241231"
+    },
+    {
+      "bytes": 3330,
+      "cache_relative_path": "data/funding/calendar_evidence/v0.2.2/20261114T195000Z/docs_funding_2023_revision.response",
+      "commit_metadata": [
+        {
+          "author_date": "2023-12-18T16:07:41Z",
+          "committer_date": "2023-12-18T16:07:41Z",
+          "sha": "5b5123d5ce986b7c0079a72bbc3607507c64eaea"
+        }
+      ],
+      "http_date": "Sat, 14 Nov 2026 19:50:48 GMT",
+      "http_status": 200,
+      "last_modified": "Mon, 18 Dec 2023 16:07:41 GMT",
+      "purpose": "DOCUMENT_CALENDAR_EVIDENCE_ONLY_NO_MARKET_DATA_REQUEST",
+      "retrieved_at_utc": "2026-11-14T19:50:47.365498+00:00",
+      "sha256": "0cf328fd1978d9e4e5dac863273a049c0fbe785de7536580956966a79d2112cb",
+      "source_id": "docs_funding_2023_revision",
+      "status": "OK",
+      "url": "https://api.github.com/repos/bybit-exchange/docs/commits?path=docs%2Fv5%2Fmarket%2Fhistory-fund-rate.mdx&until=2023-12-31T23%3A59%3A59Z&per_page=1"
+    },
+    {
+      "bytes": 3330,
+      "cache_relative_path": "data/funding/calendar_evidence/v0.2.2/20261114T195000Z/docs_instrument_2023_revision.response",
+      "commit_metadata": [
+        {
+          "author_date": "2023-12-18T16:07:41Z",
+          "committer_date": "2023-12-18T16:07:41Z",
+          "sha": "5b5123d5ce986b7c0079a72bbc3607507c64eaea"
+        }
+      ],
+      "http_date": "Sat, 14 Nov 2026 19:50:48 GMT",
+      "http_status": 200,
+      "last_modified": "Mon, 18 Dec 2023 16:07:41 GMT",
+      "purpose": "DOCUMENT_CALENDAR_EVIDENCE_ONLY_NO_MARKET_DATA_REQUEST",
+      "retrieved_at_utc": "2026-11-14T19:50:48.217645+00:00",
+      "sha256": "0cf328fd1978d9e4e5dac863273a049c0fbe785de7536580956966a79d2112cb",
+      "source_id": "docs_instrument_2023_revision",
+      "status": "OK",
+      "url": "https://api.github.com/repos/bybit-exchange/docs/commits?path=docs%2Fv5%2Fmarket%2Finstrument.mdx&until=2023-12-31T23%3A59%3A59Z&per_page=1"
+    },
+    {
+      "bytes": 3309,
+      "cache_relative_path": "data/funding/calendar_evidence/v0.2.2/20261114T195000Z/docs_instrument_2024_revision.response",
+      "commit_metadata": [
+        {
+          "author_date": "2024-12-05T15:21:34Z",
+          "committer_date": "2024-12-05T15:21:34Z",
+          "sha": "af79c07e920e87296646e75efd5b89d99b75f344"
+        }
+      ],
+      "http_date": "Sat, 14 Nov 2026 19:50:49 GMT",
+      "http_status": 200,
+      "last_modified": "Thu, 05 Dec 2024 15:21:34 GMT",
+      "purpose": "DOCUMENT_CALENDAR_EVIDENCE_ONLY_NO_MARKET_DATA_REQUEST",
+      "retrieved_at_utc": "2026-11-14T19:50:49.151916+00:00",
+      "sha256": "5d22c45c40c7b1ee33265079846363b7cdeb8eb116e6077be74056eebeeebea2",
+      "source_id": "docs_instrument_2024_revision",
+      "status": "OK",
+      "url": "https://api.github.com/repos/bybit-exchange/docs/commits?path=docs%2Fv5%2Fmarket%2Finstrument.mdx&until=2024-12-31T23%3A59%3A59Z&per_page=1"
+    },
+    {
+      "bytes": 3449,
+      "cache_relative_path": "data/funding/calendar_evidence/v0.2.2/20261114T195000Z/batch2/docs_funding_2023_pinned.response",
+      "git_blob_sha1": "8bf23ca6da24b2970200079e5b590c48596af7bf",
+      "http_date": "Sat, 14 Nov 2026 19:52:37 GMT",
+      "http_status": 200,
+      "last_modified": null,
+      "purpose": "DOCUMENT_CALENDAR_EVIDENCE_ONLY_NO_MARKET_DATA_REQUEST",
+      "retrieved_at_utc": "2026-11-14T19:52:36.701467+00:00",
+      "sha256": "8d93fe948d27042863f5512729e67b0a56827c629c4d44715e52ac60e25d2f5d",
+      "source_id": "docs_funding_2023_pinned",
+      "status": "OK",
+      "url": "https://raw.githubusercontent.com/bybit-exchange/docs/5b5123d5ce986b7c0079a72bbc3607507c64eaea/docs/v5/market/history-fund-rate.mdx"
+    },
+    {
+      "bytes": 15486,
+      "cache_relative_path": "data/funding/calendar_evidence/v0.2.2/20261114T195000Z/batch2/docs_instrument_2023_pinned.response",
+      "git_blob_sha1": "5436d6378c854bc72e895d316bb76869f108d092",
+      "http_date": "Sat, 14 Nov 2026 19:52:37 GMT",
+      "http_status": 200,
+      "last_modified": null,
+      "purpose": "DOCUMENT_CALENDAR_EVIDENCE_ONLY_NO_MARKET_DATA_REQUEST",
+      "retrieved_at_utc": "2026-11-14T19:52:37.260943+00:00",
+      "sha256": "8c4d6941c42966d7d0d397d8c3854c4453d63be0a8c4bb9d5cf1a880fbe14aa8",
+      "source_id": "docs_instrument_2023_pinned",
+      "status": "OK",
+      "url": "https://raw.githubusercontent.com/bybit-exchange/docs/5b5123d5ce986b7c0079a72bbc3607507c64eaea/docs/v5/market/instrument.mdx"
+    },
+    {
+      "bytes": 25421,
+      "cache_relative_path": "data/funding/calendar_evidence/v0.2.2/20261114T195000Z/batch2/docs_instrument_2024_pinned.response",
+      "git_blob_sha1": "8c47e4aba70467bf9c998402223554aaa97c6bca",
+      "http_date": "Sat, 14 Nov 2026 19:52:38 GMT",
+      "http_status": 200,
+      "last_modified": null,
+      "purpose": "DOCUMENT_CALENDAR_EVIDENCE_ONLY_NO_MARKET_DATA_REQUEST",
+      "retrieved_at_utc": "2026-11-14T19:52:37.804296+00:00",
+      "sha256": "d3f195969947fae765b40c63aaa05cb9f4cc28ed8a47c94264bd94990ac7ff46",
+      "source_id": "docs_instrument_2024_pinned",
+      "status": "OK",
+      "url": "https://raw.githubusercontent.com/bybit-exchange/docs/af79c07e920e87296646e75efd5b89d99b75f344/docs/v5/market/instrument.mdx"
+    },
+    {
+      "bytes": 7870,
+      "cache_relative_path": "data/funding/calendar_evidence/v0.2.2/20261114T195000Z/batch2/legacy_linear_funding_pinned.response",
+      "git_blob_sha1": "d7ab7913dd8f560d3053eb35c378e7b6ff7fc2b3",
+      "http_date": "Sat, 14 Nov 2026 19:52:38 GMT",
+      "http_status": 200,
+      "last_modified": null,
+      "purpose": "DOCUMENT_CALENDAR_EVIDENCE_ONLY_NO_MARKET_DATA_REQUEST",
+      "retrieved_at_utc": "2026-11-14T19:52:38.394445+00:00",
+      "sha256": "0654daefdcb24d475bae6ef3c88b8a90fdbf57daa23782b816d1d8d8f64beb30",
+      "source_id": "legacy_linear_funding_pinned",
+      "status": "OK",
+      "url": "https://raw.githubusercontent.com/bybit-exchange/api-connectors/cc021a371bde30c2fd282be9fdc8eef0ed0e362e/swagger-gen/csharp/docs/LinearFundingApi.md"
+    },
+    {
+      "bytes": 211002,
+      "cache_relative_path": "data/funding/calendar_evidence/v0.2.2/20261114T195000Z/batch2/archive_learn_20240712_replay.response",
+      "http_date": "Sat, 14 Nov 2026 19:52:40 GMT",
+      "http_status": 200,
+      "last_modified": null,
+      "purpose": "DOCUMENT_CALENDAR_EVIDENCE_ONLY_NO_MARKET_DATA_REQUEST",
+      "retrieved_at_utc": "2026-11-14T19:52:38.973144+00:00",
+      "sha256": "a6ca073875f51d2cc5b915e80bd1ef77ca7bcafd467dc14b505b4d839e070198",
+      "source_id": "archive_learn_20240712_replay",
+      "status": "OK",
+      "url": "https://web.archive.org/web/20240712172746id_/https://learn.bybit.com/bybit-guide/what-is-the-funding-fee/"
+    },
+    {
+      "bytes": 1072,
+      "cache_relative_path": "data/funding/calendar_evidence/v0.2.2/20261114T195000Z/batch2/archive_learn_cdx_2022_2024.response",
+      "http_date": "Sat, 14 Nov 2026 19:52:42 GMT",
+      "http_status": 200,
+      "last_modified": null,
+      "purpose": "DOCUMENT_CALENDAR_EVIDENCE_ONLY_NO_MARKET_DATA_REQUEST",
+      "retrieved_at_utc": "2026-11-14T19:52:41.246944+00:00",
+      "sha256": "3f0c36d9b03c5e9bff63c8c31d36ad82d944965e30c93a013a7a6b0568cc650d",
+      "source_id": "archive_learn_cdx_2022_2024",
+      "status": "OK",
+      "url": "https://web.archive.org/cdx/search/cdx?url=learn.bybit.com%2Fbybit-guide%2Fwhat-is-the-funding-fee%2F&output=json&filter=statuscode%3A200&from=2022&to=2024&collapse=timestamp%3A6&limit=24"
+    },
+    {
+      "error_type": "RuntimeError",
+      "purpose": "DOCUMENT_CALENDAR_EVIDENCE_ONLY_NO_MARKET_DATA_REQUEST",
+      "retrieved_at_utc": "2026-11-14T19:52:42.270264+00:00",
+      "source_id": "usdcusdt_notice_2023",
+      "status": "FETCH_FAILED",
+      "url": "https://announcements.bybit.com/en-US/article/adjustment-of-funding-rate-interval-upper-and-lower-limit-of-funding-rate-for-usdcusdt-perpetual-contract-blt5761d7aac6282f7b/"
+    },
+    {
+      "bytes": 3319,
+      "cache_relative_path": "data/funding/calendar_evidence/v0.2.2/20261114T195000Z/batch2/docs_instrument_beginning_2023.response",
+      "commit_metadata": [
+        {
+          "author_date": "2022-12-30T06:30:37Z",
+          "committer_date": "2022-12-30T06:30:37Z",
+          "sha": "a2fe2fd86ca67a514f089ef808a66a77a18ddbd1"
+        }
+      ],
+      "http_date": "Sat, 14 Nov 2026 19:52:43 GMT",
+      "http_status": 200,
+      "last_modified": "Fri, 30 Dec 2022 06:30:37 GMT",
+      "purpose": "DOCUMENT_CALENDAR_EVIDENCE_ONLY_NO_MARKET_DATA_REQUEST",
+      "retrieved_at_utc": "2026-11-14T19:52:42.841783+00:00",
+      "sha256": "07003a34ee6721540b8bfbe9876889a95ebd722d2eeb61a424c9db928d5307b8",
+      "source_id": "docs_instrument_beginning_2023",
+      "status": "OK",
+      "url": "https://api.github.com/repos/bybit-exchange/docs/commits?path=docs%2Fv5%2Fmarket%2Finstrument.mdx&until=2023-01-01T00%3A00%3A00Z&per_page=1"
+    },
+    {
+      "bytes": 7243,
+      "cache_relative_path": "data/funding/calendar_evidence/v0.2.2/20261114T195000Z/batch3/docs_instrument_20221230_pinned.response",
+      "git_blob_sha1": "acccfe544b3dc3653feaa10dde7eb60ddfa0491d",
+      "http_date": "Sat, 14 Nov 2026 19:54:45 GMT",
+      "http_status": 200,
+      "last_modified": null,
+      "purpose": "DOCUMENT_CALENDAR_EVIDENCE_ONLY_NO_MARKET_DATA_REQUEST",
+      "retrieved_at_utc": "2026-11-14T19:54:44.728499+00:00",
+      "sha256": "c901ad5ce055f53b57d55ec8e5c909ced4bb563cbddccb641937e166941910ff",
+      "source_id": "docs_instrument_20221230_pinned",
+      "status": "OK",
+      "url": "https://raw.githubusercontent.com/bybit-exchange/docs/a2fe2fd86ca67a514f089ef808a66a77a18ddbd1/docs/v5/market/instrument.mdx"
+    },
+    {
+      "bytes": 10291,
+      "cache_relative_path": "data/funding/calendar_evidence/v0.2.2/20261114T195000Z/batch3/archive_learn_20230604_replay.response",
+      "content_decoding": "gzip",
+      "decoded_sha256": "f3213711ae1c79d33073071cb88d1c0afd46a9db9ee37bad56e24db266f8bbeb",
+      "http_date": "Sat, 14 Nov 2026 19:54:46 GMT",
+      "http_status": 200,
+      "last_modified": null,
+      "purpose": "DOCUMENT_CALENDAR_EVIDENCE_ONLY_NO_MARKET_DATA_REQUEST",
+      "retrieved_at_utc": "2026-11-14T19:54:45.351490+00:00",
+      "sha256": "f8e80041825817a3e1fe5426ee6fbd401dd5caea840197100a883997c55e3b9a",
+      "source_id": "archive_learn_20230604_replay",
+      "status": "OK",
+      "url": "https://web.archive.org/web/20230604184133id_/https://learn.bybit.com/bybit-guide/what-is-the-funding-fee/"
+    },
+    {
+      "bytes": 32920,
+      "cache_relative_path": "data/funding/calendar_evidence/v0.2.2/20261114T195000Z/batch3/usdcusdt_notice_2023_en.response",
+      "http_date": "Sat, 14 Nov 2026 19:54:47 GMT",
+      "http_status": 200,
+      "last_modified": null,
+      "purpose": "DOCUMENT_CALENDAR_EVIDENCE_ONLY_NO_MARKET_DATA_REQUEST",
+      "retrieved_at_utc": "2026-11-14T19:54:46.680504+00:00",
+      "sha256": "6aaf1efd628f1785575c4ca1278678e2e9b1de5f17b2a4f1f033f94a7d304911",
+      "source_id": "usdcusdt_notice_2023_en",
+      "status": "OK",
+      "url": "https://announcements.bybit.com/en/article/adjustment-of-funding-rate-interval-upper-and-lower-limit-of-funding-rate-for-usdcusdt-perpetual-contract-blt5761d7aac6282f7b/"
+    }
+  ]
+}

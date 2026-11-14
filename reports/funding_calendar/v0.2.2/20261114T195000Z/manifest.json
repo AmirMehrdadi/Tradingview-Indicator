@@ -1,0 +1,41 @@
+{
+  "addendum_files_sha256": {
+    "REPORT.md": "af49ae51f53bbf27f648b740c5a806a006f1253f48eb0b3a171c237733f912a2",
+    "SOURCE_SHA256SUMS": "2e5317f2ff6a307d3c2d5fc84635fc91aed9e37718b84074e6ec19f4d3890e07",
+    "baseline_files_sha256.json": "0e374a5309d374c09add8c51b52a0a56d71879294be9a22a44137d71e7ed2c5b",
+    "boundary.json": "617acc13cf7e55a7ee464d564a0b8ca5268d162d6cc53ab5ae03de5314371b6c",
+    "captures.json": "19fef21a2e80879dee0be861bc0ab844f56e25e2a0fafd6ed8852e5282134a52",
+    "inventory_comparison.json": "8a0b8ba769b5886b74fda4787fdd473eb774758209ccdea16dd38ad523c36e50",
+    "search_log.json": "25a916661be3447a1f7e49684f4f6bbc8ba70b1dfe4be983557bc82fdcb2f7ae",
+    "sources.json": "c98499b37863d72cd8fa526e1b463ad3a18e014cfff2e85b35b1ed8ab108821d",
+    "verify_evidence.py": "fdaf89b20ca56569bce075723ef4337e4662f8facbcf96a8e7047020bcf4ddb1"
+  },
+  "audit_date_utc": "2026-11-14",
+  "github_push": false,
+  "initial_2023_boundary_mark": "NOT_REQUIRED_FOR_AUTHORIZED_ANNUAL_EXPOSURE_RAW_ABSENCE_PRESERVED",
+  "new_market_data_requests": 0,
+  "new_trading_code_or_rules": false,
+  "official_config_sha256": "196dfd9b9bc88007fbaa1be8172b861ec847c18ec591346c4f2a9e177256ff37",
+  "old_reports_and_code": "UNCHANGED",
+  "phase": "phase4b-calendar-evidence-addendum",
+  "positions_simulated": false,
+  "prior_funding_mark_snapshots": "PRESERVED",
+  "private_financial_ledger_accessed": false,
+  "raw_source_bodies_committed": false,
+  "schema_version": 1,
+  "source_requests": 24,
+  "spec_sha256": "b9f35d752f4748a68a7d7677112a67007acb94a3266d33bd8b763991ef89a1c6",
+  "starting_commit": "917927b379a8f1d3b93c1d7f88537060a6a3a1e0",
+  "successful_source_payloads": 23,
+  "unresolved_calendar_windows_utc": [
+    [
+      "2023-01-01T00:00:00Z",
+      "2024-01-01T00:00:00Z"
+    ],
+    [
+      "2024-01-01T00:00:00Z",
+      "2025-01-01T00:00:00Z"
+    ]
+  ],
+  "verdict": "PARTIAL_DATA"
+}

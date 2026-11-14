@@ -1,0 +1,257 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "sources": [
+    {
+      "capture_ids": [
+        "api_funding_pinned",
+        "api_funding_file_history",
+        "api_deprecation_commit"
+      ],
+      "claim": "Describes an eight-hour UTC settlement convention.",
+      "classification": "INDIRECT_SUPPORT",
+      "continuous_btcusdt_calendar_coverage_utc": [],
+      "date_evidence": {
+        "deprecation_utc": "2021-11-24T16:37:18Z",
+        "file_last_change_commit": "44ffcc002e266c3d08f3d14cc6e445ad3c941871",
+        "file_last_change_utc": "2020-11-12T06:59:12Z",
+        "pinned_repository_revision": "cc021a371bde30c2fd282be9fdc8eef0ed0e362e"
+      },
+      "historical_period_actually_supported": "Versioned legacy wording predating Development; no 2023/2024 operating interval established.",
+      "id": "S01",
+      "instrument_scope": "Legacy /open-api Funding service; no BTCUSDT-specific assertion",
+      "limitation": "Deprecated service documentation is not a BTCUSDT effective-dated calendar.",
+      "publisher": "Bybit Exchange / official api-connectors repository",
+      "short_excerpt": "Funding settlement occurs every 8 hours at 00:00 UTC, 08:00 UTC and 16:00 UTC.",
+      "url": "https://raw.githubusercontent.com/bybit-exchange/api-connectors/cc021a371bde30c2fd282be9fdc8eef0ed0e362e/swagger-gen/csharp/docs/FundingApi.md"
+    },
+    {
+      "capture_ids": [
+        "api_swagger_pinned",
+        "api_swagger_file_history",
+        "legacy_linear_funding_pinned"
+      ],
+      "claim": "The linear service is separate from the service bearing the explicit eight-hour summary.",
+      "classification": "SCOPE_LIMITATION",
+      "continuous_btcusdt_calendar_coverage_utc": [],
+      "date_evidence": {
+        "pinned_repository_revision": "cc021a371bde30c2fd282be9fdc8eef0ed0e362e",
+        "swagger_last_change_commit": "b09aeb5525d4fec668a6c035891e19ba4703efdd",
+        "swagger_last_change_committer_utc": "2021-03-25T02:19:27Z"
+      },
+      "historical_period_actually_supported": "Archived schema content only.",
+      "id": "S02",
+      "instrument_scope": "Separate legacy Funding and LinearFunding service tags",
+      "limitation": "The legacy service summary cannot be transferred into a continuous BTCUSDT linear-calendar claim.",
+      "publisher": "Bybit Exchange / official api-connectors repository",
+      "url": "https://raw.githubusercontent.com/bybit-exchange/api-connectors/cc021a371bde30c2fd282be9fdc8eef0ed0e362e/swagger.json"
+    },
+    {
+      "capture_ids": [
+        "learn_current"
+      ],
+      "claim": "Original publication label accompanies mutable content.",
+      "classification": "INSUFFICIENT_TEMPORAL_PROOF",
+      "continuous_btcusdt_calendar_coverage_utc": [],
+      "date_evidence": {
+        "capture_date_utc": "2026-11-14",
+        "displayed_publication_date": "2021-11-10",
+        "embedded_cms_updated_at_observed": "2025-06-18T01:50:55.256Z"
+      },
+      "historical_period_actually_supported": "Current retrieved wording only; original date does not timestamp every present sentence.",
+      "id": "S03",
+      "instrument_scope": "USDT and inverse perpetuals generally; BTCUSDT appears in an illustrative example",
+      "limitation": "CMS timestamps are not a historical amendment ledger.",
+      "publisher": "Bybit Learn",
+      "url": "https://www.bybit.com/en/learn/bybit-guide/what-is-the-funding-fee"
+    },
+    {
+      "capture_ids": [
+        "archive_learn_20230604_replay",
+        "archive_learn_cdx_2022_2024"
+      ],
+      "claim": "Archived wording gives an eight-hour convention and preserves symbol-specific adjustment caveats.",
+      "classification": "INDIRECT_HISTORICAL_SUPPORT",
+      "continuous_btcusdt_calendar_coverage_utc": [],
+      "date_evidence": {
+        "archive_payload_digest_verified": true,
+        "archive_timestamp_utc": "2023-06-04T18:41:33Z",
+        "original_displayed_publication_date": "2021-11-10"
+      },
+      "historical_period_actually_supported": "Wording demonstrably present at the June 2023 capture, not a year-long operative calendar.",
+      "id": "S04",
+      "instrument_scope": "General perpetual funding rule, with a BTCUSDT example",
+      "limitation": "No BTCUSDT effective-date history or temporary-exception inventory.",
+      "publisher": "Bybit Learn; archived by Internet Archive",
+      "short_excerpt": "Bybit may adjust the funding time interval",
+      "url": "https://web.archive.org/web/20230604184133id_/https://learn.bybit.com/bybit-guide/what-is-the-funding-fee/"
+    },
+    {
+      "capture_ids": [
+        "archive_learn_20240712_replay",
+        "archive_learn_cdx_2022_2024"
+      ],
+      "claim": "The same general convention and adjustment caveat are present in the July 2024 capture.",
+      "classification": "INDIRECT_HISTORICAL_SUPPORT",
+      "continuous_btcusdt_calendar_coverage_utc": [],
+      "date_evidence": {
+        "archive_payload_digest_verified": true,
+        "archive_timestamp_utc": "2024-07-12T17:27:46Z",
+        "original_displayed_publication_date": "2021-11-10"
+      },
+      "historical_period_actually_supported": "Wording at the July 2024 capture only.",
+      "id": "S05",
+      "instrument_scope": "General perpetual funding rule, with a BTCUSDT example",
+      "limitation": "Does not certify all BTCUSDT settlements or the time between captures.",
+      "publisher": "Bybit Learn; archived by Internet Archive",
+      "url": "https://web.archive.org/web/20240712172746id_/https://learn.bybit.com/bybit-guide/what-is-the-funding-fee/"
+    },
+    {
+      "capture_ids": [
+        "docs_instrument_20221230_pinned",
+        "docs_instrument_beginning_2023"
+      ],
+      "claim": "The example funding interval is 480 minutes.",
+      "classification": "INSUFFICIENT_SYMBOL_SCOPE",
+      "continuous_btcusdt_calendar_coverage_utc": [],
+      "date_evidence": {
+        "commit": "a2fe2fd86ca67a514f089ef808a66a77a18ddbd1",
+        "committer_utc": "2022-12-30T06:30:37Z"
+      },
+      "historical_period_actually_supported": "Documentation as of this commit only.",
+      "id": "S06",
+      "instrument_scope": "Linear-perpetual example is ETHUSDT, not BTCUSDT",
+      "limitation": "A different-symbol example is not BTCUSDT evidence at the Development start.",
+      "publisher": "Bybit Exchange / official V5 documentation",
+      "url": "https://raw.githubusercontent.com/bybit-exchange/docs/a2fe2fd86ca67a514f089ef808a66a77a18ddbd1/docs/v5/market/instrument.mdx"
+    },
+    {
+      "capture_ids": [
+        "docs_funding_2023_pinned",
+        "docs_funding_2023_revision"
+      ],
+      "claim": "Funding intervals are symbol-specific; the schema directs users to instrument information.",
+      "classification": "SCOPE_AND_COVERAGE_CAUTION",
+      "continuous_btcusdt_calendar_coverage_utc": [],
+      "date_evidence": {
+        "commit": "5b5123d5ce986b7c0079a72bbc3607507c64eaea",
+        "committer_utc": "2023-12-18T16:07:41Z"
+      },
+      "historical_period_actually_supported": "Documentation at the pinned December 2023 revision.",
+      "id": "S07",
+      "instrument_scope": "USDT/USDC and inverse perpetual API schema",
+      "limitation": "No historical instrument-parameter time series is supplied.",
+      "publisher": "Bybit Exchange / official V5 documentation",
+      "short_excerpt": "Each symbol has a different funding interval.",
+      "url": "https://raw.githubusercontent.com/bybit-exchange/docs/5b5123d5ce986b7c0079a72bbc3607507c64eaea/docs/v5/market/history-fund-rate.mdx"
+    },
+    {
+      "capture_ids": [
+        "docs_instrument_2023_pinned",
+        "docs_instrument_2023_revision"
+      ],
+      "claim": "The BTCUSDT example has fundingInterval=480 minutes.",
+      "classification": "SYMBOL_SPECIFIC_INDIRECT_SUPPORT",
+      "continuous_btcusdt_calendar_coverage_utc": [],
+      "date_evidence": {
+        "commit": "5b5123d5ce986b7c0079a72bbc3607507c64eaea",
+        "committer_utc": "2023-12-18T16:07:41Z"
+      },
+      "historical_period_actually_supported": "A dated documentation example, not an authenticated instrument snapshot or full-year operating interval.",
+      "id": "S08",
+      "instrument_scope": "Example: BTCUSDT / LinearPerpetual / USDT settlement",
+      "limitation": "Example values do not prove effective dates, uninterrupted operation or all exceptions.",
+      "publisher": "Bybit Exchange / official V5 documentation",
+      "url": "https://raw.githubusercontent.com/bybit-exchange/docs/5b5123d5ce986b7c0079a72bbc3607507c64eaea/docs/v5/market/instrument.mdx"
+    },
+    {
+      "capture_ids": [
+        "docs_instrument_2024_pinned",
+        "docs_instrument_2024_revision"
+      ],
+      "claim": "The BTCUSDT example again has fundingInterval=480 minutes.",
+      "classification": "SYMBOL_SPECIFIC_INDIRECT_SUPPORT",
+      "continuous_btcusdt_calendar_coverage_utc": [],
+      "date_evidence": {
+        "commit": "af79c07e920e87296646e75efd5b89d99b75f344",
+        "committer_utc": "2024-12-05T15:21:34Z"
+      },
+      "historical_period_actually_supported": "A dated documentation example as of December 2024 only.",
+      "id": "S09",
+      "instrument_scope": "Official USDT-perpetual example: BTCUSDT / LinearPerpetual / USDT settlement",
+      "limitation": "Does not establish the complete 2024 effective-date schedule.",
+      "publisher": "Bybit Exchange / official V5 documentation",
+      "url": "https://raw.githubusercontent.com/bybit-exchange/docs/af79c07e920e87296646e75efd5b89d99b75f344/docs/v5/market/instrument.mdx"
+    },
+    {
+      "capture_ids": [
+        "usdcusdt_notice_2023_en"
+      ],
+      "claim": "Announces a contract-specific funding interval change before the later automatic-frequency feature.",
+      "classification": "DIFFERENT_INSTRUMENT_EXCLUDED_FROM_BTC_CALENDAR",
+      "continuous_btcusdt_calendar_coverage_utc": [],
+      "date_evidence": {
+        "announced_effective_utc": "2023-03-11T16:00:00Z",
+        "publisher_displayed_date": "2023-03-11",
+        "retrieved_copy_date_utc": "2026-11-14"
+      },
+      "historical_period_actually_supported": "The announced USDCUSDT event, not BTCUSDT.",
+      "id": "S10",
+      "instrument_scope": "USDCUSDT perpetual exclusively",
+      "limitation": "No transfer to BTCUSDT; exact replacement interval is not asserted from the embedded graphic.",
+      "publisher": "Bybit Announcements",
+      "url": "https://announcements.bybit.com/en/article/adjustment-of-funding-rate-interval-upper-and-lower-limit-of-funding-rate-for-usdcusdt-perpetual-contract-blt5761d7aac6282f7b/"
+    },
+    {
+      "capture_ids": [
+        "press_2025",
+        "announcement_2025"
+      ],
+      "claim": "Feature scope and initial exception are stated prospectively.",
+      "classification": "LATER_CONTEXT_NOT_RETROACTIVE_PROOF",
+      "continuous_btcusdt_calendar_coverage_utc": [],
+      "date_evidence": {
+        "expected_full_rollout_utc": "2025-11-03T06:00:00Z",
+        "feature_effective_utc": "2025-10-30T08:00:00Z",
+        "publisher_displayed_date": "2025-10-29"
+      },
+      "historical_period_actually_supported": "The announced 2025 rollout only, outside Development.",
+      "id": "S11",
+      "instrument_scope": "Automatic adjustment feature; BTCUSDT explicitly initially excluded",
+      "limitation": "Neither the launch date nor the initial exception rules out earlier manual changes. The two pages report the same feature, not independent corroborating histories.",
+      "publisher": "Bybit Press / Bybit Announcements",
+      "url": "https://www.bybit.com/en/press/post/bybit-launches-dynamic-settlement-frequency-system-for-perpetual-contracts-bltcd0548e9d1b5c84a"
+    },
+    {
+      "capture_ids": [
+        "archive_learn_2023",
+        "archive_learn_2024",
+        "archive_learn_cdx_2022_2024"
+      ],
+      "claim": "Nearest availability dates can differ from requested dates; CDX identifies exact capture timestamps.",
+      "classification": "METADATA_ONLY",
+      "continuous_btcusdt_calendar_coverage_utc": [],
+      "date_evidence": {
+        "cdx_query_years": [
+          2022,
+          2024
+        ],
+        "requested_lookup_dates": [
+          "2023-12-31",
+          "2024-12-31"
+        ],
+        "returned_nearest_capture_dates": [
+          "2024-07-12",
+          "2025-03-12"
+        ]
+      },
+      "historical_period_actually_supported": "Dates and payload identity of available page captures only.",
+      "id": "S12",
+      "instrument_scope": "Archive discovery metadata, not an exchange instrument",
+      "limitation": "A requested 2023 lookup returning a 2024 capture cannot be cited as a 2023 snapshot. The 2025 nearest replay was not fetched.",
+      "publisher": "Internet Archive metadata service",
+      "url": "https://archive.org/wayback/available?url=https%3A%2F%2Flearn.bybit.com%2Fbybit-guide%2Fwhat-is-the-funding-fee%2F&timestamp=20231231"
+    }
+  ],
+  "standard": "Independent date plus instrument applicability plus effective-period coverage; observations and absence of announcements are not complete calendar proof.",
+  "verdict": "PARTIAL_DATA"
+}

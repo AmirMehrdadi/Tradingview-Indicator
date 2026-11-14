@@ -1,0 +1,90 @@
+{
+  "annual": [
+    {
+      "actual_missing_settlement_count": null,
+      "coverage_verdict": "PARTIAL_DATA_CALENDAR_UNESTABLISHED",
+      "direct_document_inventory_contradictions_found": [],
+      "documented_btc_examples_consistency": "480_MINUTE_EXAMPLES_AGREE_WITH_OBSERVED_GAPS",
+      "first_utc": "2023-01-01T00:00:00.000Z",
+      "funding_dataset_sha256": "de2fafb54ca13f8d11dcb220df43300a6c3fa09df4b4cedb8bbccec16a8a3e92",
+      "hypothesis_grid_extra_points": 0,
+      "hypothesis_grid_gaps": 0,
+      "hypothesis_interval_minutes": 480,
+      "independently_proven_continuous_calendar_coverage_utc": [],
+      "last_utc": "2023-12-31T16:00:00.000Z",
+      "mark_dataset_sha256": "5221bbcec75e21354cded5a90c6e2e9ac495c227590664c0d5d5bb6dd8bddeb3",
+      "missing_evidence": "Effective-dated BTCUSDT linear-perpetual interval/calendar and complete temporary-change or exception history covering this entire year, independent of the queried funding records.",
+      "note": "Zero gaps under the eight-hour hypothesis is not proof of zero missing historical settlements.",
+      "observed_gap_ms_max": 28800000,
+      "observed_gap_ms_min": 28800000,
+      "observed_settlements": 1095,
+      "observed_utc_hours": [
+        0,
+        8,
+        16
+      ],
+      "off_15m_observations": 0,
+      "period": {
+        "end": 1704067200000,
+        "exclusive_end_utc": "2024-01-01T00:00:00.000Z",
+        "start": 1672531200000,
+        "start_utc": "2023-01-01T00:00:00.000Z",
+        "year": 2023
+      },
+      "snapshot_integrity_status": "PASS",
+      "timestamp_inventory_sha256": "ca4618380f9372d41beda8a1cc04a7f82271473de7fc39d04bfd3501f702adca",
+      "unresolved_calendar_coverage_utc": [
+        "2023-01-01T00:00:00.000Z",
+        "2024-01-01T00:00:00.000Z"
+      ],
+      "valid_linked_mark_minutes": 1094,
+      "year": 2023
+    },
+    {
+      "actual_missing_settlement_count": null,
+      "coverage_verdict": "PARTIAL_DATA_CALENDAR_UNESTABLISHED",
+      "direct_document_inventory_contradictions_found": [],
+      "documented_btc_examples_consistency": "480_MINUTE_EXAMPLES_AGREE_WITH_OBSERVED_GAPS",
+      "first_utc": "2024-01-01T00:00:00.000Z",
+      "funding_dataset_sha256": "0342aa84d3507837678db7d672c57413d4013f40159646a6f3bf62a8e791f010",
+      "hypothesis_grid_extra_points": 0,
+      "hypothesis_grid_gaps": 0,
+      "hypothesis_interval_minutes": 480,
+      "independently_proven_continuous_calendar_coverage_utc": [],
+      "last_utc": "2024-12-31T16:00:00.000Z",
+      "mark_dataset_sha256": "88f53f379d5653c5ccaab87103f90e6397e9508fdcefd31d13bf41252d6885e3",
+      "missing_evidence": "Effective-dated BTCUSDT linear-perpetual interval/calendar and complete temporary-change or exception history covering this entire year, independent of the queried funding records.",
+      "note": "Zero gaps under the eight-hour hypothesis is not proof of zero missing historical settlements.",
+      "observed_gap_ms_max": 28800000,
+      "observed_gap_ms_min": 28800000,
+      "observed_settlements": 1098,
+      "observed_utc_hours": [
+        0,
+        8,
+        16
+      ],
+      "off_15m_observations": 0,
+      "period": {
+        "end": 1735689600000,
+        "exclusive_end_utc": "2025-01-01T00:00:00.000Z",
+        "start": 1704067200000,
+        "start_utc": "2024-01-01T00:00:00.000Z",
+        "year": 2024
+      },
+      "snapshot_integrity_status": "PASS",
+      "timestamp_inventory_sha256": "bb24360408ce256d8835c93236e4c9d51ff67ef1ad61b065cb5ed582092f7aad",
+      "unresolved_calendar_coverage_utc": [
+        "2024-01-01T00:00:00.000Z",
+        "2025-01-01T00:00:00.000Z"
+      ],
+      "valid_linked_mark_minutes": 1098,
+      "year": 2024
+    }
+  ],
+  "comparison_basis": "FROZEN_PHASE4A_TIMESTAMP_INVENTORIES_ONLY_NO_RATES_OR_PRICES_ANALYZED",
+  "cross_year_observed_gap_ms": 28800000,
+  "no_claim_all_years_proven_by_documentation_examples": true,
+  "no_funding_mark_reacquisition": true,
+  "no_position_or_private_ledger_access": true,
+  "verdict": "PARTIAL_DATA"
+}

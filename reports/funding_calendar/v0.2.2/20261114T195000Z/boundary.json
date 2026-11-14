@@ -1,0 +1,28 @@
+{
+  "applicable_candidates": "ALL_TWELVE",
+  "exposure_specific_verdict": "NOT_REQUIRED_FOR_AUTHORIZED_ANNUAL_2023_RESEARCH",
+  "limits": [
+    "This is not a historical market tick or missing-rate imputation.",
+    "No pre-2023 price was fetched or read as a market observation; no Mark was invented.",
+    "This resolves only initial-settlement exposure necessity; it does not close historical calendar coverage."
+  ],
+  "no_private_ledger_access": true,
+  "old_position_exposure_at_initial_funding": 0,
+  "proof_type": "STRUCTURAL_DEDUCTION_FROM_FROZEN_CONTRACT_NOT_SIMULATION",
+  "raw_snapshot_status": "STILL_UNAVAILABLE_NOT_FILLED_NOT_REWRITTEN",
+  "reasoning": [
+    "Annual start resets Flat, empty orders and no carried exposure before the initial Funding phase.",
+    "Funding precedes SIGNAL_CLOSE and OPEN; the earliest start-boundary signal cannot create an old position.",
+    "An entry at the same Open is after Funding and exempt under both registered event-order scenarios."
+  ],
+  "settlement_utc": "2023-01-01T00:00:00Z",
+  "spec_sections": [
+    "7.3",
+    "8.3.1 steps 3-6",
+    "9.0.2"
+  ],
+  "unavailable_mark_minute_utc": [
+    "2022-12-31T23:59:00Z",
+    "2023-01-01T00:00:00Z"
+  ]
+}
