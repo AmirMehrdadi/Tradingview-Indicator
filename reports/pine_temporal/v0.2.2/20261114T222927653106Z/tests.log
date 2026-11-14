@@ -1,0 +1,31 @@
+COMMAND: PYTHONDONTWRITEBYTECODE=1 sh tools/research_python.sh -m tests.run_phase5a_checks
+EXIT: 0
+test_A_initial_15m_anchor_and_first_tr (tests.test_phase5a_temporal.TemporalTests) ... ok
+test_B_initial_hour_anchor (tests.test_phase5a_temporal.TemporalTests) ... ok
+test_C_ema_and_wilder_seeds_match_frozen_independent_functions (tests.test_phase5a_temporal.TemporalTests) ... ok
+test_D_na_until_fourteen_valid_observations (tests.test_phase5a_temporal.TemporalTests) ... ok
+test_E_first_tr_cannot_consume_pre_anchor_close (tests.test_phase5a_temporal.TemporalTests) ... ok
+test_F_hour_ending_11_only_consumed_by_1100_execution_interval (tests.test_phase5a_temporal.TemporalTests) ... ok
+test_G_warmup_has_no_diagnostic_eligibility (tests.test_phase5a_temporal.TemporalTests) ... ok
+test_H_first_permitted_signal_close_boundary (tests.test_phase5a_temporal.TemporalTests) ... ok
+test_I_trade_start_does_not_reset_state (tests.test_phase5a_temporal.TemporalTests) ... ok
+test_J_end_excludes_new_eligibility_and_input (tests.test_phase5a_temporal.TemporalTests) ... ok
+test_K_pre_anchor_values_cannot_change_numerical_state (tests.test_phase5a_temporal.TemporalTests) ... ok
+test_L_source_review_has_no_implicit_indicator_fallback (tests.test_phase5a_temporal.TemporalTests) ... ok
+test_M_missing_values_quarantine_instead_of_zero_or_skipping (tests.test_phase5a_temporal.TemporalTests) ... ok
+test_N_deterministic_replay (tests.test_phase5a_temporal.TemporalTests) ... ok
+test_O_no_io_and_unauthorized_values_denied_before_access (tests.test_phase5a_temporal.TemporalTests) ... ok
+test_future_hour_changes_cannot_change_prior_observation (tests.test_phase5a_temporal.TemporalTests) ... ok
+test_hourly_ema50_has_independent_first_close_seed (tests.test_phase5a_temporal.TemporalTests) ... ok
+test_invalid_ohlc_and_nonfinite_input_permanently_quarantine (tests.test_phase5a_temporal.TemporalTests) ... ok
+test_missing_anchor_or_gap_poison_both_timeframes (tests.test_phase5a_temporal.TemporalTests) ... ok
+test_missing_hour_not_forward_filled_and_60_observation_minimum (tests.test_phase5a_temporal.TemporalTests) ... ok
+test_nonconstant_wilder_seed_and_recurrence (tests.test_phase5a_temporal.TemporalTests) ... ok
+test_tr_uses_only_previous_authorized_close_after_anchor (tests.test_phase5a_temporal.TemporalTests) ... ok
+test_unconfirmed_execution_never_changes_chart_state (tests.test_phase5a_temporal.TemporalTests) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 0.015s
+
+OK
+{"environment": "MATCH_FROZEN_RECORD", "errored": 0, "failed": 0, "guard_violations": [], "passed": 23, "pine_compile": "UNVERIFIED", "pine_runtime": "UNVERIFIED", "skipped": 0}

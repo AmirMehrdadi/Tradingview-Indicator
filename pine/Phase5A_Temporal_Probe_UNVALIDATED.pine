@@ -1,0 +1,106 @@
+//@version=6
+indicator("Phase 5A Temporal Feasibility — UNVALIDATED", overlay = false)
+// Diagnostic source only. No trading signals, orders, alerts or validation claim.
+const int DATA_START = timestamp("01 Nov 2026 00:00 +0000")
+const int TRADE_START = timestamp("04 Nov 2026 00:00 +0000")
+const int TRADE_END = timestamp("01 Dec 2026 00:00 +0000")
+const int STEP = 900000
+const int HOUR = 3600000
+if not chart.is_standard or timeframe.in_seconds() != 900
+    runtime.error("Requires a standard 15-minute chart in a separately authorized non-Holdout environment")
+
+// Only called inside the authorized time branch. No implicit indicator history.
+f_valid() =>
+    not na(open) and not na(high) and not na(low) and not na(close) and low > 0 and low <= open and open <= high and low <= close and close <= high
+
+f_chart_state() =>
+    var bool healthy = false
+    var bool poisoned = false
+    var int n = 0
+    var int lastEnd = na
+    var float previousClose = na
+    var float fast = na
+    var float slow = na
+    var float seedSum = 0.0
+    var float atr = na
+    float tr = na
+    bool inside = time >= DATA_START and time < TRADE_END
+    if time < DATA_START
+        healthy := false
+        poisoned := false
+        n := 0
+        lastEnd := na
+        previousClose := na
+        fast := na
+        slow := na
+        seedSum := 0.0
+        atr := na
+    if inside and barstate.isconfirmed
+        bool contiguous = n == 0 ? time == DATA_START : time == lastEnd
+        if poisoned or not contiguous or time_close != time + STEP or not f_valid()
+            poisoned := true
+            healthy := false
+        else
+            tr := n == 0 ? high - low : math.max(high - low, math.max(math.abs(high - previousClose), math.abs(low - previousClose)))
+            fast := n == 0 ? close : (2.0 / 21.0) * close + (1.0 - 2.0 / 21.0) * fast
+            slow := n == 0 ? close : (2.0 / 51.0) * close + (1.0 - 2.0 / 51.0) * slow
+            n += 1
+            if n <= 14
+                seedSum += tr
+                atr := n == 14 ? seedSum / 14.0 : na
+            else
+                atr := (1.0 / 14.0) * tr + (1.0 - 1.0 / 14.0) * atr
+            previousClose := close
+            lastEnd := time_close
+            healthy := true
+    bool available = inside and healthy and not poisoned and barstate.isconfirmed
+    [available ? fast : na, available ? slow : na, available ? atr : na, available ? tr : na, available ? n : 0]
+
+// Evaluated in the requested hourly context. var state is subject to Pine rollback;
+// only offset outputs below cross into the chart context. No isconfirmed in security.
+f_hour_confirmed() =>
+    var bool poisoned = false
+    var int n = 0
+    var int lastEnd = na
+    var float ema = na
+    float sourceClose = na
+    float output = na
+    int outputEnd = na
+    int outputCount = 0
+    bool inside = time >= DATA_START and time < TRADE_END
+    if time < DATA_START
+        poisoned := false
+        n := 0
+        lastEnd := na
+        ema := na
+    if inside
+        bool contiguous = n == 0 ? time == DATA_START : time == lastEnd
+        if poisoned or not contiguous or time_close != time + HOUR or not f_valid()
+            poisoned := true
+        else
+            ema := n == 0 ? close : (2.0 / 51.0) * close + (1.0 - 2.0 / 51.0) * ema
+            n += 1
+            lastEnd := time_close
+            sourceClose := close
+            output := ema
+            outputEnd := time_close
+            outputCount := n
+    // EMA50 three hourly bars before the last confirmed hour: [4], not chart [3].
+    [output[1], output[4], sourceClose[1], outputEnd[1], outputCount[1]]
+
+[fast, slow, atr, tr, count] = f_chart_state()
+[hEma, hEma3, hClose, hEnd, hCount] = request.security(syminfo.tickerid, "60", f_hour_confirmed(), gaps = barmerge.gaps_off, lookahead = barmerge.lookahead_on)
+// Timestamp freshness prevents gaps_off from silently accepting stale hourly data.
+bool hourlyReady = not na(hEnd) and hEnd == time - time % HOUR and not na(hEma) and not na(hEma3) and not na(hClose) and hCount >= 60
+bool window = time >= DATA_START and time < TRADE_END and time_close >= TRADE_START and time_close < TRADE_END
+bool eligible = barstate.isconfirmed and window and count >= 200 and not na(atr) and hourlyReady
+// No strategy predicates. These are diagnostic observations, not trade opportunities.
+// Offset places observations at signal-close ownership, including Nov 4 00:00.
+// Data-window-only output prevents connecting lines across unauthorized intervals.
+plot(eligible ? fast : na, "Diagnostic EMA20 — UNVALIDATED", offset = 1, display = display.data_window)
+plot(eligible ? slow : na, "Diagnostic EMA50 — UNVALIDATED", offset = 1, display = display.data_window)
+plot(eligible ? atr : na, "Diagnostic ATR14 — UNVALIDATED", offset = 1, display = display.data_window)
+plot(eligible ? hEma : na, "Confirmed hourly EMA50 — UNVALIDATED", offset = 1, display = display.data_window)
+plot(eligible ? hEma3 : na, "Confirmed hourly EMA50 three hours earlier", offset = 1, display = display.data_window)
+plot(eligible ? hEnd : na, "Consumed hourly close timestamp UTC ms", offset = 1, display = display.data_window)
+plot(eligible ? count : na, "Authorized 15m observation count", offset = 1, display = display.data_window)
