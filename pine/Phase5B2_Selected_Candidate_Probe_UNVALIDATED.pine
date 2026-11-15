@@ -1,0 +1,315 @@
+//@version=6
+indicator("Phase 5B2 Selected Candidate Probe — UNVALIDATED", overlay = false)
+// Diagnostic source only. No trading signals, orders, alerts or validation claim.
+const int DATA_START = timestamp("01 Nov 2026 00:00 +0000")
+const int TRADE_START = timestamp("04 Nov 2026 00:00 +0000")
+const int TRADE_END = timestamp("01 Dec 2026 00:00 +0000")
+const int STEP = 900000
+const int HOUR = 3600000
+const int HOUR = 3600000
+if not chart.is_standard or timeframe.in_seconds() != 900
+    runtime.error("Requires a standard 15-minute chart in a separately authorized non-Holdout environment")
+
+// Only called inside the authorized time branch. No implicit indicator history.
+f_valid() =>
+    not na(open) and not na(high) and not na(low) and not na(close) and low > 0 and low <= open and open <= high and low <= close and close <= high
+
+f_chart_state() =>
+    var bool healthy = false
+    var bool poisoned = false
+    var int n = 0
+    var int lastEnd = na
+    var float previousClose = na
+    var float fast = na
+    var float slow = na
+    var float seedSum = 0.0
+    var float atr = na
+    float tr = na
+    bool inside = time >= DATA_START and time < TRADE_END
+    if time < DATA_START
+        healthy := false
+        poisoned := false
+        n := 0
+        lastEnd := na
+        previousClose := na
+        fast := na
+        slow := na
+        seedSum := 0.0
+        atr := na
+    if inside and barstate.isconfirmed
+        bool contiguous = n == 0 ? time == DATA_START : time == lastEnd
+        if poisoned or not contiguous or time_close != time + STEP or not f_valid()
+            poisoned := true
+            healthy := false
+        else
+            tr := n == 0 ? high - low : math.max(high - low, math.max(math.abs(high - previousClose), math.abs(low - previousClose)))
+            fast := n == 0 ? close : (2.0 / 21.0) * close + (1.0 - 2.0 / 21.0) * fast
+            slow := n == 0 ? close : (2.0 / 51.0) * close + (1.0 - 2.0 / 51.0) * slow
+            n += 1
+            if n <= 14
+                seedSum += tr
+                atr := n == 14 ? seedSum / 14.0 : na
+            else
+                atr := (1.0 / 14.0) * tr + (1.0 - 1.0 / 14.0) * atr
+            previousClose := close
+            lastEnd := time_close
+            healthy := true
+    bool available = inside and healthy and not poisoned and barstate.isconfirmed
+    [available ? fast : na, available ? slow : na, available ? atr : na, available ? tr : na, available ? n : 0]
+
+// Frozen research assumptions, not account-specific or verified historical rules.
+const float TICK = 0.10
+const float QSTEP = 0.001
+const float K_COST_STOP = 2.5
+const float FEE = 0.00055
+const float FRICTION = 0.0002
+string candidate = input.string("C01", "Frozen candidate — UNVALIDATED", options = ["C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08", "C09", "C10", "C11", "C12"])
+bool useR = candidate == "C02" or candidate == "C07" or candidate == "C08" or candidate == "C09" or candidate == "C11" or candidate == "C12"
+bool useH = candidate == "C03" or candidate == "C07" or candidate == "C10" or candidate == "C11" or candidate == "C12"
+bool useV = candidate == "C04" or candidate == "C08" or candidate == "C10" or candidate == "C12"
+bool useM = candidate == "C05" or candidate == "C09" or candidate == "C12"
+bool useQ = candidate == "C06" or candidate == "C11" or candidate == "C12"
+int filterBits = (useR ? 1 : 0) + (useH ? 2 : 0) + (useV ? 4 : 0) + (useM ? 8 : 0) + (useQ ? 16 : 0)
+bool fixtureEnabled = input.bool(false, "Enable SYNTHETIC diagnostic acceptance only")
+float fixtureBalance = input.float(10000.0, "Synthetic pre-Funding settled-flat snapshot")
+bool fixtureBusy = input.bool(false, "Synthetic position or pending occupancy")
+bool fixtureDailyStop = input.bool(false, "Synthetic daily-stop state")
+// No snapshot is evolved from prices. No entry/exit or filled-position state.
+f_ticks(float raw, int direction) =>
+    direction == 1 ? int(math.floor(raw / TICK)) : int(math.ceil(raw / TICK))
+
+f_hour_confirmed() =>
+    var bool poisoned = false
+    var int n = 0
+    var int lastEnd = na
+    var float ema = na
+    float sourceClose = na
+    float output = na
+    int outputEnd = na
+    int outputCount = 0
+    bool inside = time >= DATA_START and time < TRADE_END
+    if time < DATA_START
+        poisoned := false
+        n := 0
+        lastEnd := na
+        ema := na
+    if inside
+        bool contiguous = n == 0 ? time == DATA_START : time == lastEnd
+        if poisoned or not contiguous or time_close != time + HOUR or not f_valid()
+            poisoned := true
+        else
+            ema := n == 0 ? close : (2.0 / 51.0) * close + (1.0 - 2.0 / 51.0) * ema
+            n += 1
+            lastEnd := time_close
+            sourceClose := close
+            output := ema
+            outputEnd := time_close
+            outputCount := n
+    // EMA50 three hourly bars before the last confirmed hour: [4], not chart [3].
+    [output[1], output[4], sourceClose[1], outputEnd[1], outputCount[1]]
+
+// Explicit Wilder seed; missing observations produce na, never a zero input.
+f_rma(float value) =>
+    var int n = 0
+    var float total = 0.0
+    var float result = na
+    float available = na
+    if not na(value)
+        if n < 14
+            n += 1
+            total += value
+            result := n == 14 ? total / 14.0 : na
+        else
+            result := (1.0 / 14.0) * value + (1.0 - 1.0 / 14.0) * result
+        available := result
+    available
+
+[fast, slow, atr, tr, count] = f_chart_state()
+int i = count - 1
+var array<int> lowIds = array.new<int>()
+var array<float> lowPrices = array.new<float>()
+var array<int> highIds = array.new<int>()
+var array<float> highPrices = array.new<float>()
+var array<int> consumedLong = array.new<int>()
+var array<int> consumedShort = array.new<int>()
+bool active = time >= DATA_START and time < TRADE_END and barstate.isconfirmed and count > 0 and not na(atr)
+// Strict pivots need seven authorized observations; ATR readiness is not needed
+// to discover warm-up pivots, so this separate gate uses authorized fast/count.
+bool numericValid = time >= DATA_START and time < TRADE_END and barstate.isconfirmed and count > 0 and not na(fast)
+if numericValid
+    if count >= 7
+        bool pl = true
+        bool ph = true
+        for k = 0 to 6
+            if k != 3
+                pl := pl and low[3] < low[k]
+                ph := ph and high[3] > high[k]
+        if pl
+            array.push(lowIds, i - 3)
+            array.push(lowPrices, low[3])
+        if ph
+            array.push(highIds, i - 3)
+            array.push(highPrices, high[3])
+    while array.size(lowIds) > 0
+        if array.get(lowIds, 0) >= i - 80
+            break
+        array.shift(lowIds)
+        array.shift(lowPrices)
+    while array.size(highIds) > 0
+        if array.get(highIds, 0) >= i - 80
+            break
+        array.shift(highIds)
+        array.shift(highPrices)
+
+// All written RMA calls have independent persistent state, evaluated each bar.
+float plusDM = na
+float minusDM = na
+float gain = na
+float loss = na
+if numericValid and count >= 2
+    float up = high - high[1]
+    float down = low[1] - low
+    plusDM := up > down and up > 0 ? up : 0.0
+    minusDM := down > up and down > 0 ? down : 0.0
+    gain := math.max(close - close[1], 0.0)
+    loss := math.max(close[1] - close, 0.0)
+float plusRma = f_rma(plusDM)
+float minusRma = f_rma(minusDM)
+float gainRma = f_rma(gain)
+float lossRma = f_rma(loss)
+float dx = na
+if numericValid and not na(atr) and not na(plusRma) and not na(minusRma)
+    if atr == 0 and plusRma == 0 and minusRma == 0
+        dx := 0.0
+    else if atr > 0
+        float plusDI = 100.0 * plusRma / atr
+        float minusDI = 100.0 * minusRma / atr
+        dx := plusDI + minusDI == 0 ? 0.0 : 100.0 * math.abs(plusDI - minusDI) / (plusDI + minusDI)
+float adx = f_rma(dx)
+float rsi = na
+if not na(gainRma) and not na(lossRma)
+    rsi := gainRma == 0 and lossRma == 0 ? 50.0 : lossRma == 0 ? 100.0 : gainRma == 0 ? 0.0 : 100.0 - 100.0 / (1.0 + gainRma / lossRma)
+float atrMedian = na
+if numericValid and count >= 97
+    array<float> prior = array.new<float>()
+    bool validPrior = true
+    for age = 1 to 96
+        validPrior := validPrior and not na(atr[age])
+        array.push(prior, atr[age])
+    if validPrior
+        array.sort(prior, order.ascending)
+        atrMedian := (array.get(prior, 47) + array.get(prior, 48)) / 2.0
+bool passR = not na(adx) and not na(atrMedian) and adx >= 20 and math.abs(fast - slow) >= 0.25 * atr and atr <= 2.0 * atrMedian
+// Volume is read only within the anchored confirmed chart context.
+float anchoredVolume = na
+if numericValid
+    anchoredVolume := volume
+bool passV = false
+if numericValid and count >= 21 and not na(anchoredVolume) and anchoredVolume >= 0
+    float priorSum = 0.0
+    bool validVolumes = true
+    for age = 1 to 20
+        validVolumes := validVolumes and not na(anchoredVolume[age]) and anchoredVolume[age] >= 0
+        priorSum += anchoredVolume[age]
+    passV := validVolumes and anchoredVolume >= 1.2 * (priorSum / 20.0)
+[hEma, hEma3, hClose, hEnd, hCount] = request.security(syminfo.tickerid, "60", f_hour_confirmed(), gaps = barmerge.gaps_off, lookahead = barmerge.lookahead_on)
+bool hourlyReady = not na(hEnd) and hEnd == time - time % HOUR and not na(hEma) and not na(hEma3) and not na(hClose) and hCount >= 60
+bool window = time >= DATA_START and time_close >= TRADE_START and time_close < TRADE_END
+bool accepted = false
+int side = 0
+int p = na
+int pivotId = na
+int slTicks = na
+int tp1Ticks = na
+int tp2Ticks = na
+int totalSteps = na
+int firstSteps = na
+int secondSteps = na
+float rr1 = na
+float rr2 = na
+if active and window and count >= 200
+    side := fast > slow and close > slow ? 1 : fast < slow and close < slow ? -1 : 0
+    if side != 0
+        for age = 2 to 5
+            float depth = side == 1 ? fast[age] - low[age] : high[age] - fast[age]
+            if not na(atr[age]) and low[age] <= fast[age] and fast[age] <= high[age] and depth <= 0.75 * atr[age]
+                p := age
+                break
+    bool sequence = not na(p)
+    if sequence
+        for age = 0 to p
+            sequence := sequence and (side == 1 ? close[age] > slow[age] : close[age] < slow[age])
+    bool trigger = side == 1 ? close > open and close > fast and close > high[1] : side == -1 ? close < open and close < fast and close < low[1] : false
+    if sequence and trigger
+        array<int> ids = side == 1 ? lowIds : highIds
+        array<float> prices = side == 1 ? lowPrices : highPrices
+        float pivotPrice = na
+        int k = array.size(ids) - 1
+        while k >= 0
+            float value = array.get(prices, k)
+            if side == 1 ? value < close : value > close
+                pivotPrice := value
+                pivotId := DATA_START + array.get(ids, k) * STEP
+                break
+            k -= 1
+        if not na(pivotPrice)
+            slTicks := f_ticks(pivotPrice - side * 0.15 * atr, side)
+            // Render integer ticks by division: no reconstructing grid counters.
+            float sl = slTicks / 10.0
+            float risk = math.abs(close - sl)
+            bool stopSide = side == 1 ? 0 < sl and sl < close : sl > close
+            float cost = (close + sl) * (FEE + FRICTION)
+            if stopSide and risk >= 0.75 * atr and risk <= 2.5 * atr and cost > 0 and risk / cost >= K_COST_STOP
+                tp1Ticks := f_ticks(close + side * 1.5 * risk, side)
+                tp2Ticks := f_ticks(close + side * 2.5 * risk, side)
+                float tp1 = tp1Ticks / 10.0
+                float tp2 = tp2Ticks / 10.0
+                bool geometry = side == 1 ? tp2 > tp1 and tp1 > close : 0 < tp2 and tp2 < tp1 and tp1 < close
+                bool bounds = close >= 0.1 and close <= 1999999.8 and slTicks >= 1 and slTicks <= 19999998 and tp1Ticks >= 1 and tp1Ticks <= 19999998 and tp2Ticks >= 1 and tp2Ticks <= 19999998
+                if geometry and bounds and not na(fixtureBalance) and fixtureBalance > 0
+                    float rawQty = math.min(0.0025 * fixtureBalance / (risk + cost), 2.0 * fixtureBalance / close)
+                    totalSteps := int(math.floor(rawQty / QSTEP))
+                    firstSteps := int(math.floor(totalSteps / 2))
+                    secondSteps := totalSteps - firstSteps
+                    // Frozen minima: one BTC step per leg, entry notional >= 5.
+                    // Reduce-only exit notional minima are exempt by assumption.
+                    bool entryValid = totalSteps >= 1 and totalSteps <= 150000 and (totalSteps / 1000.0) * close >= 5.0
+                    bool partialValid = firstSteps >= 1 and secondSteps >= 1 and firstSteps <= 150000 and secondSteps <= 150000 and firstSteps <= 1500000 and secondSteps <= 1500000
+                    array<int> used = side == 1 ? consumedLong : consumedShort
+                    int pullbackId = DATA_START + (i - p) * STEP
+                    bool unused = not array.includes(used, pullbackId)
+                    bool passH = hourlyReady and (side == 1 ? hClose > hEma and hEma > hEma3 : hClose < hEma and hEma < hEma3)
+                    bool passM = not na(rsi) and (side == 1 ? rsi >= 55 : rsi <= 45)
+                    array<int> opposingIds = side == 1 ? highIds : lowIds
+                    array<float> opposingPrices = side == 1 ? highPrices : lowPrices
+                    float room = na
+                    int opposingIndex = 0
+                    while opposingIndex < array.size(opposingIds)
+                        float distance = side * (array.get(opposingPrices, opposingIndex) - close)
+                        if distance > 0
+                            room := na(room) ? distance : math.min(room, distance)
+                        opposingIndex += 1
+                    bool passQ = not na(room) and math.abs(close - open) <= 1.2 * atr and high - low <= 1.8 * atr and room >= 1.5 * risk
+                    bool filtersPass = (not useR or passR) and (not useH or passH) and (not useV or passV) and (not useM or passM) and (not useQ or passQ)
+                    if entryValid and partialValid and unused and filtersPass and not fixtureBusy and not fixtureDailyStop and fixtureEnabled
+                        accepted := true
+                        array.push(used, pullbackId)
+                        rr1 := math.abs(tp1 - close) / risk
+                        rr2 := math.abs(tp2 - close) / risk
+// Data Window observations only, placed at the owning close; no signal graphics.
+plot(accepted ? side : na, "SYNTHETIC selected candidate direction — UNVALIDATED", offset = 1, display = display.data_window)
+plot(accepted ? DATA_START + (i - p) * STEP : na, "Diagnostic pullback UTC ID", offset = 1, display = display.data_window)
+plot(accepted ? pivotId : na, "Diagnostic pivot UTC ID", offset = 1, display = display.data_window)
+plot(accepted ? time_close : na, "Diagnostic signal-close UTC ID", offset = 1, display = display.data_window)
+plot(accepted ? slTicks : na, "Diagnostic SL integer ticks", offset = 1, display = display.data_window)
+plot(accepted ? tp1Ticks : na, "Diagnostic TP1 integer ticks", offset = 1, display = display.data_window)
+plot(accepted ? tp2Ticks : na, "Diagnostic TP2 integer ticks", offset = 1, display = display.data_window)
+plot(accepted ? totalSteps : na, "Diagnostic total BTC steps", offset = 1, display = display.data_window)
+plot(accepted ? firstSteps : na, "Diagnostic TP1 BTC steps", offset = 1, display = display.data_window)
+plot(accepted ? secondSteps : na, "Diagnostic TP2 BTC steps", offset = 1, display = display.data_window)
+plot(accepted ? rr1 : na, "Diagnostic actual rounded TP1 R", offset = 1, display = display.data_window)
+plot(accepted ? rr2 : na, "Diagnostic actual rounded TP2 R", offset = 1, display = display.data_window)
+// Candidate input changes restart the entire script, including consumption arrays.
+// Exactly one candidate owns these arrays and snapshots during a script run.
+plot(accepted ? int(str.tonumber(str.substring(candidate, 1))) : na, "Selected C-ID — UNVALIDATED", offset = 1, display = display.data_window)
+plot(accepted ? filterBits : na, "Selected optional filter bits R1 H2 V4 M8 Q16", offset = 1, display = display.data_window)
