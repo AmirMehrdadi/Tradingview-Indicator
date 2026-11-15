@@ -293,6 +293,14 @@ class FilterTests(unittest.TestCase):
         self.assertIn('not useH or passH',text)
         self.assertIn('room >= 1.5 * risk',text)
 
+    def test_pine_global_constant_declarations_are_unique(self):
+        # Narrow source regression, not a Pine compiler or full language parser.
+        source = (Path(__file__).resolve().parents[1]/'pine/Phase5B2_Selected_Candidate_Probe_UNVALIDATED.pine').read_text()
+        declarations = re.findall(r'^const[ \t]+[A-Za-z_][A-Za-z0-9_<>]*[ \t]+([A-Za-z_][A-Za-z0-9_]*)[ \t]*=', source, re.MULTILINE)
+        self.assertGreater(len(declarations), 0, 'Static scan must find global constants')
+        duplicates = sorted({name for name in declarations if declarations.count(name) > 1})
+        self.assertEqual(duplicates, [], 'Repeated global constant declarations: '+', '.join(duplicates))
+
     def test_no_io_in_pure_candidate_decision(self):
         p=self.plan()
         with patch('builtins.open',side_effect=AssertionError('NO_IO')):

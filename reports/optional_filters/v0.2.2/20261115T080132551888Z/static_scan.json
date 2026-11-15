@@ -1,0 +1,380 @@
+{
+  "declaration_count": 74,
+  "declarations": [
+    {
+      "kind": "constant",
+      "line": 4,
+      "name": "DATA_START"
+    },
+    {
+      "kind": "constant",
+      "line": 5,
+      "name": "TRADE_START"
+    },
+    {
+      "kind": "constant",
+      "line": 6,
+      "name": "TRADE_END"
+    },
+    {
+      "kind": "constant",
+      "line": 7,
+      "name": "STEP"
+    },
+    {
+      "kind": "constant",
+      "line": 8,
+      "name": "HOUR"
+    },
+    {
+      "kind": "function",
+      "line": 13,
+      "name": "f_valid"
+    },
+    {
+      "kind": "function",
+      "line": 16,
+      "name": "f_chart_state"
+    },
+    {
+      "kind": "constant",
+      "line": 60,
+      "name": "TICK"
+    },
+    {
+      "kind": "constant",
+      "line": 61,
+      "name": "QSTEP"
+    },
+    {
+      "kind": "constant",
+      "line": 62,
+      "name": "K_COST_STOP"
+    },
+    {
+      "kind": "constant",
+      "line": 63,
+      "name": "FEE"
+    },
+    {
+      "kind": "constant",
+      "line": 64,
+      "name": "FRICTION"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 65,
+      "name": "candidate"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 66,
+      "name": "useR"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 67,
+      "name": "useH"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 68,
+      "name": "useV"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 69,
+      "name": "useM"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 70,
+      "name": "useQ"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 71,
+      "name": "filterBits"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 72,
+      "name": "fixtureEnabled"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 73,
+      "name": "fixtureBalance"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 74,
+      "name": "fixtureBusy"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 75,
+      "name": "fixtureDailyStop"
+    },
+    {
+      "kind": "function",
+      "line": 77,
+      "name": "f_ticks"
+    },
+    {
+      "kind": "function",
+      "line": 80,
+      "name": "f_hour_confirmed"
+    },
+    {
+      "kind": "function",
+      "line": 111,
+      "name": "f_rma"
+    },
+    {
+      "kind": "tuple_variable",
+      "line": 126,
+      "name": "fast"
+    },
+    {
+      "kind": "tuple_variable",
+      "line": 126,
+      "name": "slow"
+    },
+    {
+      "kind": "tuple_variable",
+      "line": 126,
+      "name": "atr"
+    },
+    {
+      "kind": "tuple_variable",
+      "line": 126,
+      "name": "tr"
+    },
+    {
+      "kind": "tuple_variable",
+      "line": 126,
+      "name": "count"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 127,
+      "name": "i"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 128,
+      "name": "lowIds"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 129,
+      "name": "lowPrices"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 130,
+      "name": "highIds"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 131,
+      "name": "highPrices"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 132,
+      "name": "consumedLong"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 133,
+      "name": "consumedShort"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 134,
+      "name": "active"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 137,
+      "name": "numericValid"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 164,
+      "name": "plusDM"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 165,
+      "name": "minusDM"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 166,
+      "name": "gain"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 167,
+      "name": "loss"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 175,
+      "name": "plusRma"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 176,
+      "name": "minusRma"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 177,
+      "name": "gainRma"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 178,
+      "name": "lossRma"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 179,
+      "name": "dx"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 187,
+      "name": "adx"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 188,
+      "name": "rsi"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 191,
+      "name": "atrMedian"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 201,
+      "name": "passR"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 203,
+      "name": "anchoredVolume"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 206,
+      "name": "passV"
+    },
+    {
+      "kind": "tuple_variable",
+      "line": 214,
+      "name": "hEma"
+    },
+    {
+      "kind": "tuple_variable",
+      "line": 214,
+      "name": "hEma3"
+    },
+    {
+      "kind": "tuple_variable",
+      "line": 214,
+      "name": "hClose"
+    },
+    {
+      "kind": "tuple_variable",
+      "line": 214,
+      "name": "hEnd"
+    },
+    {
+      "kind": "tuple_variable",
+      "line": 214,
+      "name": "hCount"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 215,
+      "name": "hourlyReady"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 216,
+      "name": "window"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 217,
+      "name": "accepted"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 218,
+      "name": "side"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 219,
+      "name": "p"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 220,
+      "name": "pivotId"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 221,
+      "name": "slTicks"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 222,
+      "name": "tp1Ticks"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 223,
+      "name": "tp2Ticks"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 224,
+      "name": "totalSteps"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 225,
+      "name": "firstSteps"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 226,
+      "name": "secondSteps"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 227,
+      "name": "rr1"
+    },
+    {
+      "kind": "typed_variable",
+      "line": 228,
+      "name": "rr2"
+    }
+  ],
+  "duplicate_global_names": [],
+  "limitation": "Not a full Pine parser or compiler; no TradingView execution",
+  "result": "PASS",
+  "scope": "Read-only line-oriented scan of this source: global constants, typed/untyped variables, tuple-bound variables and functions; indented local scopes excluded",
+  "unclassified_top_level_statements": []
+}

@@ -6,7 +6,6 @@ const int TRADE_START = timestamp("04 Nov 2026 00:00 +0000")
 const int TRADE_END = timestamp("01 Dec 2026 00:00 +0000")
 const int STEP = 900000
 const int HOUR = 3600000
-const int HOUR = 3600000
 if not chart.is_standard or timeframe.in_seconds() != 900
     runtime.error("Requires a standard 15-minute chart in a separately authorized non-Holdout environment")
 
