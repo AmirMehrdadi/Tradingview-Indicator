@@ -1,0 +1,64 @@
+{
+  "files": [
+    {
+      "declarations": 21,
+      "duplicates": [],
+      "kind": "Pine line-oriented global declaration scan",
+      "path": "pine/Phase5A_Temporal_Probe_UNVALIDATED.pine",
+      "unclassified_top_level_lines": []
+    },
+    {
+      "declarations": 44,
+      "duplicates": [],
+      "kind": "Pine line-oriented global declaration scan",
+      "path": "pine/Phase5B1_C01_Decision_Probe_UNVALIDATED.pine",
+      "unclassified_top_level_lines": []
+    },
+    {
+      "declarations": 74,
+      "duplicates": [],
+      "kind": "Pine line-oriented global declaration scan",
+      "path": "pine/Phase5B2_Selected_Candidate_Probe_UNVALIDATED.pine",
+      "unclassified_top_level_lines": []
+    },
+    {
+      "duplicates": [],
+      "kind": "Python AST syntax and duplicate top-level definitions/class methods",
+      "path": "research/fixture_state_v1/__init__.py",
+      "result": "PASS"
+    },
+    {
+      "duplicates": [],
+      "kind": "Python AST syntax and duplicate top-level definitions/class methods",
+      "path": "research/fixture_state_v1/state.py",
+      "result": "PASS"
+    },
+    {
+      "duplicates": [],
+      "kind": "Python AST syntax and duplicate top-level definitions/class methods",
+      "path": "research/fixture_state_v1/integration.py",
+      "result": "PASS"
+    },
+    {
+      "duplicates": [],
+      "kind": "Python AST syntax and duplicate top-level definitions/class methods",
+      "path": "tests/test_phase5b3_state.py",
+      "result": "PASS"
+    },
+    {
+      "duplicates": [],
+      "kind": "Python AST syntax and duplicate top-level definitions/class methods",
+      "path": "tests/test_phase5b3_integration.py",
+      "result": "PASS"
+    },
+    {
+      "duplicates": [],
+      "kind": "Python AST syntax and duplicate top-level definitions/class methods",
+      "path": "tests/run_phase5b3_checks.py",
+      "result": "PASS"
+    }
+  ],
+  "limitations": "Not a Pine parser/compiler or general semantic proof. Python assignments may legitimately rebind names.",
+  "result": "PASS",
+  "scope": "Preserved Pine global declarations; new Python syntax/top-level definitions/class methods"
+}
