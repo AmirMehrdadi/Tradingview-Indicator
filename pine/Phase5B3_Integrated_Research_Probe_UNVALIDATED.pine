@@ -72,6 +72,52 @@ bool useQ = candidate == "C06" or candidate == "C11" or candidate == "C12"
 int filterBits = (useR ? 1 : 0) + (useH ? 2 : 0) + (useV ? 4 : 0) + (useM ? 8 : 0) + (useQ ? 16 : 0)
 // Hypothetical Research state only. Monetary fields are internal and never plotted.
 // Phase: 0 FLAT, 1 PENDING_ENTRY, 2 OPEN, 3 ENDED_FLAT, 4 CENSORED.
+// Append-only primitive snapshots. Never mutate an appended row or evict evidence.
+// This is per-execution memory, not a durable export or platform isolation proof.
+const int AUDIT_CAPACITY = 20000
+f_validResearchRunId(string runId) =>
+    int size = str.length(runId)
+    bool valid = size >= 1 and size <= 64
+    if valid
+        for index = 0 to size - 1
+            valid := valid and str.contains("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-", str.substring(runId, index, index + 1))
+    valid
+
+f_canonicalResearchId(string runId, string cid, int barOpen, int direction) =>
+    runId + "/Research/" + cid + "/November2026/" + str.tostring(barOpen) + "/" + str.tostring(direction)
+
+type ResearchAuditRow
+    int sequence = 0
+    string tradeId = ""
+    string kind = ""
+    string fillId = ""
+    int clock = na
+    int economicPhase = 0
+    int leg = -1
+    int steps = 0
+    float rawPrice = na
+    float price = na
+    float fee = na
+    int remaining1 = 0
+    int remaining2 = 0
+    int reserved1 = 0
+    int reserved2 = 0
+    int exited = 0
+    int total = 0
+    int entered = 0
+    int fillCount = 0
+    float observationPrice = na
+    float exposureNotional = na
+    bool occupied = false
+    int releasedAt = na
+    int quality = 0
+    string classification = ""
+    float cash = na
+    float settled = na
+    int day = na
+    float dayStart = na
+    bool dailyStop = false
+
 type ResearchBook
     int phase = 0
     bool quarantined = false
@@ -104,6 +150,15 @@ type ResearchBook
     string oca1Id = ""
     string oca2Id = ""
     array<string> fills = na
+    string runId = ""
+    array<ResearchAuditRow> audit = na
+    bool auditBlocked = false
+    int auditClock = na
+    int auditPhase = 0
+    float auditPrice = na
+    string auditExitKind = ""
+    int tradeFillCount = 0
+    int tradeQuality = 0
     bool queuedThisBar = false
     bool filledThisBar = false
     bool rejectedThisBar = false
@@ -124,6 +179,31 @@ type ResearchBook
     bool uncertainOrder = false
     bool entryAtStop = false
     bool frictionCrossedTarget = false
+
+// Reserve a conservative worst-case budget before any economic operation.
+// Bar maximum: ENTRY 1 + eight first quality bits + EXIT 2 + release 1 + censor 1 = 13.
+// Sixteen slots leave headroom; a close queue separately reserves its one row.
+method reserveResearchAudit(ResearchBook this, int slots) =>
+    bool ready = not this.auditBlocked and array.size(this.audit) + slots <= AUDIT_CAPACITY
+    if not ready
+        this.auditBlocked := true
+        this.quarantined := true
+    ready
+
+method appendResearchAudit(ResearchBook this, string kind, string fid, int leg, int steps, float raw, float price, float fee, string classification, bool release) =>
+    bool ready = this.reserveResearchAudit(1)
+    if ready
+        int remaining = this.left1 + this.left2
+        ResearchAuditRow row = ResearchAuditRow.new(sequence = array.size(this.audit) + 1, tradeId = this.entryId, kind = kind, fillId = fid, clock = this.auditClock, economicPhase = this.auditPhase, leg = leg, steps = steps, rawPrice = raw, price = price, fee = fee, remaining1 = this.left1, remaining2 = this.left2, reserved1 = this.reserve1, reserved2 = this.reserve2, exited = this.exited, total = this.total, entered = this.hasFilled ? this.total : 0, fillCount = this.tradeFillCount, observationPrice = this.auditPrice, exposureNotional = (remaining / 1000.0) * this.auditPrice, occupied = this.phase == 1 or this.phase == 2 or this.phase == 4, releasedAt = release ? this.auditClock : na, quality = this.tradeQuality, classification = classification, cash = this.cash, settled = this.settled, day = this.day, dayStart = this.dayStart, dailyStop = this.dailyStop)
+        array.push(this.audit, row)
+    ready
+
+method tagResearchQuality(ResearchBook this, int bit, string classification) =>
+    bool fresh = int(math.floor(this.tradeQuality / bit)) % 2 == 0
+    if fresh
+        this.tradeQuality += bit
+        this.appendResearchAudit("QUALITY", "", -1, 0, this.auditPrice, na, na, classification, false)
+    this.tradeQuality
 
 method assertResearchQuantity(ResearchBook this) =>
     bool ok = this.left1 >= 0 and this.left2 >= 0 and this.exited >= 0 and not na(this.cash) and not na(this.settled) and not na(this.dayStart)
@@ -148,11 +228,13 @@ method resetResearchDay(ResearchBook this, int clock) =>
     this.day
 
 method markResearchMargin(ResearchBook this, float raw) =>
+    this.auditPrice := raw
     if this.phase == 2 and not this.quarantined
         float amount = (this.left1 + this.left2) / 1000.0
         float equity = this.cash + this.side * amount * (raw - this.entryFill)
         if equity < 0.5 * amount * raw
             this.marginEvent := true
+            this.tagResearchQuality(16, "MARGIN_MODEL_EVENT")
     this.marginEvent
 
 method fillResearchLeg(ResearchBook this, int leg, float raw, float markPrice, int clock, int economicPhase) =>
@@ -160,6 +242,8 @@ method fillResearchLeg(ResearchBook this, int leg, float raw, float markPrice, i
     string fid = leg == 0 ? this.leg1Id : this.leg2Id
     bool valid = this.phase == 2 and not this.quarantined and (leg == 0 or leg == 1) and steps > 0 and not na(raw) and raw > 0 and not array.includes(this.fills, fid)
     if valid
+        this.auditClock := clock
+        this.auditPhase := economicPhase
         float amount = steps / 1000.0
         float fill = raw * (1.0 - this.side * FRICTION)
         float fee = amount * fill * FEE
@@ -174,11 +258,14 @@ method fillResearchLeg(ResearchBook this, int leg, float raw, float markPrice, i
         this.exited += steps
         this.lastExitTime := clock
         this.lastExitPhase := economicPhase
+        this.tradeFillCount += 1
+        this.appendResearchAudit("EXIT", fid, leg, steps, raw, fill, fee, this.auditExitKind, false)
         if this.left1 + this.left2 == 0
             this.phase := 0
             this.settled := this.cash
             this.dailyStop := this.dailyStop or this.settled - this.dayStart <= -0.01 * this.dayStart
             this.closedCount += 1
+            this.appendResearchAudit("FULL_FLAT_SETTLEMENT", "", -1, 0, raw, na, na, "FULL_FLAT_SETTLEMENT", true)
         else
             this.markResearchMargin(markPrice)
         this.assertResearchQuantity()
@@ -187,6 +274,9 @@ method fillResearchLeg(ResearchBook this, int leg, float raw, float markPrice, i
     valid
 
 method stopResearchLegs(ResearchBook this, float raw, int clock, int economicPhase) =>
+    this.auditClock := clock
+    this.auditPhase := economicPhase
+    this.auditExitKind := "STOP"
     this.markResearchMargin(raw)
     for leg = 0 to 1
         int steps = leg == 0 ? this.left1 : this.left2
@@ -205,8 +295,15 @@ method queueResearchPlan(ResearchBook this, string cid, int barOpen, int sigClos
     bool newIdentity = na(this.lastQueue) or sigClose > this.lastQueue
     bool geometry = direction == 1 ? 0 < sl and sl < reference and reference < tp1 and tp1 < tp2 : direction == -1 ? 0 < tp2 and tp2 < tp1 and tp1 < reference and reference < sl : false
     bool bounds = reference >= 0.1 and reference <= 1999999.8 and stopTicks >= 1 and stopTicks <= 19999998 and target1Ticks >= 1 and target1Ticks <= 19999998 and target2Ticks >= 1 and target2Ticks <= 19999998 and pullbackId >= DATA_START and pullbackId < sigClose and pullbackId % STEP == 0
-    bool valid = bounds and clockValid and newIdentity and this.phase == 0 and not this.dailyStop and not this.quarantined and geometry and steps >= 2 and steps <= 150000 and first >= 1 and second >= 1 and first + second == steps and first <= 150000 and second <= 150000 and amount * reference >= 5.0 and cost > 0 and risk / cost >= K_COST_STOP and amount * (risk + cost) <= 0.0025 * this.settled and amount * reference <= 2.0 * this.settled
+    bool valid = f_validResearchRunId(this.runId) and bounds and clockValid and newIdentity and this.phase == 0 and not this.dailyStop and not this.quarantined and geometry and steps >= 2 and steps <= 150000 and first >= 1 and second >= 1 and first + second == steps and first <= 150000 and second <= 150000 and amount * reference >= 5.0 and cost > 0 and risk / cost >= K_COST_STOP and amount * (risk + cost) <= 0.0025 * this.settled and amount * reference <= 2.0 * this.settled
     if valid
+        valid := this.reserveResearchAudit(1)
+    if valid
+        this.auditClock := sigClose
+        this.auditPhase := 0
+        this.auditPrice := reference
+        this.tradeFillCount := 0
+        this.tradeQuality := 0
         this.phase := 1
         this.side := direction
         this.signalClose := sigClose
@@ -225,13 +322,14 @@ method queueResearchPlan(ResearchBook this, string cid, int barOpen, int sigClos
         this.exited := 0
         this.entryFill := na
         this.hasFilled := false
-        this.entryId := "Research:" + cid + ":November2026:" + str.tostring(barOpen) + ":" + str.tostring(direction)
-        this.leg1Id := this.entryId + ":L1"
-        this.leg2Id := this.entryId + ":L2"
-        this.oca1Id := this.entryId + ":OCA1"
-        this.oca2Id := this.entryId + ":OCA2"
+        this.entryId := f_canonicalResearchId(this.runId, cid, barOpen, direction)
+        this.leg1Id := this.entryId + "/L1"
+        this.leg2Id := this.entryId + "/L2"
+        this.oca1Id := this.entryId + "/OCA1"
+        this.oca2Id := this.entryId + "/OCA2"
         this.queuedThisBar := true
         this.queuedCount += 1
+        this.appendResearchAudit("PLAN_QUEUED", "", -1, 0, reference, na, na, "QUEUED_NOT_FILLED", false)
         this.assertResearchQuantity()
     else
         this.quarantined := true
@@ -241,7 +339,8 @@ method queueResearchPlan(ResearchBook this, string cid, int barOpen, int sigClos
 // This emits no realtime open callback and sends no order to any emulator.
 method advanceResearchBar(ResearchBook this, int barOpen, int barEnd, float o, float h, float l, float c) =>
     bool contiguous = na(this.lastBar) ? barOpen == DATA_START : barOpen == this.lastBar + STEP
-    bool valid = not this.quarantined and this.phase < 3 and barOpen >= DATA_START and barOpen < TRADE_END and barEnd == barOpen + STEP and contiguous and not na(o) and not na(h) and not na(l) and not na(c) and l > 0 and l <= o and o <= h and l <= c and c <= h
+    bool auditReady = this.reserveResearchAudit(16)
+    bool valid = auditReady and f_validResearchRunId(this.runId) and not this.quarantined and this.phase < 3 and barOpen >= DATA_START and barOpen < TRADE_END and barEnd == barOpen + STEP and contiguous and not na(o) and not na(h) and not na(l) and not na(c) and l > 0 and l <= o and o <= h and l <= c and c <= h
     if not valid
         this.quarantined := true
     else
@@ -249,6 +348,9 @@ method advanceResearchBar(ResearchBook this, int barOpen, int barEnd, float o, f
         this.filledThisBar := false
         this.rejectedThisBar := false
         this.exitMask := 0
+        this.auditClock := barOpen
+        this.auditPhase := 1
+        this.auditPrice := o
         this.resetResearchDay(barOpen)
         if this.phase == 1
             if this.signalClose != barOpen
@@ -257,11 +359,12 @@ method advanceResearchBar(ResearchBook this, int barOpen, int barEnd, float o, f
                 float amount = this.total / 1000.0
                 float fill = o * (1.0 + this.side * FRICTION)
                 float fee = amount * fill * FEE
-                string fid = this.entryId + ":ENTRY"
+                string fid = this.entryId + "/ENTRY"
                 if 0.5 * amount * fill + fee > this.cash
                     this.phase := 0
                     this.rejectedThisBar := true
                     this.rejectedCount += 1
+                    this.appendResearchAudit("ENTRY_REJECTED_MARGIN", "", -1, 0, o, na, na, "ENTRY_REJECTED_MARGIN", true)
                 else if array.includes(this.fills, fid)
                     this.quarantined := true
                 else
@@ -275,25 +378,33 @@ method advanceResearchBar(ResearchBook this, int barOpen, int barEnd, float o, f
                     this.lastEntryOpen := barOpen
                     this.filledCount += 1
                     array.push(this.fills, fid)
+                    this.tradeFillCount += 1
+                    this.appendResearchAudit("ENTRY", fid, -1, this.total, o, fill, fee, "ENTRY_FILLED", false)
                     float plannedRisk = math.abs(this.entryRef - this.slTicks / 10.0)
                     float actualRisk = this.side * (fill - this.slTicks / 10.0)
                     if actualRisk <= 0
                         this.executionAnomaly := true
+                        this.tagResearchQuality(2, "EXECUTION_ANOMALY")
                     else if (actualRisk - plannedRisk) / plannedRisk > 0.15
                         this.entryDeviation := true
+                        this.tagResearchQuality(1, "ENTRY_DEVIATION")
                     float stopFill = (this.slTicks / 10.0) * (1.0 - this.side * FRICTION)
                     float anticipated = amount * this.side * (fill - stopFill) + fee + amount * stopFill * FEE
                     if anticipated > 0.0025 * this.signalBalance
                         this.riskOverrun := true
+                        this.tagResearchQuality(4, "RISK_OVERRUN")
                     if amount * fill > 2.0 * this.signalBalance
                         this.notionalOverrun := true
+                        this.tagResearchQuality(8, "NOTIONAL_OVERRUN")
         if this.phase == 2 and not this.quarantined
             this.markResearchMargin(o)
             float sl = this.slTicks / 10.0
             if this.side * (o - sl) <= 0 or this.side * (this.entryFill - sl) <= 0
                 if barOpen == this.signalClose
                     this.entryAtStop := true
+                    this.tagResearchQuality(64, "ENTRY_AT_OR_BEYOND_SL")
                     this.executionAnomaly := true
+                    this.tagResearchQuality(2, "EXECUTION_ANOMALY")
                 this.stopResearchLegs(o, barOpen, 1)
             else
                 for leg = 0 to 1
@@ -301,18 +412,25 @@ method advanceResearchBar(ResearchBook this, int barOpen, int barEnd, float o, f
                     float target = (leg == 0 ? this.tp1Ticks : this.tp2Ticks) / 10.0
                     if this.phase == 2 and not this.quarantined and steps > 0
                         if this.side * (o - target) >= 0
+                            this.auditExitKind := "TP"
                             this.fillResearchLeg(leg, target, o, barOpen, 1)
                         else if barOpen == this.signalClose and this.side * (this.entryFill - target) >= 0
                             this.frictionCrossedTarget := true
+                            this.tagResearchQuality(128, "FILL_FRICTION_CROSSED_TP")
                             this.executionAnomaly := true
+                            this.tagResearchQuality(2, "EXECUTION_ANOMALY")
         if this.phase == 2 and not this.quarantined
+            this.auditClock := barEnd
+            this.auditPhase := 2
             float sl = this.slTicks / 10.0
             bool stopHit = this.side == 1 ? l <= sl : h >= sl
             float favorable = this.side == 1 ? h : l
             bool targetHit = (this.left1 > 0 and this.side * (favorable - this.tp1Ticks / 10.0) >= 0) or (this.left2 > 0 and this.side * (favorable - this.tp2Ticks / 10.0) >= 0)
             if stopHit
+                this.auditPrice := sl
                 if targetHit
                     this.uncertainOrder := true
+                    this.tagResearchQuality(32, "UNCERTAIN_INTRABAR_ORDER")
                 this.stopResearchLegs(sl, barEnd, 2)
             else
                 for leg = 0 to 1
@@ -320,6 +438,7 @@ method advanceResearchBar(ResearchBook this, int barOpen, int barEnd, float o, f
                     float target = (leg == 0 ? this.tp1Ticks : this.tp2Ticks) / 10.0
                     if this.phase == 2 and not this.quarantined and steps > 0 and this.side * (favorable - target) >= 0
                         this.markResearchMargin(target)
+                        this.auditExitKind := "TP"
                         this.fillResearchLeg(leg, target, target, barEnd, 2)
                 if this.phase == 2 and not this.quarantined
                     this.markResearchMargin(this.side == 1 ? l : h)
@@ -327,9 +446,13 @@ method advanceResearchBar(ResearchBook this, int barOpen, int barEnd, float o, f
         this.lastBar := barOpen
         if not this.quarantined
             if barEnd == TRADE_END
+                this.auditClock := barEnd
+                this.auditPhase := 3
+                this.auditPrice := c
                 if this.phase == 2
                     this.phase := 4
                     this.censoredCount += 1
+                    this.appendResearchAudit("PARTITION_CENSORED", "", -1, 0, c, na, na, "CENSORED", false)
                 else if this.phase == 0
                     this.phase := 3
                 else
@@ -345,7 +468,10 @@ method advanceResearchBar(ResearchBook this, int barOpen, int barEnd, float o, f
 method researchQualityCode(ResearchBook this) =>
     (this.entryDeviation ? 1 : 0) + (this.executionAnomaly ? 2 : 0) + (this.riskOverrun ? 4 : 0) + (this.notionalOverrun ? 8 : 0) + (this.marginEvent ? 16 : 0) + (this.uncertainOrder ? 32 : 0) + (this.entryAtStop ? 64 : 0) + (this.frictionCrossedTarget ? 128 : 0)
 
-var ResearchBook book = ResearchBook.new(fills = array.new<string>())
+// Explicit reproducible namespace; caller must choose distinct IDs for distinct runs/instances.
+// No automatic cross-instance uniqueness is claimed. Allowed: 1..64 ASCII letters/digits/_/-.
+string researchRunId = input.string("phase5b3-pine-v1", "Research run_id — assign a distinct name to each compared run")
+var ResearchBook book = ResearchBook.new(runId = researchRunId, fills = array.new<string>(), audit = array.new<ResearchAuditRow>())
 bool diagnosticEnabled = input.bool(false, "Enable hypothetical Research diagnostic — UNVALIDATED")
 if diagnosticEnabled and barstate.isconfirmed and time >= DATA_START and time < TRADE_END
     book.advanceResearchBar(time, time_close, open, high, low, close)
