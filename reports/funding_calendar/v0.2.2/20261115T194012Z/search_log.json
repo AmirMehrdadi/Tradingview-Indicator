@@ -1,0 +1,214 @@
+{
+  "archives": "No new archive availability/replay lookup was performed; original verified captures are reused by evidence identity.",
+  "connector_commit_search": {
+    "exhaustive_history_claim": false,
+    "query": "funding committer-date:2023-01-01..2024-12-31",
+    "repository_full_name": "bybit-exchange/docs",
+    "returned": 16,
+    "topn": 30
+  },
+  "document_and_metadata_connector_calls": 10,
+  "failed_connector_calls": 1,
+  "failed_route": "G10: connector rejected a public GitHub commit-search URL as unsupported (400 INVALID_ARGUMENT); used its supported search_commits tool instead. No credential or market-data route was attempted.",
+  "no_market_data_endpoint_requests": true,
+  "nonduplication_basis": "Reused all 12 prior source assessments and two archived bodies by committed evidence only; no re-fetch of those pages, archive CDX or market/metadata endpoints. New emphasis: API changelog versus actual instrument configuration history, dated file/commit histories and explicit BTCUSDT temporary-change wording. Some targeted announcement query terms overlap the prior audit; these are not independent evidence.",
+  "queries": [
+    {
+      "exact_request_time_utc": null,
+      "query": "site:bybit.com BTCUSDT \"historical\" \"funding interval\" \"change\"",
+      "query_id": "Q01",
+      "result": "No admissible complete calendar established; first three query outputs were not preserved in the final working context.",
+      "retrieval_utc_date": "2026-11-15"
+    },
+    {
+      "exact_request_time_utc": null,
+      "query": "site:announcements.bybit.com BTCUSDT \"funding\" \"interval\" \"2024\" \"adjustment\"",
+      "query_id": "Q02",
+      "result": "No admissible complete calendar established; first three query outputs were not preserved in the final working context.",
+      "retrieval_utc_date": "2026-11-15"
+    },
+    {
+      "exact_request_time_utc": null,
+      "query": "site:github.com/bybit-exchange/docs \"fundingInterval\" \"changelog\"",
+      "query_id": "Q03",
+      "result": "No admissible complete calendar established; first three query outputs were not preserved in the final working context.",
+      "retrieval_utc_date": "2026-11-15"
+    },
+    {
+      "exact_request_time_utc": null,
+      "query": "site:bybit.com \"BTCUSDT\" \"funding\" \"historical schedule\"",
+      "query_id": "Q04",
+      "result": "Discovery only: API changelog/pilot-feature pages or irrelevant results; no complete calendar admitted.",
+      "retrieval_utc_date": "2026-11-15"
+    },
+    {
+      "exact_request_time_utc": null,
+      "query": "site:announcements.bybit.com \"BTCUSDT\" \"funding interval\" \"2023\" \"change\"",
+      "query_id": "Q05",
+      "result": "Discovery only: API changelog/pilot-feature pages or irrelevant results; no complete calendar admitted.",
+      "retrieval_utc_date": "2026-11-15"
+    },
+    {
+      "exact_request_time_utc": null,
+      "query": "site:bybit-exchange.github.io/docs/changelog \"2024\" \"funding\"",
+      "query_id": "Q06",
+      "result": "Discovery only: API changelog/pilot-feature pages or irrelevant results; no complete calendar admitted.",
+      "retrieval_utc_date": "2026-11-15"
+    },
+    {
+      "exact_request_time_utc": null,
+      "query": "site:announcements.bybit.com \"BTCUSDT\" \"settlement\" \"2023\" \"funding frequency\"",
+      "query_id": "Q07",
+      "result": "Discovery only: API changelog/pilot-feature pages or irrelevant results; no complete calendar admitted.",
+      "retrieval_utc_date": "2026-11-15"
+    },
+    {
+      "exact_request_time_utc": null,
+      "query": "site:bybit.com \"BTCUSDT\" \"funding\" \"2024\" \"temporary adjustment\"",
+      "query_id": "Q08",
+      "result": "Discovery only: API changelog/pilot-feature pages or irrelevant results; no complete calendar admitted.",
+      "retrieval_utc_date": "2026-11-15"
+    },
+    {
+      "exact_request_time_utc": null,
+      "query": "site:github.com/bybit-exchange \"funding\" \"configuration history\"",
+      "query_id": "Q09",
+      "result": "Discovery only: API changelog/pilot-feature pages or irrelevant results; no complete calendar admitted.",
+      "retrieval_utc_date": "2026-11-15"
+    },
+    {
+      "exact_request_time_utc": null,
+      "query": "site:announcements.bybit.com/en/article/ \"funding\" \"BTCUSDT\" \"2024\" \"intervals\"",
+      "query_id": "Q10",
+      "result": "Discovery only: API changelog/pilot-feature pages or irrelevant results; no complete calendar admitted.",
+      "retrieval_utc_date": "2026-11-15"
+    },
+    {
+      "exact_request_time_utc": null,
+      "query": "site:bybit.com \"historical funding interval\" \"BTCUSDT\"",
+      "query_id": "Q11",
+      "result": "Discovery only: API changelog/pilot-feature pages or irrelevant results; no complete calendar admitted.",
+      "retrieval_utc_date": "2026-11-15"
+    },
+    {
+      "exact_request_time_utc": null,
+      "query": "site:bybit.com \"BTCUSDT\" \"funding\" \"2023\" \"UTC\" \"adjustment\"",
+      "query_id": "Q12",
+      "result": "Discovery only: API changelog/pilot-feature pages or irrelevant results; no complete calendar admitted.",
+      "retrieval_utc_date": "2026-11-15"
+    },
+    {
+      "exact_request_time_utc": null,
+      "query": "\"BTCUSDT\" \"funding\" \"2024\" \"interval\" site:announcements.bybit.com/en/article -site:bybit.com/en/social -site:bybit.com/en/wiki",
+      "query_id": "Q13",
+      "result": "Empty combined search response.",
+      "retrieval_utc_date": "2026-11-15"
+    },
+    {
+      "exact_request_time_utc": null,
+      "query": "\"BTCUSDT\" \"funding\" \"2023\" \"temporary\" site:announcements.bybit.com/en/article -site:bybit.com/en/social -site:bybit.com/en/wiki",
+      "query_id": "Q14",
+      "result": "Empty combined search response.",
+      "retrieval_utc_date": "2026-11-15"
+    },
+    {
+      "exact_request_time_utc": null,
+      "query": "\"funding interval\" \"historical\" site:bybit.com/en/help-center/article -site:bybit.com/en/wiki -site:bybit.com/en/social",
+      "query_id": "Q15",
+      "result": "Empty combined search response.",
+      "retrieval_utc_date": "2026-11-15"
+    }
+  ],
+  "retrieval_log": [
+    {
+      "capture_id": "G01",
+      "elapsed_ms": null,
+      "error": null,
+      "retrieved_utc": null,
+      "status": "RETRIEVED",
+      "url": "https://api.github.com/repos/bybit-exchange/docs/commits?path=docs/changelog/v5.mdx&until=2025-01-01T00:00:00Z&per_page=1"
+    },
+    {
+      "capture_id": "G02",
+      "elapsed_ms": 1315,
+      "error": null,
+      "retrieved_utc": "2026-11-15T19:35:05.694Z",
+      "status": "RETRIEVED",
+      "url": "https://raw.githubusercontent.com/bybit-exchange/docs/918df41fd51d85b8ec1fced3e043eaba9098931d/docs/changelog/v5.mdx"
+    },
+    {
+      "capture_id": "G03",
+      "elapsed_ms": 1201,
+      "error": null,
+      "retrieved_utc": "2026-11-15T19:35:06.924Z",
+      "status": "RETRIEVED",
+      "url": "https://api.github.com/repos/bybit-exchange/docs/commits?path=docs/v5/market/instrument.mdx&since=2022-12-01T00:00:00Z&until=2025-01-01T00:00:00Z&per_page=100"
+    },
+    {
+      "capture_id": "G04",
+      "elapsed_ms": null,
+      "error": null,
+      "retrieved_utc": "2026-11-15T19:35:17.467Z",
+      "status": "RETRIEVED",
+      "url": "https://github.com/search?q=repo%3Abybit-exchange%2Fdocs+funding+committer-date%3A2023-01-01..2024-12-31&type=commits"
+    },
+    {
+      "capture_id": "G05",
+      "elapsed_ms": 829,
+      "error": null,
+      "retrieved_utc": "2026-11-15T19:35:33.417Z",
+      "status": "RETRIEVED",
+      "url": "https://raw.githubusercontent.com/bybit-exchange/docs/208e13bc0447b0d520593b6872d025264d0a93ae/docs/v5/market/instrument.mdx"
+    },
+    {
+      "capture_id": "G06",
+      "elapsed_ms": 608,
+      "error": null,
+      "retrieved_utc": "2026-11-15T19:35:49.621Z",
+      "status": "RETRIEVED",
+      "url": "https://api.github.com/repos/bybit-exchange/docs/commits/208e13bc0447b0d520593b6872d025264d0a93ae"
+    },
+    {
+      "capture_id": "G07",
+      "elapsed_ms": 661,
+      "error": null,
+      "retrieved_utc": "2026-11-15T19:35:50.284Z",
+      "status": "RETRIEVED",
+      "url": "https://api.github.com/repos/bybit-exchange/docs/contents/docs/changelog/v5.mdx?ref=918df41fd51d85b8ec1fced3e043eaba9098931d"
+    },
+    {
+      "capture_id": "G08",
+      "elapsed_ms": 497,
+      "error": null,
+      "retrieved_utc": "2026-11-15T19:35:50.783Z",
+      "status": "RETRIEVED",
+      "url": "https://api.github.com/repos/bybit-exchange/docs/contents/docs/v5/market/instrument.mdx?ref=208e13bc0447b0d520593b6872d025264d0a93ae"
+    },
+    {
+      "capture_id": "G09",
+      "elapsed_ms": 683,
+      "error": null,
+      "retrieved_utc": "2026-11-15T19:36:14.487Z",
+      "status": "RETRIEVED",
+      "url": "https://api.github.com/repos/bybit-exchange/docs/commits/918df41fd51d85b8ec1fced3e043eaba9098931d"
+    },
+    {
+      "capture_id": "G10",
+      "elapsed_ms": 268,
+      "error": "HTTPError: 400: GitHub Fetch URL is not an allowed public GitHub repository or search endpoint. (Response: None)",
+      "retrieved_utc": "2026-11-15T19:35:07.196Z",
+      "status": "FAILED_NOT_A_SOURCE",
+      "url": "https://api.github.com/search/commits?q=repo%3Abybit-exchange%2Fdocs+funding+committer-date%3A2023-01-01..2024-12-31&per_page=100"
+    }
+  ],
+  "retrospective_confirmation": "No attributable retrospective Bybit confirmation found or requested; no external message sent.",
+  "reviewed_prior_inventory": "reports/funding_calendar/v0.2.2/20261114T195000Z/sources.json",
+  "reviewed_prior_search_log": "reports/funding_calendar/v0.2.2/20261114T195000Z/search_log.json",
+  "run_id": "20261115T194012Z",
+  "schema_version": 1,
+  "search_result_limitations": "Search indexing is not exhaustive. Unrelated wiki, social and third-party snippets were discarded without opening their links, retaining their bodies or admitting their numerical statements. No claim of absence of historical changes follows from searches.",
+  "successful_connector_calls": 9,
+  "unique_retained_payloads": 7,
+  "web_query_count": 15,
+  "web_search_tool_calls": 5
+}

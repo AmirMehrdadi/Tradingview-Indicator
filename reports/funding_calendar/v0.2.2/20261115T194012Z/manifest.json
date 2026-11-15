@@ -1,0 +1,251 @@
+{
+  "baseline_commit": "3122897b1f4c47bf0219324a119f7961b52a5342",
+  "baseline_file_count": 214,
+  "baseline_sole_parent": "e0f94e4f22461f61bed42599c3d34ec702b927b7",
+  "baseline_tree": "df8dad718e17f1d824bf289203492611eb64c6b6",
+  "branch": "main",
+  "created_utc": "2026-11-15T19:40:12.891088+00:00",
+  "documentation_cache": "data/funding/calendar_evidence/v0.2.2/20261115T194012Z",
+  "documentation_cache_committed": false,
+  "documentation_cache_is_ignored": true,
+  "frozen_config_sha256": "196dfd9b9bc88007fbaa1be8172b861ec847c18ec591346c4f2a9e177256ff37",
+  "frozen_spec_sha256": "b9f35d752f4748a68a7d7677112a67007acb94a3266d33bd8b763991ef89a1c6",
+  "frozen_tags": {
+    "v0.2.2-design": {
+      "object": "638ec6d99413c8dbc82a111209015953809ced08",
+      "target": "ac8fc4bb9b66a59c7224aaec1630a594b41d7e80"
+    },
+    "v0.2.2-research-parameters": {
+      "object": "826b05146e99a5a87e9951da9b4e0ac2deea1d09",
+      "target": "4bc7447755ef7a9dbd8832221f2ded5afc21401f"
+    }
+  },
+  "inputs": [
+    {
+      "access": "Tracked source/document evidence only; scripts reviewed, not executed.",
+      "git_blob_sha1": "c416e483553b9af46064ff18b6c233962a6512f9",
+      "path": "STRATEGY_SPEC_v0.2.2.md",
+      "sha256": "b9f35d752f4748a68a7d7677112a67007acb94a3266d33bd8b763991ef89a1c6"
+    },
+    {
+      "access": "Tracked source/document evidence only; scripts reviewed, not executed.",
+      "git_blob_sha1": "a160032125f91195b97b528656bdac0d74dede35",
+      "path": "docs/PROJECT_HANDOFF_FULL.md",
+      "sha256": "cbf93867df344ee6e589f3d200c476183656f8b2a924fe668964df825a10b26c"
+    },
+    {
+      "access": "Tracked source/document evidence only; scripts reviewed, not executed.",
+      "git_blob_sha1": "b120e099cda8543a312ef2541a478d58766600c2",
+      "path": "docs/PROJECT_CURRENT_STATE.md",
+      "sha256": "2886ef375ea0e148e65fdbea142c580808b763c7355bd6a2435a99427c29dbbd"
+    },
+    {
+      "access": "Tracked source/document evidence only; scripts reviewed, not executed.",
+      "git_blob_sha1": "5c1737a36858e4dcbbcd87bfc880b8d2633d48bc",
+      "path": "configs/research_v0.2.2.json",
+      "sha256": "196dfd9b9bc88007fbaa1be8172b861ec847c18ec591346c4f2a9e177256ff37"
+    },
+    {
+      "access": "Tracked source/document evidence only; scripts reviewed, not executed.",
+      "git_blob_sha1": "e86b122977858f9772ed9129b78b4058b2a2e773",
+      "path": "research_freeze/v0.2.2/RESEARCH_PARAMETER_FREEZE.md",
+      "sha256": "1fb4a6d27d1d8654cce8b92b41cd03f102515ffaaa0e99f434456322f843e61c"
+    },
+    {
+      "access": "Tracked source/document evidence only; scripts reviewed, not executed.",
+      "git_blob_sha1": "66578e69ac0b3f309cb69d84db9ed8c56f366ba2",
+      "path": "docs/TEST_EFFICIENCY_POLICY.md",
+      "sha256": "3f266d1f5711a41e4c71480b2e40d3c279fe2a3a04354b991aed383f508b3dc3"
+    },
+    {
+      "access": "Tracked source/document evidence only; scripts reviewed, not executed.",
+      "git_blob_sha1": "77487d2b45eb5b360707f2152582d3ff1cfabd37",
+      "path": "research/funding/PROTOCOL.md",
+      "sha256": "fe293c3e5e3242344d09e84616082017238fcc8b3d6588398e34126812a45c5b"
+    },
+    {
+      "access": "Tracked source/document evidence only; scripts reviewed, not executed.",
+      "git_blob_sha1": "de3f19f95335ff3f69e45325953a98f489ea74ed",
+      "path": "research/funding/policy.py",
+      "sha256": "d4dba4025b175c06dfcca2766e5b8e080b95189bf1d5a338f2160eab65422c3c"
+    },
+    {
+      "access": "Tracked source/document evidence only; scripts reviewed, not executed.",
+      "git_blob_sha1": "79bfa01b52e3fc76e2fa2123b264c0cb4cdf59b3",
+      "path": "research/funding/acquire.py",
+      "sha256": "563a4c3b40bf57a700c1f4de95fafa5b5e8abd70d74716ec3f2b90f40653d077"
+    },
+    {
+      "access": "Tracked source/document evidence only; scripts reviewed, not executed.",
+      "git_blob_sha1": "e44827c4f6f8406519920e417acca84e576bd733",
+      "path": "research/funding/validation.py",
+      "sha256": "6d5146e096f1e03c1148b0604f4be626fda4c8f3ee03edf2d0606992cc26a539"
+    },
+    {
+      "access": "Tracked source/document evidence only; scripts reviewed, not executed.",
+      "git_blob_sha1": "e26e6197f1b2db13971fd322ea5fa64998b18b8e",
+      "path": "research/funding/runner.py",
+      "sha256": "bb0334ea6a6b40e159d2c7a82b861c98ee162243f4719459f4f740a0260665f7"
+    },
+    {
+      "access": "Tracked source/document evidence only; scripts reviewed, not executed.",
+      "git_blob_sha1": "e7d4b366eb36510a4420d128938e3319ead7d0f8",
+      "path": "research/funding/storage.py",
+      "sha256": "348929afa23018ae43adbce8ff8d1d4a00cb4799f88585086083716dbe8948b8"
+    },
+    {
+      "access": "Tracked source/document evidence only; scripts reviewed, not executed.",
+      "git_blob_sha1": "83aa3ed344f47e842460f94fae982731c7df1a1a",
+      "path": "research/funding/guard.py",
+      "sha256": "99c2fe6bc10b7fc11b8e5702236801fe5baf3ffcf9a661681765c1c0f0c4ddab"
+    },
+    {
+      "access": "Tracked source/document evidence only; scripts reviewed, not executed.",
+      "git_blob_sha1": "0f3c26c0568862851152dcfffbc27ea92723604a",
+      "path": "tests/test_funding.py",
+      "sha256": "cb73f4b4d7168da05cd468bac301dc6446b986fc10f481f0663b91a87837d0d3"
+    },
+    {
+      "access": "Tracked source/document evidence only; scripts reviewed, not executed.",
+      "git_blob_sha1": "73dec20f3e46db9f7df4d98567595865d2e861b3",
+      "path": "reports/funding/v0.2.2/20261114T192333525994Z/REPORT.md",
+      "sha256": "6e34ea241e99ab7887f20df398639a991de67a53b7a7191526a5591db9808238"
+    },
+    {
+      "access": "Tracked source/document evidence only; scripts reviewed, not executed.",
+      "git_blob_sha1": "accb65709ec6f38aff5b1d0e8a25b9eee4d1169e",
+      "path": "reports/funding/v0.2.2/20261114T192333525994Z/IMPLEMENTATION_REVIEW.md",
+      "sha256": "49cf435bd69923737e17c2e39cc8da8706b938bdd0d02264e66d0d13140dc1c4"
+    },
+    {
+      "access": "Tracked source/document evidence only; scripts reviewed, not executed.",
+      "git_blob_sha1": "cf96e2458d87caf4043e306601bef5b04dbed55e",
+      "path": "reports/funding/v0.2.2/20261114T192333525994Z/2023_manifest.json",
+      "sha256": "2d9874679e8e483fd751362c992aa46444da588ad60f9d28ca1ff0372d53aa6d"
+    },
+    {
+      "access": "Tracked source/document evidence only; scripts reviewed, not executed.",
+      "git_blob_sha1": "53a45f23caad734439668770d5e502feddcf9604",
+      "path": "reports/funding/v0.2.2/20261114T192333525994Z/2024_manifest.json",
+      "sha256": "a6e10ec6921eb4e53a4c27811133b3fc91010176f971d1c14362fa9ab87d6bb3"
+    },
+    {
+      "access": "Tracked source/document evidence only; scripts reviewed, not executed.",
+      "git_blob_sha1": "280b407a89fa74a76f9e9e273f907520a41b952d",
+      "path": "reports/funding/v0.2.2/20261114T192333525994Z/verification.json",
+      "sha256": "c110f67161451abb4c34584e7fddb12ead941a5dd3b4885a2e8e4718cacb4b4c"
+    },
+    {
+      "access": "Tracked source/document evidence only; scripts reviewed, not executed.",
+      "git_blob_sha1": "3a6a35f228cbb7dcceeb76701b60b035328c10eb",
+      "path": "reports/funding_calendar/v0.2.2/20261114T195000Z/REPORT.md",
+      "sha256": "af49ae51f53bbf27f648b740c5a806a006f1253f48eb0b3a171c237733f912a2"
+    },
+    {
+      "access": "Tracked source/document evidence only; scripts reviewed, not executed.",
+      "git_blob_sha1": "f02ac9f20449a5fdc23c5b7e2116967b0245ba5a",
+      "path": "reports/funding_calendar/v0.2.2/20261114T195000Z/sources.json",
+      "sha256": "c98499b37863d72cd8fa526e1b463ad3a18e014cfff2e85b35b1ed8ab108821d"
+    },
+    {
+      "access": "Tracked source/document evidence only; scripts reviewed, not executed.",
+      "git_blob_sha1": "99f37560cc23ea484253a8df2eeb5828d4b31445",
+      "path": "reports/funding_calendar/v0.2.2/20261114T195000Z/captures.json",
+      "sha256": "19fef21a2e80879dee0be861bc0ab844f56e25e2a0fafd6ed8852e5282134a52"
+    },
+    {
+      "access": "Tracked source/document evidence only; scripts reviewed, not executed.",
+      "git_blob_sha1": "8c195b13a1558e3ef815a9f9a7a7fef87c249114",
+      "path": "reports/funding_calendar/v0.2.2/20261114T195000Z/search_log.json",
+      "sha256": "25a916661be3447a1f7e49684f4f6bbc8ba70b1dfe4be983557bc82fdcb2f7ae"
+    },
+    {
+      "access": "Tracked source/document evidence only; scripts reviewed, not executed.",
+      "git_blob_sha1": "aa8d55eef625869516aeea7855da99da3714f82d",
+      "path": "reports/funding_calendar/v0.2.2/20261114T195000Z/inventory_comparison.json",
+      "sha256": "8a0b8ba769b5886b74fda4787fdd473eb774758209ccdea16dd38ad523c36e50"
+    },
+    {
+      "access": "Tracked source/document evidence only; scripts reviewed, not executed.",
+      "git_blob_sha1": "e0ecbc629800b7ccc33b3dc2b21d68a755a46678",
+      "path": "reports/funding_calendar/v0.2.2/20261114T195000Z/boundary.json",
+      "sha256": "617acc13cf7e55a7ee464d564a0b8ca5268d162d6cc53ab5ae03de5314371b6c"
+    },
+    {
+      "access": "Tracked source/document evidence only; scripts reviewed, not executed.",
+      "git_blob_sha1": "3bbb5872c96bbf29662c7e9bc88a8ca71b156963",
+      "path": "reports/funding_calendar/v0.2.2/20261114T195000Z/verify_evidence.py",
+      "sha256": "fdaf89b20ca56569bce075723ef4337e4662f8facbcf96a8e7047020bcf4ddb1"
+    },
+    {
+      "access": "Tracked source/document evidence only; scripts reviewed, not executed.",
+      "git_blob_sha1": "d0aca0e04987fc89e00b8dbe8f6f8e69c6409092",
+      "path": "research/funding_lifecycle/PROTOCOL.md",
+      "sha256": "be1d76b674be67a93bb027bd2d6b5da9cd4388856f45114fefa75b3b889d520e"
+    },
+    {
+      "access": "Tracked source/document evidence only; scripts reviewed, not executed.",
+      "git_blob_sha1": "848581055dbf3c00132bf63526897f7a937d335e",
+      "path": "research/funding_lifecycle/accounting.py",
+      "sha256": "c189edd2e824335076ae94a9cc382835a4da90859c3dffa5e4ac768d79231b53"
+    },
+    {
+      "access": "Tracked source/document evidence only; scripts reviewed, not executed.",
+      "git_blob_sha1": "180b8d8a99e8b8433ade5a53d83c7f67070825be",
+      "path": "tests/test_funding_lifecycle.py",
+      "sha256": "8e5bf78551784cce7dabb5e8323dbb5df747ae4254090870ed7cdcc5b2bb57a5"
+    },
+    {
+      "access": "Tracked source/document evidence only; scripts reviewed, not executed.",
+      "git_blob_sha1": "bf3df0e4075e63b1d5a92c1744151fb861284a79",
+      "path": "reports/funding_lifecycle/v0.2.2/20261114T211449760645Z/REPORT.md",
+      "sha256": "e334c89f5e1143b40a722d31ac437376e9a974d9b4b079ab5d186b618e42d77c"
+    },
+    {
+      "access": "Tracked source/document evidence only; scripts reviewed, not executed.",
+      "git_blob_sha1": "e6cc4bbf165e53ddd49fc916380ad58e97c7e2b5",
+      "path": "reports/funding_lifecycle/v0.2.2/20261114T211449760645Z/verification.json",
+      "sha256": "afc5b0832c89adf3b374110ce9d10e761b774ac6067ccaf0fc6d74ca385ddccd"
+    }
+  ],
+  "local_root": "/Users/mehrdadi/Documents/ChatGPT/Tradingview Indicator",
+  "official_historical_funding_data": "PARTIAL_DATA",
+  "output_directory": "reports/funding_calendar/v0.2.2/20261115T194012Z",
+  "output_files": [
+    "REPORT.md",
+    "sources.json",
+    "coverage_assessment.json",
+    "search_log.json",
+    "captures.json",
+    "manifest.json",
+    "verification.json",
+    "SHA256SUMS"
+  ],
+  "per_file_output_hash_location": "SHA256SUMS excludes itself; external post-commit manifest hashes every committed file. No self-referential hashes.",
+  "prohibited_actions": {
+    "code_change": false,
+    "existing_report_change": false,
+    "github_push": false,
+    "historical_simulation": false,
+    "holdout_access": false,
+    "market_data_acquisition": false,
+    "market_data_endpoint_request": false,
+    "private_ledger_access": false,
+    "profitability_evaluation": false,
+    "raw_market_cache_read": false,
+    "selection_access": false,
+    "spec_config_change": false,
+    "support_message_sent": false,
+    "tag_change": false,
+    "tradingview_execution": false
+  },
+  "raw_snapshot_integrity_limit": "Prior snapshot hashes retained through unchanged tracked manifests; ignored raw snapshots were not opened or rehashed.",
+  "raw_snapshot_integrity_rechecked": false,
+  "remote_main_verified_before_edit": "3122897b1f4c47bf0219324a119f7961b52a5342",
+  "repository": "AmirMehrdadi/Tradingview-Indicator",
+  "research_status_upgrade": false,
+  "run_id": "20261115T194012Z",
+  "schema_version": 1,
+  "task_local_verdict": "BLOCKED_EXTERNAL_CALENDAR_EVIDENCE",
+  "test_runner_executions": 0
+}

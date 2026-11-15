@@ -1,0 +1,206 @@
+{
+  "acquisition": "NOT_RUN",
+  "additional_executed_document_checks": [
+    {
+      "command": [
+        "shasum",
+        "-a",
+        "256",
+        "-c",
+        "reports/funding_calendar/v0.2.2/20261115T194012Z/SHA256SUMS"
+      ],
+      "elapsed_seconds": 0.051794,
+      "exit_status": 0
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--exit-code",
+        "3122897b1f4c47bf0219324a119f7961b52a5342",
+        "--",
+        ".",
+        ":(exclude)reports/funding_calendar/v0.2.2/20261115T194012Z/**"
+      ],
+      "elapsed_seconds": 0.03882,
+      "exit_status": 0
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "json.tool",
+        "reports/funding_calendar/v0.2.2/20261115T194012Z/captures.json"
+      ],
+      "elapsed_seconds": 0.051061,
+      "exit_status": 0
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "json.tool",
+        "reports/funding_calendar/v0.2.2/20261115T194012Z/coverage_assessment.json"
+      ],
+      "elapsed_seconds": 0.041934,
+      "exit_status": 0
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "json.tool",
+        "reports/funding_calendar/v0.2.2/20261115T194012Z/manifest.json"
+      ],
+      "elapsed_seconds": 0.044262,
+      "exit_status": 0
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "json.tool",
+        "reports/funding_calendar/v0.2.2/20261115T194012Z/search_log.json"
+      ],
+      "elapsed_seconds": 0.03756,
+      "exit_status": 0
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "json.tool",
+        "reports/funding_calendar/v0.2.2/20261115T194012Z/sources.json"
+      ],
+      "elapsed_seconds": 0.038885,
+      "exit_status": 0
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "json.tool",
+        "reports/funding_calendar/v0.2.2/20261115T194012Z/verification.json"
+      ],
+      "elapsed_seconds": 0.039524,
+      "exit_status": 0
+    }
+  ],
+  "baseline_preserved_count": 214,
+  "checks": [
+    {
+      "check": "baseline_blobs_modes_and_tracked_worktree",
+      "details": {
+        "previous_evidence": "Preserved through all baseline Git identities; ignored historical snapshots not opened.",
+        "unchanged_tracked_blobs_and_modes": 214
+      },
+      "elapsed_seconds": 0.182501,
+      "exit_status": 0,
+      "result": "PASS"
+    },
+    {
+      "check": "frozen_tags_and_authority_hashes",
+      "details": {
+        "annotated_tags": 2,
+        "frozen_authority_sha256_and_tag_bytes": 2
+      },
+      "elapsed_seconds": 0.114903,
+      "exit_status": 0,
+      "result": "PASS"
+    },
+    {
+      "check": "json_fields_input_hashes_and_source_references",
+      "details": {
+        "capture_attempts": 10,
+        "input_evidence_identities": 31,
+        "new_sources": 5,
+        "parsed_json_files_before_verification_record": 5
+      },
+      "elapsed_seconds": 0.003987,
+      "exit_status": 0,
+      "result": "PASS"
+    },
+    {
+      "check": "new_document_capture_sha256_and_git_blob_identities",
+      "details": {
+        "exact_document_blob_identity_checks": 4,
+        "market_payloads": 0,
+        "old_cache_reads": 0,
+        "unique_new_document_payloads_verified": 7
+      },
+      "elapsed_seconds": 0.118327,
+      "exit_status": 0,
+      "result": "PASS"
+    },
+    {
+      "check": "coverage_admissibility_and_boundary_preservation",
+      "details": {
+        "annual_windows_checked": 2,
+        "boundary_evidence": "VERBATIM_UNCHANGED",
+        "missing_settlements": "UNKNOWN",
+        "verified_operating_subintervals_asserted": 0
+      },
+      "elapsed_seconds": 0.000534,
+      "exit_status": 0,
+      "result": "PASS"
+    },
+    {
+      "check": "scoped_content_review_and_metadata_exceptions",
+      "details": {
+        "allowed_metadata_paths": 5,
+        "document_only_review": "PASS; no market datasets/cache bodies/ledgers in the added directory",
+        "scoped_new_text_paths": 6,
+        "secret_signature_findings": 0,
+        "unexpected_untracked_paths": 0
+      },
+      "elapsed_seconds": 0.020928,
+      "exit_status": 0,
+      "result": "PASS"
+    },
+    {
+      "check": "git_diff_check",
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "3122897b1f4c47bf0219324a119f7961b52a5342",
+        "--",
+        "reports/funding_calendar/v0.2.2/20261115T194012Z"
+      ],
+      "elapsed_seconds": 0.011933,
+      "exit_status": 0,
+      "scope_note": "Untracked addendum is also checked for whitespace directly before staging."
+    }
+  ],
+  "command": "python3 /private/tmp/check_calendar_addendum.py",
+  "documentary_verdict": "BLOCKED_EXTERNAL_CALENDAR_EVIDENCE",
+  "elapsed_seconds": 0.45366,
+  "exit_status": 0,
+  "historical_regression": "NOT_RUN",
+  "lifecycle_suite": "NOT_RUN",
+  "limitations": "No packet-level audit claimed. Access statements describe actual tool/request/file scope. Raw historical snapshots were not reverified. Semantic source review is an audit judgment, not a historical test.",
+  "new_evidence_sources": 5,
+  "new_market_data_requests": 0,
+  "new_unique_document_payloads": 7,
+  "official_historical_funding_data": "PARTIAL_DATA",
+  "old_phase4b_verifier": "NOT_RUN_MAY_OPEN_HISTORICAL_SNAPSHOTS",
+  "preparatory_check_correction": {
+    "corrected_exit_status": 0,
+    "description": "A temporary hash-print script initially assumed every connector result used the same wrapper and raised KeyError(result). The read-only script was corrected to accept both response shapes; document hashes and Git identities then matched. No repository artifact, research logic or data access was involved.",
+    "initial_exit_status": 1
+  },
+  "private_ledger_reads": 0,
+  "protected_cache_reads": 0,
+  "remote_precheck": {
+    "combined_elapsed_seconds": 1.436,
+    "command": "git ls-remote origin refs/heads/main refs/tags/v0.2.2-design refs/tags/v0.2.2-design^{} refs/tags/v0.2.2-research-parameters refs/tags/v0.2.2-research-parameters^{}; local rev-parse and annotated-type assertions in one Python invocation",
+    "exit_status": 0,
+    "read_only": true,
+    "result": "PASS_EXACT_EXPECTED_REMOTE_MAIN_AND_FROZEN_REFS"
+  },
+  "run_id": "20261115T194012Z",
+  "schema_version": 1,
+  "test_runner_executions": 0,
+  "tests_executed": 0,
+  "verification_type": "DOCUMENT_EVIDENCE_INTEGRITY_NOT_HISTORICAL_DATA_VALIDATION"
+}
