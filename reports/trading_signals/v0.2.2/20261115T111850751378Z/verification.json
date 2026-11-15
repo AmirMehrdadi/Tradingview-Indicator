@@ -1,0 +1,151 @@
+{
+  "actual_runner_invocations": 3,
+  "baseline_191_preserved": true,
+  "created_utc": "2026-11-15T11:21:19.584427+00:00",
+  "distinct_final_tests": 264,
+  "existing_distinct_tests_reused": 263,
+  "file_sha256": {
+    "docs/TEST_EFFICIENCY_POLICY.md": "3f266d1f5711a41e4c71480b2e40d3c279fe2a3a04354b991aed383f508b3dc3",
+    "pine/Trading_Signals.pine": "8088f1fcfccc2009f2a1ba0535d80586aa961ad7e0c42e3ae39934dc841c24f2",
+    "tests/run_phase5c_checks.py": "3e6d0967b1961c60eaf48efad5a80315e2b6f40d2c98203077c815df2915314b",
+    "tests/test_phase5c_signals.py": "1f7ecdb74add96fc79b76f5f206b1dacd1a9fbd3fa64e1fc09a22b8c86cc9361"
+  },
+  "frozen_tags": {
+    "v0.2.2-design": [
+      "638ec6d99413c8dbc82a111209015953809ced08",
+      "ac8fc4bb9b66a59c7224aaec1630a594b41d7e80"
+    ],
+    "v0.2.2-research-parameters": [
+      "826b05146e99a5a87e9951da9b4e0ac2deea1d09",
+      "4bc7447755ef7a9dbd8832221f2ded5afc21401f"
+    ]
+  },
+  "full_suite_invocations": 1,
+  "immediate_parent_other_files_preserved": 197,
+  "network": "READ_ONLY_GIT_REMOTE_PREFLIGHT_ONLY",
+  "new_test_count": 1,
+  "not_executed": {
+    "TradingView_compile_runtime": "Not authorized; unavailable execution evidence",
+    "historical_data_suites": "Prohibited data access, unrelated to this source correction",
+    "reporting_packaging_suite_reruns": "Unnecessary; existing captured logs and committed hashes reused"
+  },
+  "overlapping_coverage": {
+    "intentional_reexecution": "14 existing source checks and the new regression executed in two focused runs plus final; other 249 existing tests executed once",
+    "new_coverage": "Duplicate named table.cell arguments, absent from prior declaration-uniqueness checks",
+    "preexisting_overlap": "Temporal/anchor/numerical checks overlap across preserved C01/filter/integration suites; unchanged mandatory suite retained"
+  },
+  "packaging": "Post-commit hashes/extraction verification recorded in external manifest; no tests rerun",
+  "parent": "150b7ecbdad2203969a5a5f5a88cc471d8781700",
+  "phase": "5C minimal fix and test efficiency policy",
+  "phase5d": "NOT_STARTED",
+  "pre_phase5c_baseline": "479342971bf042fb9611e3a5aec1c311377cf159",
+  "precheck": "PASS",
+  "prior_report_artifacts_preserved": 102,
+  "protected_data_access": "NOT_ACCESSED",
+  "push": "NOT_PERFORMED",
+  "remote_preflight": {
+    "refs/heads/main": "479342971bf042fb9611e3a5aec1c311377cf159",
+    "refs/tags/v0.2.2-design": "638ec6d99413c8dbc82a111209015953809ced08",
+    "refs/tags/v0.2.2-design^{}": "ac8fc4bb9b66a59c7224aaec1630a594b41d7e80",
+    "refs/tags/v0.2.2-research-parameters": "826b05146e99a5a87e9951da9b4e0ac2deea1d09",
+    "refs/tags/v0.2.2-research-parameters^{}": "4bc7447755ef7a9dbd8832221f2ded5afc21401f"
+  },
+  "runs": [
+    {
+      "expected_exit_code": 1,
+      "name": "focused-before",
+      "summary": {
+        "environment": "MATCH_FROZEN_RECORD",
+        "errored": 0,
+        "evidence": "SYNTHETIC_PYTHON_AND_SOURCE_STATIC_ONLY",
+        "execution_elapsed_seconds": 0.459184,
+        "failed": 1,
+        "guard_violations": [],
+        "mode": "FOCUSED_SOURCE",
+        "modules": {
+          "tests.test_phase5c_signals.SourceContractTests": 15
+        },
+        "passed": 14,
+        "pine_execution": "NOT_ATTEMPTED",
+        "skipped": 0,
+        "test_elapsed_seconds": 0.05297
+      }
+    },
+    {
+      "expected_exit_code": 0,
+      "name": "focused-after",
+      "summary": {
+        "environment": "MATCH_FROZEN_RECORD",
+        "errored": 0,
+        "evidence": "SYNTHETIC_PYTHON_AND_SOURCE_STATIC_ONLY",
+        "execution_elapsed_seconds": 0.383616,
+        "failed": 0,
+        "guard_violations": [],
+        "mode": "FOCUSED_SOURCE",
+        "modules": {
+          "tests.test_phase5c_signals.SourceContractTests": 15
+        },
+        "passed": 15,
+        "pine_execution": "NOT_ATTEMPTED",
+        "skipped": 0,
+        "test_elapsed_seconds": 0.045113
+      }
+    },
+    {
+      "expected_exit_code": 0,
+      "name": "final",
+      "summary": {
+        "environment": "MATCH_FROZEN_RECORD",
+        "errored": 0,
+        "evidence": "SYNTHETIC_PYTHON_AND_SOURCE_STATIC_ONLY",
+        "execution_elapsed_seconds": 5.148465,
+        "failed": 0,
+        "guard_violations": [],
+        "mode": "FULL_SYNTHETIC",
+        "modules": {
+          "tests.test_phase5a_temporal": 23,
+          "tests.test_phase5b1_c01": 35,
+          "tests.test_phase5b2_filters": 45,
+          "tests.test_phase5b3_integration": 20,
+          "tests.test_phase5b3_pine": 36,
+          "tests.test_phase5b3_pine_remediation": 30,
+          "tests.test_phase5b3_state": 31,
+          "tests.test_phase5c_signals": 44
+        },
+        "passed": 264,
+        "pine_execution": "NOT_ATTEMPTED",
+        "skipped": 0,
+        "test_elapsed_seconds": 4.743693
+      }
+    }
+  ],
+  "source_fix": {
+    "all_other_source_bytes_preserved": true,
+    "corrected_sha256": "8088f1fcfccc2009f2a1ba0535d80586aa961ad7e0c42e3ae39934dc841c24f2",
+    "kept": "text_color = color.white",
+    "line": 798,
+    "original_sha256": "dfed05db3a4940e033bc9314dd751921a8432c18af1dd5403dd495693f731add",
+    "removed_byte_count": 29,
+    "removed_exact_bytes": ", text_color = chart.fg_color",
+    "table_cell_calls_checked_by_new_test": 15
+  },
+  "static_check_limitations": "Direct table.cell lexical scan only; strings/comments and delimiter nesting masked/tracked. No alias resolution, other API coverage, signature/type checking, positional-versus-named binding validation, general grammar or compilation. Malformed delimiters fail the check.",
+  "status": {
+    "2025_SELECTION": "LOCKED_NOT_ACCESSED",
+    "2026_FINAL_HOLDOUT": "LOCKED_NOT_ACCESSED",
+    "HISTORICAL_FUNDING_DATA": "PARTIAL_DATA",
+    "NUMERICAL_PARITY": "UNVERIFIED",
+    "PINE_COMPILE": "UNVERIFIED",
+    "PINE_RUNTIME_VALIDATION": "UNVERIFIED",
+    "SAFE_TV_ENVIRONMENT": "UNVERIFIED",
+    "TRADINGVIEW_EXECUTION_PARITY": "UNVERIFIED"
+  },
+  "test_method_executions": 294,
+  "tests_log_sha256": "c746dd6194914ec8bd0c1059ef0f53dda0b9c65983406777c391ac741e31a77f",
+  "timing_scope": {
+    "execution_elapsed_seconds": "perf_counter from runner main, includes environment verification/import/loading; excludes interpreter startup and prior module imports",
+    "test_elapsed_seconds": "perf_counter around unittest execution"
+  },
+  "total_execution_elapsed_seconds": 5.991265,
+  "total_test_elapsed_seconds": 4.841776
+}

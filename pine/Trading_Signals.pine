@@ -795,7 +795,7 @@ f_dashboard(table panel, SignalView view, ResearchBook state, bool available, bo
     bool directionActive = owned and (not view.expired or researchActive)
     string directionText = directionActive ? (view.direction == 1 ? "LONG" : "SHORT") : "NEUTRAL"
     string manualText = not enabled ? "NONE — DISABLED" : not available ? "UNKNOWN" : view.owner == "" ? "NONE" : view.expired ? "EXPIRED — UNCONFIRMED" : "UNCONFIRMED"
-    table.cell(panel, 0, 0, "UNVALIDATED — RESEARCH / MANUAL SIGNALS", text_color = color.white, bgcolor = color.new(color.black, 20), text_color = chart.fg_color, text_size = size.small)
+    table.cell(panel, 0, 0, "UNVALIDATED — RESEARCH / MANUAL SIGNALS", text_color = color.white, bgcolor = color.new(color.black, 20), text_size = size.small)
     table.cell(panel, 0, 1, "Candidate / filters", text_color = chart.fg_color, text_size = size.small)
     table.cell(panel, 1, 1, candidate + " | " + f_filterText(), text_color = chart.fg_color, text_size = size.small)
     table.cell(panel, 0, 2, "Setup direction", text_color = chart.fg_color, text_size = size.small)

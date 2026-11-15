@@ -1,7 +1,7 @@
 """Synthetic presentation expectations and static Pine contracts, never chart execution."""
 from copy import deepcopy
 from dataclasses import replace,asdict
-import hashlib,itertools,json,re,unittest
+import hashlib,itertools,json,re,subprocess,unittest
 from pathlib import Path
 from research.fixture_state_v1.state import Lifecycle,FixtureError,ANCHOR,START,END,STEP
 from research.fixture_state_v1.integration import CandidatePath,REGISTRY
@@ -15,6 +15,39 @@ ROOT=Path(__file__).resolve().parents[1]
 SOURCE=ROOT/'pine/Trading_Signals.pine'
 PROBE=ROOT/'pine/Phase5B3_Integrated_Research_Probe_UNVALIDATED.pine'
 BOUNDARY='// PHASE 5C PRESENTATION BOUNDARY'
+
+
+def duplicate_table_cell_named_arguments(source):
+    """Limited lexical check of direct table.cell calls, not a Pine compiler.
+
+    Mask quoted strings/comments, then split only top-level call arguments.
+    No type/signature checking, alias resolution or general Pine parsing.
+    """
+    masked=re.sub(r'''"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|//[^\n]*|/\*[\s\S]*?\*/''',
+                  lambda m:re.sub(r'[^\n]',' ',m.group()),source)
+    duplicates=[]
+    for call in re.finditer(r'\btable\s*\.\s*cell\s*\(',masked):
+        stack=['('];start=call.end();arguments=[]
+        for index in range(start,len(masked)):
+            char=masked[index]
+            if char in '([{':stack.append(char)
+            elif char in ')]}':
+                if not stack or stack[-1]!={')':'(',']':'[','}':'{'}[char]:
+                    raise ValueError('Unbalanced table.cell delimiters')
+                stack.pop()
+                if not stack:
+                    arguments.append(masked[start:index]);break
+            elif char==',' and len(stack)==1:
+                arguments.append(masked[start:index]);start=index+1
+        else:raise ValueError('Unterminated table.cell call')
+        seen=set()
+        for argument in arguments:
+            named=re.match(r'\s*([A-Za-z_]\w*)\s*=(?!=)',argument)
+            if named:
+                name=named.group(1)
+                if name in seen:duplicates.append((masked.count('\n',0,call.start())+1,name))
+                seen.add(name)
+    return duplicates
 
 
 class PresentationTests(unittest.TestCase):
@@ -239,6 +272,24 @@ class SourceContractTests(unittest.TestCase):
         new=self.source[:self.source.index(BOUNDARY)]
         self.assertEqual(old.splitlines(keepends=True)[2:],new.splitlines(keepends=True)[2:])
         self.assertEqual(self.source.count('request.security('),1)
+
+    def test_table_cell_named_arguments_are_unique(self):
+        original=subprocess.check_output(['git','show',
+            '150b7ecbdad2203969a5a5f5a88cc471d8781700:pine/Trading_Signals.pine']).decode()
+        self.assertEqual([name for _,name in duplicate_table_cell_named_arguments(original)],['text_color'])
+        fixture=r'''
+// table.cell(p, 0, 0, text_color=a, text_color=b)
+string note = "table.cell(p, 0, 0, text_color=a, text_color=b)"
+table.cell(panel, 0, 0,
+    "comma, // text_color=fake, escaped \" quote",
+    text_color = color.new(color.white, 5), // text_color=ignored
+    bgcolor = nested([1, 2], inner(text_color = color.red)),
+    text_size = size.small)
+'''
+        self.assertEqual(duplicate_table_cell_named_arguments(fixture),[])
+        duplicate=fixture.replace('text_size = size.small','text_color = color.green,\n    text_size = size.small')
+        self.assertEqual([name for _,name in duplicate_table_cell_named_arguments(duplicate)],['text_color'])
+        self.assertEqual(duplicate_table_cell_named_arguments(self.source),[])
 
     def test_overlay_classification_and_fixed_object_limits(self):
         self.assertIn('UNVALIDATED — RESEARCH / MANUAL SIGNALS',self.source.splitlines()[1])
