@@ -1,0 +1,80 @@
+{
+  "authority_sha256": {
+    "STRATEGY_SPEC_v0.2.2.md": "b9f35d752f4748a68a7d7677112a67007acb94a3266d33bd8b763991ef89a1c6",
+    "configs/research_v0.2.2.json": "196dfd9b9bc88007fbaa1be8172b861ec847c18ec591346c4f2a9e177256ff37",
+    "research_freeze/v0.2.2/environment.json": "ac190965edbb3a99c4d637f32a45d710ec5c69f74e003e68edc6458c10bb63d7"
+  },
+  "baseline_commit": "32b4aa201d4b597d7d9c9b66b2de36680152bab5",
+  "baseline_inventory_sha256": "e322d699de44a0e94ea90a1eef675540db2f1ddfb1a8121219a946fd4f6fb2ab",
+  "baseline_tracked_files": 174,
+  "baseline_tree": "c23bf70561f66d69659de299ca3139764ea2b14c",
+  "baseline_worktree_and_git_preservation": "PASS_174_BYTE_IDENTICAL",
+  "classification": "UNVALIDATED_SOURCE_ONLY_RESEARCH_DIAGNOSTIC",
+  "frozen_parameter_changes": false,
+  "frozen_tags": {
+    "v0.2.2-design": [
+      "638ec6d99413c8dbc82a111209015953809ced08",
+      "ac8fc4bb9b66a59c7224aaec1630a594b41d7e80"
+    ],
+    "v0.2.2-research-parameters": [
+      "826b05146e99a5a87e9951da9b4e0ac2deea1d09",
+      "4bc7447755ef7a9dbd8832221f2ded5afc21401f"
+    ]
+  },
+  "historical_regression": "NOT_RE_EXECUTED",
+  "network": "READ_ONLY_GIT_REMOTE_PREFLIGHT_ONLY_NO_MARKET_OR_TRADINGVIEW",
+  "new_checks": {
+    "pine_static": 11,
+    "python_reference": 25
+  },
+  "next_phases": "NOT_STARTED",
+  "packaging": "POST_COMMIT_GIT_OBJECT_VERIFICATION_RECORDED_IN_EXTERNAL_MANIFEST",
+  "phase": "5B3-Pine",
+  "pine_execution": "NOT_ATTEMPTED",
+  "preserved_synthetic_regression": {
+    "errored": 0,
+    "failed": 0,
+    "passed": 131,
+    "skipped": 0
+  },
+  "push": "NOT_AUTHORIZED_NOT_PERFORMED",
+  "real_market_or_ledger_data_access": "NOT_ACCESSED",
+  "source_sha256": {
+    "docs/phase5b3_pine/VALIDATION_PROTOCOL.md": "9caf0c8b529e564a4629078ee9cfa10579fc46a9b7558321fcb78f165f514097",
+    "pine/Phase5B3_Integrated_Research_Probe_UNVALIDATED.pine": "f14155cb678facfb42a9b2c2b36764313ed4c68fb1c53811cdccf7e7e610d684",
+    "tests/phase5b3_pine_reference.py": "a56e924bda98ce501a0466425aa113c526abd40f95f1bae1602f3034c580a3a4",
+    "tests/run_phase5b3_pine_checks.py": "cf5bc602d6387aa96d4b571aaccf60217655cb64f3cdae9e7a50f288be7c7171",
+    "tests/test_phase5b3_pine.py": "97df48aa2a0a0e7b93beda1e88b01d07e09ea5b1bf7f7d2f59b25a7089d1abe9"
+  },
+  "static_scan": "static_scan.json",
+  "static_scan_sha256": "d25afbefb22968652570cf19224735f0467e2b4a42b4ffc260216f6f29bbcc28",
+  "status": {
+    "2025_SELECTION": "LOCKED_NOT_ACCESSED",
+    "2026_FINAL_HOLDOUT": "LOCKED_NOT_ACCESSED",
+    "HISTORICAL_FUNDING_DATA": "PARTIAL_DATA",
+    "NUMERICAL_PARITY": "UNVERIFIED",
+    "PINE_COMPILE": "UNVERIFIED",
+    "PINE_RUNTIME_VALIDATION": "UNVERIFIED",
+    "SAFE_TV_ENVIRONMENT": "UNVERIFIED",
+    "TRADINGVIEW_EXECUTION_PARITY": "UNVERIFIED"
+  },
+  "test_summary": {
+    "environment": "MATCH_FROZEN_RECORD",
+    "errored": 0,
+    "evidence": "PYTHON_REFERENCE_AND_STATIC_ONLY",
+    "failed": 0,
+    "guard_violations": [],
+    "modules": {
+      "tests.test_phase5b1_c01": 35,
+      "tests.test_phase5b2_filters": 45,
+      "tests.test_phase5b3_integration": 20,
+      "tests.test_phase5b3_pine": 36,
+      "tests.test_phase5b3_state": 31
+    },
+    "passed": 167,
+    "pine_execution": "NOT_ATTEMPTED",
+    "skipped": 0
+  },
+  "tests_log_sha256": "0fefecdae2ba749b9bbd559c4fedc54c512038a1f3988bb6eb0e3093b25b2f2b",
+  "timestamp_utc": "2026-11-15T09:30:59.148714+00:00"
+}
