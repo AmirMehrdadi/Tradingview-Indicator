@@ -1,0 +1,125 @@
+{
+  "baseline": "eb41c4ecf52a445a5ce32464a824359abb7bbb4d",
+  "baseline_files_preserved": 204,
+  "source_status": "SOURCE_ONLY_UNVALIDATED",
+  "gate_a": "PRESERVED_PREDICATES_WITH_SPEC_7_2_PARITY_COST_PROXY",
+  "gate_b": "SOURCE_ORDER_CONTRACT_ONLY_NOT_EXECUTION_PROOF",
+  "source_hashes": {
+    "pine/BTC_Strategy.pine": "a2e3acd710fc26697e0766cbdf4d9c85422c45b249f476863f9d3568fb651037",
+    "tests/test_phase5d_strategy.py": "d7dc8c6ede1d6a360c93436a3b53732732056f0149cb04c51d2972027fdacf4f",
+    "tests/run_phase5d_checks.py": "bf0bd4d1a0d7ec4217c8f9103f4603973d5227e4d4ff35aaf9482886c0ade6b5",
+    "docs/phase5d/VALIDATION_PROTOCOL.md": "31962ae12903ba38f07a939505c4b1d296bbc0c80af0820c5f8d1a0edfd8b99b"
+  },
+  "frozen_tags": {
+    "v0.2.2-design": [
+      "638ec6d99413c8dbc82a111209015953809ced08",
+      "ac8fc4bb9b66a59c7224aaec1630a594b41d7e80"
+    ],
+    "v0.2.2-research-parameters": [
+      "826b05146e99a5a87e9951da9b4e0ac2deea1d09",
+      "4bc7447755ef7a9dbd8832221f2ded5afc21401f"
+    ]
+  },
+  "runs": [
+    {
+      "name": "focused",
+      "summary": {
+        "environment": "MATCH_FROZEN_RECORD",
+        "errored": 0,
+        "evidence": "SYNTHETIC_PYTHON_AND_SOURCE_STATIC_ONLY",
+        "execution_elapsed_seconds": 0.504111,
+        "failed": 1,
+        "guard_violations": [],
+        "mode": "FOCUSED_SOURCE",
+        "modules": {
+          "tests.test_phase5d_strategy.StrategySourceTests": 9
+        },
+        "passed": 8,
+        "pine_execution": "NOT_ATTEMPTED",
+        "skipped": 0,
+        "test_elapsed_seconds": 0.003897
+      }
+    },
+    {
+      "name": "focused-after",
+      "summary": {
+        "environment": "MATCH_FROZEN_RECORD",
+        "errored": 0,
+        "evidence": "SYNTHETIC_PYTHON_AND_SOURCE_STATIC_ONLY",
+        "execution_elapsed_seconds": 0.324573,
+        "failed": 0,
+        "guard_violations": [],
+        "mode": "FOCUSED_SOURCE",
+        "modules": {
+          "tests.test_phase5d_strategy.StrategySourceTests": 9
+        },
+        "passed": 9,
+        "pine_execution": "NOT_ATTEMPTED",
+        "skipped": 0,
+        "test_elapsed_seconds": 0.003172
+      }
+    },
+    {
+      "name": "final",
+      "summary": {
+        "environment": "MATCH_FROZEN_RECORD",
+        "errored": 0,
+        "evidence": "SYNTHETIC_PYTHON_AND_SOURCE_STATIC_ONLY",
+        "execution_elapsed_seconds": 4.786502,
+        "failed": 0,
+        "guard_violations": [],
+        "mode": "FULL_SYNTHETIC",
+        "modules": {
+          "tests.test_phase5a_temporal": 23,
+          "tests.test_phase5b1_c01": 35,
+          "tests.test_phase5b2_filters": 45,
+          "tests.test_phase5b3_integration": 20,
+          "tests.test_phase5b3_pine": 36,
+          "tests.test_phase5b3_pine_remediation": 30,
+          "tests.test_phase5b3_state": 31,
+          "tests.test_phase5c_signals": 44,
+          "tests.test_phase5d_strategy": 9
+        },
+        "passed": 273,
+        "pine_execution": "NOT_ATTEMPTED",
+        "skipped": 0,
+        "test_elapsed_seconds": 4.422708
+      }
+    }
+  ],
+  "new_distinct_tests": 9,
+  "existing_distinct_tests": 264,
+  "final_distinct_tests": 273,
+  "runner_executions": 3,
+  "test_method_executions": 291,
+  "full_suite_executions": 1,
+  "overlap": "9 new source checks repeated in two focused runs and final; 264 existing tests once. Existing numerical/Research lifecycle overlap retained. No new Python engine.",
+  "first_focused_failure": "Overbroad test substring strategy.close matched strategy.closedtrades; corrected test to actual close-function calls. Not an observed Pine failure.",
+  "tests_log_sha256": "4f6835bd2c804b357bab120344f2b0ae147bb643b8e854d5213ec6cca4d57c3f",
+  "slippage_placeholder": 0,
+  "official_N": "UNSET_UNVALIDATED",
+  "currency_mapping": "CHART_QUOTE_CURRENCY_NONE_INTENDED_USDT_UNVERIFIED",
+  "runtime_gates": {
+    "T06": "EXECUTION GATE \u2014 UNVERIFIED",
+    "T07": "EXECUTION GATE \u2014 UNVERIFIED",
+    "T13": "EXECUTION GATE \u2014 UNVERIFIED",
+    "T17": "EXECUTION GATE \u2014 UNVERIFIED",
+    "T18": "EXECUTION GATE \u2014 UNVERIFIED",
+    "T22": "EXECUTION GATE \u2014 UNVERIFIED",
+    "T23": "EXECUTION GATE \u2014 UNVERIFIED"
+  },
+  "status": {
+    "PINE_COMPILE": "UNVERIFIED",
+    "PINE_RUNTIME_VALIDATION": "UNVERIFIED",
+    "NUMERICAL_PARITY": "UNVERIFIED",
+    "TRADINGVIEW_EXECUTION_PARITY": "UNVERIFIED",
+    "SAFE_TV_ENVIRONMENT": "UNVERIFIED",
+    "HISTORICAL_FUNDING_DATA": "PARTIAL_DATA",
+    "2025_SELECTION": "LOCKED_NOT_ACCESSED",
+    "2026_FINAL_HOLDOUT": "LOCKED_NOT_ACCESSED"
+  },
+  "data_access": "NO_MARKET_OR_PROTECTED_CACHE_ACCESS",
+  "push": "NOT_PERFORMED",
+  "historical_tests": "NOT_RUN",
+  "packaging_test_reruns": 0
+}
