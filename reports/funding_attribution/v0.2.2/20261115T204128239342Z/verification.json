@@ -1,0 +1,171 @@
+{
+  "calendar_authority": "USER_ATTESTED_OFFICIAL_CALENDAR",
+  "classification": "CONDITIONAL_DEVELOPMENT_DIAGNOSTIC",
+  "conditional_candidate_year_paths": 24,
+  "development_corrections": [
+    "Execution 1: fixture row() parameter collided with the exit kind keyword; 22 fixture errors, no guard violations. Fixed before execution 2.",
+    "Execution 3: the expanded multi-entry fixture counted old-entry exits in its censor quantity. The adapter rejected that invalid fixture; corrected before execution 4.",
+    "An event-source preflight was blocked by the reused guard because baseline hashing includes Pine source files. Added read-only static Pine source access; the subsequent preflight passed all 24 ledgers. This was not Pine execution or protected-data access.",
+    "The first external independent-check invocation used a temporary script directory as sys.path and exited 1 (ModuleNotFoundError) before any ledger access. The corrected invocation from the repository path exited 0. No accounting implementation or final test selection changed."
+  ],
+  "execution_status": "CONDITIONAL_DEVELOPMENT_EXECUTED",
+  "existing_source_inventory_precheck": "PASS_4_DATASETS_2_SNAPSHOTS_24_LEDGERS_FROZEN_ENVIRONMENT",
+  "final_distinct_tests": 158,
+  "final_full_dependency_regression_invocations": 1,
+  "gates": {
+    "2025_SELECTION": "LOCKED_NOT_ACCESSED",
+    "2026_FINAL_HOLDOUT": "LOCKED_NOT_ACCESSED",
+    "NUMERICAL_PARITY": "UNVERIFIED",
+    "PINE_COMPILE": "UNVERIFIED",
+    "PINE_RUNTIME_VALIDATION": "UNVERIFIED",
+    "SAFE_TV_ENVIRONMENT": "UNVERIFIED",
+    "TRADINGVIEW_EXECUTION_PARITY": "UNVERIFIED"
+  },
+  "historical_full_regression": "NOT_RE_EXECUTED",
+  "historical_funding_data": "PARTIAL_DATA",
+  "implementation_status": "IMPLEMENTATION_VALIDATED",
+  "in_memory_replays_per_scenario": 1,
+  "independent_accounting_check": {
+    "attribution_rows_verified": 23610,
+    "elapsed_seconds": 3.685388,
+    "guard_violations": [],
+    "method": "Independent per-entry interval/phase intersection and Fraction arithmetic; not a strategy or funding-engine rerun",
+    "private_modes": "0700/0600",
+    "private_values_disclosed": false,
+    "scenario_outputs_verified": 144,
+    "source_ledgers_unchanged": 24,
+    "source_snapshot_hash_checks": "PASS",
+    "status": "PASS",
+    "trade_rows_verified": 30048
+  },
+  "independent_check_command": "PYTHONDONTWRITEBYTECODE=1 sh tools/research_python.sh -c \"exec(compile(open('/private/tmp/verify_development_funding_outputs.py').read(), '/private/tmp/verify_development_funding_outputs.py', 'exec'))\"",
+  "independent_check_source_sha256": "d697dc312edda2040e4f5f538396bbc2502825e7e25356b84290c722306431ea",
+  "independently_retained_calendar_communication": false,
+  "integration_elapsed_scope": "From registered UTC run identity after initial static baseline check through last report write; excludes interpreter/import/initial baseline overhead.",
+  "integration_elapsed_seconds_run_id_to_report_write": 10.746979,
+  "new_final_tests": 32,
+  "new_source_files_sha256": {
+    "research/funding_attribution/PROTOCOL.md": "13a6b1ef68b14ecac23c0a370870bab5019182edef10d6c8393e5c4ddefdfccf",
+    "research/funding_attribution/__init__.py": "531c4f1a7cef7262a4da1ecc86ac9f02c4a8c5d7ba6716e38ca719343707f5b7",
+    "research/funding_attribution/accounting.py": "e73bb009a7568c86505921eb0da1f604e34e2a7bc71a60381942f7f8baadf72d",
+    "research/funding_attribution/guard.py": "ba608527cf47d0a7d4429c48489309f5d11e5a189259c87fc923b17e756930b0",
+    "research/funding_attribution/runner.py": "d77eb8eb7d23262f33384601b91639b60a9f9c7e3199c5d14b88a89087224fd2",
+    "tests/run_funding_attribution_checks.py": "bba276289347d8a01bf556d6a499753bcb2a5a2b9ebbaebf714d94dbaafbc708",
+    "tests/test_funding_attribution.py": "8e1ef89be016a9966bd0d5feaeafd14f0c1a408e84a135b502da46a705aa45a1"
+  },
+  "official_strategy_profitability": "UNVALIDATED",
+  "original_strategy_engine_runs": 0,
+  "preservation": {
+    "baseline_blobs_modes": 222,
+    "baseline_commit": "9d451025c8d748a21987c59f35d8b5a0564e5e64",
+    "funding_raw_snapshot_files": "SHA256_CHECKED_UNCHANGED",
+    "no_candidate_ranking": true,
+    "no_market_network": true,
+    "no_official_profitability_evaluation": true,
+    "no_push": true,
+    "no_selection_holdout": true,
+    "no_tag_changes": true,
+    "no_tradingview": true,
+    "old_reports_and_authorities": "UNCHANGED",
+    "original_private_inputs": "SHA256_UNCHANGED"
+  },
+  "production_command": "PYTHONDONTWRITEBYTECODE=1 sh tools/research_python.sh -m research.funding_attribution.runner",
+  "production_exit_code": 0,
+  "production_guard_violations": 0,
+  "production_integration_runs": 1,
+  "registered_scenario_results": 144,
+  "reused_final_tests": 126,
+  "run_id": "20261115T204128239342Z",
+  "test_executions": [
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 sh tools/research_python.sh -m tests.run_funding_attribution_checks --focused",
+      "elapsed_seconds": 0.066023,
+      "environment": "MATCH_FROZEN_RECORD",
+      "errored": 22,
+      "execution": 1,
+      "exit_code": 1,
+      "failed": 0,
+      "guard_violations": [],
+      "historical_regression": "NOT_RUN",
+      "modules": [
+        "tests.test_funding_attribution"
+      ],
+      "passed": 6,
+      "selection": "DEPENDENCY_SCOPED_FIXTURES_ONLY_NO_PINE_OR_REAL_CACHE_TESTS",
+      "skipped": 0
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 sh tools/research_python.sh -m tests.run_funding_attribution_checks --focused",
+      "elapsed_seconds": 0.418734,
+      "environment": "MATCH_FROZEN_RECORD",
+      "errored": 0,
+      "execution": 2,
+      "exit_code": 0,
+      "failed": 0,
+      "guard_violations": [],
+      "historical_regression": "NOT_RUN",
+      "modules": [
+        "tests.test_funding_attribution"
+      ],
+      "passed": 28,
+      "selection": "DEPENDENCY_SCOPED_FIXTURES_ONLY_NO_PINE_OR_REAL_CACHE_TESTS",
+      "skipped": 0
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 sh tools/research_python.sh -m tests.run_funding_attribution_checks --focused",
+      "elapsed_seconds": 0.429171,
+      "environment": "MATCH_FROZEN_RECORD",
+      "errored": 1,
+      "execution": 3,
+      "exit_code": 1,
+      "failed": 0,
+      "guard_violations": [],
+      "historical_regression": "NOT_RUN",
+      "modules": [
+        "tests.test_funding_attribution"
+      ],
+      "passed": 31,
+      "selection": "DEPENDENCY_SCOPED_FIXTURES_ONLY_NO_PINE_OR_REAL_CACHE_TESTS",
+      "skipped": 0
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 sh tools/research_python.sh -m tests.run_funding_attribution_checks --focused",
+      "elapsed_seconds": 0.437648,
+      "environment": "MATCH_FROZEN_RECORD",
+      "errored": 0,
+      "execution": 4,
+      "exit_code": 0,
+      "failed": 0,
+      "guard_violations": [],
+      "historical_regression": "NOT_RUN",
+      "modules": [
+        "tests.test_funding_attribution"
+      ],
+      "passed": 32,
+      "selection": "DEPENDENCY_SCOPED_FIXTURES_ONLY_NO_PINE_OR_REAL_CACHE_TESTS",
+      "skipped": 0
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 sh tools/research_python.sh -m tests.run_funding_attribution_checks",
+      "elapsed_seconds": 0.612486,
+      "environment": "MATCH_FROZEN_RECORD",
+      "errored": 0,
+      "execution": 5,
+      "exit_code": 0,
+      "failed": 0,
+      "guard_violations": [],
+      "historical_regression": "NOT_RUN",
+      "modules": [
+        "tests.test_funding_attribution",
+        "tests.test_funding_lifecycle",
+        "tests.test_funding",
+        "tests.test_stage0b.LifecycleTests"
+      ],
+      "passed": 158,
+      "selection": "DEPENDENCY_SCOPED_FIXTURES_ONLY_NO_PINE_OR_REAL_CACHE_TESTS",
+      "skipped": 0
+    }
+  ],
+  "tests_with_real_data": "NOT_RUN",
+  "unrelated_pine_suites": "NOT_RUN"
+}
