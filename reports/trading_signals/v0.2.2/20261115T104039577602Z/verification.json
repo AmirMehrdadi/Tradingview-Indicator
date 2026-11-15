@@ -1,0 +1,124 @@
+{
+  "actual_position": "REAL_POSITION_UNKNOWN",
+  "alert_source": {
+    "api": "alert",
+    "default_enabled": false,
+    "delivery": "NOT_ATTEMPTED_UNVERIFIED",
+    "durable_cross_restart_deduplication": "NOT_CLAIMED",
+    "execution_payload": false,
+    "frequency": "alert.freq_once_per_bar_close",
+    "realtime_confirmed_accepted_owner_only": true,
+    "single_dynamic_call": true
+  },
+  "authority_sha256": {
+    "STRATEGY_SPEC_v0.2.2.md": "b9f35d752f4748a68a7d7677112a67007acb94a3266d33bd8b763991ef89a1c6",
+    "configs/research_v0.2.2.json": "196dfd9b9bc88007fbaa1be8172b861ec847c18ec591346c4f2a9e177256ff37",
+    "docs/FUTURE_INDICATOR_K_REQUIREMENT.md": "e392ca099228ca4a43f9a4701bb2551e8028f2a0754f92b68a7f005f72695652",
+    "research_freeze/v0.2.2/environment.json": "ac190965edbb3a99c4d637f32a45d710ec5c69f74e003e68edc6458c10bb63d7"
+  },
+  "baseline_blob_inventory_sha256": "883997d1d2ee291bd135dc7b93b0ebbefd6671f5d84c609bceb31cf50fcf398a",
+  "baseline_commit": "479342971bf042fb9611e3a5aec1c311377cf159",
+  "baseline_tracked_files": 191,
+  "baseline_tree": "5aa830030c08756ae929cf0f30b378c68209554f",
+  "baseline_worktree_preservation": "PASS_ALL_191_BYTE_IDENTICAL",
+  "created_utc": "2026-11-15T10:55:20.350381+00:00",
+  "data_scope": "SYNTHETIC_FIXTURE_ONLY_NO_MARKET_DATA_ACCESS",
+  "frozen_backend_byte_preserved_except_indicator_declaration": true,
+  "frozen_backend_sha256": "39f23db12ea7968dda447be7e84db6cdbfd66ff62ae7e5b0b2a80c4c0b81780b",
+  "frozen_parameters": {
+    "K_cost_stop": 2.5,
+    "candidate_count": 12,
+    "experimental_K_controls": false,
+    "research_friction_per_fill": 0.0002,
+    "taker_fee_per_side": 0.00055
+  },
+  "frozen_tags": {
+    "v0.2.2-design": [
+      "638ec6d99413c8dbc82a111209015953809ced08",
+      "ac8fc4bb9b66a59c7224aaec1630a594b41d7e80"
+    ],
+    "v0.2.2-research-parameters": [
+      "826b05146e99a5a87e9951da9b4e0ac2deea1d09",
+      "4bc7447755ef7a9dbd8832221f2ded5afc21401f"
+    ]
+  },
+  "historical_regressions": "NOT_RE_EXECUTED",
+  "manual_expiration": "EACH_ACCEPTED_OWNER_AFTER_TWO_SUBSEQUENT_AUTHORIZED_CONFIRMED_BARS; FINAL_AUTHORIZED_BAR_CAN_RECORD_INTERNAL_EXPIRY_AT_END_WITHOUT_DISPLAY",
+  "network": "READ_ONLY_GIT_REMOTE_PREFLIGHT_ONLY",
+  "new_python_reference_tests": 29,
+  "new_source_static_tests": 14,
+  "package_verification": "POST_COMMIT_EXACT_GIT_OBJECT_BYTES_RECORDED_IN_EXTERNAL_MANIFEST",
+  "phase": "5C Trading Signals V1",
+  "phase5d": "NOT_STARTED",
+  "presentation_defaults": {
+    "alerts_enabled": false,
+    "dashboard": true,
+    "diagnostic_enabled": false,
+    "levels": true,
+    "markers": true,
+    "quality": false
+  },
+  "preserved_phase5a_temporal_tests": 23,
+  "preserved_phase5b_tests": 197,
+  "previous_reports_preserved": 98,
+  "push": "NOT_PERFORMED",
+  "remote_preflight": {
+    "refs/heads/main": "479342971bf042fb9611e3a5aec1c311377cf159",
+    "refs/tags/v0.2.2-design": "638ec6d99413c8dbc82a111209015953809ced08",
+    "refs/tags/v0.2.2-design^{}": "ac8fc4bb9b66a59c7224aaec1630a594b41d7e80",
+    "refs/tags/v0.2.2-research-parameters": "826b05146e99a5a87e9951da9b4e0ac2deea1d09",
+    "refs/tags/v0.2.2-research-parameters^{}": "4bc7447755ef7a9dbd8832221f2ded5afc21401f"
+  },
+  "rendering": "NOT_ATTEMPTED; ANCHOR_MASKS_ARE_NOT_PIXEL_CLIPPING_OR_PLATFORM_INPUT_ISOLATION_PROOF",
+  "research_expiration_feedback": false,
+  "resource_bounds": {
+    "lines": 4,
+    "manual_signal_records": 2592,
+    "price_labels": 4,
+    "research_audit_rows_inherited": 20000,
+    "runtime_capacity": "UNVERIFIED",
+    "table_cells": 16,
+    "tables": 1
+  },
+  "signal_ownership": "CONFIRMED_ACCEPTED_QUEUE_ON_ITS_SIGNAL_CANDLE_OFFSET_0_CLOSE_OWNED_FIRST_START_EXCEPTION",
+  "source_file_sha256": {
+    "docs/phase5c/VALIDATION_PROTOCOL.md": "ffe2390d5e03e7dd18761f138eb1ee0b88894193eb6b80e474e19fa33ea4fd04",
+    "pine/Trading_Signals.pine": "dfed05db3a4940e033bc9314dd751921a8432c18af1dd5403dd495693f731add",
+    "tests/phase5c_reference.py": "56468aae98a9073336c62720448d2eae111c39e13d11efa655241d6d78349e93",
+    "tests/run_phase5c_checks.py": "30535cb4fc18cfa16b34b864bd0a313b6d4db61ebf290cd5f2de337fdc483717",
+    "tests/test_phase5c_signals.py": "c48af1cc7b59089cb4cdff367e559679c28c0e136f7932c76c618ae6d982b86a"
+  },
+  "source_status": "IMPLEMENTED_SOURCE_ONLY_UNVALIDATED",
+  "static_scan_sha256": "134a7a670efc1c97e16ea2338db2e9be181efd7b92938b3a87e1128ff8fcae33",
+  "status": {
+    "2025_SELECTION": "LOCKED_NOT_ACCESSED",
+    "2026_FINAL_HOLDOUT": "LOCKED_NOT_ACCESSED",
+    "HISTORICAL_FUNDING_DATA": "PARTIAL_DATA",
+    "NUMERICAL_PARITY": "UNVERIFIED",
+    "PINE_COMPILE": "UNVERIFIED",
+    "PINE_RUNTIME_VALIDATION": "UNVERIFIED",
+    "SAFE_TV_ENVIRONMENT": "UNVERIFIED",
+    "TRADINGVIEW_EXECUTION_PARITY": "UNVERIFIED"
+  },
+  "test_summary": {
+    "environment": "MATCH_FROZEN_RECORD",
+    "errored": 0,
+    "evidence": "SYNTHETIC_PYTHON_AND_SOURCE_STATIC_ONLY",
+    "failed": 0,
+    "guard_violations": [],
+    "modules": {
+      "tests.test_phase5a_temporal": 23,
+      "tests.test_phase5b1_c01": 35,
+      "tests.test_phase5b2_filters": 45,
+      "tests.test_phase5b3_integration": 20,
+      "tests.test_phase5b3_pine": 36,
+      "tests.test_phase5b3_pine_remediation": 30,
+      "tests.test_phase5b3_state": 31,
+      "tests.test_phase5c_signals": 43
+    },
+    "passed": 263,
+    "pine_execution": "NOT_ATTEMPTED",
+    "skipped": 0
+  },
+  "tests_log_sha256": "2384e5f4d6251cd91511825594f0cd5d4040b911a7ee71d2265c0d72f46f3cb0"
+}

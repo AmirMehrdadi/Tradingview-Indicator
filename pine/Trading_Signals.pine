@@ -1,0 +1,900 @@
+//@version=6
+indicator("Trading Signals V1 — UNVALIDATED — RESEARCH / MANUAL SIGNALS", overlay = true, max_lines_count = 4, max_labels_count = 4)
+// Hypothetical Research lifecycle only. No actual order, alert, broker or validation claim.
+const int DATA_START = timestamp("01 Nov 2026 00:00 +0000")
+const int TRADE_START = timestamp("04 Nov 2026 00:00 +0000")
+const int TRADE_END = timestamp("01 Dec 2026 00:00 +0000")
+const int STEP = 900000
+const int HOUR = 3600000
+const int DAY = 86400000
+if not chart.is_standard or timeframe.in_seconds() != 900
+    runtime.error("Requires a standard 15-minute chart in a separately authorized non-Holdout environment")
+
+// Only called inside the authorized time branch. No implicit indicator history.
+f_valid() =>
+    not na(open) and not na(high) and not na(low) and not na(close) and low > 0 and low <= open and open <= high and low <= close and close <= high
+
+f_chart_state() =>
+    var bool healthy = false
+    var bool poisoned = false
+    var int n = 0
+    var int lastEnd = na
+    var float previousClose = na
+    var float fast = na
+    var float slow = na
+    var float seedSum = 0.0
+    var float atr = na
+    float tr = na
+    bool inside = time >= DATA_START and time < TRADE_END
+    if time < DATA_START
+        healthy := false
+        poisoned := false
+        n := 0
+        lastEnd := na
+        previousClose := na
+        fast := na
+        slow := na
+        seedSum := 0.0
+        atr := na
+    if inside and barstate.isconfirmed
+        bool contiguous = n == 0 ? time == DATA_START : time == lastEnd
+        if poisoned or not contiguous or time_close != time + STEP or not f_valid()
+            poisoned := true
+            healthy := false
+        else
+            tr := n == 0 ? high - low : math.max(high - low, math.max(math.abs(high - previousClose), math.abs(low - previousClose)))
+            fast := n == 0 ? close : (2.0 / 21.0) * close + (1.0 - 2.0 / 21.0) * fast
+            slow := n == 0 ? close : (2.0 / 51.0) * close + (1.0 - 2.0 / 51.0) * slow
+            n += 1
+            if n <= 14
+                seedSum += tr
+                atr := n == 14 ? seedSum / 14.0 : na
+            else
+                atr := (1.0 / 14.0) * tr + (1.0 - 1.0 / 14.0) * atr
+            previousClose := close
+            lastEnd := time_close
+            healthy := true
+    bool available = inside and healthy and not poisoned and barstate.isconfirmed
+    [available ? fast : na, available ? slow : na, available ? atr : na, available ? tr : na, available ? n : 0]
+
+// Frozen research assumptions, not account-specific or verified historical rules.
+const float TICK = 0.10
+const float QSTEP = 0.001
+const float K_COST_STOP = 2.5
+const float FEE = 0.00055
+const float FRICTION = 0.0002
+string candidate = input.string("C01", "Frozen candidate — UNVALIDATED", options = ["C01", "C02", "C03", "C04", "C05", "C06", "C07", "C08", "C09", "C10", "C11", "C12"])
+bool useR = candidate == "C02" or candidate == "C07" or candidate == "C08" or candidate == "C09" or candidate == "C11" or candidate == "C12"
+bool useH = candidate == "C03" or candidate == "C07" or candidate == "C10" or candidate == "C11" or candidate == "C12"
+bool useV = candidate == "C04" or candidate == "C08" or candidate == "C10" or candidate == "C12"
+bool useM = candidate == "C05" or candidate == "C09" or candidate == "C12"
+bool useQ = candidate == "C06" or candidate == "C11" or candidate == "C12"
+int filterBits = (useR ? 1 : 0) + (useH ? 2 : 0) + (useV ? 4 : 0) + (useM ? 8 : 0) + (useQ ? 16 : 0)
+// Hypothetical Research state only. Monetary fields are internal and never plotted.
+// Phase: 0 FLAT, 1 PENDING_ENTRY, 2 OPEN, 3 ENDED_FLAT, 4 CENSORED.
+// Append-only primitive snapshots. Never mutate an appended row or evict evidence.
+// This is per-execution memory, not a durable export or platform isolation proof.
+const int AUDIT_CAPACITY = 20000
+f_validResearchRunId(string runId) =>
+    int size = str.length(runId)
+    bool valid = size >= 1 and size <= 64
+    if valid
+        for index = 0 to size - 1
+            valid := valid and str.contains("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_-", str.substring(runId, index, index + 1))
+    valid
+
+f_canonicalResearchId(string runId, string cid, int barOpen, int direction) =>
+    runId + "/Research/" + cid + "/November2026/" + str.tostring(barOpen) + "/" + str.tostring(direction)
+
+type ResearchAuditRow
+    int sequence = 0
+    string tradeId = ""
+    string kind = ""
+    string fillId = ""
+    int clock = na
+    int economicPhase = 0
+    int leg = -1
+    int steps = 0
+    float rawPrice = na
+    float price = na
+    float fee = na
+    int remaining1 = 0
+    int remaining2 = 0
+    int reserved1 = 0
+    int reserved2 = 0
+    int exited = 0
+    int total = 0
+    int entered = 0
+    int fillCount = 0
+    float observationPrice = na
+    float exposureNotional = na
+    bool occupied = false
+    int releasedAt = na
+    int quality = 0
+    string classification = ""
+    float cash = na
+    float settled = na
+    int day = na
+    float dayStart = na
+    bool dailyStop = false
+
+type ResearchBook
+    int phase = 0
+    bool quarantined = false
+    int lastBar = na
+    int day = na
+    float cash = 10000.0
+    float settled = 10000.0
+    float dayStart = 10000.0
+    bool dailyStop = false
+    int side = 0
+    int signalClose = na
+    int lastQueue = na
+    int pullback = na
+    float entryRef = na
+    float signalBalance = na
+    int slTicks = na
+    int tp1Ticks = na
+    int tp2Ticks = na
+    int total = 0
+    int reserve1 = 0
+    int reserve2 = 0
+    int left1 = 0
+    int left2 = 0
+    int exited = 0
+    float entryFill = na
+    bool hasFilled = false
+    string entryId = ""
+    string leg1Id = ""
+    string leg2Id = ""
+    string oca1Id = ""
+    string oca2Id = ""
+    array<string> fills = na
+    string runId = ""
+    array<ResearchAuditRow> audit = na
+    bool auditBlocked = false
+    int auditClock = na
+    int auditPhase = 0
+    float auditPrice = na
+    string auditExitKind = ""
+    int tradeFillCount = 0
+    int tradeQuality = 0
+    bool queuedThisBar = false
+    bool filledThisBar = false
+    bool rejectedThisBar = false
+    int exitMask = 0
+    int lastEntryOpen = na
+    int lastExitTime = na
+    int lastExitPhase = 0
+    int queuedCount = 0
+    int filledCount = 0
+    int closedCount = 0
+    int rejectedCount = 0
+    int censoredCount = 0
+    bool entryDeviation = false
+    bool executionAnomaly = false
+    bool riskOverrun = false
+    bool notionalOverrun = false
+    bool marginEvent = false
+    bool uncertainOrder = false
+    bool entryAtStop = false
+    bool frictionCrossedTarget = false
+
+// Reserve a conservative worst-case budget before any economic operation.
+// Bar maximum: ENTRY 1 + eight first quality bits + EXIT 2 + release 1 + censor 1 = 13.
+// Sixteen slots leave headroom; a close queue separately reserves its one row.
+method reserveResearchAudit(ResearchBook this, int slots) =>
+    bool ready = not this.auditBlocked and array.size(this.audit) + slots <= AUDIT_CAPACITY
+    if not ready
+        this.auditBlocked := true
+        this.quarantined := true
+    ready
+
+method appendResearchAudit(ResearchBook this, string kind, string fid, int leg, int steps, float raw, float price, float fee, string classification, bool release) =>
+    bool ready = this.reserveResearchAudit(1)
+    if ready
+        int remaining = this.left1 + this.left2
+        ResearchAuditRow row = ResearchAuditRow.new(sequence = array.size(this.audit) + 1, tradeId = this.entryId, kind = kind, fillId = fid, clock = this.auditClock, economicPhase = this.auditPhase, leg = leg, steps = steps, rawPrice = raw, price = price, fee = fee, remaining1 = this.left1, remaining2 = this.left2, reserved1 = this.reserve1, reserved2 = this.reserve2, exited = this.exited, total = this.total, entered = this.hasFilled ? this.total : 0, fillCount = this.tradeFillCount, observationPrice = this.auditPrice, exposureNotional = (remaining / 1000.0) * this.auditPrice, occupied = this.phase == 1 or this.phase == 2 or this.phase == 4, releasedAt = release ? this.auditClock : na, quality = this.tradeQuality, classification = classification, cash = this.cash, settled = this.settled, day = this.day, dayStart = this.dayStart, dailyStop = this.dailyStop)
+        array.push(this.audit, row)
+    ready
+
+method tagResearchQuality(ResearchBook this, int bit, string classification) =>
+    bool fresh = int(math.floor(this.tradeQuality / bit)) % 2 == 0
+    if fresh
+        this.tradeQuality += bit
+        this.appendResearchAudit("QUALITY", "", -1, 0, this.auditPrice, na, na, classification, false)
+    this.tradeQuality
+
+method assertResearchQuantity(ResearchBook this) =>
+    bool ok = this.left1 >= 0 and this.left2 >= 0 and this.exited >= 0 and not na(this.cash) and not na(this.settled) and not na(this.dayStart)
+    if this.phase == 1
+        ok := ok and this.reserve1 >= 1 and this.reserve2 >= 1 and this.reserve1 + this.reserve2 == this.total
+    if this.hasFilled
+        ok := ok and not na(this.entryFill) and this.exited + this.left1 + this.left2 == this.total
+    if this.phase == 0 and this.hasFilled
+        ok := ok and this.left1 + this.left2 == 0
+    if this.phase == 2 or this.phase == 4
+        ok := ok and this.hasFilled and this.left1 + this.left2 > 0
+    if not ok
+        this.quarantined := true
+    ok
+
+method resetResearchDay(ResearchBook this, int clock) =>
+    int utcDay = int(math.floor(clock / DAY))
+    if na(this.day) or utcDay != this.day
+        this.day := utcDay
+        this.dayStart := this.settled
+        this.dailyStop := false
+    this.day
+
+method markResearchMargin(ResearchBook this, float raw) =>
+    this.auditPrice := raw
+    if this.phase == 2 and not this.quarantined
+        float amount = (this.left1 + this.left2) / 1000.0
+        float equity = this.cash + this.side * amount * (raw - this.entryFill)
+        if equity < 0.5 * amount * raw
+            this.marginEvent := true
+            this.tagResearchQuality(16, "MARGIN_MODEL_EVENT")
+    this.marginEvent
+
+method fillResearchLeg(ResearchBook this, int leg, float raw, float markPrice, int clock, int economicPhase) =>
+    int steps = leg == 0 ? this.left1 : this.left2
+    string fid = leg == 0 ? this.leg1Id : this.leg2Id
+    bool valid = this.phase == 2 and not this.quarantined and (leg == 0 or leg == 1) and steps > 0 and not na(raw) and raw > 0 and not array.includes(this.fills, fid)
+    if valid
+        this.auditClock := clock
+        this.auditPhase := economicPhase
+        float amount = steps / 1000.0
+        float fill = raw * (1.0 - this.side * FRICTION)
+        float fee = amount * fill * FEE
+        this.cash += this.side * amount * (fill - this.entryFill) - fee
+        array.push(this.fills, fid)
+        if leg == 0
+            this.left1 := 0
+            this.exitMask += 1
+        else
+            this.left2 := 0
+            this.exitMask += 2
+        this.exited += steps
+        this.lastExitTime := clock
+        this.lastExitPhase := economicPhase
+        this.tradeFillCount += 1
+        this.appendResearchAudit("EXIT", fid, leg, steps, raw, fill, fee, this.auditExitKind, false)
+        if this.left1 + this.left2 == 0
+            this.phase := 0
+            this.settled := this.cash
+            this.dailyStop := this.dailyStop or this.settled - this.dayStart <= -0.01 * this.dayStart
+            this.closedCount += 1
+            this.appendResearchAudit("FULL_FLAT_SETTLEMENT", "", -1, 0, raw, na, na, "FULL_FLAT_SETTLEMENT", true)
+        else
+            this.markResearchMargin(markPrice)
+        this.assertResearchQuantity()
+    else
+        this.quarantined := true
+    valid
+
+method stopResearchLegs(ResearchBook this, float raw, int clock, int economicPhase) =>
+    this.auditClock := clock
+    this.auditPhase := economicPhase
+    this.auditExitKind := "STOP"
+    this.markResearchMargin(raw)
+    for leg = 0 to 1
+        int steps = leg == 0 ? this.left1 : this.left2
+        if this.phase == 2 and not this.quarantined and steps > 0
+            this.fillResearchLeg(leg, raw, raw, clock, economicPhase)
+    this.assertResearchQuantity()
+
+method queueResearchPlan(ResearchBook this, string cid, int barOpen, int sigClose, int direction, int pullbackId, float reference, int stopTicks, int target1Ticks, int target2Ticks, int steps, int first, int second) =>
+    float sl = stopTicks / 10.0
+    float tp1 = target1Ticks / 10.0
+    float tp2 = target2Ticks / 10.0
+    float risk = math.abs(reference - sl)
+    float cost = (reference + sl) * (FEE + FRICTION)
+    float amount = steps / 1000.0
+    bool clockValid = sigClose == barOpen + STEP and not na(this.lastBar) and this.lastBar == barOpen and sigClose >= TRADE_START and sigClose < TRADE_END
+    bool newIdentity = na(this.lastQueue) or sigClose > this.lastQueue
+    bool geometry = direction == 1 ? 0 < sl and sl < reference and reference < tp1 and tp1 < tp2 : direction == -1 ? 0 < tp2 and tp2 < tp1 and tp1 < reference and reference < sl : false
+    bool bounds = reference >= 0.1 and reference <= 1999999.8 and stopTicks >= 1 and stopTicks <= 19999998 and target1Ticks >= 1 and target1Ticks <= 19999998 and target2Ticks >= 1 and target2Ticks <= 19999998 and pullbackId >= DATA_START and pullbackId < sigClose and pullbackId % STEP == 0
+    bool valid = f_validResearchRunId(this.runId) and bounds and clockValid and newIdentity and this.phase == 0 and not this.dailyStop and not this.quarantined and geometry and steps >= 2 and steps <= 150000 and first >= 1 and second >= 1 and first + second == steps and first <= 150000 and second <= 150000 and amount * reference >= 5.0 and cost > 0 and risk / cost >= K_COST_STOP and amount * (risk + cost) <= 0.0025 * this.settled and amount * reference <= 2.0 * this.settled
+    if valid
+        valid := this.reserveResearchAudit(1)
+    if valid
+        this.auditClock := sigClose
+        this.auditPhase := 0
+        this.auditPrice := reference
+        this.tradeFillCount := 0
+        this.tradeQuality := 0
+        this.phase := 1
+        this.side := direction
+        this.signalClose := sigClose
+        this.lastQueue := sigClose
+        this.pullback := pullbackId
+        this.entryRef := reference
+        this.signalBalance := this.settled
+        this.slTicks := stopTicks
+        this.tp1Ticks := target1Ticks
+        this.tp2Ticks := target2Ticks
+        this.total := steps
+        this.reserve1 := first
+        this.reserve2 := second
+        this.left1 := 0
+        this.left2 := 0
+        this.exited := 0
+        this.entryFill := na
+        this.hasFilled := false
+        this.entryId := f_canonicalResearchId(this.runId, cid, barOpen, direction)
+        this.leg1Id := this.entryId + "/L1"
+        this.leg2Id := this.entryId + "/L2"
+        this.oca1Id := this.entryId + "/OCA1"
+        this.oca2Id := this.entryId + "/OCA2"
+        this.queuedThisBar := true
+        this.queuedCount += 1
+        this.appendResearchAudit("PLAN_QUEUED", "", -1, 0, reference, na, na, "QUEUED_NOT_FILLED", false)
+        this.assertResearchQuantity()
+    else
+        this.quarantined := true
+    valid and not this.quarantined
+
+// Executed at confirmed chart close: reconstruct OPEN first, then PRIOR_BAR.
+// This emits no realtime open callback and sends no order to any emulator.
+method advanceResearchBar(ResearchBook this, int barOpen, int barEnd, float o, float h, float l, float c) =>
+    bool contiguous = na(this.lastBar) ? barOpen == DATA_START : barOpen == this.lastBar + STEP
+    bool auditReady = this.reserveResearchAudit(16)
+    bool valid = auditReady and f_validResearchRunId(this.runId) and not this.quarantined and this.phase < 3 and barOpen >= DATA_START and barOpen < TRADE_END and barEnd == barOpen + STEP and contiguous and not na(o) and not na(h) and not na(l) and not na(c) and l > 0 and l <= o and o <= h and l <= c and c <= h
+    if not valid
+        this.quarantined := true
+    else
+        this.queuedThisBar := false
+        this.filledThisBar := false
+        this.rejectedThisBar := false
+        this.exitMask := 0
+        this.auditClock := barOpen
+        this.auditPhase := 1
+        this.auditPrice := o
+        this.resetResearchDay(barOpen)
+        if this.phase == 1
+            if this.signalClose != barOpen
+                this.quarantined := true
+            else
+                float amount = this.total / 1000.0
+                float fill = o * (1.0 + this.side * FRICTION)
+                float fee = amount * fill * FEE
+                string fid = this.entryId + "/ENTRY"
+                if 0.5 * amount * fill + fee > this.cash
+                    this.phase := 0
+                    this.rejectedThisBar := true
+                    this.rejectedCount += 1
+                    this.appendResearchAudit("ENTRY_REJECTED_MARGIN", "", -1, 0, o, na, na, "ENTRY_REJECTED_MARGIN", true)
+                else if array.includes(this.fills, fid)
+                    this.quarantined := true
+                else
+                    this.phase := 2
+                    this.entryFill := fill
+                    this.cash -= fee
+                    this.left1 := this.reserve1
+                    this.left2 := this.reserve2
+                    this.hasFilled := true
+                    this.filledThisBar := true
+                    this.lastEntryOpen := barOpen
+                    this.filledCount += 1
+                    array.push(this.fills, fid)
+                    this.tradeFillCount += 1
+                    this.appendResearchAudit("ENTRY", fid, -1, this.total, o, fill, fee, "ENTRY_FILLED", false)
+                    float plannedRisk = math.abs(this.entryRef - this.slTicks / 10.0)
+                    float actualRisk = this.side * (fill - this.slTicks / 10.0)
+                    if actualRisk <= 0
+                        this.executionAnomaly := true
+                        this.tagResearchQuality(2, "EXECUTION_ANOMALY")
+                    else if (actualRisk - plannedRisk) / plannedRisk > 0.15
+                        this.entryDeviation := true
+                        this.tagResearchQuality(1, "ENTRY_DEVIATION")
+                    float stopFill = (this.slTicks / 10.0) * (1.0 - this.side * FRICTION)
+                    float anticipated = amount * this.side * (fill - stopFill) + fee + amount * stopFill * FEE
+                    if anticipated > 0.0025 * this.signalBalance
+                        this.riskOverrun := true
+                        this.tagResearchQuality(4, "RISK_OVERRUN")
+                    if amount * fill > 2.0 * this.signalBalance
+                        this.notionalOverrun := true
+                        this.tagResearchQuality(8, "NOTIONAL_OVERRUN")
+        if this.phase == 2 and not this.quarantined
+            this.markResearchMargin(o)
+            float sl = this.slTicks / 10.0
+            if this.side * (o - sl) <= 0 or this.side * (this.entryFill - sl) <= 0
+                if barOpen == this.signalClose
+                    this.entryAtStop := true
+                    this.tagResearchQuality(64, "ENTRY_AT_OR_BEYOND_SL")
+                    this.executionAnomaly := true
+                    this.tagResearchQuality(2, "EXECUTION_ANOMALY")
+                this.stopResearchLegs(o, barOpen, 1)
+            else
+                for leg = 0 to 1
+                    int steps = leg == 0 ? this.left1 : this.left2
+                    float target = (leg == 0 ? this.tp1Ticks : this.tp2Ticks) / 10.0
+                    if this.phase == 2 and not this.quarantined and steps > 0
+                        if this.side * (o - target) >= 0
+                            this.auditExitKind := "TP"
+                            this.fillResearchLeg(leg, target, o, barOpen, 1)
+                        else if barOpen == this.signalClose and this.side * (this.entryFill - target) >= 0
+                            this.frictionCrossedTarget := true
+                            this.tagResearchQuality(128, "FILL_FRICTION_CROSSED_TP")
+                            this.executionAnomaly := true
+                            this.tagResearchQuality(2, "EXECUTION_ANOMALY")
+        if this.phase == 2 and not this.quarantined
+            this.auditClock := barEnd
+            this.auditPhase := 2
+            float sl = this.slTicks / 10.0
+            bool stopHit = this.side == 1 ? l <= sl : h >= sl
+            float favorable = this.side == 1 ? h : l
+            bool targetHit = (this.left1 > 0 and this.side * (favorable - this.tp1Ticks / 10.0) >= 0) or (this.left2 > 0 and this.side * (favorable - this.tp2Ticks / 10.0) >= 0)
+            if stopHit
+                this.auditPrice := sl
+                if targetHit
+                    this.uncertainOrder := true
+                    this.tagResearchQuality(32, "UNCERTAIN_INTRABAR_ORDER")
+                this.stopResearchLegs(sl, barEnd, 2)
+            else
+                for leg = 0 to 1
+                    int steps = leg == 0 ? this.left1 : this.left2
+                    float target = (leg == 0 ? this.tp1Ticks : this.tp2Ticks) / 10.0
+                    if this.phase == 2 and not this.quarantined and steps > 0 and this.side * (favorable - target) >= 0
+                        this.markResearchMargin(target)
+                        this.auditExitKind := "TP"
+                        this.fillResearchLeg(leg, target, target, barEnd, 2)
+                if this.phase == 2 and not this.quarantined
+                    this.markResearchMargin(this.side == 1 ? l : h)
+                    this.markResearchMargin(c)
+        this.lastBar := barOpen
+        if not this.quarantined
+            if barEnd == TRADE_END
+                this.auditClock := barEnd
+                this.auditPhase := 3
+                this.auditPrice := c
+                if this.phase == 2
+                    this.phase := 4
+                    this.censoredCount += 1
+                    this.appendResearchAudit("PARTITION_CENSORED", "", -1, 0, c, na, na, "CENSORED", false)
+                else if this.phase == 0
+                    this.phase := 3
+                else
+                    this.quarantined := true
+            else
+                this.resetResearchDay(barEnd)
+            this.assertResearchQuantity()
+    not this.quarantined
+
+// ENTRY_DEVIATION=1 EXECUTION_ANOMALY=2 RISK_OVERRUN=4 NOTIONAL_OVERRUN=8
+// MARGIN_MODEL_EVENT=16 UNCERTAIN_INTRABAR_ORDER=32 ENTRY_AT_OR_BEYOND_SL=64
+// FILL_FRICTION_CROSSED_TP=128. Flags diagnose; no unfavorable fill is removed.
+method researchQualityCode(ResearchBook this) =>
+    (this.entryDeviation ? 1 : 0) + (this.executionAnomaly ? 2 : 0) + (this.riskOverrun ? 4 : 0) + (this.notionalOverrun ? 8 : 0) + (this.marginEvent ? 16 : 0) + (this.uncertainOrder ? 32 : 0) + (this.entryAtStop ? 64 : 0) + (this.frictionCrossedTarget ? 128 : 0)
+
+// Explicit reproducible namespace; caller must choose distinct IDs for distinct runs/instances.
+// No automatic cross-instance uniqueness is claimed. Allowed: 1..64 ASCII letters/digits/_/-.
+string researchRunId = input.string("phase5b3-pine-v1", "Research run_id — assign a distinct name to each compared run")
+var ResearchBook book = ResearchBook.new(runId = researchRunId, fills = array.new<string>(), audit = array.new<ResearchAuditRow>())
+bool diagnosticEnabled = input.bool(false, "Enable hypothetical Research diagnostic — UNVALIDATED")
+if diagnosticEnabled and barstate.isconfirmed and time >= DATA_START and time < TRADE_END
+    book.advanceResearchBar(time, time_close, open, high, low, close)
+float researchSettled = book.settled
+bool researchBusy = book.phase != 0 or book.quarantined
+bool researchDailyStop = book.dailyStop
+
+f_ticks(float raw, int direction) =>
+    direction == 1 ? int(math.floor(raw / TICK)) : int(math.ceil(raw / TICK))
+
+f_hour_confirmed() =>
+    var bool poisoned = false
+    var int n = 0
+    var int lastEnd = na
+    var float ema = na
+    float sourceClose = na
+    float output = na
+    int outputEnd = na
+    int outputCount = 0
+    bool inside = time >= DATA_START and time < TRADE_END
+    if time < DATA_START
+        poisoned := false
+        n := 0
+        lastEnd := na
+        ema := na
+    if inside
+        bool contiguous = n == 0 ? time == DATA_START : time == lastEnd
+        if poisoned or not contiguous or time_close != time + HOUR or not f_valid()
+            poisoned := true
+        else
+            ema := n == 0 ? close : (2.0 / 51.0) * close + (1.0 - 2.0 / 51.0) * ema
+            n += 1
+            lastEnd := time_close
+            sourceClose := close
+            output := ema
+            outputEnd := time_close
+            outputCount := n
+    // EMA50 three hourly bars before the last confirmed hour: [4], not chart [3].
+    [output[1], output[4], sourceClose[1], outputEnd[1], outputCount[1]]
+
+// Explicit Wilder seed; missing observations produce na, never a zero input.
+f_rma(float value) =>
+    var int n = 0
+    var float total = 0.0
+    var float result = na
+    float available = na
+    if not na(value)
+        if n < 14
+            n += 1
+            total += value
+            result := n == 14 ? total / 14.0 : na
+        else
+            result := (1.0 / 14.0) * value + (1.0 - 1.0 / 14.0) * result
+        available := result
+    available
+
+[fast, slow, atr, tr, count] = f_chart_state()
+int i = count - 1
+var array<int> lowIds = array.new<int>()
+var array<float> lowPrices = array.new<float>()
+var array<int> highIds = array.new<int>()
+var array<float> highPrices = array.new<float>()
+var array<int> consumedLong = array.new<int>()
+var array<int> consumedShort = array.new<int>()
+bool active = time >= DATA_START and time < TRADE_END and barstate.isconfirmed and count > 0 and not na(atr)
+// Strict pivots need seven authorized observations; ATR readiness is not needed
+// to discover warm-up pivots, so this separate gate uses authorized fast/count.
+bool numericValid = time >= DATA_START and time < TRADE_END and barstate.isconfirmed and count > 0 and not na(fast)
+if numericValid
+    if count >= 7
+        bool pl = true
+        bool ph = true
+        for k = 0 to 6
+            if k != 3
+                pl := pl and low[3] < low[k]
+                ph := ph and high[3] > high[k]
+        if pl
+            array.push(lowIds, i - 3)
+            array.push(lowPrices, low[3])
+        if ph
+            array.push(highIds, i - 3)
+            array.push(highPrices, high[3])
+    while array.size(lowIds) > 0
+        if array.get(lowIds, 0) >= i - 80
+            break
+        array.shift(lowIds)
+        array.shift(lowPrices)
+    while array.size(highIds) > 0
+        if array.get(highIds, 0) >= i - 80
+            break
+        array.shift(highIds)
+        array.shift(highPrices)
+
+// All written RMA calls have independent persistent state, evaluated each bar.
+float plusDM = na
+float minusDM = na
+float gain = na
+float loss = na
+if numericValid and count >= 2
+    float up = high - high[1]
+    float down = low[1] - low
+    plusDM := up > down and up > 0 ? up : 0.0
+    minusDM := down > up and down > 0 ? down : 0.0
+    gain := math.max(close - close[1], 0.0)
+    loss := math.max(close[1] - close, 0.0)
+float plusRma = f_rma(plusDM)
+float minusRma = f_rma(minusDM)
+float gainRma = f_rma(gain)
+float lossRma = f_rma(loss)
+float dx = na
+if numericValid and not na(atr) and not na(plusRma) and not na(minusRma)
+    if atr == 0 and plusRma == 0 and minusRma == 0
+        dx := 0.0
+    else if atr > 0
+        float plusDI = 100.0 * plusRma / atr
+        float minusDI = 100.0 * minusRma / atr
+        dx := plusDI + minusDI == 0 ? 0.0 : 100.0 * math.abs(plusDI - minusDI) / (plusDI + minusDI)
+float adx = f_rma(dx)
+float rsi = na
+if not na(gainRma) and not na(lossRma)
+    rsi := gainRma == 0 and lossRma == 0 ? 50.0 : lossRma == 0 ? 100.0 : gainRma == 0 ? 0.0 : 100.0 - 100.0 / (1.0 + gainRma / lossRma)
+float atrMedian = na
+if numericValid and count >= 97
+    array<float> prior = array.new<float>()
+    bool validPrior = true
+    for age = 1 to 96
+        validPrior := validPrior and not na(atr[age])
+        array.push(prior, atr[age])
+    if validPrior
+        array.sort(prior, order.ascending)
+        atrMedian := (array.get(prior, 47) + array.get(prior, 48)) / 2.0
+bool passR = not na(adx) and not na(atrMedian) and adx >= 20 and math.abs(fast - slow) >= 0.25 * atr and atr <= 2.0 * atrMedian
+// Volume is read only within the anchored confirmed chart context.
+float anchoredVolume = na
+if numericValid
+    anchoredVolume := volume
+bool passV = false
+if numericValid and count >= 21 and not na(anchoredVolume) and anchoredVolume >= 0
+    float priorSum = 0.0
+    bool validVolumes = true
+    for age = 1 to 20
+        validVolumes := validVolumes and not na(anchoredVolume[age]) and anchoredVolume[age] >= 0
+        priorSum += anchoredVolume[age]
+    passV := validVolumes and anchoredVolume >= 1.2 * (priorSum / 20.0)
+[hEma, hEma3, hClose, hEnd, hCount] = request.security(syminfo.tickerid, "60", f_hour_confirmed(), gaps = barmerge.gaps_off, lookahead = barmerge.lookahead_on)
+bool hourlyReady = not na(hEnd) and hEnd == time - time % HOUR and not na(hEma) and not na(hEma3) and not na(hClose) and hCount >= 60
+bool window = time >= DATA_START and time_close >= TRADE_START and time_close < TRADE_END
+bool accepted = false
+int side = 0
+int p = na
+int pivotId = na
+int slTicks = na
+int tp1Ticks = na
+int tp2Ticks = na
+int totalSteps = na
+int firstSteps = na
+int secondSteps = na
+float rr1 = na
+float rr2 = na
+if active and window and count >= 200
+    side := fast > slow and close > slow ? 1 : fast < slow and close < slow ? -1 : 0
+    if side != 0
+        for age = 2 to 5
+            float depth = side == 1 ? fast[age] - low[age] : high[age] - fast[age]
+            if not na(atr[age]) and low[age] <= fast[age] and fast[age] <= high[age] and depth <= 0.75 * atr[age]
+                p := age
+                break
+    bool sequence = not na(p)
+    if sequence
+        for age = 0 to p
+            sequence := sequence and (side == 1 ? close[age] > slow[age] : close[age] < slow[age])
+    bool trigger = side == 1 ? close > open and close > fast and close > high[1] : side == -1 ? close < open and close < fast and close < low[1] : false
+    if sequence and trigger
+        array<int> ids = side == 1 ? lowIds : highIds
+        array<float> prices = side == 1 ? lowPrices : highPrices
+        float pivotPrice = na
+        int k = array.size(ids) - 1
+        while k >= 0
+            float value = array.get(prices, k)
+            if side == 1 ? value < close : value > close
+                pivotPrice := value
+                pivotId := DATA_START + array.get(ids, k) * STEP
+                break
+            k -= 1
+        if not na(pivotPrice)
+            slTicks := f_ticks(pivotPrice - side * 0.15 * atr, side)
+            // Render integer ticks by division: no reconstructing grid counters.
+            float sl = slTicks / 10.0
+            float risk = math.abs(close - sl)
+            bool stopSide = side == 1 ? 0 < sl and sl < close : sl > close
+            float cost = (close + sl) * (FEE + FRICTION)
+            if stopSide and risk >= 0.75 * atr and risk <= 2.5 * atr and cost > 0 and risk / cost >= K_COST_STOP
+                tp1Ticks := f_ticks(close + side * 1.5 * risk, side)
+                tp2Ticks := f_ticks(close + side * 2.5 * risk, side)
+                float tp1 = tp1Ticks / 10.0
+                float tp2 = tp2Ticks / 10.0
+                bool geometry = side == 1 ? tp2 > tp1 and tp1 > close : 0 < tp2 and tp2 < tp1 and tp1 < close
+                bool bounds = close >= 0.1 and close <= 1999999.8 and slTicks >= 1 and slTicks <= 19999998 and tp1Ticks >= 1 and tp1Ticks <= 19999998 and tp2Ticks >= 1 and tp2Ticks <= 19999998
+                if geometry and bounds and not na(researchSettled) and researchSettled > 0
+                    float rawQty = math.min(0.0025 * researchSettled / (risk + cost), 2.0 * researchSettled / close)
+                    totalSteps := int(math.floor(rawQty / QSTEP))
+                    firstSteps := int(math.floor(totalSteps / 2))
+                    secondSteps := totalSteps - firstSteps
+                    // Frozen minima: one BTC step per leg, entry notional >= 5.
+                    // Reduce-only exit notional minima are exempt by assumption.
+                    bool entryValid = totalSteps >= 1 and totalSteps <= 150000 and (totalSteps / 1000.0) * close >= 5.0
+                    bool partialValid = firstSteps >= 1 and secondSteps >= 1 and firstSteps <= 150000 and secondSteps <= 150000 and firstSteps <= 1500000 and secondSteps <= 1500000
+                    array<int> used = side == 1 ? consumedLong : consumedShort
+                    int pullbackId = DATA_START + (i - p) * STEP
+                    bool unused = not array.includes(used, pullbackId)
+                    bool passH = hourlyReady and (side == 1 ? hClose > hEma and hEma > hEma3 : hClose < hEma and hEma < hEma3)
+                    bool passM = not na(rsi) and (side == 1 ? rsi >= 55 : rsi <= 45)
+                    array<int> opposingIds = side == 1 ? highIds : lowIds
+                    array<float> opposingPrices = side == 1 ? highPrices : lowPrices
+                    float room = na
+                    int opposingIndex = 0
+                    while opposingIndex < array.size(opposingIds)
+                        float distance = side * (array.get(opposingPrices, opposingIndex) - close)
+                        if distance > 0
+                            room := na(room) ? distance : math.min(room, distance)
+                        opposingIndex += 1
+                    bool passQ = not na(room) and math.abs(close - open) <= 1.2 * atr and high - low <= 1.8 * atr and room >= 1.5 * risk
+                    bool filtersPass = (not useR or passR) and (not useH or passH) and (not useV or passV) and (not useM or passM) and (not useQ or passQ)
+                    if entryValid and partialValid and unused and filtersPass and not researchBusy and not researchDailyStop and diagnosticEnabled
+                        bool queued = book.queueResearchPlan(candidate, time, time_close, side, pullbackId, close, slTicks, tp1Ticks, tp2Ticks, totalSteps, firstSteps, secondSteps)
+                        if queued
+                            accepted := true
+                            array.push(used, pullbackId)
+                            rr1 := math.abs(tp1 - close) / risk
+                            rr2 := math.abs(tp2 - close) / risk
+// PHASE 5C PRESENTATION BOUNDARY — no writes to the frozen Research/numerical state below.
+// A marker belongs to its confirmed signal candle (offset 0), including Close=START.
+// Lines start at the signal CLOSE; every endpoint remains in [START, END).
+bool showSignalMarkers = input.bool(true, "Show setup markers")
+bool showPriceLevels = input.bool(true, "Show frozen setup / Research levels")
+bool showDashboard = input.bool(true, "Show compact dashboard")
+bool showQualityDiagnostics = input.bool(false, "Show Research quality diagnostics")
+bool enableSetupAlerts = input.bool(false, "Enable UNVALIDATED manual setup notifications")
+
+// One accepted setup per permitted close: (END-START)/STEP = 2592 records maximum.
+// This operational bound never gates the Research kernel.
+const int UI_SIGNAL_CAPACITY = 2592
+type ManualSignalView
+    string owner = ""
+    int signalClose = na
+    int expiresClose = na
+    bool expired = false
+    int expiredAt = na
+
+type SignalView
+    string owner = ""
+    int signalOpen = na
+    int signalClose = na
+    int expiresClose = na
+    int direction = 0
+    float reference = na
+    float stop = na
+    float target1 = na
+    float target2 = na
+    bool expired = false
+    int lastObservedSignalClose = na
+    string lastAlertId = ""
+
+f_priceText(float price) =>
+    // Text only: do not round the stored price or substitute syminfo.mintick.
+    str.tostring(price, "0.################")
+
+f_filterText() =>
+    "B" + (useR ? " R" : "") + (useH ? " H" : "") + (useV ? " V" : "") + (useM ? " M" : "") + (useQ ? " Q" : "")
+
+f_clearLevelObjects(array<line> ownedLines, array<label> ownedLabels) =>
+    while array.size(ownedLines) > 0
+        line.delete(array.pop(ownedLines))
+    while array.size(ownedLabels) > 0
+        label.delete(array.pop(ownedLabels))
+    true
+
+f_ownsResearch(SignalView view, ResearchBook state) =>
+    view.owner != "" and view.owner == state.entryId and view.signalClose == state.lastQueue
+
+f_researchState(ResearchBook state, bool available) =>
+    not available ? "UNKNOWN" : state.phase == 0 ? "FLAT" : state.phase == 1 ? "PENDING_ENTRY" : state.phase == 2 ? "OPEN" : state.phase == 3 ? "ENDED" : state.phase == 4 ? "CENSORED" : "UNKNOWN"
+
+f_setupResearchStatus(SignalView view, ResearchBook state, bool available) =>
+    string status = available and view.owner == "" ? "NO SETUP" : "UNKNOWN"
+    if available and f_ownsResearch(view, state)
+        status := state.phase == 1 ? "QUEUED — NOT FILLED" : state.phase == 2 and state.hasFilled and state.left1 == 0 and state.left2 > 0 ? "TP1 FILLED / LEG 2 OPEN" : state.phase == 2 and state.hasFilled ? "HYPOTHETICAL OPEN" : state.phase == 0 and state.hasFilled and state.exited == state.total and state.left1 + state.left2 == 0 ? "HYPOTHETICAL CLOSED" : state.phase == 0 and not state.hasFilled ? "ENTRY REJECTED" : state.phase == 4 ? "CENSORED" : "UNKNOWN"
+    status
+
+f_qualityText(ResearchBook state, bool available) =>
+    not available ? "UNKNOWN" : "Research flags " + str.tostring(state.tradeQuality) + (state.auditBlocked ? " | AUDIT BLOCKED" : "")
+
+f_syncLevelObjects(SignalView view, ResearchBook state, int knownClose, array<line> ownedLines, array<label> ownedLabels) =>
+    // No extend.right. Initial projection is one known-duration bar, never a future price input.
+    int rightEnd = math.min(math.max(knownClose, view.signalClose + STEP), TRADE_END - 1)
+    bool geometry = view.signalClose >= TRADE_START and view.signalClose < TRADE_END and rightEnd >= view.signalClose and rightEnd < TRADE_END
+    if geometry
+        bool partial1 = state.phase == 2 and state.hasFilled and state.left1 == 0 and state.left2 > 0
+        for level = 0 to 3
+            float price = level == 0 ? view.reference : level == 1 ? view.stop : level == 2 ? view.target1 : view.target2
+            color ink = level == 0 ? color.yellow : level == 1 ? color.red : level == 2 ? color.blue : color.green
+            string name = level == 0 ? "ENTRY_REF (signal close)" : level == 1 ? "SL" : level == 2 ? (partial1 ? "TP1 (Research filled)" : "TP1") : "TP2"
+            string caption = "SETUP " + name + " " + f_priceText(price)
+            if array.size(ownedLines) < 4
+                array.push(ownedLines, line.new(view.signalClose, price, rightEnd, price, xloc = xloc.bar_time, extend = extend.none, color = ink, width = 1))
+                array.push(ownedLabels, label.new(rightEnd, price, caption, xloc = xloc.bar_time, yloc = yloc.price, style = label.style_label_left, color = color.new(ink, 85), textcolor = chart.fg_color, size = size.tiny))
+            else
+                line.set_x2(array.get(ownedLines, level), rightEnd)
+                label.set_x(array.get(ownedLabels, level), rightEnd)
+                label.set_text(array.get(ownedLabels, level), caption)
+    else
+        f_clearLevelObjects(ownedLines, ownedLabels)
+    geometry
+
+f_setupMessage(SignalView view, string cid) =>
+    "UNVALIDATED — RESEARCH / MANUAL SIGNALS | " + cid + " | " + (view.direction == 1 ? "LONG" : "SHORT") + " | signal_close_utc_ms=" + str.tostring(view.signalClose) + " | entry_ref=" + f_priceText(view.reference) + " | SL=" + f_priceText(view.stop) + " | TP1=" + f_priceText(view.target1) + " | TP2=" + f_priceText(view.target2) + " | setup_id=" + view.owner + " | REAL_POSITION_UNKNOWN | No order sent"
+
+f_dashboard(table panel, SignalView view, ResearchBook state, bool available, bool enabled, bool quality) =>
+    bool owned = available and f_ownsResearch(view, state)
+    bool researchActive = owned and (state.phase == 1 or state.phase == 2)
+    bool directionActive = owned and (not view.expired or researchActive)
+    string directionText = directionActive ? (view.direction == 1 ? "LONG" : "SHORT") : "NEUTRAL"
+    string manualText = not enabled ? "NONE — DISABLED" : not available ? "UNKNOWN" : view.owner == "" ? "NONE" : view.expired ? "EXPIRED — UNCONFIRMED" : "UNCONFIRMED"
+    table.cell(panel, 0, 0, "UNVALIDATED — RESEARCH / MANUAL SIGNALS", text_color = color.white, bgcolor = color.new(color.black, 20), text_color = chart.fg_color, text_size = size.small)
+    table.cell(panel, 0, 1, "Candidate / filters", text_color = chart.fg_color, text_size = size.small)
+    table.cell(panel, 1, 1, candidate + " | " + f_filterText(), text_color = chart.fg_color, text_size = size.small)
+    table.cell(panel, 0, 2, "Setup direction", text_color = chart.fg_color, text_size = size.small)
+    table.cell(panel, 1, 2, directionText, text_color = chart.fg_color, text_size = size.small)
+    table.cell(panel, 0, 3, "Research only", text_color = chart.fg_color, text_size = size.small)
+    table.cell(panel, 1, 3, not enabled ? "DISABLED" : f_researchState(state, available) + " | " + f_setupResearchStatus(view, state, available), text_color = chart.fg_color, text_size = size.small)
+    table.cell(panel, 0, 4, "Manual opportunity", text_color = chart.fg_color, text_size = size.small)
+    table.cell(panel, 1, 4, manualText, text_color = chart.fg_color, text_size = size.small)
+    table.cell(panel, 0, 5, "Actual position", text_color = chart.fg_color, text_size = size.small)
+    table.cell(panel, 1, 5, "REAL_POSITION_UNKNOWN", text_color = chart.fg_color, text_size = size.small)
+    table.cell(panel, 0, 6, "Validation", text_color = chart.fg_color, text_size = size.small)
+    table.cell(panel, 1, 6, "SOURCE ONLY / COMPILE UNVERIFIED", text_color = chart.fg_color, text_size = size.small)
+    if quality
+        table.cell(panel, 0, 7, "Quality", text_color = chart.fg_color, text_size = size.small)
+        table.cell(panel, 1, 7, f_qualityText(state, available), text_color = chart.fg_color, text_size = size.small)
+    else
+        table.clear(panel, 0, 7, 1, 7)
+    true
+
+var SignalView view = SignalView.new()
+var array<ManualSignalView> manualSignalRecords = array.new<ManualSignalView>()
+var int nextManualExpiry = 0
+var bool presentationBlocked = false
+var array<line> ownedLevelLines = array.new<line>()
+var array<label> ownedLevelLabels = array.new<label>()
+var table dashboard = na
+
+// These gates read the frozen kernel; none feed back into its decision or fill path.
+bool signalOwnerWindow = barstate.isconfirmed and time >= DATA_START and time_close >= TRADE_START and time_close < TRADE_END
+bool presentationAvailable = diagnosticEnabled and not presentationBlocked and not book.quarantined and not book.auditBlocked and not na(book.lastBar) and (barstate.isconfirmed ? book.lastBar == time : book.lastBar + STEP == time)
+bool manualClockAuthorized = barstate.isconfirmed and time >= DATA_START and time < TRADE_END and time_close >= TRADE_START and time_close <= TRADE_END
+bool newQueuedSetup = accepted and signalOwnerWindow and presentationAvailable and book.phase == 1 and (na(view.lastObservedSignalClose) or time_close > view.lastObservedSignalClose) and book.entryId != view.owner
+if newQueuedSetup and array.size(manualSignalRecords) >= UI_SIGNAL_CAPACITY
+    // Fail closed for presentation only; never cancel or modify the accepted Research plan.
+    presentationBlocked := true
+    presentationAvailable := false
+    newQueuedSetup := false
+
+// Mature all earlier manual opportunities before capturing a replacement owner.
+if manualClockAuthorized and presentationAvailable
+    while nextManualExpiry < array.size(manualSignalRecords)
+        ManualSignalView record = array.get(manualSignalRecords, nextManualExpiry)
+        if record.expiresClose > time_close
+            break
+        record.expired := true
+        record.expiredAt := time_close
+        nextManualExpiry += 1
+
+if newQueuedSetup
+    // Delete before creating a replacement; objects can never migrate to another owner.
+    f_clearLevelObjects(ownedLevelLines, ownedLevelLabels)
+    view.owner := book.entryId
+    view.signalOpen := time
+    view.signalClose := time_close
+    view.expiresClose := time_close + 2 * STEP
+    view.direction := side
+    view.reference := book.entryRef
+    view.stop := book.slTicks / 10.0
+    view.target1 := book.tp1Ticks / 10.0
+    view.target2 := book.tp2Ticks / 10.0
+    view.expired := false
+    view.lastObservedSignalClose := time_close
+    array.push(manualSignalRecords, ManualSignalView.new(owner = view.owner, signalClose = view.signalClose, expiresClose = view.expiresClose))
+
+// Expire only after the SECOND subsequent confirmed candle. No writes to ResearchBook.
+if manualClockAuthorized and presentationAvailable and view.owner != "" and time_close >= view.expiresClose
+    view.expired := true
+
+// plotshape belongs to its actual signal bar; no offset=1 fill/next-bar substitution.
+plotshape(showSignalMarkers and newQueuedSetup and view.direction == 1, title = "Confirmed LONG setup — UNVALIDATED", style = shape.triangleup, location = location.belowbar, color = color.green, size = size.tiny, offset = 0)
+plotshape(showSignalMarkers and newQueuedSetup and view.direction == -1, title = "Confirmed SHORT setup — UNVALIDATED", style = shape.triangledown, location = location.abovebar, color = color.red, size = size.tiny, offset = 0)
+
+bool ownedResearchActive = presentationAvailable and f_ownsResearch(view, book) and (book.phase == 1 or book.phase == 2)
+bool levelVisible = signalOwnerWindow and presentationAvailable and showPriceLevels and f_ownsResearch(view, book) and (not view.expired or ownedResearchActive)
+if levelVisible
+    f_syncLevelObjects(view, book, time_close, ownedLevelLines, ownedLevelLabels)
+else if barstate.isconfirmed or not diagnosticEnabled or not showPriceLevels or not presentationAvailable
+    f_clearLevelObjects(ownedLevelLines, ownedLevelLabels)
+
+// Notifications require the realtime source flag; actual delivery remains unverified.
+if enableSetupAlerts and barstate.isrealtime and newQueuedSetup and signalOwnerWindow and presentationAvailable and view.owner != view.lastAlertId
+    alert(f_setupMessage(view, candidate), alert.freq_once_per_bar_close)
+    view.lastAlertId := view.owner
+
+// Tables float over the viewport. Hide if either visible bar is outside the
+// close-owned display window or viewport metadata is unavailable. This is NOT input isolation.
+int displayClock = barstate.isconfirmed ? time_close : time
+bool displayClockAllowed = displayClock >= TRADE_START and displayClock < TRADE_END
+bool viewportAllowed = not na(chart.left_visible_bar_time) and not na(chart.right_visible_bar_time) and chart.left_visible_bar_time <= chart.right_visible_bar_time and chart.left_visible_bar_time + STEP >= TRADE_START and chart.right_visible_bar_time + STEP < TRADE_END
+if barstate.islast
+    if showDashboard and displayClockAllowed and viewportAllowed
+        if na(dashboard)
+            dashboard := table.new(position.top_right, 2, 8, bgcolor = color.new(color.black, 85))
+            table.merge_cells(dashboard, 0, 0, 1, 0)
+        f_dashboard(dashboard, view, book, presentationAvailable, diagnosticEnabled, showQualityDiagnostics)
+    else if not na(dashboard)
+        table.delete(dashboard)
+        dashboard := na
+    if not displayClockAllowed
+        f_clearLevelObjects(ownedLevelLines, ownedLevelLabels)
+
+plot(showQualityDiagnostics and signalOwnerWindow and presentationAvailable ? book.researchQualityCode() : na, "Research quality flags — UNVALIDATED", display = display.data_window, offset = 0)
