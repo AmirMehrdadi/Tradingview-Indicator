@@ -1,0 +1,206 @@
+PYTHONDONTWRITEBYTECODE=1 sh tools/research_python.sh -m tests.run_v2_exit_checks --focused
+Exit code: 0
+V2_EXIT_TEST_SUMMARY={"elapsed_seconds": 0.065683, "environment": "MATCH_FROZEN_RECORD", "errored": 0, "failed": 0, "guard_violations": [], "modules": ["tests.test_v2_exits"], "passed": 22, "skipped": 0}
+
+PYTHONDONTWRITEBYTECODE=1 sh tools/research_python.sh -m tests.run_v2_exit_checks --focused
+Exit code: 0
+V2_EXIT_TEST_SUMMARY={"elapsed_seconds": 0.070924, "environment": "MATCH_FROZEN_RECORD", "errored": 0, "failed": 0, "guard_violations": [], "modules": ["tests.test_v2_exits"], "passed": 24, "skipped": 0}
+
+PYTHONDONTWRITEBYTECODE=1 sh tools/research_python.sh -m tests.run_v2_exit_checks --focused
+Exit code: 0
+V2_EXIT_TEST_SUMMARY={"elapsed_seconds": 0.068565, "environment": "MATCH_FROZEN_RECORD", "errored": 0, "failed": 0, "guard_violations": [], "modules": ["tests.test_v2_exits"], "passed": 25, "skipped": 0}
+
+PYTHONDONTWRITEBYTECODE=1 sh tools/research_python.sh -m tests.run_v2_exit_checks
+Exit code: 0
+V2_EXIT_TEST_SUMMARY={"elapsed_seconds": 0.660167, "environment": "MATCH_FROZEN_RECORD", "errored": 0, "failed": 0, "guard_violations": [], "modules": ["tests.test_v2_exits", "tests.test_funding_attribution", "tests.test_funding_lifecycle", "tests.test_funding", "tests.test_stage0b.LifecycleTests"], "passed": 183, "skipped": 0}
+
+Final regression log:
+test_be_gap_uses_actual_open_and_adverse_friction (tests.test_v2_exits.ExitTests) ... ok
+test_censor_no_funding_at_exclusive_annual_end (tests.test_v2_exits.ExitTests) ... ok
+test_conservative_long_and_short_rounding_after_actual_tp1 (tests.test_v2_exits.ExitTests) ... ok
+test_daily_stop_recomputed_after_different_full_closures (tests.test_v2_exits.ExitTests) ... ok
+test_deterministic_exit_ledger (tests.test_v2_exits.ExitTests) ... ok
+test_duration_changes_subsequent_accepted_signals (tests.test_v2_exits.ExitTests) ... ok
+test_full_tp1_closes_whole_position_at_tp1 (tests.test_v2_exits.ExitTests) ... ok
+test_full_tp1_gap_keeps_frozen_target_not_better_open (tests.test_v2_exits.ExitTests) ... ok
+test_full_tp1_short_conservation (tests.test_v2_exits.ExitTests) ... ok
+test_full_tp1_stop_first_on_dual_touch (tests.test_v2_exits.ExitTests) ... ok
+test_funding_exempt_after_full_tp1_previous_bar (tests.test_v2_exits.ExitTests) ... ok
+test_funding_on_remaining_old_be_position_before_open_exit (tests.test_v2_exits.ExitTests) ... ok
+test_initial_sl_and_tp1_same_bar_never_activates_be (tests.test_v2_exits.ExitTests) ... ok
+test_initial_stop_unchanged_before_tp1 (tests.test_v2_exits.ExitTests) ... ok
+test_known_open_tp1_new_stop_active_for_remaining_bar (tests.test_v2_exits.ExitTests) ... ok
+test_metrics_exclude_censored_financial_rows (tests.test_v2_exits.ExitTests) ... ok
+test_metrics_use_closure_order_not_dictionary_order (tests.test_v2_exits.ExitTests) ... ok
+test_new_be_beyond_tp1_touch_uses_known_market_not_unvisited_stop (tests.test_v2_exits.ExitTests) ... ok
+test_odd_quantity_conserved_after_be (tests.test_v2_exits.ExitTests) ... ok
+test_only_registered_exit_arms (tests.test_v2_exits.ExitTests) ... ok
+test_partial_does_not_settle_and_full_exit_does (tests.test_v2_exits.ExitTests) ... ok
+test_reference_engine_not_modified (tests.test_v2_exits.ExitTests) ... ok
+test_short_be_gap_uses_actual_open (tests.test_v2_exits.ExitTests) ... ok
+test_tp1_new_be_and_tp2_same_bar_conservative_ambiguity (tests.test_v2_exits.ExitTests) ... ok
+test_tp1_without_new_stop_touch_allows_tp2 (tests.test_v2_exits.ExitTests) ... ok
+test_all_six_independent_literal_expectations (tests.test_funding_attribution.AttributionTests) ... ok
+test_annual_end_prior_exit_not_charged_next_year (tests.test_funding_attribution.AttributionTests) ... ok
+test_censored_funding_retained_without_completed_r (tests.test_funding_attribution.AttributionTests) ... ok
+test_completed_and_later_censored_entry_never_share_attribution (tests.test_funding_attribution.AttributionTests) ... ok
+test_deterministic_context_independent_funding_and_replay (tests.test_funding_attribution.AttributionTests) ... ok
+test_duplicate_and_conflicting_settlements_rejected (tests.test_funding_attribution.AttributionTests) ... ok
+test_event_owner_ids_and_phases_rejected (tests.test_funding_attribution.AttributionTests) ... ok
+test_full_old_open_exit_alternate_zero (tests.test_funding_attribution.AttributionTests) ... ok
+test_full_prior_exit_excludes_old_position (tests.test_funding_attribution.AttributionTests) ... ok
+test_future_and_foreign_years_denied (tests.test_funding_attribution.AttributionTests) ... ok
+test_initial_2023_missing_mark_only_narrow_exemption (tests.test_funding_attribution.AttributionTests) ... ok
+test_leap_year_independent_reset (tests.test_funding_attribution.AttributionTests) ... ok
+test_long_positive_and_negative_literal (tests.test_funding_attribution.AttributionTests) ... ok
+test_mark_geometry_alignment_duplicates_and_classification (tests.test_funding_attribution.AttributionTests) ... ok
+test_midnight_prior_exit_and_new_day_open (tests.test_funding_attribution.AttributionTests) ... ok
+test_multiple_settlements_same_entry (tests.test_funding_attribution.AttributionTests) ... ok
+test_net_accounting_no_double_fees_or_friction (tests.test_funding_attribution.AttributionTests) ... ok
+test_no_exposure_is_structural_zero_not_filled_missing_data (tests.test_funding_attribution.AttributionTests) ... ok
+test_nonfinite_missing_and_invalid_rate (tests.test_funding_attribution.AttributionTests) ... ok
+test_out_of_order_and_annual_end_open_rejected (tests.test_funding_attribution.AttributionTests) ... ok
+test_planned_r_and_source_cash_changes_rejected (tests.test_funding_attribution.AttributionTests) ... ok
+test_pre_funding_state_unchanged_in_all_scenarios (tests.test_funding_attribution.AttributionTests) ... ok
+test_production_guard_denies_unregistered_data_and_network (tests.test_funding_attribution.AttributionTests) ... ok
+test_public_whitelist_has_no_private_financial_values (tests.test_funding_attribution.AttributionTests) ... ok
+test_quantity_and_duplicate_exit_rejected (tests.test_funding_attribution.AttributionTests) ... ok
+test_same_open_entry_exempt (tests.test_funding_attribution.AttributionTests) ... ok
+test_settlement_inside_execution_bar_is_unresolved (tests.test_funding_attribution.AttributionTests) ... ok
+test_short_positive_and_negative_literal (tests.test_funding_attribution.AttributionTests) ... ok
+test_sizing_and_daily_gate_snapshot_changes_rejected (tests.test_funding_attribution.AttributionTests) ... ok
+test_tp1_after_funding_keeps_full_base_quantity (tests.test_funding_attribution.AttributionTests) ... ok
+test_tp1_before_settlement_reduces_quantity (tests.test_funding_attribution.AttributionTests) ... ok
+test_zero_rate_distinct_from_missing (tests.test_funding_attribution.AttributionTests) ... ok
+test_all_six_scenarios_have_independent_literal_expectations (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_alternate_open_exit_does_not_free_signal_eligibility_early (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_calendar_is_part_of_serialized_fixture_provenance (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_censored_attribution_cannot_leak_to_another_completed_entry (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_compound_prior_and_open_partial_exits_conserve_exposure (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_conservation_invariants_detect_manual_corruption (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_daily_stop_is_only_from_full_prefunding_execution_settlement (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_deterministic_replay_all_scenarios_serializes_identically (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_duplicate_and_conflicting_marks_fail (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_duplicate_and_conflicting_settlements_fail (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_duplicate_and_orphaned_per_entry_attribution_are_detected (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_duplicate_boundary_replay_fails_atomically (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_duplicate_exit_fill_and_overexit_and_orphan_fail (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_entry_after_settlement_receives_no_earlier_attribution (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_entry_id_cannot_be_reused_after_close (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_exact_multiplication_has_independent_fraction_expectation (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_exit_cannot_reuse_entry_fill_id (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_expected_settlement_cannot_be_silently_skipped (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_explicit_zero_rate_is_not_missing_rate (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_failed_boundary_can_be_retried_once_without_duplicate_attribution (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_future_period_boundary_and_entry_are_rejected (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_incomplete_duplicate_or_implicit_fixture_calendar_fails (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_independent_next_annual_partition_resets_all_state_and_ids (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_initial_2023_mark_omission_is_strictly_zero_exposure_exemption (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_initial_mark_exemption_cannot_authorize_a_prior_entry_or_fake_mark (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_invalid_direction_entry_quantity_and_cash_are_rejected (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_invalid_ohlc_zero_negative_nonfinite_or_missing_price_fails (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_long_positive_rate_pays (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_low_global_decimal_precision_cannot_round_accounting (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_malformed_owner_and_noninteger_fill_timestamp_fail_deterministically (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_mark_provenance_mismatch_fails (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_midnight_open_exit_is_new_day_in_both_precedence_scenarios (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_missing_or_nonfinite_rate_fails_with_exposure (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_missing_required_mark_and_settlement_fail (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_multiple_settlements_accumulate_independently_expected_total (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_negative_rate_reverses_both_directions (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_new_entry_and_immediate_open_exit_are_retained_without_funding (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_new_open_entry_is_exempt_from_same_timestamp_funding (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_no_file_or_network_dependency_even_when_access_is_denied (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_normal_midnight_prior_closure_then_reset_then_funding (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_off_15m_settlement_with_exposure_fails_without_inferred_order (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_open_full_alternate_is_structural_zero_not_zero_rate (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_open_partial_base_and_alternate_differ_only_in_funding_exposure (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_other_candidate_or_partition_ownership_is_rejected (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_partial_midnight_uses_last_fully_settled_snapshot (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_partition_end_censors_after_prior_exit_without_boundary_evidence_use (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_partition_end_full_prior_exit_is_completed_not_censored (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_prior_bar_end_timestamp_is_not_an_open_tie (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_prior_full_exit_receives_no_later_funding (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_prior_partial_uses_remaining_quantity (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_regression_guard_denies_data_and_network_before_io (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_regular_cadence_does_not_upgrade_historical_calendar_status (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_same_bar_intrabar_exit_is_prior_bar_at_next_boundary (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_settlement_event_id_cannot_be_reused_at_later_time (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_short_positive_rate_receives (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_t16_prior_full_exit_then_new_open_entry_and_exit_no_double_counting (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_unexpected_or_wrong_time_settlement_fails (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_unregistered_scenario_fails (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_unverified_mark_substitutes_and_exact_tick_claims_fail (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_wrong_mark_minute_and_incomplete_candle_fail (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_wrong_or_historical_provenance_is_never_accepted (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_wrong_phase_or_reported_bar_ownership_fails (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_zero_alternate_exposure_needs_no_fabricated_rate_or_mark (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_zero_negative_boolean_or_fractional_exit_steps_fail (tests.test_funding_lifecycle.FundingLifecycleTests) ... ok
+test_cache_round_trip_and_immutable_outputs (tests.test_funding.CacheAndRunnerTests) ... ok
+test_cache_traversal_symlink_data_and_symlink_manifest_denied (tests.test_funding.CacheAndRunnerTests) ... ok
+test_forged_cache_year_rejected_before_price_file_read (tests.test_funding.CacheAndRunnerTests) ... ok
+test_full_synthetic_acquisition_stays_partial_without_calendar_proof (tests.test_funding.CacheAndRunnerTests) ... ok
+test_future_cached_request_metadata_denied_before_price_file (tests.test_funding.CacheAndRunnerTests) ... ok
+test_hash_corruption_detected (tests.test_funding.CacheAndRunnerTests) ... ok
+test_no_raw_response_export_without_authorized_provenance (tests.test_funding.CacheAndRunnerTests) ... ok
+test_no_synthetic_cache_labeled_real_or_wrong_proxy_accepted (tests.test_funding.CacheAndRunnerTests) ... ok
+test_unauthorized_exports_rejected_before_creating_paths (tests.test_funding.CacheAndRunnerTests) ... ok
+test_unavailable_acquisition_has_honest_blocked_empty_snapshot (tests.test_funding.CacheAndRunnerTests) ... ok
+test_403_is_terminal_and_shared_circuit_prevents_another_year_request (tests.test_funding.PaginationNetworkTests) ... ok
+test_boundary_overlap_outside_explicit_page_fails_closed (tests.test_funding.PaginationNetworkTests) ... ok
+test_empty_response_is_unknown_coverage_not_no_settlements (tests.test_funding.PaginationNetworkTests) ... ok
+test_independent_disjoint_requery_matches_and_detects_omission (tests.test_funding.PaginationNetworkTests) ... ok
+test_nonzero_api_schema_wrong_symbol_and_oversize_pages_rejected (tests.test_funding.PaginationNetworkTests) ... ok
+test_partial_results_kept_on_later_network_error (tests.test_funding.PaginationNetworkTests) ... ok
+test_redirect_refused (tests.test_funding.PaginationNetworkTests) ... ok
+test_retry_429_then_success (tests.test_funding.PaginationNetworkTests) ... ok
+test_reverse_pagination_explicit_end_moves_one_millisecond (tests.test_funding.PaginationNetworkTests) ... ok
+test_short_pages_do_not_terminate_early (tests.test_funding.PaginationNetworkTests) ... ok
+test_timeout_bounded_retries_and_request_budget (tests.test_funding.PaginationNetworkTests) ... ok
+test_unordered_page_normalized_without_losing_records (tests.test_funding.PaginationNetworkTests) ... ok
+test_exact_annual_and_leap_year_boundaries (tests.test_funding.PolicyTests) ... ok
+test_first_development_prior_minute_forbidden_but_2024_boundary_allowed (tests.test_funding.PolicyTests) ... ok
+test_future_or_forged_year_denied_before_any_network (tests.test_funding.PolicyTests) ... ok
+test_mark_response_outside_requested_minute_rejected_before_prices (tests.test_funding.PolicyTests) ... ok
+test_necessary_mark_minutes_only_no_unrelated_range (tests.test_funding.PolicyTests) ... ok
+test_only_two_unauthenticated_exact_endpoints_allowed (tests.test_funding.PolicyTests) ... ok
+test_request_requires_both_explicit_timestamps_and_max_200 (tests.test_funding.PolicyTests) ... ok
+test_unauthorized_response_denied_before_rate_or_price_parse_and_cache (tests.test_funding.PolicyTests) ... ok
+test_batching_only_consecutive_required_minutes (tests.test_funding.ValidationTests) ... ok
+test_canonical_hash_independent_of_order_and_decimal_format (tests.test_funding.ValidationTests) ... ok
+test_duplicates_equivalent_rates_and_conflicts_quarantined (tests.test_funding.ValidationTests) ... ok
+test_event_phases_prior_exit_open_tie_new_entry_and_partition_end (tests.test_funding.ValidationTests) ... ok
+test_historical_gaps_and_interval_changes_remain_unproven (tests.test_funding.ValidationTests) ... ok
+test_invalid_nonpositive_nonfinite_geometry_incomplete_mark (tests.test_funding.ValidationTests) ... ok
+test_invalid_rate_not_hidden_by_valid_duplicate_no_zero_substitution (tests.test_funding.ValidationTests) ... ok
+test_mark_duplicates_and_conflicts_no_forward_fill (tests.test_funding.ValidationTests) ... ok
+test_missing_boundary_minute_explicitly_unavailable (tests.test_funding.ValidationTests) ... ok
+test_non_15m_and_non_minute_alignment_are_not_repaired (tests.test_funding.ValidationTests) ... ok
+test_proxy_uses_exact_previous_minute_close_retains_low_high (tests.test_funding.ValidationTests) ... ok
+test_regular_historical_rows_not_current_metadata_calendar_proof (tests.test_funding.ValidationTests) ... ok
+test_busy_diagnostics_do_not_consume_or_resize (tests.test_stage0b.LifecycleTests) ... ok
+test_censor_keeps_exposure_and_annual_reset_is_independent (tests.test_stage0b.LifecycleTests) ... ok
+test_count_conservation_fails_closed (tests.test_stage0b.LifecycleTests) ... ok
+test_entry_beyond_stop_records_entry_and_immediate_exits (tests.test_stage0b.LifecycleTests) ... ok
+test_entry_exact_stop_raw_is_anomaly_even_friction_above_stop (tests.test_stage0b.LifecycleTests) ... ok
+test_entry_must_be_next_open (tests.test_stage0b.LifecycleTests) ... ok
+test_friction_crossing_is_not_raw_tp_trigger (tests.test_stage0b.LifecycleTests) ... ok
+test_full_settlement_daily_stop_and_utc_reset (tests.test_stage0b.LifecycleTests) ... ok
+test_gap_through_stop_uses_open_not_stop (tests.test_stage0b.LifecycleTests) ... ok
+test_margin_rejection_no_fee_no_retry_pullback_stays_consumed (tests.test_stage0b.LifecycleTests) ... ok
+test_midnight_prior_bar_exit_precedes_new_day (tests.test_stage0b.LifecycleTests) ... ok
+test_no_duplicate_exit_or_overlapping_entry (tests.test_stage0b.LifecycleTests) ... ok
+test_no_margin_extremum_after_definitive_stop (tests.test_stage0b.LifecycleTests) ... ok
+test_open_both_targets_are_frozen_no_open_improvement (tests.test_stage0b.LifecycleTests) ... ok
+test_open_partial_then_remaining_stop (tests.test_stage0b.LifecycleTests) ... ok
+test_partial_does_not_settle_or_trip_daily_stop (tests.test_stage0b.LifecycleTests) ... ok
+test_real_gap_margin_event_invalidates_without_dropping_trade (tests.test_stage0b.LifecycleTests) ... ok
+test_remaining_margin_uses_partial_quantity_and_updated_cash (tests.test_stage0b.LifecycleTests) ... ok
+test_repeated_pullback_rejected_after_full_exit (tests.test_stage0b.LifecycleTests) ... ok
+test_same_entry_bar_stop_first_both_directions (tests.test_stage0b.LifecycleTests) ... ok
+
+----------------------------------------------------------------------
+Ran 183 tests in 0.660s
+
+OK
+V2_EXIT_TEST_SUMMARY={"elapsed_seconds": 0.660167, "environment": "MATCH_FROZEN_RECORD", "errored": 0, "failed": 0, "guard_violations": [], "modules": ["tests.test_v2_exits", "tests.test_funding_attribution", "tests.test_funding_lifecycle", "tests.test_funding", "tests.test_stage0b.LifecycleTests"], "passed": 183, "skipped": 0}

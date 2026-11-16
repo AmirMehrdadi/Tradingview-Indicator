@@ -1,0 +1,137 @@
+{
+  "V1_engine_reruns": 0,
+  "V2_independent_stateful_engine_runs": 48,
+  "baseline_blobs_modes": 234,
+  "baseline_commit": "2100d62ef0e42c3f8230d9ac1760e2cb28f270f2",
+  "calendar_authority": "USER_ATTESTED_OFFICIAL_CALENDAR",
+  "comparison_location": "Restricted ignored storage only; aggregate tables shown privately in conversation",
+  "earlier_independent_audit": "PASS; expanded final audit also checks Win Rate, PF and mean R",
+  "experiment_command": "PYTHONDONTWRITEBYTECODE=1 sh tools/research_python.sh -m research.v2_exits.runner",
+  "experiment_elapsed_seconds": 31.999087,
+  "experiment_exit_code": 0,
+  "final_dependency_scoped_regression_executions": 1,
+  "final_distinct_tests": 183,
+  "funding_scope": "APPROXIMATE_MARK_PREVIOUS_1M_CLOSE / FUNDING_BEFORE_OLD_OPEN_EXIT; base only",
+  "historical_full_regression": "NOT_RUN",
+  "historical_funding_data": "PARTIAL_DATA",
+  "holdout": "LOCKED_NOT_ACCESSED",
+  "independent_accounting_verification": {
+    "checks": {
+      "activation_events": 2175,
+      "attribution_rows": 6239,
+      "censored": 0,
+      "completed": 10977,
+      "metric_reconciliations": 48,
+      "paths": 48
+    },
+    "elapsed_seconds": 3.727117,
+    "financial_values_disclosed": false,
+    "guard_violations": [],
+    "method": "Independent event/quantity/Fraction accounting and closure-order metric audit; no engine or attribution rerun",
+    "status": "PASS"
+  },
+  "independent_check_command": "PYTHONDONTWRITEBYTECODE=1 sh tools/research_python.sh -c \"exec(compile(open('/private/tmp/audit_v2_exit_outputs.py').read(), '/private/tmp/audit_v2_exit_outputs.py', 'exec'))\"",
+  "independent_check_exit_code": 0,
+  "independent_check_source_sha256": "eb67b3a6a25c5ae5216b0041106ec09d1e61e97380ba1d49cb660c11f1b3ab41",
+  "limitations": [
+    "Examined Development data; no independent validation.",
+    "BE activation intrabar ordering is a conservative assumption and explicitly counted.",
+    "No guaranteed net breakeven; Open gaps/friction modeled.",
+    "V1 references retained unchanged, V2 trading/account/daily/quantity paths independent.",
+    "Only base Funding; no V2 six-scenario robustness claim.",
+    "Original private checksum anchor limitation is preserved in source_proof."
+  ],
+  "market_acquisition": false,
+  "new_final_tests": 25,
+  "new_test_files_sha256": {
+    "tests/run_v2_exit_checks.py": "9059fc0c6b23a40055c87cd1ca690427357a1c63077eb22fed30575148160994",
+    "tests/test_v2_exits.py": "d51d3fa1074a9927787e995ae7d3b4e491276f0db4735a0a4d13e8588cbfd043"
+  },
+  "official_strategy_profitability": "UNVALIDATED",
+  "original_files_unchanged": true,
+  "parameter_tuning": false,
+  "pine_compile_runtime_parity": "UNVERIFIED",
+  "production_guard_violations": [],
+  "public_financial_values": false,
+  "push": false,
+  "ranking_or_selection": false,
+  "reused_final_tests": 158,
+  "run_id": "20261116T120913985847Z",
+  "safe_tv_environment": "UNVERIFIED",
+  "selection": "LOCKED_NOT_ACCESSED",
+  "source_files_sha256": {
+    "research/v2_exits/PROTOCOL.md": "2c1213113c3119f773a52a18b160df5f8e6f4d200b756b6be7538fc2948ce278",
+    "research/v2_exits/__init__.py": "959037029c2165a119c4e78513ff9e9f3d928e2e41ad25226a0c24378114e801",
+    "research/v2_exits/engine.py": "32747e5d429fa821465df1d54ea034db4743f7364d238a8695ab809897dbcd67",
+    "research/v2_exits/metrics.py": "bae87beefcb108808680ef47e5320ba1e3d10848297ea6320139e3e257d07aab",
+    "research/v2_exits/runner.py": "74116391d1cf430b57591062650633d95f12688de13e2df39818929f689c9155"
+  },
+  "status": "EXPERIMENT_EXECUTED_CONDITIONALLY",
+  "tag_changes": false,
+  "test_executions": [
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 sh tools/research_python.sh -m tests.run_v2_exit_checks --focused",
+      "elapsed_seconds": 0.065683,
+      "environment": "MATCH_FROZEN_RECORD",
+      "errored": 0,
+      "execution": 1,
+      "exit_code": 0,
+      "failed": 0,
+      "guard_violations": [],
+      "modules": [
+        "tests.test_v2_exits"
+      ],
+      "passed": 22,
+      "skipped": 0
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 sh tools/research_python.sh -m tests.run_v2_exit_checks --focused",
+      "elapsed_seconds": 0.070924,
+      "environment": "MATCH_FROZEN_RECORD",
+      "errored": 0,
+      "execution": 2,
+      "exit_code": 0,
+      "failed": 0,
+      "guard_violations": [],
+      "modules": [
+        "tests.test_v2_exits"
+      ],
+      "passed": 24,
+      "skipped": 0
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 sh tools/research_python.sh -m tests.run_v2_exit_checks --focused",
+      "elapsed_seconds": 0.068565,
+      "environment": "MATCH_FROZEN_RECORD",
+      "errored": 0,
+      "execution": 3,
+      "exit_code": 0,
+      "failed": 0,
+      "guard_violations": [],
+      "modules": [
+        "tests.test_v2_exits"
+      ],
+      "passed": 25,
+      "skipped": 0
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 sh tools/research_python.sh -m tests.run_v2_exit_checks",
+      "elapsed_seconds": 0.660167,
+      "environment": "MATCH_FROZEN_RECORD",
+      "errored": 0,
+      "execution": 4,
+      "exit_code": 0,
+      "failed": 0,
+      "guard_violations": [],
+      "modules": [
+        "tests.test_v2_exits",
+        "tests.test_funding_attribution",
+        "tests.test_funding_lifecycle",
+        "tests.test_funding",
+        "tests.test_stage0b.LifecycleTests"
+      ],
+      "passed": 183,
+      "skipped": 0
+    }
+  ]
+}
